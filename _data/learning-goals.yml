@@ -1,0 +1,40 @@
+- assessment: Learning Assessments, Phase 1 (LAP 1)
+  goals:
+    - "**Decomposition**. Decompose a computational problem into smaller sub-problems amendable to implementation with functions."
+    - "**Procedural abstraction**. Take a concrete implementation in Racket and create a procedure that generalizes that behavior."
+    - "**Tracing**. Trace the execution of a Racket program using a substitutive model of computation."
+    - "**Primitive Types**. Express basic computations over primitive values and their associated standard library functions."
+    - "**Conditionals**. Utilize boolean expressions and values in a program to produce conditional behavior."
+    - "**Lists**. Manipulate lists with fundamental higher-order list functions "
+    - "**Collaboration**. Explain best practices for solving problems in a collaborative setting."
+
+- assessment: Learning Assessments, Phase 2 (LAP 2)
+  goals:
+    - "**Program style**.  Write and structure program code in ways that makes it easier to understand."
+    - "**Local bindings**. Refactor redundancy and add clarity in computations with let-bindings."
+    - "**Documentation**. Document programs according to good software engineering principles."
+    - "**Testing**. Test programs according to good software engineering principles."
+    - "**Regular expressions**.  Read and write programs that take advantage of regular
+      expressions."
+    - "**List recursion**.  Design and write recursive functions over lists."
+    - "**Numeric recursion**.  Design and write recursive functions over the natural numbers."
+
+- assessment: Learning Assessments, Phase 3 (LAP 3)
+  goals:
+    - "**Randomness**.  Write programs that produce unpredictable output."
+    - "**Mental models of memory**.  Describe or diagram the layout of memory for lists, pairs, and vectors/arrays."
+    - "**Dictionaries**.  Design and write functions that utilize dictionaries."
+    - "**Vectors**.  Design and write functions (potentially recursive functions) that utilize vectors."
+    - "**Data abstraction**.  Design data structures to separate interface from implementation."
+    - "**Use higher-order procedures**. Use `section` and composition to simplify computations."
+    - "**Structure textual data**. Write and use HTML, XML, and CSS."
+
+- assessment: Learning Assessments, Phase 4 (LAP 4)
+  goals:
+    - "**Write higher-order procedures**.  Write procedures that take procedures as parameters and return procedures as results."
+    - "**Refactoring**.  Identify repetitious code and factor out the common parts using local bindings or helper procedures."
+    - "**Tail recursion**.  Transform recursive functions into tail-recursive functions."
+    - "**Tree recursion**.  Design and write recursive functions over trees."
+    - "**Running time**.  Use a mental model of computation to count the relevant number of operations performed by a function."
+    - "**Searching**.  Update or modify fundamental sorting algorithms or trace the execution of those algorithms over concrete inputs."
+    - "**Sorting**.  Update or modify fundamental sorting algorithms or trace the execution of those algorithms over concrete inputs."

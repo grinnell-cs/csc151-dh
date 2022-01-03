@@ -1,0 +1,424 @@
+- topic: An introduction to algorithms
+  abbrev: intro
+  summary: |
+    We begin the class by exploring the definition of computer
+    science and by trying to write some basic algorithms.
+  notes: ../eboards/eboard01
+
+- topic: Getting started with Racket
+  abbrev: racket-tech
+  summary: |
+    We consider Racket, the programming language we will use
+    throughout the course.
+  reading:
+    - page: /readings/fundhum-intro.html
+    - page: /readings/mathlan.html
+    - page: /readings/algorithm-building-blocks.html
+    - page: /readings/drracket.html
+    - page: /readings/racket-intro.html
+  lab:
+    - page: /labs/mathlan.html
+    - page: /labs/racket-intro-mathlan.html
+
+- topic: Algorithmic and image decomposition
+  abbrev: decomposition
+  summary: |
+    We consider a key technique in algorithmic thinking, how one
+    "decomposes" a more complex problem or algorithm into simpler ones.
+  reading:
+    - page: /readings/images.html
+    - page: /readings/decomposition.html
+  lab:
+    - page: /labs/decomposition.html
+
+- topic: Reading and writing procedures
+  abbrev: procedures
+  summary: |
+    We consider ways to write your own procedures and why you might do so.
+    We also explore how one interprets the algorithms others write.
+    And we develop some mental models for what happens when we run
+    Scheme/Racket programs.
+  reading:
+    - page: /readings/procedures.html
+    - page: /readings/mental-models.html
+  lab:
+    - page: /labs/procedures.html
+
+- topic: Expressions and types
+  abbrev: exprs-and-types
+  summary: |
+    We explore many of the basic types of values in Racket, the
+    capabilities Racket provides for working with those types, and
+    how one builds more complex expressions.  We also continue 
+    building our mental model.
+  reading:
+    - page: /readings/exprs-and-types.html
+    - page: /readings/numbers.html
+    - page: /readings/strings.html
+    - page: /readings/symbols.html
+  lab:
+    - page: /labs/basic-types.html
+
+- topic: Booleans, predicates, and conditionals
+  abbrev: booleans
+  summary: |
+    We consider how one writes procedures that make decisions.
+  reading:
+    - page: /readings/boolean.html
+    - page: /readings/conditionals.html
+  lab:
+    - page: /labs/conditionals.html
+
+- topic: Pair programming
+  abbrev: pair-programming
+  summary: |
+    We explore the whys and hows of working with others.  
+  reading:
+    - title: How Pair Programming Really Works (Wray)
+      resource: /files/PairProgramming.pdf
+    - title: Coping with Hitchhikers and Couch Potatoes on Teams (from B. Oakley et. al (2004).  Turning Student Groups into Effective Teams.  _Journal of Student-Centered Learning_ 2 (1).)
+      resource: /files/OakleyHitchhikers2004.pdf
+  lab:
+    - (TBA)
+
+- topic: Lists
+  abbrev: lists
+  summary: |
+    We return to Scheme's *list* data structure and some ways to
+    use lists to work with collections of data.
+  reading:
+    - page: /readings/list-basics.html
+    - page: /readings/list-transform.html
+  lab:
+    - page: /labs/list-basics.html
+
+- topic: Lists, revisited
+  abbrev: lists-revisited
+  summary: |
+    We continue our exploration of lists in Racket, including "the big
+    three" list procedures: map, reduce, and filter.
+  reading:
+    - page: /readings/anonymous-procedures.html
+    - page: /readings/list-big-three.html
+    - page: /readings/list-more.html
+  lab:
+    - page: /labs/lists-more.html
+
+- topic: Pause for breath
+  abbrev: pause-01
+  summary: |
+    We pause to review some concepts from the first few weeks of the course.
+
+- topic: Files and regular expressions
+  abbrev: regexp
+  summary: | 
+    We begin to explore regular expressions, tools used to identify
+    patterns in strings.  We also consider files, structures that 
+    store data, often for use by other programs.
+  reading:
+    - page: /readings/text-files.html
+    - page: /readings/regexp.html
+  lab:
+    - page: /labs/files-rex.html
+
+- topic: Files and regular expressions, continued
+  abbrev: regexp-continued
+  summary:
+    We continue our exploration of regular expressions and files.
+  lab:
+    - page: /labs/files-rex.html
+
+- topic: Local bindings
+  abbrev: local-bindings
+  summary: |
+    We consider why and how to name values within procedures.
+  reading:
+    - page: /readings/local-bindings.html
+  lab:
+    - page: /labs/local-bindings.html
+
+- topic: Documenting and testing your code
+  abbrev: software-engineering
+  summary: |
+    We consider documentation for your programs: Why to write
+    documention, when to write documentation, how to write
+    documentation.  
+    We also consider testing: When, why, and how you might test the
+    procedures and programs that you write.
+  reading:
+    - page: /readings/documenting-your-code.html
+    - page: /readings/rackunit.html
+    - page: /readings/hypothesis-driven-debugging.html
+  lab:
+    - page: /labs/rackunit.html
+
+- topic: Introduction to list recursion
+  abbrev: recursion-intro
+  summary: |
+    We begin our exploration of *recursion*, the most general form
+    of repetition available in Scheme.  You can use recursion to
+    both build and iterate over different kinds of values.
+  reading:
+    - page: /readings/recursion-basics.html
+
+- topic: Introduction to list recursion, continued
+  summary: |
+    We continue our introductory exploration of recursion in Racket.
+  reading:
+    - page: /readings/recursion-basics.html
+  lab:
+    - page: /labs/recursion-basics.html
+
+- topic: Recursion practice
+  summary: |
+    We continue to continue our introductory exploration of recursion
+    in Racket.
+  lab:
+    - page: /labs/recursion-practice.html
+
+- topic: Recursion over numbers
+  abbrev: number-recursion
+  summary: |
+    We consider a slightly different kind of recursion, numeric
+    recursion.  In this technique, we once again have procedures
+    call themselves.  However, the parameter that we "simplify" at
+    every step is a number, rather than a list.
+  reading:
+    - page: /readings/numeric-recursion-ex.html
+  lab:
+    - page: /labs/numeric-recursion.html
+
+- topic: Patterns of Recursion
+  abbrev: recursion-patterns
+  summary: |
+    We consider a host of other issues in the design of
+    recursive procedures.
+  lab:
+    - page: /labs/recursion-patterns.html
+
+- topic: Randomness
+  abbrev: randomness
+  summary: |
+    We consider Scheme's `random` procedure and how one might use
+    that procedure in generating language.
+  reading:
+    - page: /readings/randomness.html
+  lab:
+    - page: /labs/random-language.html
+
+- topic: Pairs
+  abbrev: pairs
+  summary: |
+    We explore pairs, the basic building blocks of lists, and consider
+    other, non-list structures one might build from pairs.  
+  reading:
+    - page: /readings/pairs.html
+  lab:
+    - page: /labs/pairs.html
+
+- topic: Dictionaries and hash tables
+  abbrev: dictionaries
+  summary: |
+    We consider structures that allow us to store information for
+    quick retrieval.
+  reading:
+    - page: /readings/hash-tables.html
+  lab:
+    - page: /labs/hash-tables.html
+
+- topic: Vectors
+  abbrev: vectors
+  summary: |
+    We explore vectors, an alternative to lists for storing data.
+    We consider how data are stored in memory.
+  reading:
+    - page: /readings/vectors.html
+  lab:
+    - page: /labs/vectors.html
+
+- topic: Data abstraction
+  abbrev: data-abstraction
+  summary: |
+    We build upon the structures we have encountered so far to design
+    our own types and reflect on mechanisms for separating the
+    interface to a type from the implementation of the type.
+  reading: 
+    - page: /readings/data-abstraction.html
+  lab:
+    - page: /labs/data-abstraction.html
+   
+- topic: Structured data
+  abbrev: structs
+  summary: |
+    We consider Racket's techniques for creating structured data types.
+  subjects:
+    - Structured data
+    - Using structs
+    - Mutable and immutable structs
+  reading:
+    - page: /readings/preconditions.html
+    - page: /readings/structs.html
+  lab:
+    - page: /labs/structs.html
+
+- topic: Getting started with HTML and CSS
+  abbrev: intro-markup
+  summary: |
+    We begin to consider the content and structure of the course,
+    exploring both our laboratory environment (Linux workstations)
+    and mechansisms for representing and styling text.
+  subjects:
+    - Getting started with Linux
+    - Generalized markup with XML
+    - Web markup with HTML
+    - Page styling with CSS
+  reading:
+    - page: /readings/xml.html
+    - page: /readings/www.html
+  lab:
+    - page: /labs/www.html
+
+- topic: Processing XML
+  abbrev: xml
+  summary: |
+    We consider how one writes programs that process HTML and XML.
+  subjects:
+    - XML, revisited
+    - Representing XML in Racket
+    - Expressing patterns in XML
+    - Seaching XML
+    - Constructing new documents from old
+  reading:
+    - page: /readings/processing-xml.html
+  lab:
+    - page: /labs/processing-xml.html
+
+- topic: Transforming XML (1)
+  summary: |
+    We consider additional ways to extract data from XML documents
+    or to transform XML documents into new XML documents.
+  subjects:
+    - Replacing elements
+    - Inserting elements
+    - Deleting elements
+  reading:
+    - page: /readings/transforming-xml.html
+
+- topic: Transforming XML (2)
+  summary: |
+    We do some "hands on" work in processing and transforming
+  lab:
+    - page: /labs/transforming-xml.html
+
+- topic: Higher-order recursive design
+  abbrev: higher-order-recursive-design
+  summary: |
+    We explore patterns of recursion in the design of programs,
+    particularly with regards to higher-order procedures.
+  reading:
+    - page: /readings/higher-order-recursive-design.html
+  lab:
+    - page: /labs/higher-order-recursion.html
+
+- topic: Recursion, reviewed
+  abbrev: pause-recursion
+  summary: |
+    We get our brains back working on recursion
+  reading:
+    - page: /readings/pattern-matching.html
+    - page: /readings/tail-recursion.html
+    - page: /readings/list-recursion-revisited.html
+    - page: /readings/recursion-magic.html
+  lab:
+    - page: /labs/tail-recursion.html
+
+- topic: Project prep
+  abbrev: project-prep
+  summary: |
+    We prepare to undertake an individually designed project.
+  reading:
+    - page: /assignments/mp08.html
+
+- topic: Trees
+  abbrev: trees
+  summary: |
+    We consider a common hierarchial mechanism for structuring data
+    and its relationship to Scheme/Racket and XML/HTML.
+  reading:
+    - page: /readings/trees-ex.html
+    - page: /readings/tree-structs.html
+  lab:
+    - page: /labs/binary-trees.html
+
+- topic: Tree recursion
+  abbrev: tree-recursion
+  summary: |
+    We consider how to write recursive programs that process trees
+    and other tree-like structures.
+  reading:
+    - page: /readings/tree-recursion.html
+    - page: /readings/bst.html
+  lab:
+    - page: /labs/tree-recursion.html
+
+- topic: Complexity analysis and binary search
+  abbrev: search
+  summary: |
+    We explore techniques for analyzing the number of calls made
+    in evaluating procedures, particularly recursive procedures.
+    We consider why such analysis is useful.  We then delve into
+    a common problem: That of finding values in a collection.
+  reading:
+    - page: /readings/analysis.html
+    - page: /readings/searching.html
+  lab:
+    - page: /labs/searching.html
+
+- topic: Project Work Day
+  abbrev: project-work
+  summary: |
+    We pause to give you an opportunity to work on your projects.
+
+- topic: Sorting
+  abbrev: sorting
+  summary: |
+    We explore the problem of *sorting*.  When you sort a list,
+    vector, or other collection, you put the elements in order.
+    The order of the elements usually corresponds to the type of
+    the elements.  We might sort strings alphabetically, grades
+    numerically, colors by brightness, and so on and so forth.
+    We also reflect on one common sorting algorithm.
+  reading:
+    - No reading
+  lab:
+    - No lab/Discussion day
+
+- topic: "Case study: Mergesort"
+  abbrev: mergesort
+  summary: |
+   We continue our exploration of sorting by considering the
+   applicability of the divide-and-conquer approach to the problem
+   of sorting.  We look at one particular divide-and-conquer
+   algorithm, *merge sort*.  We explore the relationship between
+   the number of steps the algorithm typically takes and the number
+   of values in the list we are sorting.
+  reading:
+    - page: /readings/sorting.html
+    - page: /readings/mergesort.html
+  lab:
+    - page: /labs/mergesort.html
+
+- topic: Project presentations
+  abbrev: presentations
+  summary: Students present their projects
+
+- topic: Wrapup
+  abbrev: wrapup
+  summary: |
+    We conclude the course.
+
+- topic: Final set of learning assessments (optional)
+  abbrev: la5
+  summary: |
+    We have one more opportunity to check our learning.
+
