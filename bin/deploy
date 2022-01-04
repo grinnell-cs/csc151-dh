@@ -9,7 +9,7 @@
 SEMESTER=2022Sp
 COURSE=CSC151
 SITE=public_html/Courses/$COURSE/$SEMESTER/
-REMOTE=rebelsky.cs.grinnell.edu
+REMOTE=instructor.cs.grinnell.edu
 
 # Feedback
 echo $SITE
