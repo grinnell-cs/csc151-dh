@@ -204,25 +204,22 @@ These systems, inspired by adult learning theory, are designed to create a "low-
 + The expectations for grades should be easy to understand and easily trackable.
 
 Ideally, all of you should be able to meet all of the goals in a reasonable amount of time (see the note about time and workload above).
-To achieve high grades, some of you may find that you have to re-do some of the work in the class.
+To achieve high grades, some of you may find that you have to redo some of the work in the class.
 Many of the components of the course have "no penalty" redos available.
 See the notes below for more details.
 
 ### Deliverables
 
-I use five kinds of deliverables to assess your mastery of the material.
+I use four kinds of deliverables to assess your mastery of the material.
 
 + **Reading problems**: quick assessments of the concepts found in the daily reading in preparation for in-class activities.  To earn an A, one should show appropriate work on most of the reading problems for the semesters.  Your work not need be uniformly correct, but it should show effort.
 + **Lab exercises**: practice problems worked on during class, frequently collaboratively, with a partner.  To earn an A, one should turn in correct solutions to most of the lab exercises.
 + **Mini-Projects**: individually completed, small-scale programming projects that apply the weekly concepts to the themes of the course.  (We may, on occasion, refer to "mini-projects" as "demos", using the terminology from the prior term.)  To earn an A, one must do an excellent job on most of the seven mini-projects.  (You will be able to re-do any project that earns less than excellent.)
-+  **Learning assessments**: individually completed problems that directly assess your mastery of the learning goals of the course.  To earn an A, one must pass learning assessments for 26 of the 28 learning objectives.  (You will have the opportunity to retake any of the learning assessments you do not pass.)
++ **Learning assessments**: individually completed problems that directly assess your mastery of the learning goals of the course.  To earn an A, one must pass learning assessments for 26 of the 28 learning objectives.  (You will have the opportunity to retake any of the learning assessments you do not pass.)
 
 *Reading problems* and *lab exercises* are designed for you to practice and explore the concepts of the course in a supportive environment.
 Consequently, you may collaborate on these problems with your classmates, consult external resources, or ask the course staff for questions, provide that you cite them in your produced deliverable.
 These deliverables are checked primarily for completion and effort rather than total correctness.
-
-*Quizzes* are designed as a mechanism for you and I to do a quick "check in" on how things are going and will often refer back to the previous day's material.
-You may not collaborate with others on quizzes.  (I do not rely on quizzes every semester, but I leave this note here just in case.)
 
 *Mini-projects* are designed to give you the opportunity to demonstrate your knowledge and mastery on more complex problems.
 Work you turn in for mini-projects should be your own.
@@ -230,7 +227,7 @@ You may consult others for ideas and help, provided you appropriately acknowledg
 
 *Learning assessments* are designed to demonstrate your mastery of the courses naturally measurable learning goals.
 You may only discuss these deliverables with the course staff.
-These deliverables are checked extensively for both correctness and appropriate design.
+These deliverables are checked for both correctness and appropriate design.
 
 The details of and rationale for the policies are complex enough
 that I have moved them to [a separate document on
@@ -287,6 +284,19 @@ For example, you may completely meet the requirements of a *C* and at least one 
   Otherwise, you earn a plus grade for the lower tier, *e.g.*, *C+* if you are between a C and B.
 + Note that Grinnell does not award C- or D+ grades.
 
+### Redos
+
+Because I care more that you learn the material than that you learn it by a particular deadline, I permit redos in this course.
+Redos on learning assessments are automatically available; you may try them again on the next set of learning assessments (SoLA).
+Redos on reading responses and lab writeups are rare.
+Please speak with me if you would like to redo a reading response or lab writeup.
+
+Your first redo on a mini-project is generally free.
+Subsequent redos on mini-projects may require tokens; see below for details.
+When you receive a graded mini-project, it should include a checklist of issues that you must address to get a higher grade.
+Please reproduce the checklist in your re-done project.
+Where appropriate, you should indicate how you addressed the issues we have described.
+
 ### Final deadline for all work
 
 Note that *all* work must be submitted by {{ site.all_work_deadline }}.
@@ -306,7 +316,7 @@ You begin the course with **3 tokens**, and you may:
 + Use **1 token** to show up to class late (after we take attendance).
 + Use **2 tokens** to miss class without reasonable notification.
 
-You may not re-do reading problems or lab writeups.
+In general, you may not redo reading problems or lab writeups.
 
 In most cases, I will charge tokens automatically.
 You can usually check your token status on Gradescope.
@@ -346,12 +356,6 @@ However, there are some useful textbooks and references you may want to bookmark
 + [Racket Documentation](https://docs.racket-lang.org/)
   *The canonical resource for the Racket language definition as well as documentation for its support tools and libraries.*
 
-**Internet Connectivity**
-
-In addition to software, you will also need a stable Internet connection capable of streaming audio and video.
-Because of the importance of collaborative work in this class, participating in synchronous lab sessions is required.
-If your Internet connection does not meet these requirements, please contact me as soon as possible so we can work with Grinnell's Information Technology Services (ITS) group to get you an adequate connection.
-
 ## Help, collaboration, academic honesty, and academic integrity
 
 To help expedite your learning, you can rely on me, our class mentor, and your peers as outlets in this course.
@@ -382,7 +386,7 @@ To this end, we allow the following forms of collaboration.
 
 + You are encouraged to collaborate with your peers on reading exercises, labs, and projects.
   You may also consult the course staff as well as other people and external resources.
-  In all cases, you (or your group in the case of group work) should independently write up your solutions and cite all the resources you used in authoring your work.
+  In all cases, you (or your group in the case of group work) should independently write up your solutions and cite all the resources you used in authoring your work, including the other students.
 + You may only discuss learning assessments and quizzes with the course staff.
   When completing assessments and quizzes, you may only consult the course website and the Racket Documentation page in developing your program.
   You may not collaborate with peers, consult external resources beyond the ones mentioned above, or share information about these assignments with others.
@@ -426,7 +430,7 @@ Things will likely mess up from time to time.
 That's okay; it's part of the process.
 (I can almost guarantee that if we were in person, some aspect of the technology would break.  It has every other time. Usually it's the projection system.)
 
-This is likely your first semester using Gradescope.
+This may be your first semester using Gradescope.
 Gradescope does some things well and some things less wel.
 Things will likely mess up from time to time.
 That's okay; it's part of the process.
@@ -436,10 +440,11 @@ I hope you'll accept my apologies when I do something wrong
 should be done).
 
 I've taught Scheme/Racket for longer than most of you have been alive.
-This is likely your first time encountering Scheme/Racket. You will
-mess up from time to time.  Believe it or not, but I will, too.  (I'll
-be much faster at fixing and identifying problems, though.)  That's
-okay; it's part of the process.
+This is likely your first time encountering Scheme/Racket.
+You will mess up from time to time.
+Believe it or not, but I will, too.
+(I'll be much faster at fixing and identifying problems, though; at least I hope I will be.)
+That's okay; mistakes are part of the process.
 
 **Names**
 
@@ -472,7 +477,7 @@ and understand your own differences.
 **My health**
 
 I had a heart attack last spring.
-For my health, I am limiting my work hours to appropriate amounts, typically 40 hours per week.
+For my health, I am trying to limit my work hours to appropriate amounts, typically 40 hours per week.
 I apologize if that means that I am not always caught up on my work or available at times you would like.
 
 I will also try to be respectful of your time.
@@ -480,8 +485,16 @@ Please let me know if you find yourself regularly spending more than twelve of s
 (We have four hours in class each week, we suggests that you have eight hours out-of-class for readings, review, and mini projects.)
 
 The state of the pandemic also suggests that I should not meet with you one-on-one in person in my office.
-I will hold most "office hours" online.
-If our discussion does not require a computer, I am also happy to walk outside with you.
+Hence, I will hold most "office hours" online.
+You should also feel free to send me questions on Teams at almost any tiime.
+
+**Teaching is performative**
+
+I believe that all teaching is a form of performance.
+That performance may not always be explicit.
+Nonetheless, I perform a particular role, perhaps even roles.
+In my roles, I may say some things that seem strange.
+Remember; it's a performance.
 
 **Feeling overwhelmed**
 

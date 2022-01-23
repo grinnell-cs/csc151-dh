@@ -192,6 +192,7 @@ all of the following:
 * the date you incorporated the code into your program;
 * a summary of the modifications (if any) you made to the code; and
 * instructions for getting the original code (e.g., a URL).
+
 These guidelines apply not only to the code you get from the Web and
 elsewhere; they also apply to code you get from me and from the textbook.
 
@@ -199,8 +200,8 @@ As much as I appreciate a carefully constructed citation, *my
 primary concern is that you clearly state that you have used the
 work of another*.  Hence, I will also accept a short note
 that simply gives the location from which you obtained code (e.g.,
-you can just write "Ideas and code taken from *this
-URL*.")
+you can just write "_These ideas_ and _this code_ taken from _this
+URL_.")  
 
 You need not cite the libraries you use, as the command to include
 libraries within a program provides sufficient citation.
