@@ -6,7 +6,7 @@ title: CSC 151 (2022Sp)
 # baseurl is used for redirects on the same server.
 # url is the full path name
 baseurl: "/Courses/CSC151/2022Sp"
-url: http://instructor.cs.grinnell.edu/Courses/CSC151/2022Sp
+url: http://rebelsky.cs.grinnell.edu/Courses/CSC151/2022Sp
 
 # Are we online?  If not, we're in person.  (Some of the lab instructions are
 # affected by this choice.)
@@ -16,17 +16,17 @@ online: false
 term: false
 
 # Set the theme color. Options are blue, green, red, orange, purple, and gray
-color: gray
+color: blue
 
-instructor: Instructor Name
+instructor: Samuel A. Rebelsky
 
-instructor_title: Professor Instructor
+instructor_title: Professor Rebelsky
 
-instructor_homepage: https://instructor.cs.grinnell.edu
+instructor_homepage: https://rebelsky.cs.grinnell.edu
 
-instructor_email: instructor@grinnell.edu
+instructor_email: rebelsky@grinnell.edu
 
-meeting_times: TBD
+meeting_times: MWF 8:30&ndash;9:50 a.m. CT (Section 1); MWF 10:00&ndash;11:20 a.m. CT (Section 2); and MWF 1:00&ndash;2:20 (Section 3)
 
 section_number: "00"
 
@@ -44,7 +44,7 @@ tutors:
   - Su-Th, 7:00&ndash;10:00 p.m. CT
   - Su 3:00&ndash;5:00 p.m. CT
 
-all_work_deadline:  5:00 PM on Friday, 17 December 2021
+all_work_deadline:  5:00 PM on Friday, 20 May 2022
 # final_exam_time: TBD
 
 copyright: |
