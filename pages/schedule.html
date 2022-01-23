@@ -103,6 +103,17 @@ permalink: /schedule/
                     {% if class.summary %}
                       {{ class.summary | markdownify }}
                     {% endif %}
+                    {% if class.eboards %}
+                      {% for eboard in class.eboards %}
+                        {% assign page = site.documents | where: "url", eboard.page | first %}
+                        {% unless page %}
+                          {% assign page = site.pages | where: "url", url | first %}
+                        {% endunless %}
+                        {% if page %}
+                          <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a><br/>
+                        {% endif %}
+                      {% endfor %}
+                    {% endif %}
                     {% if class.subjects %}
                       {{ class.subjects | join: ". "  | append: "." | replace: "?.", "." | prepend: "**Topics**: " | markdownify }}
                     {% endif %}
