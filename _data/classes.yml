@@ -3,7 +3,10 @@
   summary: |
     We begin the class by exploring the definition of computer
     science and by trying to write some basic algorithms.
-  notes: ../eboards/eboard01
+  eboards: 
+    - page: /eboards/eboard01a.html
+    - page: /eboards/eboard01b.html
+    - page: /eboards/eboard01c.html
 
 - topic: Getting started with Racket
   abbrev: racket-tech
