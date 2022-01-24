@@ -149,6 +149,7 @@ Thus, you should develop a habit of saving your work frequently!
 Grinnell has indicated that a 4-credit course, like this one, should involve approximately 180 hours of work, which matches some guidance from the U.S. government.
 Across a 14-week term (plus a week finals), that ends up being approximately 12 hours of work per week.
 I have not been able to get anyone to answer the question of "180 hours *for whom* and *for what grade*?", I've been given the impression that I should strive for that workload for the "average" student in a course.
+In general, the twelve hours should work out to approximately four hours per week in class, three hours per week on readings (one hour per day), four hours per week on either mini-projects or SoLAs, and one hour per week for mentor sessions.
 If you find yourself working much more than the expected amount in this course, please let me know.
 It could be that other approaches, or better support resources, can help.
 
