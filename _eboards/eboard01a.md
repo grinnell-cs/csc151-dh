@@ -25,6 +25,12 @@ _Please take a playing card, if you didn't already._
 * Our class mentors are ...
     * Cassandra
     * Quang
+    * Here to help you with the class in general.
+    * Folks who will wander around during class and answer and ask quetions.
+    * Folks who will hold weekly mentor sessions.  AN hour-long review
+      session or time to work on homework or ....
+    * Our mentors have lives/work outside of mentoring.  Do not (ab)use
+      them outside of their normal hours.
 * The class Web site is at 
   <https://rebelsky.cs.grinnell.edu/Courses/CSC151/2022Sp/>.
     * I will email you the link.
@@ -45,11 +51,11 @@ _Please take a playing card, if you didn't already._
 * I type our online class notes in a format called "markdown".  You should
   find it relatively readable.  It permits me to make "nice" Web pages.
     * Sam: Don't forget to show off today's eboard.
+    * Ideally, things should update automatically on the Web.  (They
+      didn't today.  Computers are evil.)
     * Don't just rely on my notes; There is good evidence that taking your 
       own notes helps you learn.
-* I will record our class sessions (audio only + mediocre transcript)
-  using Otter.ai.  I will try to remember to post the link.  Remind me
-  if I don't.
+* I will record some of our class sessions using Teams.
 
 ### Other introductory stuff
 
@@ -69,8 +75,6 @@ _Please take a playing card, if you didn't already._
 ### Apologies
 
 * I am old.  My hearing is not great, even with hearing aids.
-* Some combination of age + meds + temperature in room + air movement in
-  room means I sweat a lot.
 * Our Web site is not as up to date as I'd like.  But it will be.  Soon.
   Ish.
 * I am traditionally bad at names+faces.  I will be worse with masks.  It
@@ -91,27 +95,30 @@ Guidelines
 
 Events
 
+* None yet.
+
 ### Upcoming work
 
 * [Read the Web site and answer questions](../assignments/syllabus).
+  Due Thursday at 10:30 p.m.
 * [Tell me about yourself](../assignments/intro-survey).
-* [Read things in preparation for the second day of class and report on those things]
+  Due Thursday at 10:30 p.m.
+* Read things in preparation for the second day of class and report on those things.  Due Tuesday at 8:00 p.m.
     * [An intro to the course](../readings/fundhum-intro)
     * [Our Linux workstations](../readings/linux)
     * [Algorithm building blocks](../readings/algorithm-building-blocks)
     * [The DrRacket programming environment](../readings/drracket)
     * [An abbreviated introduction to Racket](../readings/racket-intro)
-    * _Note that readings responses are generally due in the early evening
-      so that I can review them before class._
+    * _Note that readings responses are generally due in the early evening so that I can review them before class._
 
 ### Attendance
 
 * Sam will (attempt to) call you by first name.
 * You will respond with 
-    * "Hi, my name is FIRST LAST.
+    * "Hi, my name is PROPER-NAME FAMILY-NAME
     * (Optional pronouns.)
     * I prefer to be called NAME.
-    * If you must call me by last name, please call me Mr./Ms./Mx. LAST NAME.
+    * If you must call me by last name, please call me Mr./Ms./Mx. NAME.
     * This semester , I am excited about ....
     * _Optionally, ask me a question. You'll also have another chance later._
 * Note: For the first few weeks of class, please say your name each time
@@ -119,14 +126,53 @@ Events
 
 ### Excited About
 
+* Forcing students to write their names on masks.
+* Mentoring the class [x2]
+* Learning about a new topic.
+* Taking the first clas sin the CS major [x2]
+* Exploring lots of new classes [x4]
+* Taking CS classes [x2] for the first time [x3] to learn a new subject
+* Free time
+* Extreme cold
+* Snow [x2]
+* Sports season (remind us about matches)
+* Learning weird new programming syntax
+* Learning to code well (this student is optimistic)
+* Discovering what CS is.
+* Coding again, not in an anegnieering class.
+* Typing in cool fonts.
+* Coding on my laptops
+
 ### Q&A
+
+Are we using DrRacket as our IDE?
+
+> Yes.
+
+What's an IDE?
+
+> A TLA for "Integrated Development Environment" - Where you develop software.
+
+What's a TLA?
+
+> Three-letter acronym.
+
+Will we use mulitple programming languages in this class?
+
+> One seems like enough, for now.
+
+> But we'll also learn a markup languags, such as HTML/XML.
+
+Which of Sam's three sections of 151 will ask the best questions?
+
+> We shall see.  This one asked the fewest.
 
 What is computer science?
 -------------------------
 
 * Computer science is the study of *algorithms* and *data
   structures*
-    * Algorithms: Sets of (unambiguous) instructions.
+    * Algorithms: Sets of (unambiguous) instructions for solving a task.
     * Data Structures: Ways to organize information.
 * We study algorithms by  ...
     * writing algorithms to accomplish certain tasks.  
@@ -150,5 +196,35 @@ Exercise
 
 _Practice writing algorithms!_
 
+1. Form groups.
+
+2. Sam presents a problems.
+
+3. You develop algorithms.
+
+4. Sam attempts to run algorithms, demonstrating ambiguity.
+
+5. Your further develop algorithms.
+
+6. Sam attmepts to run algorithms some more.
+
 Debrief
 -------
+
+* You need to be very specific when giving instructions.
+    * You also have to think about what's happening with shat you
+      just did (e.g., is the twist tie still in Sam's hands?)
+* Break complex problems into smaller problems  (Decomposition.)
+    * Try your algorithm as you develop it.
+* Be clean; don't have your program leave a mess.
+* Know what the computer (or Sam) knows.  While "bread  and "left
+  hand"  are defined, "upright" may not be.
+* Things will go wrong.  When they do, it's not a problem; perhaps it's
+  even funny.  (Think back to what could have happened to Sam.)
+* We do better in groups.
+* Be proud of yourselves, you did well.  Sam didn't die.  The sandwich
+  didn't end up on the floor.
+* We sometimes do the same thing more than once, so define it separately.
+    * How to spread stuff on bread.
+    * How to open a jar.
+* Warning: Computers are sentient and malicious.
