@@ -45,7 +45,5 @@ ons);
 
 Log in to Gradescope and navigate to this class.
 
-Finally, look for the the "[Course
-details](https://www.gradescope.com/courses/299260/assignments/1440303/)
-assignment, select it, and answer the questions there.
+Finally, look for the the "Course details" assignment, select it, and answer the questions there.
 

@@ -10,5 +10,5 @@ that you had been added to the class.
 
 2. Log in to Gradescope and navigate to this class.
 
-3. Look for the assignment entitled "[Introductory survey](https://www.gradescope.com/courses/299260/assignments/1440327)" (or something similar), select it, and answer the questions there.
+3. Look for the assignment entitled "Introductory survey" (or something similar), select it, and answer the questions there.
 
