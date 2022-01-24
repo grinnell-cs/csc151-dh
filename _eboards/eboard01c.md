@@ -17,13 +17,22 @@ _Approximate overview_
 Administrative stuff
 --------------------
 
+_Unless there are objections, I will record today's class._
+
 _Please take a playing card, if you didn't already._
 
 ### Introductory Notes
 
 * Hi, I'm Sam (or SamR).
-* Our class mentors are ...
+* Our class mentors are Micah and Paul
     * They will introduce themselves.
+    * The mentors help during class (ask and answer questions, protect
+      you from Sam's snarkiness, etc.)
+    * The mentors run mentor sessions (weekly review sessions, also
+      homework help)
+    * The mentors can talk about other classes in CS, serve as a 
+      sounding board, etc.
+    * The mentors are near-peer model students.
 * The class Web site is at 
   <https://rebelsky.cs.grinnell.edu/Courses/CSC151/2022Sp/>.
     * I will email you the link.
@@ -32,7 +41,7 @@ _Please take a playing card, if you didn't already._
 * CSC-151 is *an introductory course in computer science*.
     * You can succeed (and even excel) with no prior experience.
       (Those with no prior experience sometimes spend more time.)
-    * We approach material differently than many other intro courses;
+    * We approach material differently than many other intro CS courses;
       prior experience may help, but it may also hinder.  For example,
       we will not let you re-assign variables.  (Don't worry if you
       don't know what that means.)
@@ -46,9 +55,7 @@ _Please take a playing card, if you didn't already._
     * Sam: Don't forget to show off today's eboard.
     * Don't just rely on my notes; There is good evidence that taking your 
       own notes helps you learn.
-* I will record our class sessions (audio only + mediocre transcript)
-  using Otter.ai.  I will try to remember to post the link.  Remind me
-  if I don't.
+* I will record our class sessions with Teams.
 
 ### Other introductory stuff
 
@@ -68,8 +75,6 @@ _Please take a playing card, if you didn't already._
 ### Apologies
 
 * I am old.  My hearing is not great, even with hearing aids.
-* Some combination of age + meds + temperature in room + air movement in
-  room means I sweat a lot.
 * Our Web site is not as up to date as I'd like.  But it will be.  Soon.
   Ish.
 * I am traditionally bad at names+faces.  I will be worse with masks.  It
@@ -90,11 +95,13 @@ Guidelines
 
 Events
 
+* Track and Field meet Saturday at unknown time.
+
 ### Upcoming work
 
-* [Read the Web site and answer questions](../assignments/syllabus).
+* [Read the Web site and answer questions](../assignments/syllabus).  For THurssday at 10:30 p.m.
 * [Tell me about yourself](../assignments/intro-survey).
-* [Read things in preparation for the second day of class and report on those things]
+* [Read things in preparation for the second day of class and report on those things]  Due Tuesday at 8:00 p.m.
     * [An intro to the course](../readings/fundhum-intro)
     * [Our Linux workstations](../readings/linux)
     * [Algorithm building blocks](../readings/algorithm-building-blocks)
@@ -118,7 +125,125 @@ Events
 
 ### Excited About
 
+* Mentoring 151 [x2]
+* Expand social circle
+* Meet more people
+* To get introduced to CS.
+* Being a better student.
+* Declare a major.
+* Classes
+* Learn a new language
+* Winter [x2]
+* Snow [x2]
+* Baseball
+* More STEM classes
+* No Tuesday/Thursday classes
+* New ways to learn how to make things
+* Baseball
+* Studio Art
+* Extracurriculars, such as guitar or violin lessons [x2]
+* Back in Grinnell [x2]
+* Water polo
+* Playing the piano [x2]
+* More about myself and the way I think
+* Not having 8am classes
+* Learning more about philosophy and feminism
+* Learning CS!
+
 ### Q&A
+
+What does the stupid banner say about Grinnellians and questions?
+
+> Grinnellians ask hard questions and question easy answers.
+
+> Except in 151, where they ask easy questions so that Sam is able
+  to answer them.
+
+What languages are we learning?
+
+> Scheme (Racket)
+
+> HTML/XML
+
+Readings are done before class and labs in class?
+
+> Yes
+
+And homework assignments?
+
+> Out of class.  We call them Mini-Projects
+
+And exams?
+
+> Out of class.  We call them SoLAs.
+
+And quizzes?
+
+> Typically quizzes will be out of class and will represent one
+  learning goal from the upcoming SoLA.
+
+> Mostly a way of ensuring that you don't try to cram everything into
+  one learning session.
+
+When will quizzes be released?
+
+> TBD
+
+Who is your favorite musician?
+
+> Ella Fitzgerald, Van Morrison, or Jonathan Richman
+
+> My son.
+
+Is CSC-151 intended as a weed-out class?
+
+> No.  It's always been intended as a "draw-in" class.
+
+How many tests do we have?
+
+> This class has a weird grading strategy.
+
+> There are twenty-eight basic learning goals for the class.
+
+> Each of four exams will test seven of those.
+
+> If you get one wrong, you can try again on the next test, and the
+  next, ... (until the end of the semester).
+
+> We do not do homework assignments on weeks that there are tests (SoLAs)
+  "Sets of Learning Assessments"
+
+> What's important is *that* you learn things, not *when* (as long as
+  it's this term).  Free redos on assignments and SoLAs.
+
+Why are we learning Scheme?
+
+> Small language / small definition.  You can learn most of the language
+  in one semester.
+
+> Encourages / requires a different way of thinking.  We think the
+  Scheme ways of thinking are good ways of thinking.  Levels the
+  playing field.
+
+> One of the few languages that permits you to write code that we
+  might call elegant.
+
+> Harder to Google bad answers to homework questions.
+
+What is the definition of the Scheme language?
+
+> The definition of a language normally consists of the basic words
+  (actions you can do, values), syntax (how you put things together),
+  and a semantics (how we interpret the things we've together).
+
+> The definition formalizes things so that there is no (or very little)
+  ambiguity.
+
+Why do the people I talk to say that Matlab not a language?
+
+> Because they people you talk to are underinformed or overopinionated.
+
+> I would say that Matlab is a programming language.
 
 What is computer science?
 -------------------------
@@ -149,5 +274,22 @@ Exercise
 
 _Practice writing algorithms!_
 
+1. Form groups
+
+2. Sam will present a problem
+
+3. You will start to write an algorithm
+
+4. Sam will start attempting to follow the algorithm; you may learn something
+
+5. You will continue writing the algorithm
+
+6. Sam will continue trying to follow the algorithm
+
 Debrief
 -------
+
+* When things go wrong, you should laugh.  And things will go wrong.
+* Ambiguity happens.  Work on precision.
+* Think about special cases.
+* Work in teams.
