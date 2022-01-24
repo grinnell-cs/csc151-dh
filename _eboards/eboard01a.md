@@ -23,7 +23,8 @@ _Please take a playing card, if you didn't already._
 
 * Hi, I'm Sam (or SamR).
 * Our class mentors are ...
-    * They will introduce themselves.
+    * Cassandra
+    * Quang
 * The class Web site is at 
   <https://rebelsky.cs.grinnell.edu/Courses/CSC151/2022Sp/>.
     * I will email you the link.
