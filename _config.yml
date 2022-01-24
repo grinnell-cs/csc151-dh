@@ -26,16 +26,24 @@ instructor_homepage: https://rebelsky.cs.grinnell.edu
 
 instructor_email: rebelsky@grinnell.edu
 
-meeting_times: MWF 8:30&ndash;9:50 a.m. CT (Section 1); MWF 10:00&ndash;11:20 a.m. CT (Section 2); and MWF 1:00&ndash;2:20 (Section 3)
+meeting_times: MWF 8:30&ndash;9:50 a.m. CT (Section 1); MWF 10:00&ndash;11:20 a.m. CT (Section 2); and MWF 1:00&ndash;2:20 CT (Section 3)
 
 section_number: "00"
 
 office_hours:
   - |
-    TBD
+    TuTh 8:30--10:00.
+    Book office ours at <https://bit.ly/book-samr>.
+    You may also propose other meeting times.  Please check my Outlook
+    schedule first.
 
-mentor:
-  - TBD
+mentors:
+  - Cassie Rudig (Section 1)
+  - Hallie Nuzum (Section 2)
+  - Nameera Muhammad Dawood (Section 3)
+  - Paul Lu (Section 3)
+  - Quang Le (Section 1)
+  - Micah Cantor (Section 2)
 
 mentor_sessions:
   - TBD
