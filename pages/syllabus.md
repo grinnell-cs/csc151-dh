@@ -371,7 +371,7 @@ In these sessions, the mentors guide you through practice problems designed to h
 I highly recommend you attend each of these sessions, even if you feel like you understand the material.
 You never know what you don't know, and the purpose of these sessions is to bring these blind spots to light!
 
-The CS department provides **evening tutors** from 8--10 p.m. most nights of the week.  I encourage you to make use of the evening tutors.  With the move online, the tutors have been trying a variety of ways ot meet; I'll do my best to keep you informed.
+The CS department provides **evening tutors** from 7--10 p.m. most nights of the week (Sunday through Thursday).  I encourage you to make use of the evening tutors.  
 
 The CS department also provides **individual tutors** as needed.  If you find yourself struggling with the material, please let me know and I'll work with our peer education coordinator to get one assigned to you.
 
