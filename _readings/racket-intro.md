@@ -118,7 +118,8 @@ You've already seen a few of Racket's basic types. Racket supports
 numbers, strings (text), and lists of values.  Of course, these are
 not the only types it supports.  Some additional types are available
 through separate libraries.  For example, it is comparatively
-straightforward to get Racket to draw simple shapes.
+straightforward to get Racket to draw simple shapes if you
+add `(require 2htdp/image)` to the top of the interactions pane.
 
 ```racket
 > (circle 15 'outline "blue")
