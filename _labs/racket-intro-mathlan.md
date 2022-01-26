@@ -230,7 +230,7 @@ How can you test the correctness of this answer?
 What if you don't trust DrRacket's multiplication procedure?
 
 Discuss this question with your partner and come up with common definition of how to test your answer in this context.
-Once you have a common definition, DM a member of the course staff and check your answer with them.
+Once you have a common definition, check your answer with a member of the course staff.
 
 ### Exercise 5: DrRacket's definitions pane
 
