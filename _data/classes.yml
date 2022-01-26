@@ -22,6 +22,10 @@
   lab:
     - page: /labs/mathlan.html
     - page: /labs/racket-intro-mathlan.html
+  eboards: 
+    - page: /eboards/eboard02-1.html
+    - page: /eboards/eboard02-2.html
+    - page: /eboards/eboard02-3.html
 
 - topic: Algorithmic and image decomposition
   abbrev: decomposition
