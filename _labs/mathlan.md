@@ -176,8 +176,9 @@ fraenkel$
 
 ### Short version
 
-* Start Firefox by clicking on the picture of the small red creature grasping a blue sphere.  If Firefox doesn't work, feel free to use Chromium.
+* Start Firefox by clicking on the picture of the small red creature grasping a blue sphere.  If Firefox doesn't work, feel free to use Chrome.
 * Agree to any dialog boxes that appear. They shouldn't appear again.
+  You also may not see any dialog boxes.
 * Navigate to the course website, available at <{{ site.url }}>.
 
 ### Detailed version
@@ -196,21 +197,27 @@ it looks like a creature on a blue X) and click once with the left mouse
 button. The applications menu will pop up. Move the mouse over **Internet**,
 then **Firefox**.  Click the left mouse button once to launch Firefox.
 
-The materials for this course will walk you through using the Firefox web
-browser, but a version of Chrome called the *Chromium Web Browser* is available
-on MathLAN workstations as well in the Applications menu under the *Internet*
-section. Almost all of the materials for this course will be distributed over
-the Web. You can add this browser your panel if you prefer.  (You can add
-something to your panel by dragging it from the menu to the panel.)
+Some students have discovered that Firefox doesn't launch.  If that
+happens, it may be that the launcher references the wrong version
+of Firefox.  Ask one of the class staff to change the launcher
+from `firefox-esr %u` to just `firefox`.  Or just do it yourself.
 
-The first time you run Firefox on our network, two message boxes might appear.
+The materials for this course will walk you through using the Firefox
+web browser, but a version of Chrome is available on MathLAN
+workstations as well in the Applications menu under the *Internet*
+section. You can add this browser your panel if
+you prefer.  (You can add something to your panel by dragging it
+from the menu to the panel.)
+
+The first time you run Firefox on our network, two message boxes *might* appear.
 
 * One box might ask you to consent to the terms of a licensing agreement.
 * One box might request permission to create some configuration files in your home directory.
 
 You should approve of any requests by clicking on the appropriate
 word. The pop-up boxes then disappear; you should not see them on
-subsequent uses of Firefox.
+subsequent uses of Firefox.  It's also okay if the boxes don't appear;
+Firefox's behavior keeps changing.
 
 Initially, Firefox displays a document containing some default
 information. You should navigate to the course website at <{{ site.url }}>.
@@ -279,30 +286,6 @@ Note that some folks have a default launcher for Firefox that is
 configured to start the web browser on a specific page, regardless of
 the home page you choose. If you don't see your new home page when you
 restart Firefox, then ask for help.
-
-## Using gedit
-
-gedit is the preferred text editor for the course (and, conveniently,
-for Xfce).  To access gedit, click on the **Applications** menu at
-the lower-left-hand corner, then **Accessories**, then **Text
-Editor**.  A window should appear.  
-
-Quit gedit to prepare for the next step.
-
-In the future, you will find it easier to access gedit if you have
-it in your task bar.  Go back to the **Accessories** menu and then
-drag the Text Editor icon to your task bar.  If all goes well, you
-see a new icon there.
-
-Click on the icon.  You should see a new gedit window.  (If you
-didn't close gedit previously, you may just see a new tab in the
-gedit window.)
-
-Enter some text in the window and then save your file on your desktop
-with the name "myfile.txt".
-
-In Firefox, enter the following URL, substituting your own username
-for the text username: `file:///home/username/Desktop/myfile.txt`.
 
 ## Working with multiple desktops
 
