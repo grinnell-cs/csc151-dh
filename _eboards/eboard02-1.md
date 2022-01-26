@@ -324,6 +324,8 @@ _Think/Pair/Share_
 Getting students into card groups was chaos.  I intentionally don't
 give an algorithm, and it shows.  What's a better algorithm?
 
+_We skipped this to make sure we had sufficient time for labs._
+
 Lab 1: Setting up Linux
 -----------------------
 
