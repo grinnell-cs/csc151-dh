@@ -302,7 +302,7 @@ Let's try using the definitions pane instead.
 
     ```
     ; The following definitions are taken from
-    ;   Curtsinger, C., Davis, J., Hamid, F., Klinge, T., Osera, P.M., Rebelsky, S.A, and Weinman, J. (2020).
+    ;   Curtsinger, C., Davis, J., Eikmeier, N., Hamid, F., Johnson, B., Klinge, T., Osera, P.M., Rebelsky, S.A, and Weinman, J. (2022).
     ;   An introduction to Racket and DrRacket.  Online document available at
     ;   _URL_.
     ```
