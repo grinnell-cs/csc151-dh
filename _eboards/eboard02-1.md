@@ -338,20 +338,31 @@ If Firefox doesn't start, we need to edit the launcher to use
 Lab 2: Learning Scheme
 ----------------------
 
-* You'll most of the second lab collaboratively.
+* You'll do most of the second lab collaboratively.
 * However, setup needs to be individual, so each of you will do the
   first lab individually, first one person and then the other.
 * We'll be around to help.  At least I think we will.  Sam is panicking
   about various things right now.
-* If the lab runs long, don't worry; we'll come back to it next class.
+* If you finish early, start the readings for the next class.
+* If you didn't finish, that's okay.  chat me on Teams to let me know.
 
 Debrief, if time
 ----------------
 
-* The origin of the short and long versions.  My colleagues who first
-  taught the course wrote the long versions (or at least the original
-  versions of the long versions).  When I started teaching, I decided
-  you might do better with short instructions.  But it's a nice
-  example of different ways of thinking about writing 
-  algorithms/instructions.
+_Nope, there wasn't time._
+
+**The origin of the short and long versions.**  My colleagues who 
+first taught the course wrote the long versions (or at least
+the original versions of the long versions).  When I started
+teaching, I decided you might do better with short instructions.
+But it's a nice example of different ways of thinking about writing
+algorithms/instructions.
+
+I see that many of you have three screens (our main screen plus two
+laptops).  Please do your work on the MathLAN workstation and just
+use your laptop for bringing up the lab/reference materials.
+
+* If I see you running DrRacket on your laptop, I may attempt
+  to defenestrate aforementioned laptop.
+
 
