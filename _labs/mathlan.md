@@ -203,7 +203,7 @@ of Firefox.  Ask one of the class staff to change the launcher
 from `firefox-esr %u` to just `firefox`.  Or just do it yourself.
 
 The materials for this course will walk you through using the Firefox
-web browser, but a version of Chrome is available on MathLAN
+web browser, but a version of Google Chrome is available on MathLAN
 workstations as well in the Applications menu under the *Internet*
 section. You can add this browser your panel if
 you prefer.  (You can add something to your panel by dragging it
@@ -230,7 +230,10 @@ please consult with one of us or with one of your colleagues.
 #### Short version
 
 * Click on the menu icon (a set of three lines) in the upper-right-hand corner of the screen.
-* Click on the **Preferences** button, which also has a gear icon.
+* Click on the **Settings** menu. 
+* Click on **Home**.
+* Next to "Homepage and new windows", click on **Firefox Home (Default)**.
+* Select **Custom URLs...**.
 * Update your home page to something reasonable like this course's website at or [the Grinnell Office365 page](https://office365.grinnell.edu).
 * Quit and restart Firefox to verify that your new home page appears. If you see something other than your home page (e.g., the Grinnell College home page), then ask for help.
 
@@ -253,15 +256,16 @@ or URLs of some good choices:
 * A page you create.
 
 To establish your base page within Firefox, bring up the primary
-Firefox menu from the menu bar by clicking on the icon with three lines in
-the upper-right-hand corner of the window. Then select the **Preferences**
-operation. A pop-up window appears, allowing you to configure many
-features of the general appearance of Firefox. Choose the **General**
-option, if it has not been chosen already. The rectangle labeled Home Page
-contains the URL of some document that serves as the default. Replace
-the contents of this rectangle with the URL of your choice. (This does
-not have to be a permanent change; you can change your mind about this
-configuration at any time within Firefox.)
+Firefox menu from the menu bar by clicking on the icon with three
+lines in the upper-right-hand corner of the window. Then select the
+**Settings** operation. You should then see a new screen that permits
+you to configure many aspects of Firefox.  Click the **Home** button
+on the left.  In the home settings screen, you should see a section
+labeled **New Windows and Tabs**, the first entry of which is
+"Homepage and new windows".  Click on **Firefox Home (Default)**.
+Select **Custom URLs...**.  Paste in one of the recommended URLs.
+(This does not have to be a permanent change; you can change your
+mind about this configuration at any time within Firefox.)
 
 To erase the current contents of the Home Page Location(s) box,
 move the mouse pointer to the left of the first character in the
@@ -274,7 +278,7 @@ move the mouse pointer onto the button marked OK at the bottom of
 the pop-up window and click on it with the left mouse button.
 
 You can, of course, simply navigate to the page you want to use as
-your home page and then click on Use Current Pages.
+your home page and then click on **Use Current Pages**.
 
 You may note that the button says "Pages" (plural) rather than "Page"
 (singular). Since Firefox permits tabbed browsing (that is, you can have
@@ -283,9 +287,9 @@ home set of tabs. Particularly obsessive people might want to set up a
 sequence of tabs with say, links to labs, readings, and beyond.
 
 Note that some folks have a default launcher for Firefox that is
-configured to start the web browser on a specific page, regardless of
-the home page you choose. If you don't see your new home page when you
-restart Firefox, then ask for help.
+configured to start the web browser on a specific page, regardless
+of the home page you choose. If you don't see your new home page
+when you restart Firefox, then ask for help.
 
 ## Working with multiple desktops
 
