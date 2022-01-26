@@ -353,21 +353,21 @@ We'll discuss these definitions---which define *variables*---in detail in a subs
     #lang racket
     (require 2htdp/image)
     ; shapes.rkt
-    ; A file from the first lab for CSC-151-NN Fall 2021 
+    ; A file from the first lab for CSC-151-NN SEMESTER
     ; Authors: 
-    ;   One Name
-    ;   Another Name
+    ;   STUDENT ONE
+    ;   STUDENT TWO
     ; Acknowledgements:
     ;   Any help you got
 
     (define blue-circle
-      {??})
+      ???)
 
     (define red-square
-      {??})
+      ???)
 
     (define black-rectangle
-      {??})
+      ???)
     ```
 
 3.  Click **Run** and make sure that each of those values is defined correctly.
