@@ -13,6 +13,7 @@ This lab gives you the opportunity to explore (or at least configure):
 * The Xfce window environment
 * Practice with a terminal window: Setting up your account
 * Firefox
+* gedit, our text editor
 * Working with multiple desktops
 * Finishing up and logging out 
 
@@ -158,10 +159,10 @@ $ /home/rebelsky/bin/csc151-setup
 CSC 151: Adding default setup for DrRacket
 CSC 151: Configuring Racket to look for Racket files on the desktop.
 CSC 151: Checking on class software
-CSC 151: Installing csc151 package.  Ignore the long series of messages.
-Querying Git references for csc151 at https://github.com/grinnell-cs/loudhum.git
+CSC 151: Installing loudhum package.  Ignore the long series of messages.
+Querying Git references for loudhum at https://github.com/grinnell-cs/loudhum.git
 Downloading repository https://github.com/grinnell-cs/loudhum.git
-raco setup: version: 8.3
+raco setup: version: 7.6
 raco setup: platform: x86_64-linux [3m]
 ...
 raco setup: --- post-installing collections ---
@@ -175,8 +176,9 @@ fraenkel$
 
 ### Short version
 
-* Start Firefox by clicking on the picture of the small red creature grasping a blue sphere.  If Firefox doesn't work, feel free to use Chromium.
+* Start Firefox by clicking on the picture of the small red creature grasping a blue sphere.  If Firefox doesn't work, feel free to use Chrome.
 * Agree to any dialog boxes that appear. They shouldn't appear again.
+  You also may not see any dialog boxes.
 * Navigate to the course website, available at <{{ site.url }}>.
 
 ### Detailed version
@@ -195,21 +197,27 @@ it looks like a creature on a blue X) and click once with the left mouse
 button. The applications menu will pop up. Move the mouse over **Internet**,
 then **Firefox**.  Click the left mouse button once to launch Firefox.
 
-The materials for this course will walk you through using the Firefox
-web browser, but a version of Google Chrome called is also available
-on MathLAN workstations.  You can find it in the Applications menu
-under the *Internet* section.  You can add this browser your panel
-if you prefer.  (You can add something to your panel by dragging
-it from the menu to the panel.)
+Some students have discovered that Firefox doesn't launch.  If that
+happens, it may be that the launcher references the wrong version
+of Firefox.  Ask one of the class staff to change the launcher
+from `firefox-esr %u` to just `firefox`.  Or just do it yourself.
 
-The first time you run Firefox on our network, two message boxes might appear.
+The materials for this course will walk you through using the Firefox
+web browser, but a version of Google Chrome is available on MathLAN
+workstations as well in the Applications menu under the *Internet*
+section. You can add this browser your panel if
+you prefer.  (You can add something to your panel by dragging it
+from the menu to the panel.)
+
+The first time you run Firefox on our network, two message boxes *might* appear.
 
 * One box might ask you to consent to the terms of a licensing agreement.
 * One box might request permission to create some configuration files in your home directory.
 
 You should approve of any requests by clicking on the appropriate
 word. The pop-up boxes then disappear; you should not see them on
-subsequent uses of Firefox.
+subsequent uses of Firefox.  It's also okay if the boxes don't appear;
+Firefox's behavior keeps changing.
 
 Initially, Firefox displays a document containing some default
 information. You should navigate to the course website at <{{ site.url }}>.
@@ -222,7 +230,10 @@ please consult with one of us or with one of your colleagues.
 #### Short version
 
 * Click on the menu icon (a set of three lines) in the upper-right-hand corner of the screen.
-* Click on the **Preferences** button, which also has a gear icon.
+* Click on the **Settings** menu. 
+* Click on **Home**.
+* Next to "Homepage and new windows", click on **Firefox Home (Default)**.
+* Select **Custom URLs...**.
 * Update your home page to something reasonable like this course's website at or [the Grinnell Office365 page](https://office365.grinnell.edu).
 * Quit and restart Firefox to verify that your new home page appears. If you see something other than your home page (e.g., the Grinnell College home page), then ask for help.
 
@@ -245,15 +256,16 @@ or URLs of some good choices:
 * A page you create.
 
 To establish your base page within Firefox, bring up the primary
-Firefox menu from the menu bar by clicking on the icon with three lines in
-the upper-right-hand corner of the window. Then select the **Preferences**
-operation. A pop-up window appears, allowing you to configure many
-features of the general appearance of Firefox. Choose the **General**
-option, if it has not been chosen already. The rectangle labeled Home Page
-contains the URL of some document that serves as the default. Replace
-the contents of this rectangle with the URL of your choice. (This does
-not have to be a permanent change; you can change your mind about this
-configuration at any time within Firefox.)
+Firefox menu from the menu bar by clicking on the icon with three
+lines in the upper-right-hand corner of the window. Then select the
+**Settings** operation. You should then see a new screen that permits
+you to configure many aspects of Firefox.  Click the **Home** button
+on the left.  In the home settings screen, you should see a section
+labeled **New Windows and Tabs**, the first entry of which is
+"Homepage and new windows".  Click on **Firefox Home (Default)**.
+Select **Custom URLs...**.  Paste in one of the recommended URLs.
+(This does not have to be a permanent change; you can change your
+mind about this configuration at any time within Firefox.)
 
 To erase the current contents of the Home Page Location(s) box,
 move the mouse pointer to the left of the first character in the
@@ -266,7 +278,7 @@ move the mouse pointer onto the button marked OK at the bottom of
 the pop-up window and click on it with the left mouse button.
 
 You can, of course, simply navigate to the page you want to use as
-your home page and then click on Use Current Pages.
+your home page and then click on **Use Current Pages**.
 
 You may note that the button says "Pages" (plural) rather than "Page"
 (singular). Since Firefox permits tabbed browsing (that is, you can have
@@ -275,9 +287,9 @@ home set of tabs. Particularly obsessive people might want to set up a
 sequence of tabs with say, links to labs, readings, and beyond.
 
 Note that some folks have a default launcher for Firefox that is
-configured to start the web browser on a specific page, regardless of
-the home page you choose. If you don't see your new home page when you
-restart Firefox, then ask for help.
+configured to start the web browser on a specific page, regardless
+of the home page you choose. If you don't see your new home page
+when you restart Firefox, then ask for help.
 
 ## Working with multiple desktops
 
