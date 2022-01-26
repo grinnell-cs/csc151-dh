@@ -148,13 +148,12 @@ As you may have noted, you get an error when you try to make a circle.
 
 ```
 > (circle 10 'solid "teal")
-> (square 4)
 Error! circle: undefined;
 Error!  cannot reference an identifier before its definition
 ```
 
 Why do you get an error?
-Because the `circle` procedure is not built-in to standard Racket!
+Because the `circle` procedure is not built-in to standard Racket.
 Instead, `circle` and other image-drawing functions are part of the `2hdtp/image` library (also called a *module* in Racket).
 We need to tell Racket that we would like to *include* this module with a `require` statement.
 At the top of the definitions pane (but after `#lang racket`), add a line that reads:
