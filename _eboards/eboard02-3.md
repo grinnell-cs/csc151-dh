@@ -1,5 +1,5 @@
 ---
-title: "EBoard 02 (Section 1): The Lab Equipment (aka MathLAN and DrRacket)"
+title: "EBoard 02 (Section 3): The Lab Equipment (aka MathLAN and DrRacket)"
 number: 2
 section: eboards
 held: 2022-01-24
@@ -123,8 +123,11 @@ My least favorite comment, and one I thought I should respond to:
 
 ### Upcoming activities
 
-* Track and Field Saturday in the Field House.
 * Grinnell Quadrangular Febraury 5 at 1pm.
+
+Uncredited
+
+* Track and Field Saturday in the Field House.
 
 ### Upcoming work
 

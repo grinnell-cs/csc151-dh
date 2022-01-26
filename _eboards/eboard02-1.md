@@ -7,6 +7,8 @@ link: true
 ---
 # {{ page.title }}
 
+**Warning** This class is being recorded (for those who can't be here today).
+
 _Getting started_
 
 * Grab a card.  The card will have a computer name and a location.
@@ -16,10 +18,14 @@ _Getting started_
 * If you arrive first, start the lab.
 * When both partners arrive, introduce yourselves.
 
+For the future: I'm happy to reserve a (somewhat random) seat at the front
+of the classroom who need a front seat as an adjustment or accommodation.
+Just let me know.
+
 _Approximate overview_
 
 * Administrative stuff; no attendance [10--15 min]
-* Debrief on Friday's activity [5--10 min]
+* Debrief on Monday's activity [5--10 min]
 * Set up for MathLAN, partner one [10 min]
 * Set up for MathLAN, partner two [5 min]
 * Lab [45 min]
@@ -33,11 +39,11 @@ Administrivia
 * Yes, you will get regular "Spam from Sam" (or whatever you want to
   call the approximately daily email mssages).
 * I've released "grades" for the first few folks who turned in the reading.
-    * Sam: Remember to demo on Gradescope.
-    * I also tried to release the parts of the surveys that I responded
-      to, but that didn't work.
+    * Sam will demo next class.
 * Please say your name when you ask or answer a question (even if I've
   just called you by name).
+* I think I've gotten the automatic update of the eboards to work.
+    * Sam: Update this, save, and check again to demo.
 
 ### On concerns
 
@@ -123,8 +129,9 @@ My least favorite comment, and one I thought I should respond to:
 
 ### Upcoming activities
 
-* Track and Field Saturday in the Field House.
-* Grinnell Quadrangular Febraury 5 at 1pm.
+* Track and Field Saturday in the Field House.  (You only need to 
+  stay for thirty minutes or so.)
+* Grinnell Quadrangular February 5 at 1pm.
 
 ### Upcoming work
 
@@ -164,7 +171,7 @@ Will the readings always be this long?
 > The majority of you spent between one and two hours.  In some of
   the longer cases, it seems like you were also counting the
   syllabus reading and/or you attempted to write out answers to
-  all of the sel checks.
+  all of the self checks.
 
 > Keep me posted if you regularly spend more than an hour.  We can
   look at ways to make you more efficient.
@@ -323,9 +330,26 @@ Lab 1: Setting up Linux
 It's in the schedule.  Each person will do this separately, with the
 other person helping.
 
+If Firefox doesn't start, we need to edit the launcher to use
+`firefox` instead of `firefox-esr %u`.
+
 Lab 2: Learning Scheme
 ----------------------
 
-You'll most of this lab collaboratively.
+* You'll most of the second lab collaboratively.
+* However, setup needs to be individual, so each of you will do the
+  first lab individually, first one person and then the other.
+* We'll be around to help.  At least I think we will.  Sam is panicking
+  about various things right now.
+* If the lab runs long, don't worry; we'll come back to it next class.
 
+Debrief, if time
+----------------
+
+* The origin of the short and long versions.  My colleagues who first
+  taught the course wrote the long versions (or at least the original
+  versions of the long versions).  When I started teaching, I decided
+  you might do better with short instructions.  But it's a nice
+  example of different ways of thinking about writing 
+  algorithms/instructions.
 

@@ -1,5 +1,5 @@
 ---
-title: "EBoard 02 (Section 1): The Lab Equipment (aka MathLAN and DrRacket)"
+title: "EBoard 02 (Section 2): The Lab Equipment (aka MathLAN and DrRacket)"
 number: 2
 section: eboards
 held: 2022-01-24
