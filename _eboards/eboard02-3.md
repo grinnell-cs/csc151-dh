@@ -1,11 +1,13 @@
 ---
-title: "EBoard 02 (Section 1): The Lab Equipment (aka MathLAN and DrRacket)"
+title: "EBoard 02 (Section 3): The Lab Equipment (aka MathLAN and DrRacket)"
 number: 2
 section: eboards
-held: 2022-01-24
+held: 2022-01-26
 link: true
 ---
 # {{ page.title }}
+
+**You are being recorded.**
 
 _Getting started_
 
@@ -13,29 +15,29 @@ _Getting started_
 * Remember the name and location.
 * Drop the card back in the jar.
 * Navigate to the computer.
-* If you arrive first, start the lab.
+    * If you arrive first, clean the keyboard with a wipe and
+      then start the first lab.
 * When both partners arrive, introduce yourselves.
 
 _Approximate overview_
 
 * Administrative stuff; no attendance [10--15 min]
-* Debrief on Friday's activity [5--10 min]
+* Review Q&A from readings [10 min]
 * Set up for MathLAN, partner one [10 min]
 * Set up for MathLAN, partner two [5 min]
-* Lab [45 min]
+* Lab [40--45 min]
 
 Administrivia
 -------------
 
 ### Introductory notes
 
-* I'm still Sam (or SamR).  Our class mentors are still Cassandra and Quang.
+* I'm still Sam (or SamR).  Our class mentors are still Micah and Paul.
 * Yes, you will get regular "Spam from Sam" (or whatever you want to
-  call the approximately daily email mssages).
+  call the approximately daily email messages).
 * I've released "grades" for the first few folks who turned in the reading.
-    * Sam: Remember to demo on Gradescope.
-    * I also tried to release the parts of the surveys that I responded
-      to, but that didn't work.
+    * You should be able to see responses on Gradescope.
+    * I'll try to demo next class.
 * Please say your name when you ask or answer a question (even if I've
   just called you by name).
 
@@ -123,8 +125,12 @@ My least favorite comment, and one I thought I should respond to:
 
 ### Upcoming activities
 
-* Track and Field Saturday in the Field House.
-* Grinnell Quadrangular Febraury 5 at 1pm.
+* Track and Field Saturday in the Field House.  9am or so.  You
+  only need to show up for thirty minutes or so.
+
+No tokens, but still a good idea
+
+* Grinnell Quadrangular February 5 at 1pm.
 
 ### Upcoming work
 
@@ -140,15 +146,14 @@ My least favorite comment, and one I thought I should respond to:
       next class, since labs often build on each other.
     * Labs are generally due at 10:30 p.m. the night before the next 
       class.
-
-Observations from reading responses
------------------------------------
-
-* Just so you know, `+` and `*` can take more than two parameters.
-* We'll talk about `string-split` in the Q&A section.
+    * If you don't finish today's lab, you can just DM me.  (That policy
+      does not generally hold.)
 
 Questions on the readings
 -------------------------
+
+_Load this eboard, read through these, let me know if you have other
+questions or followup questions._
 
 What is that backwards apostrophe you keep typing?
 
@@ -309,6 +314,8 @@ Notes:
 
 Questions
 
+_None today._
+
 Debrief on Prior Class
 ----------------------
 
@@ -323,9 +330,15 @@ Lab 1: Setting up Linux
 It's in the schedule.  Each person will do this separately, with the
 other person helping.
 
+* Observations: If you have the lab up on the main computer, it's much
+  easier to copy and paste.
+
 Lab 2: Learning Scheme
 ----------------------
 
 You'll most of this lab collaboratively.
 
-
+* If you finish early, there are "If you finish early" questions.
+* If you finish those, do the reading for Friday.
+* If you don't finish the second lab, DM me on Teams with how far you got.
+  (You'll get full credit.)

@@ -1,11 +1,13 @@
 ---
-title: "EBoard 02 (Section 1): The Lab Equipment (aka MathLAN and DrRacket)"
+title: "EBoard 02 (Section 2): The Lab Equipment (aka MathLAN and DrRacket)"
 number: 2
 section: eboards
-held: 2022-01-24
+held: 2022-01-26
 link: true
 ---
 # {{ page.title }}
+
+_This class will be recorded unless there are objections._
 
 _Getting started_
 
@@ -13,13 +15,14 @@ _Getting started_
 * Remember the name and location.
 * Drop the card back in the jar.
 * Navigate to the computer.
-* If you arrive first, start the lab.
+* If you arrive first, use a wipe to clean the keyboard and mouse.
+  Then start the lab.
 * When both partners arrive, introduce yourselves.
 
 _Approximate overview_
 
 * Administrative stuff; no attendance [10--15 min]
-* Debrief on Friday's activity [5--10 min]
+* Debrief on Monday's activity [5--10 min]
 * Set up for MathLAN, partner one [10 min]
 * Set up for MathLAN, partner two [5 min]
 * Lab [45 min]
@@ -29,13 +32,10 @@ Administrivia
 
 ### Introductory notes
 
-* I'm still Sam (or SamR).  Our class mentors are still Cassandra and Quang.
+* I'm still Sam (or SamR).  Our class mentors are still Nameera and Hallie.
 * Yes, you will get regular "Spam from Sam" (or whatever you want to
-  call the approximately daily email mssages).
+  call the approximately daily email messages).
 * I've released "grades" for the first few folks who turned in the reading.
-    * Sam: Remember to demo on Gradescope.
-    * I also tried to release the parts of the surveys that I responded
-      to, but that didn't work.
 * Please say your name when you ask or answer a question (even if I've
   just called you by name).
 
@@ -123,8 +123,11 @@ My least favorite comment, and one I thought I should respond to:
 
 ### Upcoming activities
 
+* Grinnell Quadrangular February 5 at 1pm.
+
+No tokens
+
 * Track and Field Saturday in the Field House.
-* Grinnell Quadrangular Febraury 5 at 1pm.
 
 ### Upcoming work
 
@@ -140,6 +143,8 @@ My least favorite comment, and one I thought I should respond to:
       next class, since labs often build on each other.
     * Labs are generally due at 10:30 p.m. the night before the next 
       class.
+    * If you don't finish today's lab, message me on teams and it will
+      count as finishing.  (Today only offer.)
 
 Observations from reading responses
 -----------------------------------
@@ -149,6 +154,8 @@ Observations from reading responses
 
 Questions on the readings
 -------------------------
+
+_Skim these for about five minutes.  See if you have follow-up questions._
 
 What is that backwards apostrophe you keep typing?
 
@@ -283,7 +290,7 @@ What's the difference between `(string-length "a bb ccc dd e")` and
 
 > `map` with `string-length` works with each element of the list.
 
-> I'll try to demo this in DrRacket.
+> I'll try to demo this in DrRacket.  (Or not.)
 
 Can I nest parenthesized expressions?
 
@@ -309,8 +316,19 @@ Notes:
 
 Questions
 
+What's the apostrophe we type in DrRacket, such as in `(circle 5 'solid 'black)`.?
+
+> That apostrophe (tick mark) says "treat this verbatim, rather than as
+  a variable"
+
+Can you use quotation marks rather than ticks?  
+
+> In some cases, yes.  Definitely for images.
+
 Debrief on Prior Class
 ----------------------
+
+_We're skipping this._
 
 _Think/Pair/Share_
 
@@ -328,4 +346,7 @@ Lab 2: Learning Scheme
 
 You'll most of this lab collaboratively.
 
-
+* If you finish early, do the "If you finish early" problems.
+* If you finish those, start the reading for the next class.
+* If you don't finish, DM me (on Teams) to tell me how far you got.
+* We'll debrief a bit next class.
