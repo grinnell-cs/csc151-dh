@@ -176,29 +176,14 @@ With top-down design, rather than starting with `top-row` and `bottom-row`, we s
 We have identified that `circles` is a stack of two rows of images, so we know that the definition of `circles` will involve `above`.
 However, we have not defined `top-row` and `bottom-row` yet---what do we fill in for the arguments to `above`?
 
-The `csc151` library defines a special value `{??}` which represents a *hole* in our program yet-to-be filled in.
-`{??}` acts as a syntactically valid *placeholder*, reminding us that we should replace `{??}` with an eventual implementation.
+The `csc151` library defines a special value `???` which represents an undefined value in the program.
+`???` acts as a syntactically valid *placeholder*, reminding us that we should replace `???` with an eventual implementation.
 
-~~~racket
-; N.B., if you are following live, remove circles, top-row, and
-;       bottom-row from your source so you can try this out!
-(define circles
-  (above {??} {??}))
-~~~
-
-When run, our code produces the following error:
-
-~~~racket
-Hole encountered!  Fill me in!
-~~~
-
-And highlights the hole that it encountered in DrRacket, indicating that we still have work to do!
-Of course, we know the work that must be done already---we need to implement each row.
 Let's do that for `top-row` first.
 
 ~~~racket
 (define top-row
-  {??})
+  ???)
 ~~~
 
 Note that we can use our hole value as a placeholder to be able to write out the syntax of a define correctly and ensure that we get it right.
@@ -215,7 +200,7 @@ We can now fill in the corresponding hole in `circles`:
 
 ~~~racket
 (define circles
-  (above top-row {??}))
+  (above top-row ???))
 ~~~
 
 Finally, we can define `bottom-row` just like before and then complete the definition of `circles`:
