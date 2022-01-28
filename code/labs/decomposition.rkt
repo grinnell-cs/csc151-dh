@@ -154,7 +154,7 @@ or portions thereof.
 
 #|
 If you find that you have extra time, you should attempt the 
-following exercise.  You need not turn it in.
+following exercises.  You need not turn them in.
 |#
 
 #| B |#
@@ -201,3 +201,13 @@ triangles with a combination of `"solid"` and `"outline"` fills.
 
 (define sun-triangles 
   ???)
+
+; +------------------------------------+-----------------------------
+; | Extra 2: Expanding prior exercises |
+; +------------------------------------+
+
+#|
+Expand one of the ideas from a prior exercise.  Perhaps you'll add
+a door to the house, or some fruit to the trees, or bowties to the
+party people.  Have fun!
+|#
