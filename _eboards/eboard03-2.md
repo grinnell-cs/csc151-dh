@@ -15,7 +15,7 @@ _Getting started_
 * Navigate to the computer.
 * If you arrive first
     * Clean up your work area with a wipe.
-    * Start the lab.
+    * Log in, but don't start the lab.
 * When both partners arrive, introduce yourselves.
 
 _Approximate overview_
@@ -59,6 +59,7 @@ Administrivia
     * Ideally, you'll finish that in class today.
 * Mini-Project 1 due Thursday at 10:30 p.m.
     * We'll look at it.
+* Quiz 1 due tonight at 10:30 p.m.
 
 More introductory stuff
 -----------------------
@@ -172,3 +173,17 @@ Other Questions
 
 Lab
 ---
+
+Make sure to update DrRacket.
+
+Problems are labeled A and B.
+
+The partner closer to the front of the room is Partner A.  The partner
+further from the front of the room is Partner B.  Partner A should be
+at the keyboard for A problems.  Partner B should be at the keyboard
+for B problems.
+
+Make sure to grab the `decomposition.rkt` file.
+
+Make sure to submit after you've done exercise 3.
+

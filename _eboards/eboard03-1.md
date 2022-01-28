@@ -15,15 +15,15 @@ _Getting started_
 * Navigate to the computer.
 * If you arrive first
     * Clean up your work area with a wipe.
-    * Start the lab.
+    * Log in, but don't start the lab.
 * When both partners arrive, introduce yourselves.
 
 _Approximate overview_
 
 * Administrative stuff; still no attendance [10 min]
 * Bonus administrative stuff [10 min]
-* Questions [?? min]
 * A quick note from yesterday's lab [?? min]
+* Questions [?? min]
 * Lab
 
 Administrivia
@@ -59,6 +59,12 @@ Administrivia
     * Ideally, you'll finish that in class today.
 * Mini-Project 1 due Thursday at 10:30 p.m.
     * We'll look at it.
+* Quiz 1 due tonight at 10:30 p.m. (we'll talk about it more in a few min).
+
+### Upcoming Token-Generating Activities
+
+* Track and Field in Field House all day Saturday, starting at 9am.
+  (30 min of watching is enough)
 
 More introductory stuff
 -----------------------
@@ -82,7 +88,7 @@ More introductory stuff
   Fridays and they will be due at 10:30 p.m.  I would recommend that you
   do them after class.
 * Once you start a quiz, you have an hour to complete it.  You should
-  only need ten minutes.
+  only need fifteen minutes.
 * Quizzes are limited open book: You can refer to the course Web site,
   the Racket documentation, and your own notes.  You may also use
   DrRacket (and I'd encourage you to use DrRacket).  You may not
@@ -112,9 +118,10 @@ not to hear comments on sexual assault, for any reason, you can
 step out into the hall.  The mentors will call you back in when I'm
 done.
 
-*
-*
-*
+* For substances: Think in advance what is appropriate for you, and
+  stick to your choices.
+* Moderation in everything!  (Except sleep.)
+* Consent is essential.
 
 Fun With Math
 -------------
@@ -122,17 +129,19 @@ Fun With Math
 How did you check whether or not the square-root (`sqrt`) computation
 was correct?
 
-*
-*
-*
+* Checked it on a number you know.
+* Square the result and see if it's right.
+* Multiply the result and see if it's right.
+* Estimate and see if the estimate is close.
+* Check it on a different platform (e.g., paper, calculator, phone)
 
 Let's try a slightly different experiment.  (See demo in DrRacket.)
 
 Morals
 
-*
-*
-*
+* Look at results and consider whether they seem reasonable.
+  Don't just run code and say "Yup, that's fine.  It ran."
+* Sam is evil.
 
 Reading Questions
 -----------------
@@ -170,5 +179,21 @@ How do I make a smile?
 Other Questions
 ---------------
 
+_Not today._
+
 Lab
 ---
+
+Make sure to update DrRacket.
+
+Problems are labeled A and B.
+
+The partner closer to the front of the room is Partner A.  The partner
+further from the front of the room is Partner B.  Partner A should be
+at the keyboard for A problems.  Partner B should be at the keyboard
+for B problems.
+
+Make sure to grab the `decomposition.rkt` file.
+
+Make sure to submit after you've done exercise 3.
+
