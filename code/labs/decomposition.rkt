@@ -69,23 +69,24 @@ decomposition you identified.
 
 #| B |#
 
-; +-----------------------+------------------------------------------
-; | Exercise 2: A cottage |
-; +-----------------------+
+; +-------------------------+----------------------------------------
+; | Exercise 2: A landscape |
+; +-------------------------+
 
 #|
 Now, switch roles!  The navigator of the previous problem should
 become the driver.
 
-Now, try building a program that defines `cottage` as it appears in
-the lab handout.
+Now, try building a program that defines `landscape` as the image
+that appears in the lab handout.  (Two trees, a cottage, and two
+more trees.)
 
 Once again, use algorithmic decomposition to break down this image
 into smaller parts, using `define`s to explicitly name the smaller
 parts you identified.
 |#
 
-(define cottage 
+(define landscape
   ???)
 
 #| A |#
