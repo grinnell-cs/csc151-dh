@@ -142,9 +142,12 @@ upload the completed `decomposition.rkt` file to Gradescope for
 this lab.  Make sure that you upload you work as a group assignment
 and that you include your partner in the submission!  
 
-Don't forget to check the autograder results.  If you get errors
-from the autograder, you should discuss them with one of the class
-staff (or you can try to resolve them yourself).
+Don't forget to check the autograder results.  Note that the
+autograder gives 0.999 rather than 1 if you get everything 
+correct.
+
+If you get errors from the autograder, you should discuss them with
+one of the class staff (or you can try to resolve them yourself).
 
 You should also check to make sure that the file looks readable.
 (It usually does, but there are times that Racket does strange
