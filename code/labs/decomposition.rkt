@@ -128,6 +128,8 @@ image appropriately with `define`s.
 (define falling-dominoes 
   ???)
 
+#| AB |#
+
 ; +---------------------+--------------------------------------------
 ; | Submitting your lab |
 ; +---------------------+
@@ -156,6 +158,8 @@ things to your file.  In such cases, ask the class staff for help.)
 Finally, we would also recommend that you use Teams or email to
 exchange files or portions thereof.
 |#
+
+#| AB |#
 
 ; +---------------------------+--------------------------------------
 ; | For those with extra time |
@@ -210,6 +214,8 @@ triangles with a combination of `"solid"` and `"outline"` fills.
 
 (define sun-triangles 
   ???)
+
+#| AB |#
 
 ; +------------------------------------+-----------------------------
 ; | Extra 2: Expanding prior exercises |
