@@ -140,12 +140,18 @@ Once you have all the exercises in your file, `decomposition.rkt`,
 it is now complete!  Finally, **_one_ member of your group** can
 upload the completed `decomposition.rkt` file to Gradescope for
 this lab.  Make sure that you upload you work as a group assignment
-and that you include your partner in the submission!  If you get
-errors from the autograder, you might want to discuss them with one
-of the class staff.
+and that you include your partner in the submission!  
 
-We would also recommend that you use Teams or email to exchange files
-or portions thereof.
+Don't forget to check the autograder results.  If you get errors
+from the autograder, you should discuss them with one of the class
+staff (or you can try to resolve them yourself).
+
+You should also check to make sure that the file looks readable.
+(It usually does, but there are times that Racket does strange
+things to your file.  In such cases, ask the class staff for help.)
+
+Finally, we would also recommend that you use Teams or email to
+exchange files or portions thereof.
 |#
 
 ; +---------------------------+--------------------------------------
