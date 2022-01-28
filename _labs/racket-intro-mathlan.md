@@ -408,7 +408,7 @@ We'll discuss these definitions---which define *variables*---in detail in a subs
     If not, try to identify the cause of your mistake.
     Ask your partner questions or ask the instructor!
 
-### Exercise 8: Image definitions
+### Exercise 8: Another image definition
 
 **Driver: A**
 
