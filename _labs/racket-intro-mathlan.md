@@ -302,7 +302,7 @@ Let's try using the definitions pane instead.
 
     ```
     ; The following definitions are taken from
-    ;   Curtsinger, C., Davis, J., Hamid, F., Klinge, T., Osera, P.M., Rebelsky, S.A, and Weinman, J. (2020).
+    ;   Curtsinger, C., Davis, J., Eikmeier, N., Hamid, F., Johnson, B., Klinge, T., Osera, P.M., Rebelsky, S.A, and Weinman, J. (2022).
     ;   An introduction to Racket and DrRacket.  Online document available at
     ;   _URL_.
     ```
@@ -353,21 +353,21 @@ We'll discuss these definitions---which define *variables*---in detail in a subs
     #lang racket
     (require 2htdp/image)
     ; shapes.rkt
-    ; A file from the first lab for CSC-151-NN Fall 2021 
+    ; A file from the first lab for CSC-151-NN SEMESTER
     ; Authors: 
-    ;   One Name
-    ;   Another Name
+    ;   STUDENT ONE
+    ;   STUDENT TWO
     ; Acknowledgements:
     ;   Any help you got
 
     (define blue-circle
-      {??})
+      ???)
 
     (define red-square
-      {??})
+      ???)
 
     (define black-rectangle
-      {??})
+      ???)
     ```
 
 3.  Click **Run** and make sure that each of those values is defined correctly.
@@ -408,7 +408,7 @@ We'll discuss these definitions---which define *variables*---in detail in a subs
     If not, try to identify the cause of your mistake.
     Ask your partner questions or ask the instructor!
 
-### Exercise 8: Image definitions
+### Exercise 8: Another image definition
 
 **Driver: A**
 
