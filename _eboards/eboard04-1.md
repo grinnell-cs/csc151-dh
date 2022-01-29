@@ -32,6 +32,9 @@ Administrivia
 
 ### Introductory notes
 
+* I expect you to show up to class unless you are ill  (or have an
+  appropriate conflict).  If you miss class, please notify me as
+  to why.
 * Please say your name when you ask or answer a question (even if I've
   just called you by name).
 * Don't forget that we have evening tutors available 7--10 p.m.
@@ -60,6 +63,10 @@ Administrivia
 ### Upcoming Token-Generating Activities
 
 * Swim meet Saturday.  (30 min of watching is enough)
+* CS Extras: The 4+1 (Undergrad to Grad) program in CS w/UIowa.
+  4 p.m., Thursday, 3 February 2022, Noyce 3821.
+
+### Other Upcoming Activities
 
 More introductory stuff
 -----------------------

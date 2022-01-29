@@ -83,7 +83,7 @@ More introductory stuff
   Fridays and they will be due at 10:30 p.m.  I would recommend that you
   do them after class.
 * Once you start a quiz, you have an hour to complete it.  You should
-  only need ten minutes.
+  only need fifteen minutes.
 * Quizzes are limited open book: You can refer to the course Web site,
   the Racket documentation, and your own notes.  You may also use
   DrRacket (and I'd encourage you to use DrRacket).  You may not
@@ -113,9 +113,12 @@ not to hear comments on sexual assault, for any reason, you can
 step out into the hall.  The mentors will call you back in when I'm
 done.
 
-*
-*
-*
+* Decide what is right for you; don't feel like you have to follow some
+  mythical Grinnellian norm.
+* What is right for you should be no more than moderation.
+  (You can go beyond moderatoin in sleep, but nothing else, not even
+  work for my class.)
+* CONSENT IS ESSENTIAL.
 
 Fun With Math
 -------------
@@ -123,17 +126,19 @@ Fun With Math
 How did you check whether or not the square-root (`sqrt`) computation
 was correct?
 
-*
-*
-*
+* Use Racket to multiply the square root by itself.
+* Do other roots, such as (sqrt 144)
+* Try it on a different device, such as a calculator (or pen and paper)
 
 Let's try a slightly different experiment.  (See demo in DrRacket.)
 
 Morals
 
-*
-*
-*
+* Think about multiple ways to check; don't always assume the result
+  in DrRacket is right.
+* Sam is evil.
+* Reflect in advance how you know an answer is right; "ballpark it" if
+  appropriate.
 
 Reading Questions
 -----------------

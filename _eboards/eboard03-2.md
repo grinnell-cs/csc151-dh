@@ -22,9 +22,9 @@ _Approximate overview_
 
 * Administrative stuff; still no attendance [10 min]
 * Bonus administrative stuff [10 min]
-* Questions [?? min]
 * A quick note from yesterday's lab [?? min]
-* Lab
+* Questions [?? min]
+* Lab [50 min]
 
 Administrivia
 -------------
@@ -61,6 +61,12 @@ Administrivia
     * We'll look at it.
 * Quiz 1 due tonight at 10:30 p.m.
 
+### Token-Generating Activities
+
+### Other good activities
+
+* Track and Field Saturday.  (Starts at 9:00 a.m. or so.)
+
 More introductory stuff
 -----------------------
 
@@ -83,7 +89,7 @@ More introductory stuff
   Fridays and they will be due at 10:30 p.m.  I would recommend that you
   do them after class.
 * Once you start a quiz, you have an hour to complete it.  You should
-  only need ten minutes.
+  only need fifteen minutes.
 * Quizzes are limited open book: You can refer to the course Web site,
   the Racket documentation, and your own notes.  You may also use
   DrRacket (and I'd encourage you to use DrRacket).  You may not
@@ -113,9 +119,10 @@ not to hear comments on sexual assault, for any reason, you can
 step out into the hall.  The mentors will call you back in when I'm
 done.
 
-*
-*
-*
+* Decide what is right you for you in terms of substance consumption;
+  do not given in to (imagined?) peer pressure or modelin.
+* Moderation in everything.  (Excess sleep is okay.)
+* Consent
 
 Fun With Math
 -------------
@@ -123,17 +130,24 @@ Fun With Math
 How did you check whether or not the square-root (`sqrt`) computation
 was correct?
 
-*
-*
-*
+* Use a different calculator to multiply the result by itself.
+* Try by hand.
+* Divide the original number by the square root to see if you get the
+  same number.
+* Multiply the number by itself.
+* Try computing the square root of another number whose square root
+  I know.
+* Square the number.
 
 Let's try a slightly different experiment.  (See demo in DrRacket.)
 
 Morals
 
-*
-*
-*
+* Sam is evil and will ocasionally make things work incorrectly.
+* Sometimes things don't work quite right
+    * You should find multiple ways to check (sometimes outside the computer)
+    * You should reflect on whether answers are reasonable.
+* It's important to think and check.
 
 Reading Questions
 -----------------
@@ -171,10 +185,21 @@ How do I make a smile?
 Other Questions
 ---------------
 
+How do I spend a token for a late submission?
+
+> It happens automatically, more of less. 
+
+> I'm not going to collect a token for a late reading right now.  (I will
+  later.)
+
+How much checking is enough?
+
+> Enough that you are satisfied.  We'll come back to this later.
+
 Lab
 ---
 
-Make sure to update DrRacket.
+Make sure to update csc151 library in DrRacket.
 
 Problems are labeled A and B.
 
@@ -186,4 +211,6 @@ for B problems.
 Make sure to grab the `decomposition.rkt` file.
 
 Make sure to submit after you've done exercise 3.
+
+Debrief: How did you choose the rotations?
 
