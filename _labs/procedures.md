@@ -4,8 +4,8 @@ summary: |
   We explore techniques for writing proceres in Racket.
 preimg: true
 notes: |
-  This took students more than seventy minutes.  I ended up making
-  it take two class days.
+  In Fall 2021, this took students more than seventy minutes.  I cut
+  back a bit in spring 2022.
 ---
 
 ## Syntax to remember
