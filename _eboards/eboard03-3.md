@@ -15,7 +15,7 @@ _Getting started_
 * Navigate to the computer.
 * If you arrive first
     * Clean up your work area with a wipe.
-    * Start the lab.
+    * Log in, but don't start the lab.
 * When both partners arrive, introduce yourselves.
 
 _Approximate overview_
@@ -23,8 +23,8 @@ _Approximate overview_
 * Administrative stuff; still no attendance [10 min]
 * Bonus administrative stuff [10 min]
 * Questions [?? min]
-* A quick note from yesterday's lab [?? min]
-* Lab
+* A quick note from yesterday's lab [10 min]
+* Lab [50 min]
 
 Administrivia
 -------------
@@ -59,6 +59,7 @@ Administrivia
     * Ideally, you'll finish that in class today.
 * Mini-Project 1 due Thursday at 10:30 p.m.
     * We'll look at it.
+* Quiz 1 due tonight at 10:30 p.m.
 
 More introductory stuff
 -----------------------
@@ -82,7 +83,7 @@ More introductory stuff
   Fridays and they will be due at 10:30 p.m.  I would recommend that you
   do them after class.
 * Once you start a quiz, you have an hour to complete it.  You should
-  only need ten minutes.
+  only need fifteen minutes.
 * Quizzes are limited open book: You can refer to the course Web site,
   the Racket documentation, and your own notes.  You may also use
   DrRacket (and I'd encourage you to use DrRacket).  You may not
@@ -112,9 +113,12 @@ not to hear comments on sexual assault, for any reason, you can
 step out into the hall.  The mentors will call you back in when I'm
 done.
 
-*
-*
-*
+* Decide what is right for you; don't feel like you have to follow some
+  mythical Grinnellian norm.
+* What is right for you should be no more than moderation.
+  (You can go beyond moderatoin in sleep, but nothing else, not even
+  work for my class.)
+* CONSENT IS ESSENTIAL.
 
 Fun With Math
 -------------
@@ -122,17 +126,19 @@ Fun With Math
 How did you check whether or not the square-root (`sqrt`) computation
 was correct?
 
-*
-*
-*
+* Use Racket to multiply the square root by itself.
+* Do other roots, such as (sqrt 144)
+* Try it on a different device, such as a calculator (or pen and paper)
 
 Let's try a slightly different experiment.  (See demo in DrRacket.)
 
 Morals
 
-*
-*
-*
+* Think about multiple ways to check; don't always assume the result
+  in DrRacket is right.
+* Sam is evil.
+* Reflect in advance how you know an answer is right; "ballpark it" if
+  appropriate.
 
 Reading Questions
 -----------------
@@ -172,3 +178,17 @@ Other Questions
 
 Lab
 ---
+
+Make sure to update DrRacket.
+
+Problems are labeled A and B.
+
+The partner closer to the front of the room is Partner A.  The partner
+further from the front of the room is Partner B.  Partner A should be
+at the keyboard for A problems.  Partner B should be at the keyboard
+for B problems.
+
+Make sure to grab the `decomposition.rkt` file.
+
+Make sure to submit after you've done exercise 3.
+

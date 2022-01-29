@@ -37,6 +37,10 @@
     - page: /readings/decomposition.html
   lab:
     - page: /labs/decomposition.html
+  eboards: 
+    - page: /eboards/eboard03-1.html
+    - page: /eboards/eboard03-2.html
+    - page: /eboards/eboard03-3.html
 
 - topic: Reading and writing procedures
   abbrev: procedures
