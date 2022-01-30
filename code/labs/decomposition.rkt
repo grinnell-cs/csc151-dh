@@ -1,6 +1,6 @@
 #lang racket
 
-; CSC 151 (Spring 2022)
+; CSC 151-NN (TERM)
 ; Lab: Decomposition 
 ; Authors: YOUR NAMES HERE
 ; Date: THE DATE HERE

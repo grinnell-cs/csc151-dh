@@ -189,7 +189,7 @@ We have a starting point.
 We know how to evaluate expressions.
 But expressions often involve variables.
 In Racket, we create variables (named values that don't really vary) using `define` statements.
-How should we mentally model `define` statements and the variables they define.
+How should we mentally model `define` statements and the variables they define?
 
 One easy way to think about them is in terms of a table that tells us what value to use for each variable.
 When we see a `define` statement, we first evaluate the expression and then we put the named and the value in the table.
@@ -240,6 +240,9 @@ What happens if we write an expression that involves a variable not in the table
     ; y is not in the table
     y: undefined
 ```
+
+Note that these tables are mostly a notational convenience, designed to make it easier for us to figure out the value of expressions when we're tracing.
+However, most programming languages, including Racket, also have a hidden form of table which basically does the same thing (that is, that associates values with variables names).
 
 ## Procedures and the substitutive model
 
@@ -292,12 +295,12 @@ We proceed as follows:
 All of this occurs in one step of evaluation and afterwards, we continue evaluation of the expression as normal.
 So the complete evaluation of our original expression is:
 
-~~~
+```
     (double (/ 10 2))
 --> (double    5)
 --> (* 2 5)
 --> 10
-~~~
+```
 
 While this rule is simple, it covers *all occurrences* of procedures we'll see in Racket!
 This is the beauty of a programming language at its core: a small set of rules governs a near, unimaginable set of behavior we can author in a computer program!
@@ -324,10 +327,12 @@ Assume the existence of the following Racket definitions:
 
 ~~~racket
 (define add-3
-  (lambda (x y z) (+ (+ x y) z)))
+  (lambda (x y z)
+    (+ (+ x y) z)))
 
 (define triple
-  (lambda (n) (add-3 n n n)))
+  (lambda (n)
+    (add-3 n n n)))
 ~~~
 
 With these definitions, give the step-by-step evaluation (*i.e.*, evaluation traces) for each of the following expressions.
@@ -339,3 +344,57 @@ Make sure to write down *all* steps of evaluation as required by our substitutiv
 3.  `(triple (+ 5 0.25))`
 
 Make sure to check your work by entering these expressions into Racket!
+
+## Q&A
+
+_These questions are gathered from reading responses._
+
+Does the table consist of multiple `(define ...)` definitions or of the ;comment with table [.. : ..]? Do we need to write the table for easier readiblity? Are define values not easy to read?
+
+> The table contains the results of the many `define` definitions.  I include it to remember all of the definitions in one place so that I don't have to go back and look.  Write it how you'd prefer.  
+
+Do we have to write the table?
+
+> I find it easier to keep track of what's going on if you write the table, but it's not strictly necessary.  I include the table, in part, because the Racket interpreter has a table behind the scenes.
+
+Could you explain how to define/use `add-3`?
+
+> `add3` is a procedure that takes three inputs, which we'll call `x`, `y`, and `z`.  If we pretend that addition only takes two parameters, we'll add `x` and `y`, and then add that result and `z`.
+
+> We say that it's a procedure with `(lambda (x y z) …)`.
+
+> We say "add `x` and `y`, and then add that result and `z`" with `(+ (+ x y) z)`.
+
+> Putting it all together, we get
+
+	(define add-3
+	  (lambda (x y z) 
+	    (+ (+ x y) z)))
+
+> If we evaluate/trace, say `(add-3 2 3 4)`, we substitute `2` for `x`, `3` for `y`, and `4` for `z` in the body.  We then evaluate with the normal strategy.
+
+	    (add-3 2 3 4)
+	--> (+ (+ 2 3) 4)
+	--> (+ 5 4)
+	--> 9
+
+In the fancier house example, I don't understand how the `overlay/align`
+doesn’t apply to both the door and the roof of the house. Only the
+door is aligned at the bottom center of the house, while the roof
+is above it. But both of their commands come after `(overlay/align
+"bottom" "center" ...)`.
+
+> `overlay-align` aligns images.  It does not delve into the pieces
+or components of the individual images.
+
+> In this case, the outermost `overlay-align` aligns the door (itself
+built with an `overlay/align`) and the house with roof (built with
+the `above`).
+
+I'm confused by what we call variables.  In `(define x 5)`, is the `x` the
+variable or the `5`?
+
+> The variable is the name.  In this case, `x`.  It's value is `5`.
+
+> In Racket, variables we created with `define` don't tend to vary.
+In other programming languages, variables do vary.

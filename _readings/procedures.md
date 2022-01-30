@@ -351,6 +351,28 @@ subtracts 2 from that number.
 Show the steps involved in computing `(square (subtract2 5))` and
 `(subtract2 (square 5))`.
 
+## Q&A
+
+_These are questions gathered from reading responses._
+
+Do we have to use they keyword `lambda` every time we want a procedure that takes in a parameter?
+
+> For now, yes.  In fact, you have to use `lambda` if you want a
+procedure with no parameters.  However, you will eventually learn
+other ways of writing procedures.  (You may also find other mechanisms
+online.  Don't use them.)
+
+I see that the Racket guide has a way to define procedures without using `lambda`.  Can I use that?
+
+> No. We'd like you to use `lambda`, at least for the time being.
+It will make other things easier.
+
+What would be the difference between a zero parameter procedure and defined variable?
+
+> Right now, the biggest difference between a zero-parameter procedure and a defined variable are that you use them differently.  The variable you use with its name; the procedure you put in parentheses.
+
+> Later in the semester, we'll see some differences.  One difference is when the associated code is executed.
+
 ## Acknowledgements
 
 This section draws upon [a reading entitled "Defining your own
