@@ -10,7 +10,7 @@ link: false
 _Getting started_
 
 **This will likely be the last day that I write the getting started
-instructions.**
+instructions.  You should know them by now.**
 
 * Grab a card.  The card will have a computer name and a location.
 * Remember the name and location.
@@ -39,8 +39,20 @@ Administrivia
   just called you by name).
 * Don't forget that we have evening tutors available 7--10 p.m.
   Sunday through Thursday, as well as 3--5 p.m. on Sunday.
-* Our mentors will be sending out a survey on times to hold review
-  sessions.
+* I've started to put reading questions in the readings themselves.
+  (Some questions that can't be associated with a particular reading
+  will still end up in the eboard.)
+* DM on Teams is usually a better way to reach me than email.
+* And yes, you can DM me questions when you have code that doesn't work.
+  (I received a "I don't know why my code isn't working.")  
+* You can also ask questions on Teams.
+* Times on the readings ranged from 30 minutes to two hours.  The folks
+  who are on the two-hour end might want to chat with me or a mentor
+  about how to read more efficiently.  (I'm not sure we'll have an answer,
+  but it's worth considering.)
+* Since enough of you are getting the readings done early, I'm moving
+  the due times to 10:00 p.m.  (I'll start/finish reading them before
+  then.)
 
 ### Racket notes
 
@@ -50,29 +62,133 @@ Administrivia
       the form of expressions)
     * You've learned some semantics (the meanings associated with
       the vocabulary; what it means to put parentheses around things)
-* It's good to take notes on languages!
+* It's good to take notes on languages!  The small cards are a nice
+  way for you to permit yourself to rearrange knowledge.
+* When tracing, show the current state of the expression at every
+  step.  E.g.,
+
+            (+ 3 (* 5 (/ 2 (- 10 5))))
+        --> (+ 3 (* 5 (/ 2 5)))
+        --> (+ 3 (* 5 2/5))
+        --> (+ 3 2)
+        --> 5
 
 ### Upcoming work
 
 * Readings for Wednesday due Tuesday at 8:00 p.m.
+    * Double-dagger problems are ...
 * Lab writeup from today due Tuesday at 10:30 p.m.
     * Ideally, you'll finish that in class today.
+    * If not, set up a time to meet with your partners.
 * Mini-Project 1 due Thursday at 10:30 p.m.
     * We'll look at it.
+* Friday's quiz will be on 
+
+### Sample Quiz
+
+* Some of you wrote incorrect Racket code.
+    * `(define name Sam)`
+    * `(define name ("Sam"))`
+    * `(define sam "Sam")`
+    * `(define (name "Sam"))`
+* Please check your code in DrRacket!
+* You don't need to write `#lang racket` and the `(require ...)`.
+
+### Quiz 1
+
+* The points of decomposition:
+    * Break things down as much as possible.
+    * Name things to clarify.
+    * Reuse to make changes easier.
+* I was a bit harsher in grading than normal.  For example, if you
+  decomposed into floors, but not also into windows, you did not
+  get credit.
+* You don't need to write `#lang racket` and the `(require ...)`.
+* Please DO NOT put your name in quizzes and SoLAs.  I like to grade
+  anonymously.
+* There are lots of ways to decompose this image.  I'll discuss
+  but won't post to the eboard.  (After all, I might give the
+  quiz to another class.)
+* Something to think about: If we decide to change the number of floors
+  or the number of windows on a floor, how many parts of your code will
+  we have to change?
 
 ### Upcoming Token-Generating Activities
 
-* Swim meet Saturday.  (30 min of watching is enough)
+* Men's Tennis 9am Saturday in the Field House.  (30 min of watching
+  is enough)
+* Swim meet Saturday at 1pm.  (30 min of watching is enough)
 * CS Extras: The 4+1 (Undergrad to Grad) program in CS w/UIowa.
   4 p.m., Thursday, 3 February 2022, Noyce 3821.
 
 ### Other Upcoming Activities
 
-More introductory stuff
------------------------
+* Men's Basketball Saturday at 1 p.m.
+* Women's Basketball Saturday at 3 p.m.
 
 Reading Questions
 -----------------
+
+_I've started putting answers to the reading questions in the readings.  These are ones that didn't naturally fit in a reading_
+
+What should I do when I come across an error in DrRacket that says
+something like "expects 4 arguments, only 3 provided"?
+
+> If DrRacket says "expects 4 arguments, only 3 provided", it means
+that you're calling a procedure that expects four arguments (e.g.,
+`rectangle`, which expects width, height, opacity, and color) and
+only giving it three (e.g., you've forgotten the opacity and typed
+`(rectangle 10 5 "blue")`).
+
+When using overlay/align how do I know what order I should put the commands like "center" then "bottom" or "left" then "center". The different places of "center" confuse me as it works sometimes as the first one in the string and other times it doesn't work.
+
+> The first parameter is the x (horizontal) alignment, the second the y (vertical).  Since can be aligned horizontally or vertically at the center, `"center"` is available for each.
+
+> More generally, you can experiment or read [the documentation](https://docs.racket-lang.org/teachpack/2htdpimage.html#%28def._%28%28lib._2htdp%2Fimage..rkt%29._overlay%2Falign%29%29)
+
+I don't understand the difference between function, procedure, and expression.
+
+> functions and procedures are basically algorithms (a set of
+instructions, with a name).
+
+> An expression is an instruction to compute a value, often using a function.
+
+Could you explain how to define add-3 a little more?
+
+> Sure.  `add3` is a procedure that takes one input, which we'll call `x`, and adds 3 to `x`.
+
+> To say "a procedure with one input, which we'll call `x`", we write `(lambda (x) …)`.
+
+> To say "add three to `x`", we write `(+ 3 x)`.
+
+> And we use `define` as we've used it in the past.
+
+> Putting everything together, we get
+
+        (define add-3
+          (lambda (x)
+            (+ 3 x)))
+
+> Whoops, that's the wrong `add-3`.
+
+> Let's try again.  `add3` is a procedure that takes three inputs, which we'll call `x`, `y`, and `z`.  If we pretend that addition only takes two parameters, we'll add `x` and `y`, and then add that result and `z`.
+
+> We say that it's a procedure with `(lambda (x y z) …)`.
+
+> We say "add `x` and `y`, and then add that result and `z`" with `(+ (+ x y) z)`.
+
+> Putting it all together, we get
+
+        (define add-3
+          (lambda (x y z) 
+            (+ (+ x y) z)))
+
+> If we evaluate/trace, say `(add-3 2 3 4)`, we substitute `2` for `x`, `3` for `y`, and `4` for `z` in the body.  We then evaluate with the normal strategy.
+
+            (add-3 2 3 4)
+        --> (+ (+ 2 3) 4)
+        --> (+ 5 4)
+        --> 9
 
 Other Questions
 ---------------
@@ -89,6 +205,6 @@ further from the front of the room is Partner B.  Partner A should be
 at the keyboard for A problems.  Partner B should be at the keyboard
 for B problems.
 
-Make sure to grab the `decomposition.rkt` file.  All the instructions
-are in the file.
+Make sure to grab the `procedures.rkt` file and put it into DrRacket.
+All the instructions are in the file.
 
