@@ -353,14 +353,14 @@ c.  As you may know, some modern artists, like Andy Warhol, achieved
 ; +-----------------------+
 
 #|
-It gets a bit boring to see our snowmen in white.  Of course, snowcones
+It gets a bit boring to see our snowpeople in white.  Of course, snowcones
 can be almost any color (depending on what type of syrup you add).
 
-Write a procedure, (snowconeman height color), that draws a snowman in 
-the given color with every circle outlined in black.
+Write a procedure, (snowconeperson height color), that draws a snowperson 
+in the given color with every circle outlined in black.
 |#
 
-(define snowconeman 
+(define snowconeperson
   (lambda (height color)
     ???))
 
