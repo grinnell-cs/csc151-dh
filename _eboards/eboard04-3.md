@@ -1,5 +1,5 @@
 ---
-title: "EBoard 04 (Section 1): Defining procedures"
+title: "EBoard 04 (Section 3): Defining procedures"
 number: 4
 section: eboards
 held: 2022-01-31
