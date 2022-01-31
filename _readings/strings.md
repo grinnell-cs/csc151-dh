@@ -427,7 +427,7 @@ a
 #\a
 ```
 
-### Check 2: Collating sequences
+### Check 2: Collating sequences (‡)
 
 As you may recall, Racket uses a *collating sequence* for the letters,
 assigning a sequence number to each letter. Many implementations of
