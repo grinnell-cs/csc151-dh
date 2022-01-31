@@ -94,7 +94,9 @@ Notes from the surveys
 
   or
 
-        --> (add-3 (+1 2) 4 5)
+        (define add3 (lambda (x y z) (+ (+ x y) z)))
+
+            (add-3 (+ 1 2) 4 5)
         --> (add-3 3 4 5)
         --> (+ (+ 3 4) 5)
         --> (+ 7 5)
@@ -107,15 +109,15 @@ procedures.
 ### Upcoming work
 
 * Readings for Wednesday due Tuesday at 10:00 p.m.
-    * Double-dagger problems are Numbers, Check 1; Collating Sequences,
-      Check 2; Symbols, Check 1.
+    * Double-dagger problems are Numbers, Check 1; Strings, Check 2; 
+      Symbols, Check 1.
 * Lab writeup from today due Tuesday at 10:30 p.m.
     * Ideally, you'll finish that in class today.
     * If not, set up a time to meet with your partners.
     * If that's not possible, finish (and submit) separately, but cite
       your partner.
 * Mini-Project 1 due Thursday at 10:30 p.m.
-    * On gradescope (soonish).
+    * On Gradescope (soonish).
 * Friday's quiz will be on procedural abstraction.
 
 ### Sample Quiz
@@ -155,12 +157,12 @@ procedures.
 * CS Extras: The 4+1 (Undergrad to Grad) program in CS w/UIowa.
   4 p.m., Thursday, 3 February 2022, Noyce 3821.
 * Swim meet Saturday at 1pm.  (30 min of watching is enough)
-
-### Other Upcoming Activities
-
 * Men's Tennis 9am and 5pm Saturday in the Field House.  (30 min of watching
   is enough)
 * Men's Basketball Saturday at 1 p.m.
+
+### Other Upcoming Activities
+
 * Women's Basketball Saturday at 3 p.m.
 
 Reading Questions
@@ -237,8 +239,6 @@ Where do I find the evening tutors?
 Lab
 ---
 
-Make sure to update the csc151 library.  (It's always good to check.)
-
 Problems are labeled A and B.
 
 The partner closer to the front of the room is Partner A.  The partner
@@ -246,6 +246,10 @@ further from the front of the room is Partner B.  Partner A should be
 at the keyboard for A problems.  Partner B should be at the keyboard
 for B problems.
 
-Make sure to grab the `procedures.rkt` file and put it into DrRacket.
+Make sure to introduce yourself to your partner.
+
+Make sure to update the csc151 library.  (It's always good to check.)
+
+Make sure to grab the `types.rkt` file and put it into DrRacket.
 All the instructions are in the file.
 

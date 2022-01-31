@@ -249,3 +249,5 @@ for B problems.
 Make sure to grab the `procedures.rkt` file and put it into DrRacket.
 All the instructions are in the file.
 
+If you have all the procedures done, but run out of time, it's okay if
+you have a few failed tests (but you should think about why they failed).
