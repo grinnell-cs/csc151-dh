@@ -101,14 +101,12 @@ a.
      (my-func-1 (+ 1 1) 5)
  --> ...
 |#
-(define example-expr-1 (my-func-1 (+ 1 1) 5))
 
 #| 
 b.
     (my-func-2 (my-func-2 (my-func-2 3)))
 --> ...
 |#
-(define example-expr-2 (my-func-2 (my-func-2 (my-func-2 3))))
 
 #| A |#
 
@@ -118,9 +116,9 @@ b.
 
 #|
 Driver: A
-Approximate time: Ten minutes
+Approximate time: Five to Ten minutes
 
-The previous exercises suggests an important maxim regarding functions
+The previous exercises might suggest an important maxim regarding functions
 and parameter names:
 
     The names of the parameters of a function don't matter.
@@ -136,12 +134,16 @@ definition of my-func-2:
 #|
 With your partner, use your mental model of computation to compare the
 behavior of my-func-2 and my-func-2-alt and in a few sentences, explain
-what the maxim presented above means.  Write your explanation in the space
-below:
+what the maxim presented above means.  E.g., you might consider
 
+    (my-func-2-alt (my-func-2-alt (my-func-2-alt 3)))
 
+and compare the evaluation.
 
-<TODO: fill in the explanation here!>
+Write your explanation in the space below:
+
+...
+
 |#
 
 #| A |#
@@ -172,10 +174,10 @@ You need not submit anything for this part of the exercise.
 
 #|
 b.  The original simple-house procedure does not color the house.
-Write a new procedure, (painted-house size color) in the space
-below, that takes both the size and color as parameters and makes
-a house of that specified size whose main body is in the specified
-color.  (The roof should remain red.)
+Write a new procedure, (painted-house size color), in the space
+below.  The procedure should take takes both the size and color as
+parameters and makes a house of that specified size whose main body
+is in the specified color.  (The roof should remain red.)
 
 Make sure to add a comment to painted-house that indicates you
 adapted this code from the reading.  We always credit our sources!
