@@ -45,7 +45,6 @@ Administrivia
 * DM on Teams is usually a better way to reach me than email.
 * And yes, you can DM me questions when you have code that doesn't work.
   (I received a "I don't know why my code isn't working.")  
-* You can also ask questions on Teams.
 * Times on the readings ranged from 30 minutes to two hours.  The folks
   who are on the two-hour end might want to chat with me, a mentor, or
   academic advising about how to read more efficiently.  (I'm not sure 
@@ -53,6 +52,8 @@ Administrivia
 * Since enough of you are getting the readings done early, I'm moving
   the due times to 10:00 p.m.  (I'll start/finish reading them before
   then.)
+* The autograder for today is brand new.  It may have bugs.
+* Make sure that the autograder runs correctly!
 
 Notes from the surveys
 
@@ -93,20 +94,28 @@ Notes from the surveys
 
   or
 
-            (add-3 3 4 5)
+        --> (add-3 (+1 2) 4 5)
+        --> (add-3 3 4 5)
         --> (+ (+ 3 4) 5)
         --> (+ 7 5)
         --> 12
 
+Note: We evaluate the parameters to procedures before we apply the
+procedure.  And that's for both built-in procedures and user-defined
+procedures.
+
 ### Upcoming work
 
-* Readings for Wednesday due Tuesday at 8:00 p.m.
+* Readings for Wednesday due Tuesday at 10:00 p.m.
     * Double-dagger problems are Numbers, Check 1; Collating Sequences,
       Check 2; Symbols, Check 1.
 * Lab writeup from today due Tuesday at 10:30 p.m.
     * Ideally, you'll finish that in class today.
     * If not, set up a time to meet with your partners.
+    * If that's not possible, finish (and submit) separately, but cite
+      your partner.
 * Mini-Project 1 due Thursday at 10:30 p.m.
+    * On gradescope (soonish).
 * Friday's quiz will be on procedural abstraction.
 
 ### Sample Quiz
@@ -128,6 +137,8 @@ Notes from the surveys
 * I was a bit harsher in grading than normal.  For example, if you
   decomposed into floors, but not also into windows, you did not
   get credit.
+    * Redos on quizzes/SoLAs are "a different problem on the same topic"
+    * And they happen on the next SoLA.
 * You don't need to include the `#lang racket` and the `(require ...)`
   in quizzes.
 * Please DO NOT put your name in quizzes and SoLAs.  I like to grade
@@ -141,14 +152,14 @@ Notes from the surveys
 
 ### Upcoming Token-Generating Activities
 
-* Men's Tennis 9am Saturday in the Field House.  (30 min of watching
-  is enough)
-* Swim meet Saturday at 1pm.  (30 min of watching is enough)
 * CS Extras: The 4+1 (Undergrad to Grad) program in CS w/UIowa.
   4 p.m., Thursday, 3 February 2022, Noyce 3821.
+* Swim meet Saturday at 1pm.  (30 min of watching is enough)
 
 ### Other Upcoming Activities
 
+* Men's Tennis 9am and 5pm Saturday in the Field House.  (30 min of watching
+  is enough)
 * Men's Basketball Saturday at 1 p.m.
 * Women's Basketball Saturday at 3 p.m.
 
@@ -219,10 +230,14 @@ Could you explain how to define add-3 a little more?
 Other Questions
 ---------------
 
+Where do I find the evening tutors?
+
+> They should be in 3813 or 3815, with a flag by them to identify themselves.
+
 Lab
 ---
 
-Make sure to update DrRacket.
+Make sure to update the csc151 library.  (It's always good to check.)
 
 Problems are labeled A and B.
 
