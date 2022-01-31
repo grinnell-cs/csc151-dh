@@ -335,7 +335,7 @@ checkerboard.  That is, squares per row and 8 squares per column
 
 ; Note: checkerboard is a value, not a procedure.  No lambda should
 ; be necessary.
-(define checkerboad
+(define checkerboard
   ???)
 
 #|
