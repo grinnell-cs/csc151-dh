@@ -53,6 +53,21 @@ Administrivia
 * Since enough of you are getting the readings done early, I'm moving
   the due times to 10:00 p.m.  (I'll start/finish reading them before
   then.)
+* Note: Everything correct on a mini-project will earn you an M, not
+  an E.  E has to be exemplary/exceptional.  Correct is not exceptional.
+* I had not appropriately anticipated the grading load of 80+ students.
+  I have not responded to all of the questions on the two surveys, but
+  I've done a bunch.  (Gradescope requires me to respond to them all
+  for you to see the results.)
+* Collaboration
+    * No on quizzes and SoLAs.
+    * Yes on everything else.  
+    * But you should cite.
+    * For MPs: Helping and discussing is fine, but don't strictly work
+      together.
+* Just so you know, you are generally welcome to get help from evening
+  tutors, mentors from any of the three sections, peers, and, of course,
+  me.  YouTube, on the other hand, is probably not the best recource.
 
 ### Racket notes
 
