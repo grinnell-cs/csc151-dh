@@ -282,6 +282,16 @@ e. Wait for the autograder results to make sure that you met the
    basic goals.
 |#
 
+; +---------------------------+--------------------------------------
+; | For those with extra time |
+; +---------------------------+
+
+#|
+If you find that you have extra time, you should try one or more of
+the following exercises.  We would recommend that you start with
+Extra 1, which reveals some important ideas.
+|#
+
 ; +----------------------------+-------------------------------------
 ; | Extra 1: Grids and circles |
 ; +----------------------------+
@@ -338,8 +348,24 @@ c.  As you may know, some modern artists, like Andy Warhol, achieved
   (lambda (color)
     ???))
 
+; +-----------------------+------------------------------------------
+; | Extra 2: Snowcone-men |
+; +-----------------------+
+
+#|
+It gets a bit boring to see our snowmen in white.  Of course, snowcones
+can be almost any color (depending on what type of syrup you add).
+
+Write a procedure, (snowconeman height color), that draws a snowman in 
+the given color with every circle outlined in black.
+|#
+
+(define snowconeman 
+  (lambda (height color)
+    ???))
+
 ; +-----------------------------------+------------------------------
-; | Extra 2: Smiling faces, sometimes |
+; | Extra 3: Smiling faces, sometimes |
 ; +-----------------------------------+
 
 #|
@@ -355,7 +381,7 @@ TODO: fill in the definition of smiley-face
     (circle 100 'solid "yellow")))
 
 ; +-----------------------+------------------------------------------
-; | Extra 3: More tracing |
+; | Extra 4: More tracing |
 ; +-----------------------+
 
 #|
@@ -366,4 +392,55 @@ one more function call.
 --> ...
 |#
 (define example-expr-3 (my-func-3 11))
+
+; +-------------------------+----------------------------------------
+; | Extra 5: Counting words |
+; +-------------------------+
+
+#|
+As you may recall, we used the following code to count the number
+of words in a string.
+|#
+
+;;; (count-words str) -> integer?
+;;;    str : string
+;;; Determine approximately how many "words" appear in the
+;;; given string.
+(define count-words
+  (lambda (str)
+    (length (string-split str " "))))
+
+#|
+a.  Check the behavior of count-words on a few inputs.  Copy and paste
+your experiments here.
+
+...
+|#
+
+#|
+b. In your own words, explain how count-words works.
+
+...
+|#
+
+; +---------------------------+--------------------------------------
+; | Extra 6: Counting letters |
+; +---------------------------+
+
+#|
+Using a lambda, write a procedure, (count-letter str letter), that counts how many times the letter appears in str. For example:
+
+    > (count-letter "The vorpal sword went snicker snack" "o")
+    2
+    > (count-letter "The vorpal sword went snicker snack" "s")
+    3
+    > (count-letter "The vorpal sword went snicker snack" "z")
+    0
+
+(Hint: Think about the definition of count-words.)
+|#
+
+(define count-letter
+  (lambda (str letter)
+    ???))
 
