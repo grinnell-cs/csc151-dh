@@ -51,60 +51,6 @@ Remember to employ good pair programming practices as discussed in the [previous
 **All of the instructions are in the file.  Switch to that now.**
 {% endif %}
 
-## Additional practice
-
-If you find that you complete the laboratory with time to spare, you might consider doing one or more of the following exercises.
-
-### Snowmen, revisited
-
-As you may have noted, your `colorful-snowman` procedure from the lab creates an invisible snowman if the color is white.
-Write a new procedure, `(better-snowman height color)` that draws a snowman in the given color with every circle outlined in black.
-
-### Counting words
-
-As you may recall, we used the following code to count the number of words in a string.
-
-```
-;;; Procedure:
-;;;   count-words
-;;; Parameters:
-;;;   str, a string
-;;; Purpose:
-;;;   Determine how many words appear in string.
-;;; Produces:
-;;;   count, a non-egative integer.
-;;; Preconditions:
-;;;   [No additional]
-;;; Postconditions:
-;;;   count represents the number of words in the string.
-;;;   Note that a "word" is any sequence of characters separated
-;;;   by a space.
-(define count-words
-  (lambda (str)
-    (length (string-split str " "))))
-```
-
-{:type="a"}
-1.  In your own words, explain how `count-words` works.
-2.  Check the behavior of `count-words` on a few inputs.
-
-### Counting letters
-
-Using a lambda, write a procedure, `(count-letter str letter)`, that counts how many times the letter appears in `str`.
-For example:
-
-```drracket
-> (count-letter "The vorpal sword went snicker snack" "o")
-2
-> (count-letter "The vorpal sword went snicker snack" "s")
-3
-> (count-letter "The vorpal sword went snicker snack" "z")
-0
-```
-
-(_Hint_: Think about the definition of `count-words`.)
-
-
 ## Acknowledgements
 
 The checkerboard example comes from a very old version of CSC 151.
