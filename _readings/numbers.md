@@ -394,7 +394,7 @@ toward zero.
 
 ## Self Checks
 
-### Check 1: Exploring exponentiation
+### Check 1: Exploring exponentiation (‡)
 
 In the examples above, we gave a wide variety of examples of the `expt`
 procedure in action.  Each was intended to reveal something different

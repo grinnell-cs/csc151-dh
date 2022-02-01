@@ -91,7 +91,7 @@ distinction will become natural.
 
 ## Self checks
 
-### Check 1: Uses of symbols
+### Check 1: Uses of symbols (‡)
 
 We've identified `'solid` as a symbol we've used already.  Identify
 a few others.
