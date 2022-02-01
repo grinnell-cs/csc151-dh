@@ -431,24 +431,3 @@ b. In your own words, explain how count-words works.
 ...
 |#
 
-; +---------------------------+--------------------------------------
-; | Extra 6: Counting letters |
-; +---------------------------+
-
-#|
-Using a lambda, write a procedure, (count-letter str letter), that counts how many times the letter appears in str. For example:
-
-    > (count-letter "The vorpal sword went snicker snack" "o")
-    2
-    > (count-letter "The vorpal sword went snicker snack" "s")
-    3
-    > (count-letter "The vorpal sword went snicker snack" "z")
-    0
-
-(Hint: Think about the definition of count-words.)
-|#
-
-(define count-letter
-  (lambda (str letter)
-    ???))
-
