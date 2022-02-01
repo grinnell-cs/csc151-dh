@@ -252,7 +252,13 @@ the top hat.
 d.  From the prior exercise, you might have realized that top hats
 are universal and should be applicable to any image you can think
 of.  Define a function (add-top-hat width height image) that places
-a top hat on the given size above the provided image.
+a top hat on the given size above the provided image.  
+
+For example, `(add-top-hat 20 10 (circle 20 'solid 'blue))` will
+add a top hat that is twenty units wide and ten units h igh to a
+circle of radius 10 and `(addtop-hat 20 30 (snowperson-revisited 50))`
+will had a top had that is 20 units wide and 30 units high to the
+top of a 50-unit-high snowperson.
 |#
 
 (define add-top-hat
