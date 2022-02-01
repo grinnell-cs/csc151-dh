@@ -29,14 +29,18 @@ Administrivia
 * Use Ctrl-I to reindent.  Understanding indentation will help you
   find some problems, particularly with regard to number of parameters
   and parenthesization.
+* Remember that "How do you know your answer is right?"  Many of you
+  neglected to check whether `snowman-revisited` is the right height.
+  (Or other procedures.)
 * It would be nice if you decomposed in your procedures, which is
   why we had the `top-hat` procedure in the lab, but we understand
   that it will take a little time to get used to it.
     * `fancy-house` should probably call `painted-house` and
-      `door` procedures.
+      `door` procedures, especially since you'd already written
+      `painted-house`.
     * `snowman-with-hat` should probably call ...
-* Think about reusing your prior code.  Could you define 
-  `(snowperson-revisited height)` in terms of `(snowperson size)`?
+* There are other ways to think about reusing your prior code.  Could 
+  you define `(snowperson-revisited height)` in terms of `(snowperson size)`?
 
         (define snowperson
           (lambda (size)
@@ -51,7 +55,8 @@ Administrivia
 
 * For S/N, S is 1 and N is 0.
 * For E/M/R/I, E is 3, M is 2, R is 1, N is 0.
-* For both, ignore the autograder part.
+* For everything, ignore the autograder computations (other than to see
+  what you might have had problems with).
 * We'll look at how you check grades on Gradescope.
 
 ### Upcoming work
@@ -92,6 +97,11 @@ _I've started putting answers to the reading questions in the readings.  These a
 Other Questions
 ---------------
 
+How do I do Ctrl-uparrow on a Mac?
+
+> Esc-P ("previous").  You can also use Esc-N if you've gone back too far.
+  We normally hit the escape and the letter in sequence.
+
 Lab
 ---
 
@@ -106,7 +116,7 @@ further from the front of the room is Partner B.  Partner A should be
 at the keyboard for A problems.  Partner B should be at the keyboard
 for B problems.
 
-Make sure to grab the `procedures.rkt` file and put it into DrRacket.
+Make sure to grab the `???.rkt` file and put it into DrRacket.
 All the instructions are in the file.
 
 If you don't finish in time, either (a) set up a time to meet with your

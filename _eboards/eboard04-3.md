@@ -54,15 +54,16 @@ Administrivia
   then.)
 * The autograder for today is brand new.  It may have bugs.
 * Make sure that the autograder runs correctly!
+    * A few errors are okay, but make sure you know why you have errors.
 
 Notes from the surveys
 
-* Note: Everything correct on a mini-project will earn you an M, not
-  an E.  E has to be exemplary/exceptional.  Correct is not exceptional.
 * I had not appropriately anticipated the grading load of 80+ students.
   I have not responded to all of the questions on the two surveys, but
   I've done a bunch.  (Gradescope requires me to respond to them all
   for you to see the results.)
+* Note: Everything correct on a mini-project will earn you an M, not
+  an E.  E has to be exemplary/exceptional.  Correct is not exceptional.
 * Collaboration
     * No on quizzes and SoLAs.
     * Yes on everything else.  
@@ -94,7 +95,8 @@ Notes from the surveys
 
   or
 
-        --> (add-3 (+1 2) 4 5)
+        (define add-3 (lambda (x y z) (+ (+ x y) z)))
+            (add-3 (+ 1 2) 4 5)
         --> (add-3 3 4 5)
         --> (+ (+ 3 4) 5)
         --> (+ 7 5)
@@ -106,9 +108,10 @@ procedures.
 
 ### Upcoming work
 
+* Fill out the mentor session form.
 * Readings for Wednesday due Tuesday at 10:00 p.m.
-    * Double-dagger problems are Numbers, Check 1; Collating Sequences,
-      Check 2; Symbols, Check 1.
+    * Double-dagger problems are Numbers, Check 1; Strings, Check 2; 
+      Symbols, Check 1.
 * Lab writeup from today due Tuesday at 10:30 p.m.
     * Ideally, you'll finish that in class today.
     * If not, set up a time to meet with your partners.
@@ -233,6 +236,14 @@ Other Questions
 Where do I find the evening tutors?
 
 > They should be in 3813 or 3815, with a flag by them to identify themselves.
+
+Is there a nice way to do put eight floors above each other in Racket
+other than listing them?
+
+> Yes, but not with things you know yet. 
+  `(apply above (make-list 8 floor))`.  
+  We'll be covering those ideas soon. ("soon" is "in class on February
+  11 and 14").
 
 Lab
 ---
