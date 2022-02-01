@@ -101,14 +101,12 @@ a.
      (my-func-1 (+ 1 1) 5)
  --> ...
 |#
-(define example-expr-1 (my-func-1 (+ 1 1) 5))
 
 #| 
 b.
     (my-func-2 (my-func-2 (my-func-2 3)))
 --> ...
 |#
-(define example-expr-2 (my-func-2 (my-func-2 (my-func-2 3))))
 
 #| A |#
 
@@ -118,9 +116,9 @@ b.
 
 #|
 Driver: A
-Approximate time: Ten minutes
+Approximate time: Five to Ten minutes
 
-The previous exercises suggests an important maxim regarding functions
+The previous exercises might suggest an important maxim regarding functions
 and parameter names:
 
     The names of the parameters of a function don't matter.
@@ -136,12 +134,16 @@ definition of my-func-2:
 #|
 With your partner, use your mental model of computation to compare the
 behavior of my-func-2 and my-func-2-alt and in a few sentences, explain
-what the maxim presented above means.  Write your explanation in the space
-below:
+what the maxim presented above means.  E.g., you might consider
 
+    (my-func-2-alt (my-func-2-alt (my-func-2-alt 3)))
 
+and compare the evaluation.
 
-<TODO: fill in the explanation here!>
+Write your explanation in the space below:
+
+...
+
 |#
 
 #| A |#
@@ -172,10 +174,10 @@ You need not submit anything for this part of the exercise.
 
 #|
 b.  The original simple-house procedure does not color the house.
-Write a new procedure, (painted-house size color) in the space
-below, that takes both the size and color as parameters and makes
-a house of that specified size whose main body is in the specified
-color.  (The roof should remain red.)
+Write a new procedure, (painted-house size color), in the space
+below.  The procedure should take takes both the size and color as
+parameters and makes a house of that specified size whose main body
+is in the specified color.  (The roof should remain red.)
 
 Make sure to add a comment to painted-house that indicates you
 adapted this code from the reading.  We always credit our sources!
@@ -250,7 +252,13 @@ the top hat.
 d.  From the prior exercise, you might have realized that top hats
 are universal and should be applicable to any image you can think
 of.  Define a function (add-top-hat width height image) that places
-a top hat on the given size above the provided image.
+a top hat on the given size above the provided image.  
+
+For example, `(add-top-hat 20 10 (circle 20 'solid 'blue))` will
+add a top hat that is twenty units wide and ten units h igh to a
+circle of radius 10 and `(addtop-hat 20 30 (snowperson-revisited 50))`
+will had a top had that is 20 units wide and 30 units high to the
+top of a 50-unit-high snowperson.
 |#
 
 (define add-top-hat
@@ -333,7 +341,7 @@ checkerboard.  That is, squares per row and 8 squares per column
 
 ; Note: checkerboard is a value, not a procedure.  No lambda should
 ; be necessary.
-(define checkerboad
+(define checkerboard
   ???)
 
 #|
@@ -353,14 +361,14 @@ c.  As you may know, some modern artists, like Andy Warhol, achieved
 ; +-----------------------+
 
 #|
-It gets a bit boring to see our snowmen in white.  Of course, snowcones
+It gets a bit boring to see our snowpeople in white.  Of course, snowcones
 can be almost any color (depending on what type of syrup you add).
 
-Write a procedure, (snowconeman height color), that draws a snowman in 
-the given color with every circle outlined in black.
+Write a procedure, (snowconeperson height color), that draws a snowperson 
+in the given color with every circle outlined in black.
 |#
 
-(define snowconeman 
+(define snowconeperson
   (lambda (height color)
     ???))
 
@@ -422,25 +430,4 @@ b. In your own words, explain how count-words works.
 
 ...
 |#
-
-; +---------------------------+--------------------------------------
-; | Extra 6: Counting letters |
-; +---------------------------+
-
-#|
-Using a lambda, write a procedure, (count-letter str letter), that counts how many times the letter appears in str. For example:
-
-    > (count-letter "The vorpal sword went snicker snack" "o")
-    2
-    > (count-letter "The vorpal sword went snicker snack" "s")
-    3
-    > (count-letter "The vorpal sword went snicker snack" "z")
-    0
-
-(Hint: Think about the definition of count-words.)
-|#
-
-(define count-letter
-  (lambda (str letter)
-    ???))
 
