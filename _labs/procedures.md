@@ -4,8 +4,9 @@ summary: |
   We explore techniques for writing proceres in Racket.
 preimg: true
 notes: |
-  In Fall 2021, this took students more than seventy minutes.  I cut
-  back a bit in spring 2022.
+  In spring 2022, 60 minutes was not quite enough.  The lab may need
+  a bit more shortening.  Push students to go on to the coding problems
+  after about fifteen minutes.
 ---
 
 ## Syntax to remember
