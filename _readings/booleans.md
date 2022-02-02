@@ -547,7 +547,7 @@ Different situations will call for different choices between those strategies.
 
 ## Self checks
 
-### Exercise 1: Combining boolean values (‡)
+### Exercise 1: Combining boolean values
 
 Experience suggests that students understand `and` and `or` much better after a little general practice figuring out how they combine values. Fill in the following tables for each of the operations `and` and `or`. The third column of the table should be the value of `(and arg1 arg2)`{:.signature}, where *`arg1`* is the first argument and *`arg2`* is the second argument. The fourth column should be the value of `(or arg1 arg2)`{:.signature}.
 
