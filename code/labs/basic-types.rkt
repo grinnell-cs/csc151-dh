@@ -116,8 +116,6 @@ below.  **Do not use the interpreter yet!**
 
 > (remainder 8 3)
 <TODO: fill in the resulting value here>
-> (remainder 8 3)
-<TODO: fill in the resulting value here>
 > (remainder 3 8)
 <TODO: fill in the resulting value here>
 > (remainder 8 8)
@@ -136,7 +134,9 @@ below.  **Do not use the interpreter yet!**
 <TODO: fill in the resulting value here>
 > (remainder -9 8)
 <TODO: fill in the resulting value here>
-> (remainder -1 8)
+> (remainder -8 3)
+<TODO: fill in the resulting value here>
+> (remainder -3 8)
 <TODO: fill in the resulting value here>
 |#
 
@@ -173,7 +173,7 @@ Write your descriptions of each function in the spaces below:
 (round r): <TODO: insert your description here>
 
 When you are done, feel free to read the notes on this problem
-which can be found in the lab.
+which can be found in the lab page.
 |#
 
 ; +---------------------------+-------------------------------------
