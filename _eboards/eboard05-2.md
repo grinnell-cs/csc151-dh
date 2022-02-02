@@ -34,7 +34,7 @@ Administrivia
   find some problems, particularly with regard to number of parameters
   and parenthesization.
 * Remember that "How do you know your answer is right?"  Many of you
-  neglected to check whether `snowman-revisited` is the right height.
+  neglected to check whether `snowperson-revisited` is the right height.
   (Or other procedures.)
 * It would be nice if you decomposed in your procedures, which is
   why we had the `top-hat` procedure in the lab, but we understand
@@ -56,14 +56,16 @@ Administrivia
         ;;; (snowperson size) -> image?
         ;;;   size : positive-real?
         ;;; Make a snowperson whose base is size.
+        ;;; The height of this snowperson is (* 13/3 size)
+        ;;;   (a bit more than four times) (260/60) (26/6) (13/3)
         (define snowperson
           (lambda (size)
             (above (snowball (* 1/2 size))
                    (snowball (* 2/3 size))
                    (snowball size))))
 
-  If `size` is 60, we get snowballs of radii ?, ?, and ? 
-  (diameters ?, ?, and ?).  The total height would then be ?.  So we
+  If `size` is 60, we get snowballs of radii 30, 40, and 60.
+  (diameters 60, 80, and 120).  The total height would then be 260.  So we
   could define `snowperson-revisited` as
 
         ;;; (snowperson-revisited height) -> image?
@@ -71,8 +73,12 @@ Administrivia
         ;;; Create a snowperson of the specified height
         (define snowperson-revisited
           (lambda (height)
-            ???))
+            (snowperson (* 3/13 height)))) 
 
+* We could check the height by
+    * Doing math! (Didn't work when people misinterpreted circle.)
+    * Put a rectangle next to it.  Approximates.
+    * Use `image-height`.
 * This example illustrates part of the difference between correct (M)
   and exemplary (E).
 * It's also supposed to remind you to consider reusing prior procedures
@@ -93,6 +99,11 @@ Exact integers are stored exactly.  Inexact integers are approximated.  For larg
 We generally prefer exact numbers.  However, inexact numbers naturally
 crop up in our calculations.  There are also some storage and speed
 advantages to using inexact numbers.
+
+Inexact (approximated) numbers are always presented with a decimal
+point or an e or both.
+
+Most other programming languages don't support exact numbers.
 
 ### Notes on Strings in Racket
 
@@ -116,14 +127,6 @@ The collating sequence tells you what number corresponds to each letter
 precede the corresponding lowercase letters by exactly 32, or that the
 digit characters appear in order.  We'll use them for those kinds of
 reasons.
-
-### Gradescope notes
-
-* For S/N, S is 1 and N is 0.
-* For E/M/R/I, E is 3, M is 2, R is 1, N is 0.
-* For everything, ignore the autograder computations (other than to see
-  what you might have had problems with).
-* We'll look at how you check grades on Gradescope.
 
 ### Upcoming work
 
@@ -202,6 +205,8 @@ How do I do Ctrl-Uparrow on a Mac?
 Lab
 ---
 
+### Setup
+
 Make sure to update the csc151 library.  (It's always good to check.)
 
 Make sure to introduce yourself to your partner.
@@ -216,5 +221,16 @@ for B problems.
 Make sure to grab the `basic-types.rkt` file and put it into DrRacket.
 All the instructions are in the file.
 
-If you don't finish in time, either (a) set up a time to meet with your
-partner or (b) send a copy to your partner and plan to finish separately.
+### During Lab
+
+### Submitting
+
+Today is an **as far as you got is far enough** day.  When it's time 
+to submit, write 
+
+        ; THIS IS AS FAR AS WE GOT!  SAM SAID WE COULD STOP HERE.
+
+And then submit.  You should read through the rest of the lab, though.
+
+* If you can't click on the Lab link in Gradescope, it's a problem with
+  Firefox.  Try Google Chrome.
