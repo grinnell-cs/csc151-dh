@@ -246,8 +246,8 @@ have some underlying rationale.
 ### Roots and exponents
 
 As you've seen, Racket provides ways to compute the square root of a
-number, using `(sqrt` `x` `n)` and to compute "x to the n" using
-`(expt` `x` `n)`.  When given inexact inputs, both return inexact
+number, using `(sqrt x)` and to compute "x to the n" using
+`(expt x n)`.  When given inexact inputs, both return inexact
 results.  Both will provide an exact output if they are able to compute
 one and an inexact output otherwise.
 
@@ -283,7 +283,7 @@ one and an inexact output otherwise.
 > (expt 1+1i 4)
 -4
 > (expt 1.0+1.0i 4)
--4.0+0.0i
+-4.0+4.898587196589413e-16i
 ```
 
 ### Finding small and large values
@@ -425,3 +425,33 @@ h. `(expt 1+i 4)`
 i. `(expt 1.0+i 4)`
 ```
 
+## Q&A
+
+In the self-check, why is that both d and g have an exact base and an exact exponent, but only d has an exact result?
+
+> From what I understand, Racket does something different for square roots than for other kinds of fractional exponents.  So, while it "should" be able to get an exact value for the fifth root of 243, it does not.
+
+How important is it to be able to identify the type of output for numeric procedures?
+
+> It's important to know when you are moving from the world of exact answers to the world of approximated answers. Whenever possible, we try to stay in the world of exact numbers.
+
+What is the difference between an exact integer and an inexact integer? They seem to be the same thing but one has a .0 and one doesn't. 
+
+> Exact integers are stored exactly.  Inexact integers are approximated.  For large enough values, you'll see a difference.
+
+        > (expt 10.0 50)
+        1e+50
+        > (expt 10 50)
+        100000000000000000000000000000000000000000000000000
+        > (+ 1 (expt 10.0 50))
+        1e+50
+        > (+ 1 (expt 10 50))
+        100000000000000000000000000000000000000000000000001
+
+Is there a way to write mixed numbers to simplify large fractions
+and still return exact answers? I believe that I have seen 17 1/2
+returned as a mixed number result, but there wasn't a clear way to
+type it in as a single value.
+
+> If you write `35/2`, you'll get a mixed number back as a result.
+Unfortunately, I don't know a way for humans to write mixed numbers.

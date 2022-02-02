@@ -96,3 +96,9 @@ distinction will become natural.
 We've identified `'solid` as a symbol we've used already.  Identify
 a few others.
 
+## Q&A
+
+Are lists symbols?  They also use the tick mark.
+
+> No, lists are not symbols.  The tick mark means "take this verbatim".
+  For lists, the tick mark means "don't treat this as an expression".
