@@ -466,9 +466,20 @@ other languages to see if your technique still works!
 ; | Wrapping Up |
 ; +-------------+
 
-At this point, you should know how to prepare your work for submission and
-submit it to Gradescope.  Please call the result basic-types.rkt.
+#|
+Congratulations on finishing this lab!  To turn in your work:
+
+a. If you did this online with separate parts, combine the two parts of 
+   the assignment.
+b. Ensure that your combined file runs properly.
+c. Rename this file to `basic-types.rkt` (i.e., no -a or -b in the
+   name).
+d. Send this completed file to your partner for their records.
+e. Submit this final file to Gradescope.  Make sure, if appropriate,
+   to submit your work as a group submission and include your
+   partner in the submission.
 |#
+
 
 #| AB |#
 
