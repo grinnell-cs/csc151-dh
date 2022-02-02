@@ -61,9 +61,6 @@ Administrivia
             (above (snowball (* 1/2 size))
                    (snowball (* 2/3 size))
                    (snowball size))))
-                   (circle (* 1/2 size) 'outline 'black)
-                   (circle (* 2/3 size) 'outline 'black)
-                   (circle (* 1 size) 'outline 'black))))
 
   If `size` is 60, we get snowballs of radii ?, ?, and ? 
   (diameters ?, ?, and ?).  The total height would then be ?.  So we
@@ -114,14 +111,6 @@ The collating sequence tells you what number corresponds to each letter
 precede the corresponding lowercase letters by exactly 32, or that the
 digit characters appear in order.  We'll use them for those kinds of
 reasons.
-
-### Gradescope notes
-
-* For S/N, S is 1 and N is 0.
-* For E/M/R/I, E is 3, M is 2, R is 1, N is 0.
-* For everything, ignore the autograder computations (other than to see
-  what you might have had problems with).
-* We'll look at how you check grades on Gradescope.
 
 ### Upcoming work
 
@@ -194,6 +183,8 @@ How do I do Ctrl-uparrow on a Mac?
 
 > Esc-P ("previous").  You can also use Esc-N if you've gone back too far.
   We normally hit the escape and the letter in sequence.
+
+> Ctrl-Cmd-Uparrow also works
 
 Lab
 ---

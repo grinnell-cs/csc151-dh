@@ -18,6 +18,8 @@ Administrivia
 
 ### Introductory notes
 
+* I am not sure why recording is not working today; follow along on the
+  eboard.
 * Please say your name when you ask or answer a question (even if I've
   just called you by name).
 * Don't forget that we have evening tutors available 7--10 p.m.
@@ -30,9 +32,9 @@ Administrivia
 ### Racket notes / Debrief from last lab
 
 * Save early and often!  (insert obligatory joke)
-* Use Ctrl-I to reindent.  Understanding indentation will help you
-  find some problems, particularly with regard to number of parameters
-  and parenthesization.
+* Use Ctrl-I to reindent (Cmd-I on Mac).  Understanding indentation 
+  will help you find some problems, particularly with regard to number 
+  of parameters and parenthesization.
 * Remember that "How do you know your answer is right?"  Many of you
   neglected to check whether `snowman-revisited` is the right height.
   (Or other procedures.)
@@ -51,30 +53,31 @@ Administrivia
         ;;; Make a snowball of the given size.
         (define snowball
           (lambda (size)
-            (circle size 'outline 'black)))
+            (overlay (circle size 'outline 'black)
+                     (circle size 'solid 'grey))))
 
         ;;; (snowperson size) -> image?
         ;;;   size : positive-real?
         ;;; Make a snowperson whose base is size.
+        ;;; Height is 260/60 or 26/6 or 13/3 * size
         (define snowperson
           (lambda (size)
             (above (snowball (* 1/2 size))
                    (snowball (* 2/3 size))
                    (snowball size))))
-                   (circle (* 1/2 size) 'outline 'black)
-                   (circle (* 2/3 size) 'outline 'black)
-                   (circle (* 1 size) 'outline 'black))))
 
-  If `size` is 60, we get snowballs of radii ?, ?, and ? 
-  (diameters ?, ?, and ?).  The total height would then be ?.  So we
+  If `size` is 60, we get snowballs of radii 30, 40, and 60 
+  (diameters 60, 80, and 120).  The total height would then be 260.  So we
   could define `snowperson-revisited` as
 
         (define snowperson-revisited
           (lambda (height)
-            ???))
+            (snowperson (* 13/3 height))))
 
 * This example illustrates part of the difference between correct (M)
   and exemplary (E).
+* Once you've written a procedure, think of how it would simplify your
+  life in future computations.
 
 ### Notes on Numbers in Racket
 
@@ -195,8 +198,12 @@ How do I do Ctrl-uparrow on a Mac?
 > Esc-P ("previous").  You can also use Esc-N if you've gone back too far.
   We normally hit the escape and the letter in sequence.
 
+> Ctrl-Command-Uparrow also appears to work.
+
 Lab
 ---
+
+### Preparation 
 
 Make sure to update the csc151 library.  (It's always good to check.)
 
@@ -212,5 +219,11 @@ for B problems.
 Make sure to grab the `basic-types.rkt` file and put it into DrRacket.
 All the instructions are in the file.
 
-If you don't finish in time, either (a) set up a time to meet with your
-partner or (b) send a copy to your partner and plan to finish separately.
+### Stopping
+
+Today is an **as far as you got is far enough** day.  When it's time 
+to submit, write 
+
+        ; THIS IS AS FAR AS WE GOT!  SAM SAID WE COULD STOP HERE.
+
+And then submit.  You should read through the rest of the lab, though.

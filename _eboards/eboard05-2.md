@@ -61,20 +61,22 @@ Administrivia
             (above (snowball (* 1/2 size))
                    (snowball (* 2/3 size))
                    (snowball size))))
-                   (circle (* 1/2 size) 'outline 'black)
-                   (circle (* 2/3 size) 'outline 'black)
-                   (circle (* 1 size) 'outline 'black))))
 
   If `size` is 60, we get snowballs of radii ?, ?, and ? 
   (diameters ?, ?, and ?).  The total height would then be ?.  So we
   could define `snowperson-revisited` as
 
+        ;;; (snowperson-revisited height) -> image?
+        ;;;   height : positive-real?
+        ;;; Create a snowperson of the specified height
         (define snowperson-revisited
           (lambda (height)
             ???))
 
 * This example illustrates part of the difference between correct (M)
   and exemplary (E).
+* It's also supposed to remind you to consider reusing prior procedures
+  (agh!  more things for your memory or notes)
 
 ### Notes on Numbers in Racket
 
@@ -190,10 +192,12 @@ symbols as the primary mode, though.
 Other Questions
 ---------------
 
-How do I do Ctrl-uparrow on a Mac?
+How do I do Ctrl-Uparrow on a Mac?
 
 > Esc-P ("previous").  You can also use Esc-N if you've gone back too far.
   We normally hit the escape and the letter in sequence.
+
+> Ctrl-Cmd-Uparrow also works
 
 Lab
 ---
