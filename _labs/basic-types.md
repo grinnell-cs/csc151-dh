@@ -4,6 +4,10 @@ summary: |
   We explore some of the basic types that many implementations
   of Scheme, including Racket, support.  These include a variety 
   of numeric types, characters, strings, and symbols. 
+notes: |
+  In fifty minutes, most students only got through the numeric
+  problems.  This may need to be split.  (I allowed students
+  to stop early.)
 ---
 
 ## Useful functions and notation
