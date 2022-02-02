@@ -223,6 +223,13 @@ All the instructions are in the file.
 
 ### During Lab
 
+For `ones-digit-of`, think about which numeric procedures you've learned
+and how they might help.
+
+* `remainder`, `quotient`
+* `floor`, `ceiling`, `truncate`, `round`
+* ...
+
 ### Submitting
 
 Today is an **as far as you got is far enough** day.  When it's time 
@@ -230,7 +237,9 @@ to submit, write
 
         ; THIS IS AS FAR AS WE GOT!  SAM SAID WE COULD STOP HERE.
 
-And then submit.  You should read through the rest of the lab, though.
+And then submit.  
+
+**You should still read through the rest of the lab.**
 
 * If you can't click on the Lab link in Gradescope, it's a problem with
   Firefox.  Try Google Chrome.
