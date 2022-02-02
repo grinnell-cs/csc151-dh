@@ -1,5 +1,5 @@
 ---
-title: "EBoard 04 (Section 1): Defining procedures"
+title: "EBoard 04 (Section 3): Defining procedures"
 number: 4
 section: eboards
 held: 2022-01-31
@@ -54,15 +54,16 @@ Administrivia
   then.)
 * The autograder for today is brand new.  It may have bugs.
 * Make sure that the autograder runs correctly!
+    * A few errors are okay, but make sure you know why you have errors.
 
 Notes from the surveys
 
-* Note: Everything correct on a mini-project will earn you an M, not
-  an E.  E has to be exemplary/exceptional.  Correct is not exceptional.
 * I had not appropriately anticipated the grading load of 80+ students.
   I have not responded to all of the questions on the two surveys, but
   I've done a bunch.  (Gradescope requires me to respond to them all
   for you to see the results.)
+* Note: Everything correct on a mini-project will earn you an M, not
+  an E.  E has to be exemplary/exceptional.  Correct is not exceptional.
 * Collaboration
     * No on quizzes and SoLAs.
     * Yes on everything else.  
@@ -94,7 +95,8 @@ Notes from the surveys
 
   or
 
-        --> (add-3 (+1 2) 4 5)
+        (define add-3 (lambda (x y z) (+ (+ x y) z)))
+            (add-3 (+ 1 2) 4 5)
         --> (add-3 3 4 5)
         --> (+ (+ 3 4) 5)
         --> (+ 7 5)
@@ -106,9 +108,10 @@ procedures.
 
 ### Upcoming work
 
+* Fill out the mentor session form.
 * Readings for Wednesday due Tuesday at 10:00 p.m.
-    * Double-dagger problems are Numbers, Check 1; Collating Sequences,
-      Check 2; Symbols, Check 1.
+    * Double-dagger problems are Numbers, Check 1; Strings, Check 2; 
+      Symbols, Check 1.
 * Lab writeup from today due Tuesday at 10:30 p.m.
     * Ideally, you'll finish that in class today.
     * If not, set up a time to meet with your partners.
@@ -154,12 +157,12 @@ procedures.
 
 * CS Extras: The 4+1 (Undergrad to Grad) program in CS w/UIowa.
   4 p.m., Thursday, 3 February 2022, Noyce 3821.
-* Men's Tennis 9am and 5pm Saturday in the Field House.  (30 min of watching
-  is enough)
-* Swim meet Saturday at 1pm.  (30 min of watching is enough)
 
 ### Other Upcoming Activities
 
+* Men's Tennis 9am and 5pm Saturday in the Field House.  (30 min of watching
+  is enough)
+* Swim meet Saturday at 1pm.  (30 min of watching is enough)
 * Men's Basketball Saturday at 1 p.m.
 * Women's Basketball Saturday at 3 p.m.
 
@@ -234,6 +237,14 @@ Where do I find the evening tutors?
 
 > They should be in 3813 or 3815, with a flag by them to identify themselves.
 
+Is there a nice way to do put eight floors above each other in Racket
+other than listing them?
+
+> Yes, but not with things you know yet. 
+  `(apply above (make-list 8 floor))`.  
+  We'll be covering those ideas soon. ("soon" is "in class on February
+  11 and 14").
+
 Lab
 ---
 
@@ -249,5 +260,5 @@ for B problems.
 Make sure to grab the `procedures.rkt` file and put it into DrRacket.
 All the instructions are in the file.
 
-If you don't finish in time, either (a) set up a time to meet with your
-partner or (b) send a copy to your partner and plan to finish separately.
+If you have all the procedures done, but run out of time, it's okay if
+you have a few failed tests (but you should think about why they failed).
