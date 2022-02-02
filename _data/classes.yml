@@ -73,6 +73,10 @@
     - page: /readings/symbols.html
   lab:
     - page: /labs/basic-types.html
+  eboards: 
+    - page: /eboards/eboard05-1.html
+    - page: /eboards/eboard05-2.html
+    - page: /eboards/eboard05-3.html
 
 - topic: Booleans, predicates, and conditionals
   abbrev: booleans

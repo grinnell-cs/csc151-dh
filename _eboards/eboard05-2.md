@@ -1,5 +1,5 @@
 ---
-title: "EBoard 05 (Section 1): Expressions and Types"
+title: "EBoard 05 (Section 2): Expressions and Types"
 number: 5
 section: eboards
 held: 2022-02-02
@@ -169,10 +169,10 @@ and producing an appropriate image as output.
 * Men's Tennis 9am and 5pm Saturday in the Field House.  (30 min of watching
   is enough)
 * Swim meet Saturday at 1pm.  (30 min of watching is enough)
+* Men's Basketball Saturday at 1 p.m.
 
 ### Other Upcoming Activities
 
-* Men's Basketball Saturday at 1 p.m.
 * Women's Basketball Saturday at 3 p.m.
 
 Reading Questions
