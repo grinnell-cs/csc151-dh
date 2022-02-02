@@ -19,7 +19,7 @@ Examples:
 {% endif %}
 
 <dl>
-  {% for day in site.data.extra %}
+  {% for day in site.data.due-dates %}
     {% for item in day[schedule_section] %}
       {% if item.page %}
         {% assign match = include.items | where: "url", item.page | first %}
