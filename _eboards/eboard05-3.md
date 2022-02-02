@@ -48,7 +48,7 @@ Administrivia
 
         ;;; (snowball size) -> image?
         ;;;   size : positive-real?
-        ;;; Make a snowball of the given size.
+        ;;; Make a snowball of the given size. (size is the radius)
         (define snowball
           (lambda (size)
             (circle size 'outline 'black)))
@@ -56,22 +56,27 @@ Administrivia
         ;;; (snowperson size) -> image?
         ;;;   size : positive-real?
         ;;; Make a snowperson whose base is size.
+        ;;; This snowperson has height (* 13/3 size)
+        ;;; Note: When size is 60, height is 260
         (define snowperson
           (lambda (size)
             (above (snowball (* 1/2 size))
                    (snowball (* 2/3 size))
                    (snowball size))))
 
-  If `size` is 60, we get snowballs of radii ?, ?, and ? 
-  (diameters ?, ?, and ?).  The total height would then be ?.  So we
-  could define `snowperson-revisited` as
+  If `size` is 60, we get snowballs of radii 30, 40 and 60 (or 30)
+  (diameters 60, 80, and 120).  The total height would then be 260.
+  So we could define `snowperson-revisited` as
 
         (define snowperson-revisited
           (lambda (height)
-            ???))
+            (snowperson (* 3/13 height))))
 
 * This example illustrates part of the difference between correct (M)
   and exemplary (E).
+* Good programmers (often) reuse the (similar) procedures they've 
+  already written.
+    * Agh!  More things to remember (or take notes about).
 
 ### Notes on Numbers in Racket
 
@@ -88,6 +93,9 @@ Exact integers are stored exactly.  Inexact integers are approximated.  For larg
 We generally prefer exact numbers.  However, inexact numbers naturally
 crop up in our calculations.  There are also some storage and speed
 advantages to using inexact numbers.
+
+Most languages only permit inexact numbers.  Racket differentiates itself
+by making exact numbers a core part of the language.
 
 ### Notes on Strings in Racket
 
@@ -123,7 +131,7 @@ reasons.
     * If that's not possible, finish (and submit) separately, but cite
       your partner.
 * Mini-Project 1 due Thursday at 10:30 p.m.
-    * On gradescope (after lunch).
+    * On Gradescope
 * Friday's quiz will be on procedural abstraction.
 
 ### Sample quiz problem
@@ -155,6 +163,7 @@ and producing an appropriate image as output.
 
 * CS Extras: The 4+1 (Undergrad to Grad) program in CS w/UIowa.
   4 p.m., Thursday, 3 February 2022, Noyce 3821.
+* Friday, Elbica AI Coffee-free Chat, 5pm, Dr. Elliott's lab
 
 ### Other Upcoming Activities
 
@@ -203,5 +212,29 @@ for B problems.
 Make sure to grab the `basic-types.rkt` file and put it into DrRacket.
 All the instructions are in the file.
 
-If you don't finish in time, either (a) set up a time to meet with your
-partner or (b) send a copy to your partner and plan to finish separately.
+### During Lab
+
+For `ones-digit-of`, think about which numeric procedures you've learned
+and how they might help.
+
+* `remainder`, `quotient`
+* `floor`, `ceiling`, `truncate`, `round`
+* ...
+
+You might also consider writing `truncate-ones-from` before `ones-digit-of`,
+although I would not necessarily recommend it.
+
+### Submitting
+
+Today is an **as far as you got is far enough** day.  When it's time
+to submit, write
+
+        ; THIS IS AS FAR AS WE GOT!  SAM SAID WE COULD STOP HERE.
+
+And then submit.
+
+**You should still read through the rest of the lab.**
+
+* If you can't click on the Lab link in Gradescope, it's a problem with
+  Firefox.  Try Google Chrome.
+
