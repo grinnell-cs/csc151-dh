@@ -9,7 +9,7 @@ link: false
 
 _Approximate overview_
 
-* Administrative stuff [10 min]
+* Administrative stuff [20 min]
 * Questions [?? min]
 * Lab [Approximately 60 min]
 
@@ -22,6 +22,8 @@ Administrivia
   just called you by name).
 * Don't forget that we have evening tutors available 7--10 p.m.
   Sunday through Thursday, as well as 3--5 p.m. on Sunday.
+* The readings appear to have been a bit long.  I apologize.  We're
+  down to two readings for Friday (and none for Monday).
 
 ### Racket notes / Debrief from last lab
 
@@ -51,6 +53,45 @@ Administrivia
   If `size` is 60, we get circles of radius ?, ?, and ?.  The
   total height would then be ...
 
+### Notes on Numbers in Racket
+
+Important issue: Exact numbers are stored precisely; inexact numbers
+can be approximated.  For integers, you'll see problems when you get
+to large numbers.  For smaller numbers with a fractional part, you'll
+see a variety of issues.
+
+Exact integers are stored exactly.  Inexact integers are approximated.  For large enough values, you'll see a difference.
+
+        > (- (+ 1 (expt 10 50)) (expt 10 50))
+        > (- (+ 1 (expt 10.0 50)) (expt 10.0 50))
+
+We generally prefer exact numbers.  However, inexact numbers naturally
+crop up in our calculations.  There are also some storage and speed
+advantages to using inexact numbers.
+
+### Notes on Strings in Racket
+
+#### Syntax vs. Semantics
+
+We're beginning to see the difference between the conceptual (semantics)
+and how we express concepts (syntax).  Consider, for example, a string
+that contains two quotation marks.
+
+Strings must begin and end with quotation marks.  That is, the take
+the form "...".  How do we signify a quotation mark within the string?
+If we just write a quotation mark, it's indistinguishable from the
+quotation mark that ends the string.  Hence, we must precede it with
+a backslash.  `"\"\""`.
+
+#### Collating Sequences
+
+Behind the scenes, computers essentially store everything as numbers.
+The collating sequence tells you what number corresponds to each letter
+(or vice versa).  It's helpful to see that, say, the uppercase letters
+precede the corresponding lowercase letters by exactly 32, or that the
+digit characters appear in order.  We'll use them for those kinds of
+reasons.
+
 ### Gradescope notes
 
 * For S/N, S is 1 and N is 0.
@@ -74,7 +115,28 @@ Administrivia
 
 ### Sample quiz problem
 
-_Forthcoming._
+_Take a concrete implementation in Racket and create a new function that generalizes the behavior._
+
+As you may recall in building snowmen, we found it useful to be able
+to create hats for the snowmen.  A hat consists of three parts: a box,
+a brim, and a ribbon.  The brim is at the bottom.  The ribbon appears
+to be on the box, directly above the brim, although we will create it
+by stacking a rectangle over the box.
+
+We've decided on a 50x50 grey hat with a purple ribbon.  We've
+decided that brims will always be 5 units high and that ribbons
+will take 1/5 the height of the box.  Rather than doing the
+calculations by hand, we'll make Racket do the computations.
+
+```
+(above (rectangle (* 50 1/2) (* (- 50 5) 4/5) "solid" "grey")
+       (rectangle (* 50 1/2) (* (- 50 5) 1/5) 192 "purple")
+       (rectangle 50 5 "solid" "grey"))
+```
+
+Write a procedure, `colorful-hat`, that generalizes this approach
+by taking the width, height, hat color, and ribbon color as parameters
+and producing an appropriate image as output.
 
 ### Upcoming Token-Generating Activities
 
@@ -93,6 +155,12 @@ Reading Questions
 -----------------
 
 _I've started putting answers to the reading questions in the readings.  These are ones that didn't naturally fit in a reading_
+
+Why do we sometimes use a symbol and sometimes use a string when defining something like a square? For instance, both   (square 40 'solid 'blue)` and `(square 40 "solid" "blue")` are valid and produce the same image.
+
+> The designers of the `2htdp/image` library decided it was nicer
+to support either symbols or strings.  I assume they are using
+symbols as the primary mode, though.
 
 Other Questions
 ---------------
