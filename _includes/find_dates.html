@@ -4,7 +4,7 @@
 {% assign due-day = false %}
 {% assign due-time = false %}
 
-{% for find_dates_day in site.data.extra %}
+{% for find_dates_day in site.data.due-dates %}
   {% assign find_dates_match = find_dates_day.reading | where_exp: "find_dates_reading", "find_dates_reading.page == include.url" | first %}
   {% if find_dates_match %}
     {% unless reading-day %}
