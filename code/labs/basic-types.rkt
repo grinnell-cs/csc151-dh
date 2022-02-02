@@ -52,6 +52,8 @@ stuff.
 ; | Exercise 1: Simple numeric computation |
 ; +----------------------------------------+
 
+#| Please don't spend more than five minutes on this exercise. |#
+
 #|
 a. Determine the type DrRacket gives for the square root of
 two, computed by (sqrt 2).  Is it exact or inexact?  Real?
@@ -88,7 +90,7 @@ what you discovered and why you believe that to be the case.
 
 #|
 d. In the space below, describe whether you expect your answer
-to be the same if you instead used (sqrt 4) rather than 2.
+to be the same if you instead used (sqrt 4) rather than (sqrt 2).
 Explain your reasoning and check your work experimentally with
 the interactions panel of DrRacket.
 
@@ -100,13 +102,16 @@ the interactions panel of DrRacket.
 ; +------------------------+
 
 #|
-As the reading suggests, the remainder procedure computes the
-amount "left over" after you divide one number by another.  The
-reading suggests that remainder provides an interesting
-alternative to using max and min to limit (but not cap) the values of
-functions.
+As the reading suggests, the remainder procedure computes the amount
+"left over" after you divide one number by another.  The reading
+suggests that remainder provides an interesting alternative to using
+max and min to limit (but not cap) the values of functions.
 
-(a) Predict the values of each expressions in the space provided
+a. `(remainder x y)` gives you the amount "left over" when you 
+divide x by y.  For example (remainder 13 3) should give you 1,
+because 13 divided by 3 is 4 with 1 left over.
+
+Predict the values of each expressions in the space provided
 below.  **Do not use the interpreter yet!**
 
 > (remainder 8 3)
@@ -136,11 +141,10 @@ below.  **Do not use the interpreter yet!**
 |#
 
 #|
-(b) Check your answers experimentally with DrRacket, one at a
-time.  If you any of your answers disagree, try to come up with
-an explanation why.  If you cannot come up with one, feel free
-to hail down a member of the course staff for help (with @staff,
-if you are online).
+b. Check your answers experimentally with DrRacket, one at a time.
+If you any of your answers disagree, try to come up with an explanation
+why.  If you cannot come up with one, feel free to hail down a
+member of the course staff for help (with @staff, if you are online).
 
 <TODO: Insert any notes you have>
 |#
@@ -458,8 +462,9 @@ other languages to see if your technique still works!
 
 #| AB |#
 
-#|
-Wrapping up
+; +-------------+----------------------------------------------------
+; | Wrapping Up |
+; +-------------+
 
 At this point, you should know how to prepare your work for submission and
 submit it to Gradescope.  Please call the result basic-types.rkt.
@@ -470,7 +475,6 @@ submit it to Gradescope.  Please call the result basic-types.rkt.
 ; +---------------------------+--------------------------------------
 ; | For those with extra time |
 ; +---------------------------+
-
 
 #|
 If you find that you finish all of these problems early, try one
