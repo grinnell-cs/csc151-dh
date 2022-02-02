@@ -467,4 +467,37 @@ d. Determine whether our implementation of Racket indicates that `#\a` and `#\A`
 
 e. Find an *equality* predicate that returns `#t` when given `#\a` and `#\A` as parameters.
 
+## Q&A
+
+Could you explain the `(char<=? #\a #\n #\z)` example?
+
+> Sure.  Just like `(<= 1 2 3)` checks if 2 is between 1 and 3,
+`(char<=? #\a #\n #\z)` checks if `#\n` is between `#\a` and
+`#\z`, at least according to the collating sequence.  What we
+see in the sample code is that lowercase n is between lowercase a 
+and lowercase z (inclusive), but uppercase N is not.  Lower
+n with a tilde (ñ) is not between lowercase a and lowercase z.
+
+> The `#t` you see is shorthand for "true".
+
+What's an equality predicate?
+
+> A predicate is something that returns true or false.  An equality predicate is something that checks whether two things are the same.
+
+What significance does the number related to the character have in the unicode `char->integer`? Why does the order matter?
+
+> The numbers matter primarily in that we use the numbers in comparing characters (e.g., with `char<=?`).  We'll also find some convenient ways of using the numbers.  For example, you might notice that each lowercase letter is 32 more than the corresponding uppercase letter.
+
+Why does `(char->integer #\ )` also produce the same result as `(char->integer #\space)`? I get that they are more or less the same thing, but why did the creators of Racket want this to be so?
+
+> Both `#\ ` and `#\space` represent the space character.  Most of
+us find the latter easier to read than the former.  I'm not sure
+why the designers of Racket permitted `#\ ` (with the space), since
+it's almost impossible to read.
+
+Why is the value of `(string-length "a\\b")` 3 rather than 4?
+
+> `"\\"` is how we write the backslash character.  (Yes, that's right,
+we use two characters to reprsent a single character.)  So `"a\\b"`
+is the character a, the backslash character, and the character b.
 
