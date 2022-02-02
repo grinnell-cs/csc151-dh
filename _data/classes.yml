@@ -64,7 +64,7 @@
   summary: |
     We consider how one writes procedures that make decisions.
   reading:
-    - page: /readings/boolean.html
+    - page: /readings/booleans.html
     - page: /readings/conditionals.html
   lab:
     - page: /labs/conditionals.html
