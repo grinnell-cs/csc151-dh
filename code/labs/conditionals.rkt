@@ -238,8 +238,11 @@ is a number that is not an integer and false otherwise.
 ; TODO: write your function here!
 
 #|
-d. Write a function (median-of-three? x y z) that takes three numbers
-as input and returns the number that is the middle value of the three.
+d. Write a function, `(median-of-three x y z)`, that takes three
+real numbers as input and returns the number that is the middle
+value of the three when put in nuerical order.  If two numbers are
+the same, you can return that number.  If all three are the same,
+you can return that number.
 |#
 
 ; TODO: write your function here!
