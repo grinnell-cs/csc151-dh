@@ -2,7 +2,7 @@
 title: "EBoard 06 (Section 1): Conditionals"
 number: 6
 section: eboards
-held: 2022-02-04
+held: 2022-02-05
 link: false
 ---
 # {{ page.title }}
@@ -18,17 +18,59 @@ Administrivia
 
 ### Introductory notes
 
+* I forgot my hearing aids today.  You may have to speak a bit louder.
+  (Or those in the front may have to repeat.)
+* Starting today, I'll use the "randomized calling cards" to call on
+  you.  This is an opportunity for you to practice "thinking on your
+  feet", as it were.  Please try, but also feel free to say, "I'm
+  not sure."
 * Please say your name when you ask or answer a question (even if I've
   just called you by name).
 * Don't forget that we have evening tutors available 7--10 p.m.
+* Mentor sessions are now scheduled: Sunday 4--5 p.m., Monday 8--9 p.m.,
+  and Wednesday 8--9 p.m.  All in the CS Commons.
+    * This week's topics: Review quizzes 1 & 2; prep for Quiz 3.
+* I've set up a semi-anonymous "check in" survey.  Please take
+  the time to fill it out.  <https://bit.ly/csc-151-2022Sp-week02>
+* We do not have class Monday.  It's a "work differently" day.
+  (I'll be working remotely.)
+* A reminder: Please keep your mask on when working in 3813 or 3815
+  or any classroom.
+* I realize that not everyone can make my office hours.
+    * Feel free to ask questions on Teams (or via email) at almost any
+      time.
+    * You can also propose times via the Microsoft Scheduling Assistant.
+      (Sam will demo.)
+* While we remain at Code Blue, all office hours are via video chat
+  on Teams.
+    * Protocol: Sam texts "Are you ready?"  You say "Yes".  Sam opens
+      a video chat.
+    * Alternate Protocol: You text "Are you ready?"  I say "Yes".  One
+      of us opens a video chat.
+
+### Asking questions on Teams
+
+* When submitting questions on Teams, please try to use the Q&A
+  channel, rather than direct chat, unless you are asking questions
+  about your code.
+    * There are more people who might reply.
+    * There are others who would benefit from your question.
+* If possible, title your question.
+    * Sam will demo.
+* Sam often goes AFK after 8pm, sometimes earlier.
+    * If Sam is not AFK, he will answer.
+    * If Sam has insomnia, he might answer at strange times.
+    * AFK = "Away from Keyboard"
 
 ### Racket notes / Debrief from last lab
 
 #### Experimentation
 
 * The `remainder` exercise was intended to suggest that one way
-  we learn about procedures is to play with them.  (We'd hope that
-  the documentation is clear, but it isn't always.)
+  we learn about procedures is to play/experiment with them.
+  (We'd hope that the documentation is clear, but it isn't always.)
+* The "four types of rounding" exercise was to encourage you to
+  play/experiment.
 
 #### Types of numbers
 
@@ -58,19 +100,11 @@ Why?
 
 * `(inexact->exact (exact->inexact (expt 10 50)))`
 
-### Gradescope notes
-
-* Gradescope doesn't let us give categorical grades, so you get numbers.
-* For S/N, S is 1 and N is 0.
-* For E/M/R/I, E is 3, M is 2, R is 1, N is 0.
-* For everything, ignore the autograder computations (other than to see
-  what you might have had problems with).
-    * E.g., 1.9999 is a 1.
-* We'll look at how you check grades on Gradescope.
-
 ### Upcoming work
 
+* Quiz 2 due tonight at 10:30 p.m.
 * Readings for Wednesday due Tuesday at 10:00 p.m.
+    * DDag question: Two important points from the readings.
 * Lab writeup from today due Tuesday at 10:30 p.m.
     * Ideally, you'll finish that in class today.
     * If not, set up a time to meet with your partners.
@@ -90,21 +124,39 @@ Why?
 * Men's Basketball Saturday at 1 p.m.
 * Women's Basketball Saturday at 3 p.m.
 
+### Friday PSA
+
+* People care about you.  Please take care of yourselves.
+* Embrace moderation
+* Don't feel peer pressure; decide what is right for you
+* Consent is essential
+
 Reading Questions
 -----------------
 
 _I've started putting answers to the reading questions in the readings.
 These are ones that didn't naturally fit in a reading_
 
+Last night, I did not have time to review reading questions.  You
+can ask them, or other questions, now.
+
 Other Questions
 ---------------
 
-What happens if you got the Decomposition quiz wrong?
+What happens if you did not get credit for the Decomposition quiz?
+(Alternately, what happens if you do not get credit for the
+Procedural Abstraction quiz?)
+
+> Don't worry!
 
 > There will be a decomposition problem on SoLA 1.  If you get it 
-  right, you'll now have achieved that learning objective.
+  right, you'll now have achieved that learning objective.  (Similar
+  answer for any topic.)
 
-What happens if you got the Decomposition quiz wrong and you get it
+> I'd recommend that you go to one of the mentor sessions before
+  SoLA 1 so that you are better prepared for the problem.
+
+What happens if you got the Decomposition quiz wrong and you also get it
 wrong on SoLA 1?
 
 > There will be a decomposition problem on SoLA 2.  If you get it 
@@ -115,13 +167,16 @@ wrong on SoLA 1?
   core concepts.  We can also assign you an individual tutor if that
   will help (and you're making use of other resources).
 
-What happens if you got the Decomposition quiz wrong and you get it
+What happens if you got the Decomposition quiz wrong and you also get it
 wrong on SoLA 1 and SoLA 2?
 
 > There will be a decomposition problem on SoLA 3.  If you get it 
   right, you'll now have achieved that learning objective.
 
-> This also holds for SoLA 4 and SoLA 5.
+> Once again, you should get help before taking it again.
+
+> You'll also have a chance on SolAs 4 and 5.  We hope that's not
+  necessary.
 
 Lab
 ---
@@ -131,3 +186,4 @@ Lab
 ### During Lab
 
 ### Wrapup
+
