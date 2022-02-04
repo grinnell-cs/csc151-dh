@@ -238,8 +238,11 @@ is a number that is not an integer and false otherwise.
 ; TODO: write your function here!
 
 #|
-d. Write a function (median-of-three? x y z) that takes three numbers
-as input and returns the number that is the middle value of the three.
+d. Write a function, `(median-of-three x y z)`, that takes three
+real numbers as input and returns the number that is the middle
+value of the three when put in nuerical order.  If two numbers are
+the same, you can return that number.  If all three are the same,
+you can return that number.
 |#
 
 ; TODO: write your function here!
@@ -369,7 +372,8 @@ not check that `str` is a string.
 > (employee-id? 123456)
 Boom!  Crash!
 
-Hint: `string->number` may help.
+Hint: `string->number` may help.  `string-length` may help.  `substring`
+may help.
 |#
 
 ; TODO: write your function here!
@@ -378,10 +382,13 @@ Hint: `string->number` may help.
 b. The founders of the company are given IDs where the first 3
 digits are 0s, e.g., "000110".
 
-Write a function `(founder-id? s)` that takes a string as input and
+Write a function `(founder-id? sstr)` that takes a string as input and
 determines whether the string is a valid founder's ID.
 
-Hint: `substring` may help.
+Note that you should use `employee-id?` to ensure that the id is a
+valid employee id.
+
+Hint: `substring` may help with the additional check.
 |#
 
 ; TODO: write your function here!
