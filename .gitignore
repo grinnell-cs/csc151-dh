@@ -24,3 +24,5 @@ _sandbox
 compiled/
 sandbox/
 results.json
+admin/
+vendor/
