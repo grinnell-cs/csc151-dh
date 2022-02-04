@@ -3,13 +3,13 @@ title: "EBoard 06 (Section 2): Conditionals"
 number: 6
 section: eboards
 held: 2022-02-04
-link: false
+link: true
 ---
 # {{ page.title }}
 
 _Approximate overview_
 
-* Administrative stuff [15 min]
+* Administrative stuff [20+ min]
 * Questions [?? min]
 * Lab [Approximately 60 min]
 
@@ -70,14 +70,14 @@ Administrivia
   we learn about procedures is to play/experiment with them.
   (We'd hope that the documentation is clear, but it isn't always.)
 * The "four types of rounding" exercise was to encourage you to
-  play/experiment.
+  play/experiment. `floor`, `ceiling`, `truncate`, `round`.
 
 #### Types of numbers
 
 * Complex: May have an imaginary part; may have a fractional part
 * Real: No imaginary part, may have a fractional part
 * Rational: No imaginary part, may have a fractional part
-* Integer: No imaginary part, may have a fractional part
+* Integer: No imaginary part, no fractional part
 
 Notes
 
@@ -90,15 +90,60 @@ Notes
 What are the values of the following?
 
 * `(round 7/2)`
-* `(round -7/2)`
 * `(round 9/2)`
+* `(round -7/2)`
 * `(round -9/2)`
 
+```
+> (complex? 2)
+#t
+> (round 7/2)
+4
+> (round 3.6)
+4.0
+> (round 3.4)
+3.0
+> (round 9/2)
+4
+> (round 11/2)
+6
+> (round 13/2)
+6
+> (round 15/2)
+8
+> (round 17/2)
+8
+```
+
+Pattern?
+
+* When equidistant from two numbers, `round` rounds to the even.
+
 Why?
+
+* Mathematicians recommend it for some unknown reason that is only
+  revealed to those who take the appropriate vows.
+* Statisticians prefer this kind of rounding.
+* We need some policy for when the number we are rounding is equidistant
+  from two integers.  The natural ones are "round up", "round down",
+  and "round towards even, which is what statisticians recommend".
+* Why do statisticians prefer this?  It helps deal with 1/2s in data,
+  particularly if you end up rounding toward integers before averaging.
+  Let's consider average shoe sizes.  10 10.5 10.5 11 11.5 11.5 12
+     * If we averaged the fractional numbers, we get 11
+     * If we round in the statistical way and average, we also get 11
+       (contrived example)
+     * If we round everything down and aveage, we'll get lower than the 
+       real average.
+     * If we round everything up and average, we'll get higher than the
+       real average.
+     * In practice, rounding "average out", so our computations end up 
+       being more accurate.
 
 #### Converting between exact and inexact
 
 * `(inexact->exact (exact->inexact (expt 10 50)))`
+* Once you lose data, you can't get it back.
 
 ### Upcoming work
 
@@ -112,16 +157,18 @@ Why?
       your partner.
 * Mini-Project 2 due Thursday at 10:30 p.m.
     * On Gradescope
+    * Not yet posted to Gradescope
+    * We'll go over it
 
 ### Upcoming Token-Generating Activities
 
 * Men's Tennis 9am and 5pm Saturday in the Field House.  (30 min of watching
   is enough)
 * Swim meet Saturday at 1pm.  (30 min of watching is enough)
+* Men's Basketball Saturday at 1 p.m.
 
 ### Other Upcoming Activities
 
-* Men's Basketball Saturday at 1 p.m.
 * Women's Basketball Saturday at 3 p.m.
 
 ### Friday PSA
@@ -129,6 +176,7 @@ Why?
 * People care about you.  Please take care of yourselves.
 * Embrace moderation
 * Don't feel peer pressure; decide what is right for you
+* You won't be alone in your choices
 * Consent is essential
 
 Reading Questions
@@ -142,6 +190,10 @@ can ask them, or other questions, now.
 
 Other Questions
 ---------------
+
+Are the LAs on SoLAs timed?
+
+> Yes.  You should be able to do them in 10--15 minutes.  You get 60.
 
 What happens if you did not get credit for the Decomposition quiz?
 (Alternately, what happens if you do not get credit for the
@@ -183,7 +235,14 @@ Lab
 
 ### Preparation 
 
+* Sam needs to work on the autograder.  Grab him if you need help.
+
 ### During Lab
+
+* `(if #t C A)` --> `C`
+* `(if #f C A)` --> `A`
+* `(if 5 C A)` --> `C` ; because 5 is truish
 
 ### Wrapup
 
+* I guess we have work for work differently day.
