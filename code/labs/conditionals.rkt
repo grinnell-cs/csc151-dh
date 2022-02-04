@@ -25,7 +25,7 @@ indicated.
 
 1. Make sure to introduce yourself to your partner.
 
-2. Make sure to save this file as conditionals.rkt.
+2. Make sure to save this file as `conditionals.rkt`.
 
 3. Optional: Review the Q&A.
 
@@ -52,46 +52,44 @@ Consider the following code snippet:
     (< x1 x2)))
 
 #|
-Give execution traces for each of the following expressions.  Check
-with the interactions pane that your final value coincides with the
-result of evaluating the expression in Racket.
+Here's a trace of two similar expressions.
+
+    (foo 2 4)
+--> (if (< 2 4) #t #f)
+    ; Evaluate the test
+--> (if #t #t #f)
+    ; The test is truish; Use the consequent
+--> #t
+
+    (bar 2 4)
+--> (< 2 4)
+--> #t
 
 Remember that to trace an `if` expression, you first evaluate the guard
 (the first "parameter" to `if`).  If the guard holds, you replace the
 `if` with the consequent (the second "parameter" to `if`).  If the guard
 does not hold, you replace the `if` with the alternate (the third "parameter"
 to `if`).
+
+Give execution traces for each of the following expressions.  Check
+with the interactions pane that your final value coincides with the
+result of evaluating the expression in Racket.
 |#
 
 #|
-a. (foo 2 4)
-
-<TODO: give your trace here>
-    (foo 2 4)
---> (if (< 2 4) #t #f)
---> ...
-|#
-
-#|
-b. (foo 5 3)
+a. (foo 5 3)
 
 <TODO: give your trace here>
 |#
 
 #|
-c. (bar 2 4)
+b. (bar 5 3)
 
 <TODO: give your trace here>
 |#
 
 #|
-d. (bar 5 3)
-
-<TODO: give your trace here>
-|#
-
-#|
-e. What do you see as the similarities and differences between
+c. What do you see as the similarities and differences between
 `foo` and `bar`?
 
 <TODO: give your answer here>
@@ -120,59 +118,69 @@ Consider the following code snippet:
     (and (< x1 x2) (< x2 x3))))
 
 #|
+Here are some execution traces.
+
+    (baz 2 3 4)
+--> (if (< 2 3) (if (< 3 4) #t #f) #f)
+    ; Evaluate the test
+--> (if #t (if (< 3 4) #t #f) #f)
+    ; The test is truish; use the consequent
+--> (if (< 3 4) #t #f)
+    ; Evaluate the test
+--> (if #t #t #f)
+    ; The tst is truish; use the consequent
+--> #t
+
+    (qux 2 3 4)
+--> (and (< 2 3) (< 3 4))
+    ; Evaluate the first argument to `and`
+--> (and #t (< 3 4))
+    ; The first argument is truish; drop it
+--> (and (< 3 4))
+    ; There's only one argument to and, use it
+--> (< 3 4)
+--> #t
+
+    (baz 3 2 4)
+--> (if (< 3 2) (if (< 2 4) #t #f) #f)
+    ; Evaluate the test
+--> (if #f (if (< 2 4) #t #f) #f)
+    ; The test is false, use the alternate
+--> #f
+
+    (qux 3 2 4)
+--> (and (< 3 2) (< 2 4))
+    ; Evaluate the first argument to `and`
+--> (and #f (< 2 4))
+    ; When the first argument to `and` is false, the result is false.
+--> #f
+
 Give execution traces for each of the following expressions.  Check
 with the interactions pane that your final value coincides with the
 result of evaluating the expression in Racket.
 |#
 
 #|
-a. (baz 2 3 4)
-
-<TODO: give your trace here>
-    (baz 2 3 4)
---> (if (< 2 3) (if (< 3 4) #t #f) #f)
---> ...
-|#
-
-
-#|
-b. (baz 2 3 1)
+a. (baz 2 3 1)
 
 <TODO: give your trace here>
 |#
 
 #|
-c. (baz 4 3 5)
+b. (qux 2 3 1)
 
 <TODO: give your trace here>
 |#
 
 #|
-d. Why did we choose those three example inputs?
+c. Why did we choose those three example inputs (that is, "2 3 4",
+"3 2 4" and "2 3 1")?
 
 <TODO: give your answer here>
 |#
 
 #|
-e. (qux 2 3 4)
-
-<TODO: give your trace here>
-|#
-
-#|
-f. (qux 2 3 1)
-
-<TODO: give your trace here>
-|#
-
-#|
-g. (qux 4 3 5)
-
-<TODO: give your trace here>
-|#
-
-#|
-h. What do you see as the similarities and differences between
+d. What do you see as the similarities and differences between
 `baz` and `qux`?
 
 <TODO: give your answer here>
@@ -204,19 +212,23 @@ You may, however, use the `remainder` procedure you recently learned.
 
 (define is-even?
   (lambda (n)
-    {??}))
+    ???))
 
 #|
 b. In your experiments with `is-even?`, you may have determined that
 `is-even?` reports an error when `n` is not an integer.
 
 Write a predicate, `(is-even-integer? n)`, that returns true when
-`n` is an even integer and false otherwise.
+`n` is an even integer and false otherwise.  
+
+Your procedure should return false when `n` is a complex number, a
+non-integer real, a string, an image, and, well, anything that's
+not an integer.
 |#
 
 (define is-even-integer?
   (lambda (n)
-    {??}))
+    ???))
 
 #|
 c. Write a function (number-not-integer? n) that returns true if `n`
@@ -261,21 +273,21 @@ For example:
 #f
 
 We claim that this implementation is "really bad" not because it
-produces the wrong answer, but is is sylistically gross!  First,
-rewrite this function as `bad-both-even?` below using `and` and `or`
-to remove the need for a nested conditional expression.
+produces the wrong answer, but because it is sylistically offensive!
+First, rewrite this function as `bad-both-even?` below using `and`
+and `or` to remove the need for a nested conditional expression.
 
 Experiment with `bad-both-even?` on a variety of examples to gain
 confidence that your function works identically to
 `really-bad-both-even?`.
 |#
 
-(define bad-both-even?
+(define better-both-even?
   (lambda (n1 n2)
-    {??}))
+    ???))
 
 #|
-b. If your implementation of `bad-both-even?` still contains a
+b. If your implementation of `better-both-even?` still contains a
 conditional, then you still have more work to do!  Rewrite the
 function one more time as `both-even?` below that uses neither `if`
 nor `cond` in its implementation.  Again, experiement with `both-even?`
@@ -285,7 +297,7 @@ the previous implementations.
 
 (define both-even?
   (lambda (n1 n2)
-    {??}))
+    ???))
 
 #|
 c. The process of reimplementing `both-even?` so that it is better
@@ -321,7 +333,7 @@ You may not use the `odd?` predicate here, but you may use the
 
 (define both-odd?
   (lambda (n1 n2)
-    {??}))
+    ???))
 
 ; +---------------------------------------------+--------------------
 ; | Exercise 5: Mixing conditionals and strings |
@@ -386,6 +398,15 @@ check whether a user says "yes" to a prompt.
 
 a. Write a procedure, `(yes? str)`, that takes a string as input and
 determines whether the string is "yes".
+
+> (yes? "yes")
+#t
+> (yes? "no")
+#f
+> (yes? "oui")
+#f
+> (yes? "y")
+#f
 |#
 
 ; TODO: write your function here!
@@ -394,6 +415,15 @@ determines whether the string is "yes".
 b. As a courtesy to users, we might want to permit three inputs,
 "yes", "Yes", and "y".  Write a procedure `(friendlier-yes? str)`
 that returns true if the input string `str` is any of those three.
+
+> (friendlier-yes? "yes")
+#t
+> (friendlier-yes? "no")
+#f
+> (friendlier-yes? "oui")
+#f
+> (friendlier-yes? "y")
+#t
 |#
 
 ; TODO: write your function here!
@@ -424,17 +454,46 @@ inputs in the interactions pane to ensure that the function works.
 
 (define gpa->letter
   (lambda (g)
-    {??}))
+    ???))
 
-#| A |#
+#| AB |#
 
-; +----------------------------------+-------------------------------
-; | Exercise 8: Atypical cond blocks |
-; +----------------------------------+
+; +----------------------+-------------------------------------------
+; | Submitting your work |
+; +----------------------+
+
+#|
+Congratulations on finishing this lab!  To turn in your work:
+
+a.  If you did this online with separate parts, combine the two parts of 
+    the assignment.
+b.  Ensure that your combined file runs properly.
+c.  Rename this file to `conditionals.rkt` (i.e., no -a or -b in the
+    name).
+d.  Send this completed file to your partner for their records.
+e.  Submit this final file to Gradescope.  Make sure, if appropriate,
+    to submit your work as a group submission and include your
+    partner in the submission.
+|#
+
+#| AB |#
+
+; +---------------------------+--------------------------------------
+; | For those with extra time |
+; +---------------------------+
+
+#|
+If you find that you have extra time, you might want to attempt
+one or more of these exercises.
+|#
+
+; +-------------------------------+----------------------------------
+; | Extra 1: Atypical cond blocks |
+; +-------------------------------+
 
 #| 
 You need not submit your answers to these questions, but you should
-make sure to complete them.
+make sure to attempt them.
 |#
    
 #|
@@ -488,39 +547,8 @@ guards hold?  (That is, all of the guards return false?)
 <TODO: Enter your answer here>
 |#
 
-#| AB |#
-
-; +----------------------+-------------------------------------------
-; | Submitting your work |
-; +----------------------+
-
-#|
-Congratulations on finishing this lab!  To turn in your work:
-
-a.  If you did this online with separate parts, combine the two parts of 
-    the assignment.
-b.  Ensure that your combined file runs properly.
-c.  Rename this file to `conditionals.rkt` (i.e., no -a or -b in the
-    name).
-d.  Send this completed file to your partner for their records.
-e.  Submit this final file to Gradescope.  Make sure, if appropriate,
-    to submit your work as a group submission and include your
-    partner in the submission.
-|#
-
-#| AB |#
-
-; +---------------------------+--------------------------------------
-; | For those with extra time |
-; +---------------------------+
-
-#|
-If you find that you have extra time, you might want to attempt
-one or more of these exercises.
-|#
-
 ; +----------------------------+-------------------------------------
-; | Extra 1: Be more forgiving |
+; | Extra 2: Be more forgiving |
 ; +----------------------------+
 
 #|
@@ -533,7 +561,7 @@ such as "yeS".
 |#
 
 ; +-------------------------------+----------------------------------
-; | Extra 2: Cleaner computations |
+; | Extra 3: Cleaner computations |
 ; +-------------------------------+
 
 #|
@@ -552,3 +580,17 @@ your `gap->letter` to be more efficient.
 If you are puzzled, ask one of the staff for help.
 |#
 
+; +-------------------------------------+----------------------------
+; | Extra 4: Median of three, revisited |
+; +-------------------------------------+
+
+#|
+Earlier, you wrote `median-of-three`.  Write a version of `median-of-three`
+without conditionals.  (You may not use `and` or `or`.)
+
+Hint: You may find that `max` and `min` help.
+|#
+
+(define new-median-of-three
+  (lambda (x y z)
+    ???))
