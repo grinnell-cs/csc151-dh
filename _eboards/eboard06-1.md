@@ -3,7 +3,7 @@ title: "EBoard 06 (Section 1): Conditionals"
 number: 6
 section: eboards
 held: 2022-02-04
-link: false
+link: true
 ---
 # {{ page.title }}
 
@@ -77,7 +77,7 @@ Administrivia
 * Complex: May have an imaginary part; may have a fractional part
 * Real: No imaginary part, may have a fractional part
 * Rational: No imaginary part, may have a fractional part
-* Integer: No imaginary part, may have a fractional part
+* Integer: No imaginary part, no fractional part
 
 Notes
 
@@ -90,15 +90,51 @@ Notes
 What are the values of the following?
 
 * `(round 7/2)`
-* `(round -7/2)`
 * `(round 9/2)`
+* `(round -7/2)`
 * `(round -9/2)`
 
+```
+> (round 7/2)
+4 ; rounded up
+> (round 9/2)
+4 ; rounded down
+> (round -7/2)
+-4 ; rounded down
+> (round -9/2)
+-4 ; rounded up
+> (round 11/2)
+6
+> (round 13/2)
+6
+> (round 15/2)
+8
+> (round 17/2)
+8
+```
+
+What is it doing?
+
+> Rounding to the nearest even integer.
+
 Why?
+
+> Makes it easier to divide by 2.
+
+> Consistency.  You know it always rounds to even (at least once
+  Sam forces you to figure that out).
+
+> Helps with statistical studies.  You want to balance rounding.
+  Suppose we're gathering men's shoe sizes.  10, 10.5, 10.5, 11, 11.5, 11.5, 12
+     * If we round all of the .5's down, we'll get a different average
+       than if we round them toward even.
+     * Rounding toward even tends to be more fair.
+     * Note 11.2 will still round to 11.
 
 #### Converting between exact and inexact
 
 * `(inexact->exact (exact->inexact (expt 10 50)))`
+* Once it's approximated, you've lost information.
 
 ### Upcoming work
 
@@ -129,6 +165,7 @@ Why?
 * People care about you.  Please take care of yourselves.
 * Embrace moderation
 * Don't feel peer pressure; decide what is right for you
+* Whatever you choose is probably within the bounds of "normal Grinnell"
 * Consent is essential
 
 Reading Questions
@@ -183,7 +220,18 @@ Lab
 
 ### Preparation 
 
+* You should know the steps.  The lab is `conditionals.rkt`.
+
 ### During Lab
+
+* Sam screwed up and the wrong lab was posted.  That's now fixed.  You
+  can read more of the traces in the revised lab, which should help
+  you figure out what's going on.
+* Please copy the appropriate part of the revised lab, from after
+  your current answer to the end.
+* You should have no `{??}` in the lab text.
 
 ### Wrapup
 
+* You will need to complete this on your own.  Sorry.
+* Feel free to DM me questions.

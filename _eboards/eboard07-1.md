@@ -25,6 +25,78 @@ Administrivia
 
 ### Racket notes / Debrief from last lab
 
+#### Zen of Booleans
+
+* Aspect one: Avoid explicit `#t` and `#f`.
+    * `(if TEST #t #f)` is a long way to write `TEST`
+* Aspect two: Use `and` and `or` instead of `if` and `cond`
+
+Example
+
+```
+(define non-integer-number?
+  (lambda (x)
+    (cond
+      [(integer? x)
+       #f]
+      [(number? x)
+       #t]
+      [else
+       #f])))
+
+(define non-integer-number?
+  (lambda (x)
+    (and (number? x) 
+         (not (integer? x)))))
+```
+
+#### Different ways of thinking
+
+```
+(define median-of-three
+  (lambda (x y z)
+    (cond
+      [(or (<= x y z) (<= z y x))]
+       y]
+      [(or (<= x z y) (<= y z x))]
+       z]
+      [(or (<= y x z) (<= z x y))]
+       x]
+      [else
+       (error "math makes no sense")])))
+
+(define median-of-three
+  (lambda (x y z)
+    (if (<= x y)
+        (if (<= y z)
+            y
+            (if (<= x z)
+                z
+                x))
+        (if (<= x z)
+            x
+            (if (<= y z)
+                z
+                y)))))
+
+(define median-of-three
+  (lambda (x y z)
+    (- (+ x y z) 
+       (min x y z) 
+       (max x y z))))
+
+(define median-of-three
+  (lambda (x y z)
+    (min (max x y) (max x z))))
+```
+
+Sam's tests
+
+```
+```
+
+Which do you prefer?  Why? (TPS)
+
 ### Gradescope notes
 
 * Gradescope doesn't let us give categorical grades, so you get numbers.
