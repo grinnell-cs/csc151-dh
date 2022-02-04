@@ -6,10 +6,9 @@ summary: |
   operations, `if`, `when`, and `cond`.
 preimg: true
 notes: |
-  We've eliminated a "median of three without conditionals" problem,
-  which is fun to mention, but not necessary.  This lab is likely
-  still on the long side.  And we should also add a "trace a more
-  complex conditional" problem.  Maybe there was one before.
+  This lab is long.  It probably requires two days of class.  Perhaps
+    we should leave the ZoB stuff for another day.
+  We might want to add a tracing problem that doesn't use #t and #f.
 ---
 We may have reached the point in which you need fewer instructions.  So
 let's gve it a try.
