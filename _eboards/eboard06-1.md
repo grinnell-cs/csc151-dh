@@ -224,5 +224,14 @@ Lab
 
 ### During Lab
 
+* Sam screwed up and the wrong lab was posted.  That's now fixed.  You
+  can read more of the traces in the revised lab, which should help
+  you figure out what's going on.
+* Please copy the appropriate part of the revised lab, from after
+  your current answer to the end.
+* You should have no `{??}` in the lab text.
+
 ### Wrapup
 
+* You will need to complete this on your own.  Sorry.
+* Feel free to DM me questions.
