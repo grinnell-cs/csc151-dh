@@ -87,6 +87,10 @@
     - page: /readings/conditionals.html
   lab:
     - page: /labs/conditionals.html
+  eboards: 
+    - page: /eboards/eboard06-1.html
+    - page: /eboards/eboard06-2.html
+    - page: /eboards/eboard06-3.html
 
 - topic: Pair programming
   abbrev: pair-programming

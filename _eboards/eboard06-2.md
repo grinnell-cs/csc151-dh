@@ -1,5 +1,5 @@
 ---
-title: "EBoard 06 (Section 1): Conditionals"
+title: "EBoard 06 (Section 2): Conditionals"
 number: 6
 section: eboards
 held: 2022-02-04
