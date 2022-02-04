@@ -326,12 +326,14 @@ a few sentences, describe and justify your answer.
 #|
 d. Finally, use the concept of the Zen of Booleans to write a concise
 version of the function `(both-odd? n1 n2)` that returns true only
-when both of its arguments are odd integers.  (n.b., simply negating
-`both-even?` won't work since `both-even?` will return false if one
-argument is even and the other is odd!)
+when both of its arguments are odd?.  You may assume that both
+parameters are integers.  
+
+Note: simply negating `both-even?` won't work since `both-even?`
+will return false if one argument is even and the other is odd.
 
 You may not use the `odd?` predicate here, but you may use the
-`is-even-integer?` predicate you wrote earlier.
+`is-even?` procedure.
 |#
 
 (define both-odd?
