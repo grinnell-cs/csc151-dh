@@ -3,15 +3,15 @@ title: "EBoard 06 (Section 3): Conditionals"
 number: 6
 section: eboards
 held: 2022-02-04
-link: false
+link: true
 ---
 # {{ page.title }}
 
 _Approximate overview_
 
-* Administrative stuff [15 min]
+* Administrative stuff [30 min]
 * Questions [?? min]
-* Lab [Approximately 60 min]
+* Lab [Approximately 50 min]
 
 Administrivia
 -------------
@@ -70,14 +70,14 @@ Administrivia
   we learn about procedures is to play/experiment with them.
   (We'd hope that the documentation is clear, but it isn't always.)
 * The "four types of rounding" exercise was to encourage you to
-  play/experiment.
+  play/experiment. `floor`, `ceiling`, `truncate`, `round`
 
 #### Types of numbers
 
 * Complex: May have an imaginary part; may have a fractional part
 * Real: No imaginary part, may have a fractional part
 * Rational: No imaginary part, may have a fractional part
-* Integer: No imaginary part, may have a fractional part
+* Integer: No imaginary part, no fractional part
 
 Notes
 
@@ -90,15 +90,90 @@ Notes
 What are the values of the following?
 
 * `(round 7/2)`
-* `(round -7/2)`
 * `(round 9/2)`
+* `(round -7/2)`
 * `(round -9/2)`
 
+First expermiment
+
+```
+> (round 7/2)
+4
+> (round 9/2)
+4
+```
+
+Next experiment
+
+
+> (round 3/4)
+1
+> (round 1/4)
+0
+> (round 1/2)
+0
+> (round 0.5)
+0.0
+> (round -0.5)
+-0.0
+```
+
+And another
+
+```
+> (round 1/2)
+0
+> (round 1/2)
+0
+> (round 1/2)
+0
+```
+
+And another
+
+```
+> (round 1/2)
+0
+> (round 1/2)
+0
+> (round 3/2)
+2
+> (round 5/2)
+2
+> (round 7/2)
+4
+> (round 9/2)
+4
+> (round 11/2)
+6
+```
+
+Hypothesis
+
+* Odd + 1/2 rounds up
+* Even + 1/2 rounds down
+* When equidistant from two integers, rounds to the nearest even number.
+
 Why?
+
+* Results of rounding are now evenly divisible by two.  Yay!
+* Why not?
+* A common statistical practice to deal with the issue that people
+  often respond with 1/2s, but we often store integers rather than reals.
+    * By rounding toward even, we hope to "balance out" the rounding
+    * Men's shoe sizes: 10 10.5 10.5 11 11.5 11.5 12
+    * Average 11
+    * If we follow the round towards even policy, we get ... 11
+      (because it's a contrived example)
+    * If we follow the "round down only" policy, we get 
+* I tell you this because
+    * You should know what procedures do, even in weird cases
+    * There's often a rationale for the behavior
 
 #### Converting between exact and inexact
 
 * `(inexact->exact (exact->inexact (expt 10 50)))`
+* Once you've approximated, you've lost info.  You can never regain it.
 
 ### Upcoming work
 
@@ -115,12 +190,13 @@ Why?
 
 ### Upcoming Token-Generating Activities
 
-* Men's Tennis 9am and 5pm Saturday in the Field House.  (30 min of watching
-  is enough)
-* Swim meet Saturday at 1pm.  (30 min of watching is enough)
+* Mentor sessions!
 
 ### Other Upcoming Activities
 
+* Men's Tennis 9am and 5pm Saturday in the Field House.  (30 min of watching
+  is enough)
+* Swim meet Saturday at 1pm.  (30 min of watching is enough)
 * Men's Basketball Saturday at 1 p.m.
 * Women's Basketball Saturday at 3 p.m.
 
@@ -129,6 +205,7 @@ Why?
 * People care about you.  Please take care of yourselves.
 * Embrace moderation
 * Don't feel peer pressure; decide what is right for you
+* Almost any choice you make is one others are also making
 * Consent is essential
 
 Reading Questions
@@ -187,3 +264,4 @@ Lab
 
 ### Wrapup
 
+* Make sure to set up a time to meet with your partner to finish up the lab.
