@@ -21,7 +21,13 @@ Administrivia
 * I hope you had a pleasant "work differently" day.
 * Please say your name when you ask or answer a question (even if I've
   just called you by name).
-* Don't forget that we have evening tutors available 7--10 p.m.
+* We have evening tutors available 7--10 p.m. Sunday through Thursday.
+* We mentor sessions: Wenesday, 8--9 p.m., Sunday 4-5 p.m., Monday 8-9 p.m.
+* Attendance
+    * Repeat your name.
+    * Suggest a highlight of your work differently day.
+* Note that 02-05-2022 is an ambiguous date, as is 02/05/2022.
+  I much prefer that you use the unambiguous YYYY-MM-DD format.
 
 ### Racket notes / Debrief from last lab
 
@@ -93,6 +99,22 @@ Example
 Sam's tests
 
 ```
+(test-equal? "in order" (median-of-three 1 2 3) 2)
+(test-equal? "in reverse order" (median-of-three 10 3 1) 3)
+(test-equal? "median first, largest last" (median-of-three 4 2 5) 4)
+(test-equal? "median first, largest second " (median-of-three 5 8 1) 5)
+(test-equal? "median last, largest first" (median-of-three 11 5 6) 6)
+(test-equal? "median last, largest second" (median-of-three 1 11 7) 7)
+(test-equal? "all equal" (median-of-three 8 8 8) 8)
+(test-equal? "first two equal, third larger" (median-of-three 9 9 10) 9)
+(test-equal? "first two equal, third smaller" (median-of-three 0 0 40) 0)
+(test-equal? "last two equal, first larger" (median-of-three 3 1 1) 1)
+(test-equal? "last two equal, first smaller" (median-of-three 0 2 2) 2)
+(test-equal? "outside equal, first larger" (median-of-three 3 5 3) 3)
+(test-equal? "outside equal, first smaller" (median-of-three 4 2 4) 4)
+(test-equal? "fractions" (median-of-three 1 2 3/2) 3/2)
+(test-equal? "includes negatives" (median-of-three 3 -4 11) 3)
+(test-equal? "all negative" (median-of-three -3 -5 -4) -4)
 ```
 
 Which do you prefer?  Why? (TPS)
@@ -136,6 +158,10 @@ terms a student has completed as input, produces a string that
 describes the student using the terms above.
 
 ### Upcoming Token-Generating Activities
+
+* Mentor sessions.
+* Grinnell Lecture, Thursday, 11am
+* Track & Field, Darren Young Invite, Saturday, 10am
 
 ### Other Upcoming Activities
 
