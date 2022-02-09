@@ -75,6 +75,12 @@ Example
          (not (integer? x)))))
 ```
 
+Does the order in which you run tests matter?
+
+> Yes.  You need to make sure that something is a number before using
+  `exact?` and you need to make sure that something is an integer
+  before using `even?`.
+
 #### Different ways of thinking
 
 ```
@@ -140,14 +146,41 @@ Sam's tests
 (test-equal? "all negative" (median-of-three -3 -5 -4) -4)
 ```
 
+TPS is: "Think Pair Share"
+
+TLA is "Three Letter Acronym"
+
 Which do you prefer?  Why? (TPS)
 
-* cond
-* nested ifs
-* mathy
-* minmax
+* cond (10)
+    * Easier to read and modify
+* nested ifs (1 1/2)
+    * Simplest Racket structure, likely to be fastest
+    * Complex.  Hurting your brain is good.
+    * Job security.
+* mathy (8)
+    * Compact code
+    * Easy logic
+    * Creativity
+* minmax (4)
+    * Elegant
+    * Don't have to write conditionals, even though it's a conditionals
+      lab.  (Let's stick it to the man.)
 
 What hasn't Sam tested? (TPS)
+
+* All the orders with negatives. (Would that be overkill?)
+* Inexact numbers.  (We'll just make exactness a requirement of 
+  median-of-three.)
+
+Questions
+
+Why use the `test` technique?
+
+> The computer is better than we are at comparisons.
+
+> We're more likely to see failures if they are the only things we see.
+
 
 ### Gradescope notes
 
@@ -212,10 +245,9 @@ describes the student using the terms above.
 
 * Mentor sessions.
 * Grinnell Lecture, Thursday, 11am
+* Track & Field, Darren Young Invite, Saturday, 10am
 
 ### Other Upcoming Activities
-
-* Track & Field, Darren Young Invite, Saturday, 10am
 
 Questions
 ---------
@@ -290,9 +322,13 @@ Pair Programming in Practice
 * Listen carefully for comments that resonate or that you’d like 
   to discuss further.
 * We will think, pair, and share.
-* There's an *individual* lab for you to fill out.
+* There's an *individual* lab for you to fill out.  (After class.)
 
 ### Comments that resonated
 
+* Feeling less confident (and the ways that pair programming can help
+  or harm feelings of confidence)
+
 ### Other thoughts
 
+* Treat the class as if you've never taken CS before.
