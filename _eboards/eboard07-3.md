@@ -1,5 +1,5 @@
 ---
-title: "EBoard 07 (Section 1): Pair Programming"
+title: "EBoard 07 (Section 3): Pair Programming"
 number: 7
 section: eboards
 held: 2022-02-09

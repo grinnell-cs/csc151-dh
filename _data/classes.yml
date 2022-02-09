@@ -103,6 +103,10 @@
       resource: /files/OakleyHitchhikers2004.pdf
   lab:
     - (TBA)
+  eboards: 
+    - page: /eboards/eboard07-1.html
+    - page: /eboards/eboard07-2.html
+    - page: /eboards/eboard07-3.html
 
 - topic: Lists
   abbrev: lists
