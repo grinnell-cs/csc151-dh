@@ -26,9 +26,6 @@ Administrivia
 * Evening tutors are available 7--10 p.m. Sunday through Thursday.
 * Mentor sessions are Wednesday, 8--9 p.m., Sunday 4--5 p.m., Monday 8--9 p.m.
     * No Mentor Session next Wednesday (SoLA 1)
-* Attendance
-    * Repeat your name.
-    * Suggest a highlight of your work differently day.
 * Note that 02-05-2022 is an ambiguous date, as is 02/05/2022.
   I much prefer that you use the unambiguous YYYY-MM-DD format.
 * When you need to finish a lab outside of class, and can't get a 
@@ -37,8 +34,16 @@ Administrivia
 * **Do not divide work on labs!  Both partners should be working
   together on all the problems.**
 
+### Attendance / Mispronunciations
+
+* Sam has names arranged in random order and will attempt to read them
+  again.
+* When you hear your name, say your name again and say how you used your
+  Learn Differently Day.
+
 ### Racket notes / Debrief from last lab
 
+* Sorry about the `median-of-three?` vs. `median-of-three` issue.
 * Please do not put your `lambda` on the same line as your `define`.
 * Please do not cram stuff together.  Always have a space between
   a procedure and its parameters.  No `(+(- 2)3)` or anything like that.
@@ -74,6 +79,7 @@ Example
 #### Different ways of thinking
 
 ```
+; Direct tests
 (define median-of-three
   (lambda (x y z)
     (cond
@@ -86,6 +92,7 @@ Example
       [else
        (error "math makes no sense")])))
 
+: Nested ifs
 (define median-of-three
   (lambda (x y z)
     (if (<= x y)
@@ -100,15 +107,17 @@ Example
                 z
                 y)))))
 
+; Mathy
 (define median-of-three
   (lambda (x y z)
     (- (+ x y z) 
        (min x y z) 
        (max x y z))))
 
+; MinMax
 (define median-of-three
   (lambda (x y z)
-    (min (max x y) (max x z))))
+    (min (max x y) (max x z) (max y z))))
 ```
 
 Sam's tests
@@ -132,9 +141,28 @@ Sam's tests
 (test-equal? "all negative" (median-of-three -3 -5 -4) -4)
 ```
 
+Note: TPS is "Think, Pair, Share" (or Talk to Person Sitting nearby)
+
+Note: TLA is a Three Letter Acronym
+
 Which do you prefer?  Why? (TPS)
 
+* The one with the direct conditionals (very popular)
+    * We did it
+    * Easiest to read
+* Minmax (about six)
+    * "It's the one I came up with"
+    * "It's really short"
+    * I managed to avoid conditionals on a lab about conditionals.
+* Nested if (3)
+    * It's efficient
+    * My brain "learns differently" so that's how I tend to write things
+* The mathy one
+    * I didn't write it that way and it let me think differently
+
 What hasn't Sam tested? (TPS)
+
+* Inexact numbers.  Sometimes weird things happen with inexact numbers.
 
 ### Gradescope notes
 
@@ -150,12 +178,8 @@ What hasn't Sam tested? (TPS)
 
 * Quiz 3 Friday: Conditionals
 * Readings for Friday due Thursday at 10:00 p.m.
-    * DDag question
 * Lab writeup from today due Thursday at 10:30 p.m.
-    * Ideally, you'll finish that in class today.
-    * If not, set up a time to meet with your partners.
-    * If that's not possible, finish (and submit) separately, but cite
-      your partner.
+    * Individual
 * Mini-Project 2 due Thursday at 10:30 p.m.
     * On Gradescope
     * Autograder is live; I think it's bug-free.
@@ -258,6 +282,8 @@ How long does it take you?
 Pair Programming Pursued
 ------------------------
 
+_We spent long enough on the introductory material that we skipped this section._
+
 Discuss with your partner and be ready to answer.
 
 * What did you find surprising in the readings?
@@ -284,5 +310,49 @@ Pair Programming in Practice
 
 ### Comments that resonated
 
+* Keyboard being pulled away was really hurtful.
+* My partner asked me out on a date.
+* People misjudge me because of my letter jacket.
+* My partner doesn't understand why I won't work on Saturdays.
+    * Might have other work on Saturdays.
+    * You don't know someone else's life or schedule.
+    * Might want to preserve Saturdays for non-school things, like hanging
+      out with friends.
+    * Perhaps a religious obligation.
+* There are lots of different viewpoints and experiences.
+
 ### Other thoughts
 
+* We like the idea of pair programming.  It seems like it's helpful.
+  We need good partners, though.
+* There's a psychological principle that people who know more tend to
+  underestimate themselves and people who know less tend to overestimate
+  themselves.  Working with a partner lets you norm yourself and improve
+  your knowledge.
+    * Plus: The person who thinks they know it all doesn't.
+* It's nice to have someone you can ask questions from.  (Of course,
+  you can also ask Sam or the mentors.)
+* It's really nice that my partner can log in when the computer decides
+  it hates me.
+* It's really nice when I'm struggling to answer one of Sam's questions and 
+  my partner gently suggests an answer.
+* Since there are often many different ways to solve a problem, it's nice
+  to talk to someone else who might come up with a different solution than
+  I would come up with on my own.
+
+### What would you like to promise to each other to address the problems and cultural differences?
+
+* "We'll stop talking when Sam walks by so that he can't overhear us."
+* "I'll do the readings before class so that I'm prepared to contribute."
+* "We'll make sure that we agree when it's time to switch Driver and 
+  Navigator."
+* We have different ways of using the readings.  Some of us seem to have
+  memorized them.  Others have taken notes.  Others want them up while
+  we are doing the lab so they can check back.  I'll support my partner's
+  approach and make clear my own.
+* "We will confront problems in the moment, telling our partner when they
+  are not behaving up to standards (or discussing the issue with one of
+  the course staff)."
+* "Have respect for your partner; understand their differences, including
+  the other things that may be going on in their life."
+* "Be kind."

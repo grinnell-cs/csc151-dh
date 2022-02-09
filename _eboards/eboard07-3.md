@@ -9,9 +9,9 @@ link: true
 
 _Approximate overview_
 
-* Administrative stuff [15 min]
-* Questions [?? min]
-* Discussion [Approximately 60 min]
+* Administrative stuff [~40 min]
+* Questions [~10 min]
+* Discussion [~30 min]
 
 Administrivia
 -------------
@@ -26,9 +26,6 @@ Administrivia
 * Evening tutors are available 7--10 p.m. Sunday through Thursday.
 * Mentor sessions are Wednesday, 8--9 p.m., Sunday 4--5 p.m., Monday 8--9 p.m.
     * No Mentor Session next Wednesday (SoLA 1)
-* Attendance
-    * Repeat your name.
-    * Suggest a highlight of your work differently day.
 * Note that 02-05-2022 is an ambiguous date, as is 02/05/2022.
   I much prefer that you use the unambiguous YYYY-MM-DD format.
 * When you need to finish a lab outside of class, and can't get a 
@@ -36,6 +33,12 @@ Administrivia
   as good as I could do".
 * **Do not divide work on labs!  Both partners should be working
   together on all the problems.**
+
+### Attendance / Mispronunciations
+
+* Sam has names in random order.
+* When you hear your name, say your name again and say how you used your
+  Learn Differently Day.
 
 ### Racket notes / Debrief from last lab
 
@@ -50,6 +53,7 @@ Administrivia
 
 * Aspect one: Avoid explicit `#t` and `#f`.
     * `(if TEST #t #f)` is a long way to write `TEST`
+    * `(equal? TEST #t)` is also a long way to write `TEST`
 * Aspect two: Use `and` and `or` instead of `if` and `cond`
 
 Example
@@ -74,6 +78,7 @@ Example
 #### Different ways of thinking
 
 ```
+; The cond approach
 (define median-of-three
   (lambda (x y z)
     (cond
@@ -86,6 +91,7 @@ Example
       [else
        (error "math makes no sense")])))
 
+; The nested-if approach
 (define median-of-three
   (lambda (x y z)
     (if (<= x y)
@@ -100,15 +106,17 @@ Example
                 z
                 y)))))
 
+; The mathy approach
 (define median-of-three
   (lambda (x y z)
     (- (+ x y z) 
        (min x y z) 
        (max x y z))))
 
+; The minmax approach
 (define median-of-three
   (lambda (x y z)
-    (min (max x y) (max x z))))
+    (min (max x y) (max x z) (max y z))))
 ```
 
 Sam's tests
@@ -134,6 +142,11 @@ Sam's tests
 
 Which do you prefer?  Why? (TPS)
 
+* cond
+* nested ifs
+* mathy
+* minmax
+
 What hasn't Sam tested? (TPS)
 
 ### Gradescope notes
@@ -150,12 +163,8 @@ What hasn't Sam tested? (TPS)
 
 * Quiz 3 Friday: Conditionals
 * Readings for Friday due Thursday at 10:00 p.m.
-    * DDag question
 * Lab writeup from today due Thursday at 10:30 p.m.
-    * Ideally, you'll finish that in class today.
-    * If not, set up a time to meet with your partners.
-    * If that's not possible, finish (and submit) separately, but cite
-      your partner.
+    * Do it yourself; it should take about ten minutes.
 * Mini-Project 2 due Thursday at 10:30 p.m.
     * On Gradescope
     * Autograder is live; I think it's bug-free.
@@ -203,9 +212,10 @@ describes the student using the terms above.
 
 * Mentor sessions.
 * Grinnell Lecture, Thursday, 11am
-* Track & Field, Darren Young Invite, Saturday, 10am
 
 ### Other Upcoming Activities
+
+* Track & Field, Darren Young Invite, Saturday, 10am
 
 Questions
 ---------

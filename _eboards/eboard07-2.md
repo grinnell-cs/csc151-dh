@@ -9,9 +9,9 @@ link: true
 
 _Approximate overview_
 
-* Administrative stuff [15 min]
-* Questions [?? min]
-* Discussion [Approximately 60 min]
+* Administrative stuff [~35 min]
+* Questions [~5 min]
+* Discussion [~40 min]
 
 Administrivia
 -------------
@@ -26,9 +26,6 @@ Administrivia
 * Evening tutors are available 7--10 p.m. Sunday through Thursday.
 * Mentor sessions are Wednesday, 8--9 p.m., Sunday 4--5 p.m., Monday 8--9 p.m.
     * No Mentor Session next Wednesday (SoLA 1)
-* Attendance
-    * Repeat your name.
-    * Suggest a highlight of your work differently day.
 * Note that 02-05-2022 is an ambiguous date, as is 02/05/2022.
   I much prefer that you use the unambiguous YYYY-MM-DD format.
 * When you need to finish a lab outside of class, and can't get a 
@@ -37,8 +34,15 @@ Administrivia
 * **Do not divide work on labs!  Both partners should be working
   together on all the problems.**
 
+### Attendance / Mispronunciations
+
+* Sam has names in random order.
+* When you hear your name, say your name again and say how you used your
+  Learn Differently Day.
+
 ### Racket notes / Debrief from last lab
 
+* Apologies for the `median-of-three?` vs `median-of-three` issue.
 * Please do not put your `lambda` on the same line as your `define`.
 * Please do not cram stuff together.  Always have a space between
   a procedure and its parameters.  No `(+(- 2)3)` or anything like that.
@@ -50,6 +54,7 @@ Administrivia
 
 * Aspect one: Avoid explicit `#t` and `#f`.
     * `(if TEST #t #f)` is a long way to write `TEST`
+    * `(equal? TEST #t)` is also a long way to write `TEST`
 * Aspect two: Use `and` and `or` instead of `if` and `cond`
 
 Example
@@ -74,6 +79,7 @@ Example
 #### Different ways of thinking
 
 ```
+; The cond version
 (define median-of-three
   (lambda (x y z)
     (cond
@@ -86,6 +92,7 @@ Example
       [else
        (error "math makes no sense")])))
 
+; The nested-if version
 (define median-of-three
   (lambda (x y z)
     (if (<= x y)
@@ -100,15 +107,17 @@ Example
                 z
                 y)))))
 
+; The mathy version
 (define median-of-three
   (lambda (x y z)
     (- (+ x y z) 
        (min x y z) 
        (max x y z))))
 
+; The minmax version
 (define median-of-three
   (lambda (x y z)
-    (min (max x y) (max x z))))
+    (min (max x y) (max x z) (max y z))))
 ```
 
 Sam's tests
@@ -132,15 +141,37 @@ Sam's tests
 (test-equal? "all negative" (median-of-three -3 -5 -4) -4)
 ```
 
+TPS = "Think, Pair, Share"
+TLA = "Three Letter Acronym"
+
 Which do you prefer?  Why? (TPS)
 
+* cond (6)
+    * Easy to read and understand
+    * It's longer.  (That's worse.)
+* nested if (0)
+    * Possibly the most efficient
+    * Job security
+* mathy (6)
+    * Clever
+    * Nice to see something different than what I'd done
+* minmax (lots)
+    * Really simple
+    * Nice to see something different than what I'd done
+    * Original was wrong (which means Sam forgot to run the tests)
+
 What hasn't Sam tested? (TPS)
+
+* Sam forgot to test inexact numbers.
+* Sam forgot to test the minmax version.
+* We didn't check complex numbers, but we can't compare complex
+  numbers using <.
 
 ### Gradescope notes
 
 * Gradescope doesn't let us give categorical grades, so you get numbers.
 * For S/N, S is 1 and N is 0.
-* For E/M/R/I, E is 3, M is 2, R is 1, N is 0.
+* For E/M/R/I, E is 3, M is 2, R is 1, I is 0.
 * For everything, the autograder scores have no effect (other than to see
   what you might have had problems with).
     * E.g., 1.9999 is a 1.
@@ -150,18 +181,14 @@ What hasn't Sam tested? (TPS)
 
 * Quiz 3 Friday: Conditionals
 * Readings for Friday due Thursday at 10:00 p.m.
-    * DDag question
 * Lab writeup from today due Thursday at 10:30 p.m.
-    * Ideally, you'll finish that in class today.
-    * If not, set up a time to meet with your partners.
-    * If that's not possible, finish (and submit) separately, but cite
-      your partner.
+    * Do this individually out of class.
+    *It's short.
 * Mini-Project 2 due Thursday at 10:30 p.m.
     * On Gradescope
     * Autograder is live; I think it's bug-free.
 * Mini-Project 1 redo due Sunday the 20th at 10:30 p.m.
-* SoLA 1 to be released next Wednesday at 2:30 p.m.  Due next Thursday
-  at 10:30 p.m.
+* SoLA 1 due a week from Thursday at 10:30 p.m.
 
 ### About SoLAs
 
@@ -181,6 +208,7 @@ What hasn't Sam tested? (TPS)
 * You may use DrRacket, your notes, the Course Web site, and the
   Racket documentation.  You may not use other people for help, nor
   may you search the Interweb.
+* Released Wednesday at 2:30 p.m., due Thursday at 10:30 p.m.
 * There are no mentor sessions on nights during the SoLA.
 * Sam will not generally answer questions on the SoLA (but will fix bugs).
 
@@ -255,8 +283,34 @@ How long does it take you?
 
 ### Other questions
 
+On the mini project, if we have procedures that reutun other than true or false, what should we write?
+
+> Prefer: `(test-true "comment" (equal? (your-proc params) expected-value))`
+
+> Alternate: `(test-equal? "comment" (your-proc params) expected-value)`
+
+Do redos replace the prior grade?
+
+> Yes.
+
+Do I need to spend a token for an MP redo?
+
+> No if it's the first redo and you got an R or an M.
+
+> Yes if it's the second redo or you got an I or an E.
+
+Is there a third redo?
+
+> No.
+
+If you get an R or an M and follow all the comments, will you get an E?
+
+> Usually/ideally.
+
 Pair Programming Pursued
 ------------------------
+
+_The introductory material took long enough that we skipped this section._
 
 Discuss with your partner and be ready to answer.
 
@@ -284,5 +338,28 @@ Pair Programming in Practice
 
 ### Comments that resonated
 
+* There were a lot of comments about partners who are not letting their
+  partner contribute.
+    * Please try not to be that partner.
+    * Encourage your partner to contribute, if possible.
+* There are issues of when a partner doesn't think they know what they're
+  doing.
+    * Remember the story about Sam's students; you can always contribue
+      and learn.
+    * Don't undermine your partner's confidence.
+
 ### Other thoughts
+
+* We don't always judge our partner's skill level well.  (They may not
+  even judge their own skill level well.)
+* We benefit from shared knowledge if we accept that we have shared
+  knowledge.
+* Accept the slower pace / different work if your partner is not as 
+  knowledgeable.
+* You are not alone; others feel the same way you do.
+* There are some real benefits to pair programming; let's make sure we
+  can take advantage of them.
+    * Having someone there in case you get stuck.
+    * Different ways of thinking.
+    * Someone to high-five.
 
