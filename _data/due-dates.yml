@@ -42,13 +42,15 @@
   due:
     - Quiz 4
 
+- date: 2022-02-23
+  assigned:
+    - page: /mps/mp04.html
+
 - date: 2022-02-24
   due:
     - page: /mps/mp03.html
 
-- date: 2022-02-25
-  assigned:
-    - page: /mps/mp04.html
+- date: 2022-02-27
   due:
     - Quiz 5
 

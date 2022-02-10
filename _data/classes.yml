@@ -131,11 +131,6 @@
   lab:
     - page: /labs/lists-more.html
 
-- topic: Pause for breath
-  abbrev: pause-01
-  summary: |
-    We pause to review some concepts from the first few weeks of the course.
-
 - topic: Files and regular expressions
   abbrev: regexp
   summary: | 
@@ -154,6 +149,35 @@
     We continue our exploration of regular expressions and files.
   lab:
     - page: /labs/files-rex.html
+
+- topic: Introduction to list recursion
+  abbrev: recursion-intro
+  summary: |
+    We begin our exploration of *recursion*, the most general form
+    of repetition available in Scheme.  You can use recursion to
+    both build and iterate over different kinds of values.
+  reading:
+    - page: /readings/recursion-basics.html
+
+- topic: Introduction to list recursion, continued
+  summary: |
+    We continue our introductory exploration of recursion in Racket.
+  reading:
+    - page: /readings/recursion-basics.html
+  lab:
+    - page: /labs/recursion-basics.html
+
+- topic: Unofficial Working Differently Day
+  abbrev: working-differently
+  summary: |
+    A day (or at least a class period) for you to not worry about CS.
+
+- topic: Recursion practice
+  summary: |
+    We continue to continue our introductory exploration of recursion
+    in Racket.
+  lab:
+    - page: /labs/recursion-practice.html
 
 - topic: Local bindings
   abbrev: local-bindings
@@ -178,30 +202,6 @@
     - page: /readings/hypothesis-driven-debugging.html
   lab:
     - page: /labs/rackunit.html
-
-- topic: Introduction to list recursion
-  abbrev: recursion-intro
-  summary: |
-    We begin our exploration of *recursion*, the most general form
-    of repetition available in Scheme.  You can use recursion to
-    both build and iterate over different kinds of values.
-  reading:
-    - page: /readings/recursion-basics.html
-
-- topic: Introduction to list recursion, continued
-  summary: |
-    We continue our introductory exploration of recursion in Racket.
-  reading:
-    - page: /readings/recursion-basics.html
-  lab:
-    - page: /labs/recursion-basics.html
-
-- topic: Recursion practice
-  summary: |
-    We continue to continue our introductory exploration of recursion
-    in Racket.
-  lab:
-    - page: /labs/recursion-practice.html
 
 - topic: Recursion over numbers
   abbrev: number-recursion
