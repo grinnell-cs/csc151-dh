@@ -58,7 +58,11 @@ Administrivia
 ### Upcoming Token-Generating Activities
 
 * Mentor sessions.
-* Track & Field, Darren Young Invite, Saturday, 10am
+* Track & Field, Darren Young Invite, Saturday, 10am (30 min suffices)
+* Storm Lake, Saturday at 7pm
+* Visit the digital art exhibit at the Grinnell Art Museum for at least 
+  15 minutes.
+* CS SEPC Event Tuesdays at 8:30-9:30 p.m. in the CS Commons.
 
 ### Other Upcoming Activities
 
@@ -67,8 +71,8 @@ Administrivia
 ### Friday PSA
 
 * Avoid peer pressure; decide what is right for you.
-* People care about you; keep yourself healthy/happy for them.
 * Know that you are not alone in making those kinds of decisions.
+* People care about you; keep yourself healthy/happy for them.
 * Please be moderate in your choices.
 * Consent is essential.
 
@@ -103,7 +107,15 @@ Lab
     * `string->list` - Convert a string to a list of its component chars
     * `reverse` - Give a list in the opposite order
 * Other notes
-    * `(map * '(2 3 4) '(5 6 7))` -> `'(10 18 28)`
+    * There is a "three-parameter `map`".
+      `(map * '(2 3 4) '(5 6 7))` -> `'(10 18 28)`
 
 ### Wrapup
 
+* If you got through exercise 3, write the following after exercise 3
+  and submit.  Then glance at exercise 4.
+
+        ; SAM SAID WE COULD STOP HERE
+
+* If you did not get through exercise 3, plan to meet with your partner
+  to finish exercise 3 (and, optionally, exercise 4).

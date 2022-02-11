@@ -58,16 +58,20 @@ Administrivia
 ### Upcoming Token-Generating Activities
 
 * Mentor sessions.
-* Track & Field, Darren Young Invite, Saturday, 10am
+* Track & Field, Darren Young Invite, Saturday, 10am (At least 30 min.)
+* Storm Lake Film, Saturday, 7pm, the Kernel (I think).
+* Spring Festival, Saturday, 8pm, Harris.
+* CS Study Break, Tuesday, 8:30pm, CS Commons.
 * Neuroscience Journal Club, Thursday, February 17, Noon, Noyce 2517.
+* Visit the current exhibit in the Grinnell Art Museum.  (At least 15 min.)
 
 ### Other Upcoming Activities
 
 ### Friday PSA
 
 * Avoid peer pressure; decide what is right for you.
-* People care about you; keep yourself healthy/happy for them.
 * Know that you are not alone in making those kinds of decisions.
+* People care about you; keep yourself healthy/happy for them.
 * Please be moderate in your choices.
 * Consent is essential.
 
@@ -90,19 +94,29 @@ Lab
 
 ### Preliminaries
 
-* There should only be four problems on today's lab.  If you see five
-  problems, you have an old version.  Please reload.
+* There should only be four exercises on today's lab.  If you see five
+  exercises, you have an old version.  Please reload.
+* I have a list of helpful procedures on the eboard (and on the screen,
+  unless the screen saver starts).
 
 ### During Lab
 
-* Some helpful procedures
+* Some helpful procedures for exercise 3
     * `map` - Do something to each element in a list
     * `expt` - You should know this
     * `char->integer` - Get the collating sequence number
     * `string->list` - Convert a string to a list of its component chars
     * `reverse` - Give a list in the opposite order
 * Other notes
-    * `(map * '(2 3 4) '(5 6 7))` -> `'(10 18 28)`
+    * Here's "the three-parameter `map`".
+      `(map * '(2 3 4) '(5 6 7))` -> `'(10 18 28)`
 
 ### Wrapup
 
+* If you got through exercise 3, write the following after exercise 3
+  and submit.  Then glance at exercise 4.
+
+        ; SAM SAID WE COULD STOP HERE
+
+* If you did not get through exercise 3, plan to meet with your partner
+  to finish exercise 3 (and, optionally, exercise 4).
