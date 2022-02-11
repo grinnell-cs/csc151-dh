@@ -89,6 +89,10 @@ Can I have some tips on being more efficient at readings and mps?
 
 > I'll mail out tips in the daily update.  We'll return to them on Monday.
 
+What's wrong with my Dale-Chall?
+
+> That's a good individual question.
+
 Lab
 ---
 
