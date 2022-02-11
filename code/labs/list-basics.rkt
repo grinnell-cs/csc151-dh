@@ -35,6 +35,8 @@ c. Save the lab as `list-basics.rkt`.
 
 #|
 a. Predict the results of evaluating each of the following expressions.
+You may find it helpful to check each one in DrRacket after making our
+prediction.
 
 > (list 2 1)
 <ENTER YOUR ANSWER HERE>
@@ -42,17 +44,19 @@ a. Predict the results of evaluating each of the following expressions.
 <ENTER YOUR ANSWER HERE>
 > (make-list -1 2)
 <ENTER YOUR ANSWER HERE>
-> (map - (range 2))
+> (range 3)
 <ENTER YOUR ANSWER HERE>
-> (map - (range 2) (list 2 1))
+> (map - (range 3))
+<ENTER YOUR ANSWER HERE>
+> (map - (range 3) (list 2 1 2))
 <ENTER YOUR ANSWER HERE>
 > (map range (list 2 1))
 ```
 |#
 
 #|
-b. Check your predictions with DrRacket.  (Do the checks in the interactions
-pane, not here.)
+b. If you haven't done so already, heck your predictions with DrRacket.
+(Do the checks in the interactions pane, not here.)
 |#
 
 #|
@@ -80,7 +84,8 @@ to check the result of each before going on to the next.
 |#
 
 #|
-d. Check your answers in the interactions pane.
+d. If you haven't done so already, check your answers in the interactions 
+pane.
 |#
 
 #|
@@ -88,6 +93,8 @@ e. Why do you think we had you try so many different inputs to `range`?
 
 <ENTER YOUR ANSWER HERE>
 |#
+
+#| B |#
 
 ; +-----------------------------------+------------------------------
 ; | Exercise 2: Other list procedures |
@@ -97,12 +104,16 @@ e. Why do you think we had you try so many different inputs to `range`?
 The list of procedures in the lab description is not comprehensive.
 Spend *no more than three minutes* coming up with a few other procedures
 you've encountered that generate or process lists.  Here are some
-hints that may help.
+hints that may help.  (You don't have to answer these particular
+questions; just try to think about when you've encountered lists
+before.)
 
 * What procedures do you know (other than those listed) that create a
   list of strings?
 * What procedures do you know (other than those listed) that create a
   list of characters?
+
+<ENTER YOUR ANSWER HERE>
 |#
 
 ; +---------------------------------+--------------------------------
@@ -265,7 +276,7 @@ might be necessary.
   (lambda (str)
     ???))
 
-#| B |#
+#| A |#
 
 ; +--------------------------+---------------------------------------
 ; | Exercise 4: Check values |
@@ -322,8 +333,7 @@ as input and computes its check letter (a character) using that approach.
 ; +------------------+
 
 #|
-Yay!  You're done with this lab.  Submit your work.  You should know
-the drill by now.
+You're done with this lab.  Congratulations!  Submit your work.
 |#
 
 #| AB |#
