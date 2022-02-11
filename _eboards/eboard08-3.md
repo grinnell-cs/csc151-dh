@@ -81,12 +81,28 @@ problems that won't be addressed by the lab._
 
 ### Other questions
 
+Can I have some tips on being more efficient at readings and mps?
+
+> I'll mail out tips in the daily update.  We'll return to them on Monday.
+
 Lab
 ---
 
 ### Preliminaries
 
+* There should only be four problems on today's lab.  If you see five
+  problems, you have an old version.  Please reload.
+
 ### During Lab
+
+* Some helpful procedures
+    * `map` - Do something to each element in a list
+    * `expt` - You should know this
+    * `char->integer` - Get the collating sequence number
+    * `string->list` - Convert a string to a list of its component chars
+    * `reverse` - Give a list in the opposite order
+* Other notes
+    * `(map * '(2 3 4) '(5 6 7))` -> `'(10 18 28)`
 
 ### Wrapup
 
