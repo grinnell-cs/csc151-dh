@@ -220,11 +220,15 @@ need to use `map` and `range` to create this list.
 
 #|
 f. Reconsider the problem of converting a string to an integer.
-How will/might the procedures you've just written help you in 
-that activity?  How might `map` and `apply` help you with that
-that activity.  Sketch an algorithm, based on those tools, that
-might allow you to do the conversion.  *Once again, spend no
-moreo than five minutes on this part of the exercise.*
+How will/might the procedures you've just written help you in that
+activity?  How might `map` and `apply` help you with that that
+activity?  How might the three-parameter `map` help?  (If you're
+not sure about the three-parameter `map`, ask one of the course
+staff.)
+
+Sketch an algorithm, based on those tools, that might allow you to
+do the conversion.  *Once again, spend no moreo than five minutes
+on this part of the exercise.*
 
 <INSERT YOUR ANSWER HERE>
 |#
@@ -251,9 +255,6 @@ complete this problem.
 
 Think about how those procedures help, as well as what other decomposition
 might be necessary.
-
-If you're not sure about the three-parameter `map`, ask one of the
-course staff.
 |#
 
 ;; (string->integer str) -> integer?
@@ -266,8 +267,78 @@ course staff.
 
 #| B |#
 
+; +--------------------------+---------------------------------------
+; | Exercise 4: Check values |
+; +--------------------------+
+
+#|
+In the early days of the Internet, data could become corrupted.  For
+example, one letter in a communication might switch.  To help identify
+such problems (and, eventually, to help resolve them), many programmers
+started adding "check values" to their strings.  Here's a simple
+strategy for computing a check value.
+
+* Convert all the letters in the string to their corresponding ASCII or
+  Unicode numbers.
+* Add all those numbers together.
+* Divide the sum by 26 and take the remainder.
+* Convert back to a letter, using the conversion 0->A, 1->B, 2->C, ...
+
+For example, given the string "Hello", I might do the following
+calculations using DrRacket to help.
+
+    > (char->integer #\H)
+    72
+    > (char->integer #\e)
+    101
+    > (char->integer #\l)
+    108
+    > (char->integer #\o)
+    111
+    > (+ 72 101 108 108 111)
+    500
+    > (remainder 500 26)
+    6
+
+So the check letter for "Hello" is #\G at least if we're right that
+"G" is the 7th letter.  (Do you know why we said 7th rather than 6th?
+The conversion does suggest that letter 6 is #\G)
+
+Write a procedure, `(check-letter str)` that takes an arbitrary string
+as input and computes its check letter (a character) using that approach.
+|#
+
+;;; (check-letter str) -> char?
+;;;   str : string?
+;;; Compute a check letter for str using the assigned process.
+(define check-letter
+  (lambda (str)
+    ???))
+
+#| AB |#
+
+; +------------------+-----------------------------------------------
+; | Submit your work |
+; +------------------+
+
+#|
+Yay!  You're done with this lab.  Submit your work.  You should know
+the drill by now.
+|#
+
+#| AB |#
+
+; +---------------------------+--------------------------------------
+; | For those with extra time |
+; +---------------------------+
+
+#|
+If you finish the lab early, you should attempt one or more of these
+problems.
+|#
+
 ; +----------------------------------------+-------------------------
-; | Exercise 4: Translating binary numbers |
+; | Exercise 1: Translating binary numbers |
 ; +----------------------------------------+
 
 #|
@@ -309,72 +380,8 @@ variety of ways to interpret binary values as numbers.
   (lambda (str)
     ???))
 
-; +--------------------------+---------------------------------------
-; | Exercise 5: Check values |
-; +--------------------------+
-
-#|
-In the early days of the Internet, data could become corrupted.  For
-example, one letter in a communication might switch.  To help identify
-such problems (and, eventually, to help resolve them), many programmers
-started adding "check values" to their strings.  Here's a simple
-strategy for computing a check value.
-
-* Convert all the letters in the string to their corresponding ASCII or
-  Unicode numbers.
-* Add all those numbers together.
-* Divide the sum by 26 and take the remainder.
-* Convert back to a letter, using the conversion 0->A, 1->B, 2->C, ...
-
-For example, given the string "Hello", I might do the following
-calculations using DrRacket to help.
-
-    > (char->integer #\H)
-    72
-    > (char->integer #\e)
-    101
-    > (char->integer #\l)
-    108
-    > (char->integer #\o)
-    111
-    > (+ 72 101 108 108 111)
-    500
-    > (remainder 500 26)
-    6
-
-So the check letter for "Hello" is "G", at least if we're right that
-"G" is the 7th letter.  (Do you know why we  said 7th rather than 6th?)
-
-Write a procedure, `(check-letter str)` that takes an arbitrary string
-as input and computes its check letter using that approach.
-|#
-
-; <ENTER YOUR ANSWER HERE>
-
-#| AB |#
-
-; +------------------+-----------------------------------------------
-; | Submit your work |
-; +------------------+
-
-#|
-Yay!  You're done with this lab.  Submit your work.  You should know
-the drill by now.
-|#
-
-#| AB |#
-
-; +---------------------------+--------------------------------------
-; | For those with extra time |
-; +---------------------------+
-
-#|
-If you finish the lab early, you should attempt one or more of these
-problems.
-|#
-
 ; +-----------------------------+------------------------------------
-; | Extra 1: General conversion |
+; | Extra 2: General conversion |
 ; +-----------------------------+
 
 #|
@@ -384,9 +391,9 @@ version, `(string->integer str base)`, that takes a base from 2 to
 10 as a parameters.
 |#
 
-; +--------------------------+---------------------------------------
-; | Extra 2: More conversion |
-; +--------------------------+
+; +-------------------------------------------+----------------------
+; | Extra 3: Expanding support for conversion |
+; +-------------------------------------------+
 
 #|
 Add support for negative numbers, bases greater than ten, perhaps
