@@ -151,9 +151,10 @@ the string to its corresponding decimal number.  Write a procedure,
    > (char->digit "9")
    Boom.  Crash.
    > (char->digit #\x)
-   ; whatever you want
+   72 ; or whatever you want, since it's an invalid input
 
 Note that you may find the collating sequence values helpful.
+You can get those with `(char->integer ch)`.
 |#
 
 ;; (char->digit char) -> integer?
