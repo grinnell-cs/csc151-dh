@@ -118,6 +118,10 @@
     - page: /readings/list-transform.html
   lab:
     - page: /labs/list-basics.html
+  eboards: 
+    - page: /eboards/eboard08-1.html
+    - page: /eboards/eboard08-2.html
+    - page: /eboards/eboard08-3.html
 
 - topic: Lists, revisited
   abbrev: lists-revisited
