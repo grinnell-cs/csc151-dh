@@ -82,6 +82,8 @@ ready to share about others.
 * Acknowledge that it's okay if you don't completely understand the 
   reading or the procedures mentioned in the reading.  We do the labs 
   to help you figure things out better.
+    * Aka "Cut your losses".
+    * Aka "Understand the learning curve".
 * Take notes as you go.
     * Including pointers to things (i.e., find out more about X in ….)
     * Try things out in DrRacket.
@@ -102,7 +104,7 @@ ready to share about others.
 * Don't be afraid to experiment.
 * Don't spend too much time stuck.  If you struggle on a problem for 
   more than five minutes, ask a question.  If you won't get the answer 
-  immediately (e.g., if it's on Teams), move on to the next problem.
+  immediately (e.g., if it's on Teams), move on to the next problem. [+1]
 * It helps to work in 3813/3815, since there are often folks around 
   who might help.
 * Other ways to get unstuck.
@@ -182,5 +184,23 @@ Lab
 
 ### During Lab
 
+* "Three-parameter `map`".
+  `(map + '(1 2 3) '(4 4 4))` -> `'(5 6 7)`
+* When you get to `party-person`, just write it the way that you
+  would have written it last week.
+
+        (define party-person
+          (lambda (scale)
+            (above (triangle (* scale 20) 'solid 'green)
+                   ...)))
+
+* Note: `reduce` works better with two-parameter procedures, `apply`
+  works better with procedures that take an arbitrary number of
+  parameters.
+
 ### Wrapup
 
+* Submit exercises 1--3.  Do exercise 4 on your own, do not submit it,
+  but be prepared to discuss it in class.
+    * "discuss it in class": Sam will ask you questions or you can ask
+      Sam questions.
