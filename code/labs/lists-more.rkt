@@ -198,22 +198,38 @@ e. As you might expect, it turns out that the fix is to use the
 as input and returns the result of applying `f` to the values of
 the list.  Use `apply` to complete the definition of `party` below
 and verify that it produces what you expect.  
+
+Please use `beside` and not `beside/align`.
 |#
 
 (define party "TODO: FILL ME IN!")
 
 #|
 f. It's also possible to do this with `reduce` rather than `apply`.
-(At least it should be.)  Try doing so.
+(At least it should be.)  Try doing so.  Once again, please use
+`beside` rather than `beside-align`.
 |#
 
 (define party-f "TODO: FILL ME IN!")
+
+#|
+g. Try using `reduce` with `beside/align` rather than `beside`.
+Remember: `reduce` needs a two-parameter procedure.
+|#
+
+(define party-g "TODO: FILL ME IN!")
 
 #| B |#
 
 ; +------------------------------------+-----------------------------
 ; | Exercise 4: Exercises in reduction |
 ; +------------------------------------+
+
+#| 
+If you do not get to this part of the lab in class, don't worry.
+You need not do it together.  Each partner should do it on their
+own and not submit it, but be ready to discuss it.
+|#
 
 #|
 a. What does the following procedure do?
