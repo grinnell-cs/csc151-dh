@@ -66,7 +66,7 @@ other standard library functions for lists (e.g., length) when appropriate.
 ; Keeps only the elements of the list that are greater than 10.
 (define ex-1-list-filtered "<TODO: fill me in>")
 ; (test-equal? "Filtering the list"
-;              ex1-list-filtered
+;              ex-1-list-filtered
 ;              '(25 25 23 21 20 20 18 22 21))
 
 ; Computes the average of the list (Hint: this computation is more
@@ -198,22 +198,38 @@ e. As you might expect, it turns out that the fix is to use the
 as input and returns the result of applying `f` to the values of
 the list.  Use `apply` to complete the definition of `party` below
 and verify that it produces what you expect.  
+
+Please use `beside` and not `beside/align`.
 |#
 
 (define party "TODO: FILL ME IN!")
 
 #|
 f. It's also possible to do this with `reduce` rather than `apply`.
-(At least it should be.)  Try doing so.
+(At least it should be.)  Try doing so.  Once again, please use
+`beside` rather than `beside-align`.
 |#
 
 (define party-f "TODO: FILL ME IN!")
+
+#|
+g. Try using `reduce` with `beside/align` rather than `beside`.
+Remember: `reduce` needs a two-parameter procedure.
+|#
+
+(define party-g "TODO: FILL ME IN!")
 
 #| B |#
 
 ; +------------------------------------+-----------------------------
 ; | Exercise 4: Exercises in reduction |
 ; +------------------------------------+
+
+#| 
+If you do not get to this part of the lab in class, don't worry.
+You need not do it together.  Each partner should do it on their
+own and not submit it, but be ready to discuss it.
+|#
 
 #|
 a. What does the following procedure do?
@@ -227,6 +243,7 @@ a. What does the following procedure do?
 
 #|
 b. What value do you expect to get for the following expressions?
+Check each as you go.
 
 <TODO: INSERT YOUR ANSWERS HERE>
 |#
@@ -243,6 +260,7 @@ b. What value do you expect to get for the following expressions?
 
 #|
 c. What values do you expect for all-the-same below?  Why?
+Don't check yet!  Wait until you get to part d.
 
 <TODO: INSERT YOUR ANSWERS HERE>
 |#
