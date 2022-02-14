@@ -11,7 +11,7 @@ _Approximate overview_
 
 * Administrative stuff [~10 min]
 * Questions [?? min]
-* Discussion [Approximately 60 min]
+* Lab [Approximately 60 min]
 
 Administrivia
 -------------
@@ -23,7 +23,7 @@ Administrivia
 * Evening tutors are available 7--10 p.m. Sunday through Thursday as
   well as 3--5 p.m. on Sunday.
 * Mentor sessions are Wednesday, 8--9 p.m., Sunday 4--5 p.m., Monday 8--9 p.m.
-    * No Mentor Session next Wednesday (SoLA 1)
+    * No Mentor Session this Wednesday (SoLA 1)
 
 ### Introductory notes
 
@@ -70,24 +70,33 @@ process the digits _en masse_.
 
 ### Other Upcoming Activities
 
+* Conference swim meet is this weekend.
+
 Being more efficient
 --------------------
 
-I've included the ideas from Friday's email.  You should think/pair/be
-ready to share about others.
+I've included the ideas from Friday's email.  You should think/pair/share
+(be ready to share) about others.
 
 ### In readings
 
 * Acknowledge that it's okay if you don't completely understand the 
   reading or the procedures mentioned in the reading.  We do the labs 
-  to help you figure things out better.
+  to help you figure things out better. [+1]
 * Take notes as you go.
     * Including pointers to things (i.e., find out more about X in ….)
     * Try things out in DrRacket.
     * Including variants of what we do.
+* Make the text larger so it's easier to read.
 * After you finish each reading, write a one-minute summary of the key points.
+    * Perhaps even after each section.
 * Do the self checks.
 * Get familiar with Racket documentation.
+* Read the self check before the reading so you know what the authors
+  think the key points are.
+* Read (and play with) the examples; they are usually intended to 
+  illustrate a point.
+* Go to mentor sessions; they help you learn about the key points.
 
 ### In mini-projects
 
@@ -102,6 +111,7 @@ ready to share about others.
 * Don't spend too much time stuck.  If you struggle on a problem for 
   more than five minutes, ask a question.  If you won't get the answer 
   immediately (e.g., if it's on Teams), move on to the next problem.
+    * Take breaks that don't involve staring at screens.
 * It helps to work in 3813/3815, since there are often folks around 
   who might help.
 * Other ways to get unstuck.
@@ -110,6 +120,7 @@ ready to share about others.
 * Accept that you might have to re-do parts of the mini-project to 
   achieve the grade you'd like.
 * Consider submitting your code early to see potential issues.
+* Use evening tutors, who can give you feedback on your code.
 
 Questions
 ---------
@@ -165,11 +176,6 @@ Could you go over `section` a bit more?
 
 > Some people find it more like English 
 
-Why don't you have a one-character equivalent for `section` like you
-have for `compose` and `lambda`?
-
-> I haven't found a good one.  Any suggestions?
-
 ### Other questions
 
 Lab
@@ -178,8 +184,15 @@ Lab
 ### Preliminaries
 
 * I do not anticipate dropping any problems from today's lab.
+* However, you may find that you can do the last problem on your own
+  without submitting it.
 
 ### During Lab
 
+* When you get to problem 3, just define `party-person` as you would have 
+  in the past, without `map` or anything similar.
+
 ### Wrapup
+
+* Do exercise 4 on your own if you haven't done it already.
 

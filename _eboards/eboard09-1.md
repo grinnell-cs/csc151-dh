@@ -11,7 +11,7 @@ _Approximate overview_
 
 * Administrative stuff [~10 min]
 * Questions [?? min]
-* Discussion [Approximately 60 min]
+* Lab [Approximately 60 min]
 
 Administrivia
 -------------
