@@ -143,6 +143,10 @@ scales the person's width and height by a factor of `scale`.  For example:
 +   If `scale` is `1`, then the image is drawn at its original dimensions.
 +   If `scale` is `0.5`, then the image is drawn at half size.
 +   If `scale` is `2`, then the image is drawn at 2x size.
+
+Note: You should not use anything new for this part of the exercise.
+Just return to the days of old, when we were generalizing individual
+images to procedures.
 |#
 
 (define original-party-person
@@ -155,8 +159,9 @@ scales the person's width and height by a factor of `scale`.  For example:
     ???))
 
 #|
-b. Using `party-person` define a *list of images* called `party-list`
-that consists of six party people scaled by the following factors.
+b. Using `map` and `party-person` define a *list of images* called
+`party-list` that consists of six party people scaled by the following
+factors.
 
     3/2, 1, 1/4, 2, 7/4, 1/2
 
@@ -181,10 +186,11 @@ sentence or two explain what the problem is!
 
 #|
 d. To fix the problem, we need to combine the images of `party-list`
-into a single image.  To do this, we should use `beside` to place each
-person beside each other.  However, try calling `beside` on
-`party-list`.  This should result in yet another error!  In the space
-below, report the error and in a sentence or two explain the problem!
+into a single image.  To do so, we should use `beside` to place
+each person beside each other.  However, we can't just use `beside`
+directly with `party-list`.  Doing so should result in yet another
+error!  In the space below, report the error and in a sentence or
+two explain the problem!
 
    > (beside party-list)
 
@@ -213,8 +219,15 @@ f. It's also possible to do this with `reduce` rather than `apply`.
 (define party-f "TODO: FILL ME IN!")
 
 #|
-g. Try using `reduce` with `beside/align` rather than `beside`.
-Remember: `reduce` needs a two-parameter procedure.
+g. Try using `reduce` with `beside/align` rather than `beside` to align
+the partygoers along the baseline.
+
+Note: You can't just write
+
+    (reduce beside/align 'baseline party-list)
+
+Remember: `reduce` needs a two-parameter procedure, so you'll need
+to build one from `beside/align`.
 |#
 
 (define party-g "TODO: FILL ME IN!")
@@ -228,7 +241,7 @@ Remember: `reduce` needs a two-parameter procedure.
 #| 
 If you do not get to this part of the lab in class, don't worry.
 You need not do it together.  Each partner should do it on their
-own and not submit it, but be ready to discuss it.
+own and *not* submit it, but be ready to discuss it.
 |#
 
 #|

@@ -233,6 +233,8 @@ In some versions, you'll find the two parameters reversed.)
 
 ### L
 
+**`(length lst)`** --- Determine how many values appear in a list.  (Do not use this to determine if a list has zero elements or if a list has one element.)
+
 **`(list v0 v1 ...)`** --- Create a list consisting of the values v0, v1, etc.
 
 **`(list? val)`** --- Determine if `val` is a list.
@@ -438,6 +440,12 @@ elements of `lst`.
 **`(tally pred? lst)`** --- Count how many elements of `lst` meet `pred?`.
 
 **`(tally-value lst val)`** --- Count how many times `val` appears in `lst`.
+
+**`(test-equal? str exp expected)`** --- Test whether the expression evaluates to the expected value.  If so, print nothing.  If so, print `str` and some other information.
+
+**`(test-false str exp)`** --- Test whether the expression evaluates to false.  If so, print nothing.  If not, print `str` and some other information.
+
+**`(test-true str exp)`** --- Test whether the expression evaluates to true.  If so, print nothing.  If not, print `str` and some other information.
 
 **`(triangle edge style color)`** --- Create an equilateral triangle
 of the specified edge length.  Style is as in other shapes.
