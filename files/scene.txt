@@ -1,0 +1,4 @@
+Prof: Student, how are you today?
+Student: Please don't address me in the generic.
+Prof: Stu, how are you today?
+Student: I'm pretty well.  Thanks for asking.

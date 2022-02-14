@@ -1,0 +1,6 @@
+Computer scientists and digital humanists work with text files in
+a variety of ways.  They might, for example, search for particular
+words or attempt to rewrite the text in a file into a new form or
+a new language.  They might look for some statistical properties
+of the text to try to gain some insight.  We will consider similar
+issues.
