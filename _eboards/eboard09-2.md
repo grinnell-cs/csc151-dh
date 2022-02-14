@@ -1,5 +1,5 @@
 ---
-title: "EBoard 09 (Section 1): Lists, Continued"
+title: "EBoard 09 (Section 2): Lists, Continued"
 number: 9
 section: eboards
 held: 2022-02-14

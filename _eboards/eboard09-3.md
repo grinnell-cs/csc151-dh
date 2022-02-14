@@ -1,5 +1,5 @@
 ---
-title: "EBoard 09 (Section 1): Lists, Continued"
+title: "EBoard 09 (Section 3): Lists, Continued"
 number: 9
 section: eboards
 held: 2022-02-14
@@ -65,11 +65,10 @@ process the digits _en masse_.
 
 * Mentor sessions.
 * CS Study Break, Tuesday, 8:30pm, CS Commons.
+* Neuroscience Journal Club, Thursday, February 17, Noon, Noyce 2517.
 * Visit the current exhibit in the Grinnell Art Museum.  (At least 15 min.)
 
 ### Other Upcoming Activities
-
-* Neuroscience Journal Club, Thursday, February 17, Noon, Noyce 2517.
 
 Being more efficient
 --------------------

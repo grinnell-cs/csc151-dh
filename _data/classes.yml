@@ -134,6 +134,10 @@
     - page: /readings/list-more.html
   lab:
     - page: /labs/lists-more.html
+  eboards: 
+    - page: /eboards/eboard09-1.html
+    - page: /eboards/eboard09-2.html
+    - page: /eboards/eboard09-3.html
 
 - topic: Files and regular expressions
   abbrev: regexp
