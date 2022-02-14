@@ -11,7 +11,7 @@ _Approximate overview_
 
 * Administrative stuff [~10 min]
 * Questions [?? min]
-* Discussion [Approximately 60 min]
+* Lab [Approximately 60 min]
 
 Administrivia
 -------------
@@ -23,7 +23,7 @@ Administrivia
 * Evening tutors are available 7--10 p.m. Sunday through Thursday as
   well as 3--5 p.m. on Sunday.
 * Mentor sessions are Wednesday, 8--9 p.m., Sunday 4--5 p.m., Monday 8--9 p.m.
-    * No Mentor Session next Wednesday (SoLA 1)
+    * No Mentor Session this Wednesday (SoLA 1)
 
 ### Introductory notes
 
@@ -41,7 +41,7 @@ Here's one version of the code from last lab.
     (apply +
            (map *
                 (string->digits str)
-                (reverse (map (section expt 10 <>) 
+                (reverse (map (section expt 10 <>)
                               (range (string-length str))))))))
 ```
 
@@ -74,8 +74,8 @@ process the digits _en masse_.
 Being more efficient
 --------------------
 
-I've included the ideas from Friday's email.  You should think/pair/be
-ready to share about others.
+I've included the ideas from Friday's email.  You should think/pair/share
+(or be ready to share) about others.
 
 ### In readings
 
@@ -89,11 +89,12 @@ ready to share about others.
 * After you finish each reading, write a one-minute summary of the key points.
 * Do the self checks.
 * Get familiar with Racket documentation.
+* Read actively!  Explain to yourself.
 
 ### In mini-projects
 
 * Start early.  There's some evidence that our subconscious sometimes 
-  helps us solve computational problems.
+  helps us solve computational problems. [+1]
 * Keep a list of potentially helpful procedures at hand.
     * Racket procedures you've learned and might use.
     * Procedures you've written
@@ -104,7 +105,7 @@ ready to share about others.
   more than five minutes, ask a question.  If you won't get the answer 
   immediately (e.g., if it's on Teams), move on to the next problem.
 * It helps to work in 3813/3815, since there are often folks around 
-  who might help.
+  who might help. [+1]
 * Other ways to get unstuck.
     * Reread the assignment/problem.
     * Check the Q&A channel for ideas.
@@ -166,11 +167,6 @@ Could you go over `section` a bit more?
 
 > Some people find it more like English 
 
-Why don't you have a one-character equivalent for `section` like you
-have for `compose` and `lambda`?
-
-> I haven't found a good one.  Any suggestions?
-
 ### Other questions
 
 Lab
@@ -179,8 +175,22 @@ Lab
 ### Preliminaries
 
 * I do not anticipate dropping any problems from today's lab.
+* However, you may end up doing exercise 4 on your own (and not
+  submitting it).
 
 ### During Lab
 
+* Exercise 2 (three-parameter `map): 
+  `(map + '(1 2 3) '(2 2 2))` -> `'(3 4 5)`
+* Exercise 3: You should write `party-person` as you would have before.
+        (define party-person
+          (lambda (scale)
+            (above (triangle (* scale 20) 'solid 'green)
+                   ...)))
+
 ### Wrapup
+
+* Most of you got through exercise 3.  You can submit after exercise 3.
+* If you did not get through exercise 4, please do it on your own and  
+  not submit it, but be prepared to discuss it.
 
