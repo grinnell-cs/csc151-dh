@@ -226,7 +226,8 @@ Note: You can't just write
 
     (reduce beside/align 'baseline party-list)
 
-Remember: `reduce` needs a two-parameter procedure.
+Remember: `reduce` needs a two-parameter procedure, so you'll need
+to build one from `beside/align`.
 |#
 
 (define party-g "TODO: FILL ME IN!")
@@ -240,7 +241,7 @@ Remember: `reduce` needs a two-parameter procedure.
 #| 
 If you do not get to this part of the lab in class, don't worry.
 You need not do it together.  Each partner should do it on their
-own and not submit it, but be ready to discuss it.
+own and *not* submit it, but be ready to discuss it.
 |#
 
 #|
