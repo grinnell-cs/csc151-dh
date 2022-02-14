@@ -66,7 +66,7 @@ other standard library functions for lists (e.g., length) when appropriate.
 ; Keeps only the elements of the list that are greater than 10.
 (define ex-1-list-filtered "<TODO: fill me in>")
 ; (test-equal? "Filtering the list"
-;              ex1-list-filtered
+;              ex-1-list-filtered
 ;              '(25 25 23 21 20 20 18 22 21))
 
 ; Computes the average of the list (Hint: this computation is more
@@ -227,6 +227,7 @@ a. What does the following procedure do?
 
 #|
 b. What value do you expect to get for the following expressions?
+Check each as you go.
 
 <TODO: INSERT YOUR ANSWERS HERE>
 |#
@@ -243,6 +244,7 @@ b. What value do you expect to get for the following expressions?
 
 #|
 c. What values do you expect for all-the-same below?  Why?
+Don't check yet!  Wait until you get to part d.
 
 <TODO: INSERT YOUR ANSWERS HERE>
 |#
