@@ -1,7 +1,7 @@
 ---
 title: Regular expressions
 summary: |
-  We explore regular expressions in Racket which allows us to search for patterns of text in a structured, concise manner.
+  We explore regular expressions in Racket.  Regular expressions allow us to search for patterns of text in a structured, somewhat concise manner.
 ---
 _Warning!  You may need to refresh your csc151 library to use the procedures mentioned in this reading.  You also need to add `(require csc151/rex)` to your requires at the top of the program._
 
@@ -10,14 +10,15 @@ _Warning!  You may need to refresh your csc151 library to use the procedures men
 As we've started to discover, Racket provides a variety of tools for working with strings and lists of strings.
 We can extract substrings, split strings, count strings, and more.
 
-But we've encountered one significant obstacle: sometimes instead of a particular string, we want to work with *patterns* of characters potentially contained within a string.
+We've encountered one significant obstacle: sometimes instead of a particular string, we want to work with *patterns* of characters potentially contained within a string.
 For example:
 
-+ We want to determine whether a string contains a book title which will be written using title case (first letter capitalized of each word).
-+ We want to find all occurrences of "??" embedded within a string literal (*i.e.*, in a block of text surrounded by quotes) and replace them with a string of our choice.
++ We want to determine whether a string contains a book title, which is written using title case (the first letter of each word is capitalized).
++ We want to find all occurrences of two question marks (i.e., "??") embedded within a string literal (*i.e.*, in a block of text surrounded by quotes) and replace them with a string of our choice.
 + We want to break up a string that represents a date into chunks, noting that sometimes people use "-", "/", or even "." as the delimiter between day, month, and year.
++ We know some letters in a word and their positions and want to find the word.
 
-As you might expect, needing to express patterns in strings is a fairly common task in computing and in the digital humanities.
+As you might expect, needing to express patterns in strings is a fairly common task in computing and the digital humanities.
 Some years ago, the Mathematician Stephen Kleene invented a notation, which he called "Regular Expressions".
 (Fun fact: Kleene is the great-grand-advisor of Professor Rebelsky in CS.)
 Most modern programming languages now provide some version of regular expressions.
@@ -25,10 +26,10 @@ Regular expressions are one of the central tools in the digital humanist's toolk
 
 Unfortunately, the standard notation for regular expressions is obtuse, to put it politely.
 To help you adjust to the standard notation, the csc151 library includes a more Scheme-like notation, which we will use for our initial forays into regular expressions.
-We will then explore the standard notation later in the semester.
+We may then explore the standard notation later in the semester.
 
 We can use regular expressions in Racket in a wide variety of ways, including determining whether a string follows a particular pattern, splitting strings, identifying parts of a string, and replacing parts of a string.
-In this reading, we cover the basics of regular expressions and their associated library support in the csc151 libary.
+In this reading, we cover the basics of regular expressions and their associated library support in the csc151 library.
 You can tell we are using the csc151 regular expressions when you see procedures whose name starts with "`rex`" (short for **r**egular **ex**pression).
 
 ## Regular expression basics
@@ -51,16 +52,16 @@ If we wish to express the pattern of seeing this series of characters in sequenc
 (rex-string "hellohello")
 ~~~
 
-But what if we want to capture the pattern of *one or more repetitions* of the word `"hello"`?
+What if we want to capture the pattern of *one or more repetitions* of the word `"hello"`?
 We clearly can't specify that with just our literal string syntax!
-Regular expressions enrich strings by introducing a syntax and semantics for expressing these patterns.
+Regular expressions enrich strings by introducing syntax and semantics for expressing these patterns.
 For example, the following regular expression captures the pattern of one or more repetitions of `"hello"`.
 
 ~~~racket
 (rex-repeat (rex-string "hello"))
 ~~~
 
-But how do we use these regular expressions?
+How do we use these regular expressions?
 The simplest way to use them is to check whether a string matches a regular expression using `(rex-matches? rex str)`.
 
 ```racket
@@ -78,6 +79,18 @@ The simplest way to use them is to check whether a string matches a regular expr
 #f
 ```
 
+The more common way to use regular expressions is to search in a text for all of the strings that match a regular expression.
+
+```racket
+> (rex-find-matches hellos "hellohello")
+'("hellohello")
+> (rex-find-matches hellos "hellohello")
+'("hellohello")
+> (rex-find-matches hellos "You say goodbye, I say hello.  hellohello.  Oh, no.  You say goodbye, I say hello.")
+'("hello" "hellohello" "hello")
+```
+
+Sometimes, we want slightly different kinds of pattern repetition.
 If we want to match zero or more copies of `"hello"`, rather than one or more, we can use `rex-repeat-0`.
 
 ```racket
@@ -93,6 +106,8 @@ If we want to match zero or more copies of `"hello"`, rather than one or more, w
 #t
 > (rex-matches? hellos0 "hellohellohelloo")
 #f
+> (rex-find-matches hellos0 "hello goodbye")
+'("hello" "" "" "" "" "" "" "" "" "")
 ```
 
 Why would we care about "zero or more repetitions" of a pattern?
@@ -127,9 +142,9 @@ So `(rex-concat (rex-string "hello") (rex-repeat-0 (rex-string "o")))` matches `
 #f
 ```
 
-One important characteristic of regular expressions is that we gain power by combining them together in different ways using operations like `rex-concat` and `rex-repeat`.
-Let's consider slightly more complicated situation:
-We want to see if a string is consists only of those echoing hellos (or hellooos or ...).
+One important characteristic of regular expressions is that we gain power by combining them in different ways using operations like `rex-concat` and `rex-repeat`.
+Let's consider a slightly more complicated situation:
+We want to see if a string consists only of those echoing hellos (or hellooos or ...).
 
 Let's decompose the problem.
 
@@ -138,11 +153,11 @@ We want to follow it with zero or more echoing hellos, each of which is preceded
 
 We know how to match one echoing hello.  We can use the `hello-echo` expression.
 
-A space is the aattern `(rex-string " ")`.
+A space is the pattern `(rex-string " ")`.
 
 A space and an echoing hello is therefore `(rex-concat (rex-string " ") hello-echo)`.
 
-An we can repeat that with `rex-repeat-0`.
+We can repeat that with `rex-repeat-0`.
 
 Putting it all together, we get the following.
 
@@ -168,10 +183,10 @@ Putting it all together, we get the following.
 What have we seen so far?
 We've seen one basic kind of regular expression: Strings match themselves.
 We've seen two ways to extend regular expressions: We can repeat them and we can concatenate them.
-We've seen one way to use regular expressions: We can check if a string matches a regular expression.
-Perhaps most importantly, we've learned that by combining repetition and concatentation, we can create some fairly sophisticated patterns.
+We've seen two ways to use regular expressions: We can check if a string matches a regular expression and we can find all of the matches in a longer string.
+Perhaps most importantly, we've learned that by combining repetition and concatenation, we can create some fairly sophisticated patterns.
 
-After a short detour, it's time to expand our knowledge of basic regular expressionas, ways to combine regular expressionss, and ways to use regular expressions.
+After a short detour, it's time to expand our knowledge of basic regular expressions, ways to combine regular expressions, and ways to use regular expressions.
 
 ## Regular expressions as instructions
 
@@ -184,7 +199,7 @@ You may find yourself a bit puzzled by a regular expression like the following,
 ```
 
 We're saying that `hello-echo` is the combination of the string `"hello"` and zero or more `"o"`s.
-But where are the instructions for how the computer figures that out.
+Where are the instructions for how the computer figures that out?
 And what if we had something a bit more complicated, like the following?
 
 ```
@@ -194,11 +209,11 @@ And what if we had something a bit more complicated, like the following?
               (rex-string "oh")))
 ```
 
-That pattern is supposed to represented `"hello"`, zero or more `"o"`s, and than another "oh".
-How do we tell when we see an `"o"` whether it's part of the repetition or the final `"oh"`?
+That pattern is supposed to represent `"hello"`, zero or more `"o"`s, and then another "oh".
+How do we tell when we see an `"o"` whether it's part of the repetition or of the final `"oh"`?
 
 Here's the strange thing about regular expressions: They describe only *what* we want, not *how* the computer is supposed to match them.
-If you stay on in CS long enough, you will learn how to translate a regular expression into a matching program.
+If you stay on in CS long enough, you will learn how to translate a regular expression into a program that matches regular expressions.
 For now, your goal is to use regular expressions to describe the *form* of the strings you want to match.
 
 ## More basic regular expressions
@@ -239,7 +254,17 @@ For example,
 #t
 ```
 
-At times, we want to match one of a few characters, rather than any character.
+Unfortunately, that doesn't work great when we want to find words of that pattern.
+
+```
+> (rex-find-matches sr "samr is super strange")
+'("samr is super str")
+```
+
+What went wrong?
+In general, regular expressions match the longest possible sequence.
+
+Hence, we sometimes want to match one of a few characters, rather than any character.
 There are three additional basic patterns to match individual characters.
 
 * `(rex-char-set str)` is a regular expression that matches any *one* character in `str`.
@@ -266,6 +291,11 @@ For example,
 #t
 > (rex-matches? non-vowel "e")
 #f
+> (rex-find-matches (rex-concat (rex-string "s") 
+                                (rex-repeat-0 (rex-char-range #\a #\z))
+                                (rex-string "r"))
+                    "samr is super strange.  He's stranger than a supercomputer.")
+'("samr" "super" "str" "stranger" "supercomputer")
 ```
 
 We might use these to determine if a word contains two vowels in a row.
@@ -360,16 +390,32 @@ Putting it all together, we get the following.
 
 With more practice, you'll find many clever ways to use regular expressions.
 
-## A few more
+## Limiting yourself to the start or end of the string
 
 It's sometimes useful to limit regular expressions to the "edges" of a string.
 `(rex-start-of-string)` matches the start of a string.
 `(rex-end-of-string)` matches the end of a string.
 
+```
+> (define sr
+    (rex-concat (rex-string "s") 
+                (rex-repeat-0 (rex-char-range #\a #\z))
+                (rex-string "r")))
+> (rex-find-matches sr
+                    "samr is super strange.  He's stranger than a supercomputer")
+'("samr" "super" "str" "stranger" "supercomputer")
+> (rex-find-matches (rex-concat (rex-start-of-string) sr)
+                    "samr is super strange.  He's stranger than a supercomputer")
+'("samr")
+> (rex-find-matches (rex-concat sr (rex-end-of-string))
+                    "samr is super strange.  He's stranger than a supercomputer")
+'("supercomputer")
+```
+
 ## Displaying regular expressions
 
 How do we store regular expressions?
-It turns out that the human-readable represntation of the csc151 rex-style regular expressions looks remarkably like the expressions we would write to create them, just without formatting.
+It turns out that the human-readable representation of the csc151 rex-style regular expressions looks remarkably like the expressions we would write to create them, just without formatting.
 
 ```drracket
 > vowel
@@ -381,7 +427,7 @@ It turns out that the human-readable represntation of the csc151 rex-style regul
 ```
 
 As we noted at the beginning, there's a more standard syntax for regular expressions.
-You can start to explore that syntax using `rex->regexp.
+You can start to explore that syntax using `rex->regexp`.
 
 ```drracket
 > (rex->regexp vowel)
@@ -395,8 +441,8 @@ You can start to explore that syntax using `rex->regexp.
 ```
 
 As you may have noted, this syntax is much more concise.
-It is, however, harder for most humans to read, at least at first.
-We will return to this notation later in the semester, once we've mastered some other issues.
+It is, however, harder for most humans to read and write, at least at first.
+We may return to this notation later in the semester, once we've mastered some other issues.
 
 ## Self checks
 
