@@ -1,5 +1,5 @@
 ---
-title: "EBoard 10 (Section 2): Files and Regular Expressions"
+title: "EBoard 10 (Section 2): Files (and Regular Expressions)"
 number: 10
 section: eboards
 held: 2022-02-16
@@ -10,9 +10,9 @@ link: true
 _Approximate overview_
 
 * Administrative stuff [~5 min]
-* Racket stuff [~10 min]
+* Racket stuff [~15 min]
 * Questions [~5 min]
-* Lab [~60 min]
+* Lab [~55 min]
 
 Administrivia
 -------------
@@ -90,18 +90,44 @@ What's wrong with the following? (TPS)
        "Not a mentor"])))
 ```
 
+* Why do some strings appear in a different color?  DrRacket is spell
+  checking.
+* The `or` might be in the wrong place.  We should be comparing `mentor`
+  to "Cassandra", comparing `mentor` to "Quang"`, and *then* using `or`.
+    * "We did this differently"
+* `or` returns the first truish value, so `(or "Cassandra" "Quang")` gives
+  us "Cassandra"
+* Humans understand the intent.  Computers do not.
+* The computer is applying our mental tracing model: It does the `or`
+  before the comparison.
+
 ### Tick marks
 
 * The tick mark (quote) does not mean "symbol" or "list".  It means
   "take the following thing verbatim, without evaluating it".
     * With symbols, it distinguishes the symbol from the variable.
     * With lists, it distinguishes the lists from expressions.
+* Example
+    * (+ 2 3)
+    * '(+ 2 3)
+* It is a "syntax shorthand" for `(quote THING)`.
+* What do you expect for
+    * `(list (list 'a 'b) (list 'c 'd) 'e)`?
 * Quote applies to *all* of a list; we take the whole thing verbatim.
     * Please don't nest quotes
 * Examples
-    * `'stuff` is short for `(quote stuff)`.
     * `'('stuff 'more stuff)` is short for 
       `(quote ((quote stuff) (quote more) stuff))`
+* Questions
+    * `(list? (list (list 'a 'b) (list 'c 'd) 'e))` => `#t`
+    * `(map list? (list (list 'a 'b) (list 'c 'd) 'e))` => `'(#t #t #f)`
+    * `(map list? '((a b) (c d) e))` => `#t` vs `'(#t #t #f)`
+    * `(list? '((quote stuff) (quote more) stuff))` => `#t`
+    * `(map list? '((quote stuff) (quote more) stuff))` => `'(#t #t #f)`
+    * `(map list? '('stuff 'more stuff))` => `'(#t #t #f)`
+* Conclusions
+    * Tick marks ("quotes") are weird.
+    * Don't nest them.
 
 ### `apply` vs `reduce` vs `map`
 
@@ -144,26 +170,11 @@ advisor (and my great grand advisor).  (I use grandparent-like terminology
 here.)  Church was Kleene's advisor.  Church invented "lambda" as a
 way of writing procedures.
 
+Can we go over regular expressions a bit?
+
+> Yes, on Friday, as long as you bring questions.
+
 ### From the readings (discussing)
-
-What should the J-r-d code look like?
-
-```
-; Brute force
-(define j-r-d/1
-  (rex-any-of (rex-string "Jerod")
-              (rex-string "Jared")
-              (rex-string "Jered")
-              (rex-string "Jarod")))
-
-; A bit more elegant
-(define j-r-d/2
-  (rex-concat (rex-string "J")
-              (rex-char-set "ea")
-              (rex-string "r")
-              (rex-char-set "eo")
-              (rex-string "d")))
-```
 
 ### Other questions
 
@@ -171,12 +182,32 @@ I have an eight-hour lab tomorrow.  Can I have an extension on the SoLA?
 
 > Yes.  DM me to let me know.
 
+Do we have to do the SoLA in one sitting?
+
+> No.  There are seven questions.  You can do each one at any time.
+  Each question does have a one-hour time limit.
+
 Lab
 ---
 
 ### Preliminaries
 
+* The autograder is currently borken.  I will be spending the first bit
+  of lab time trying to repair it.
+* Yes, I intentionally misspelled "broken".
+
 ### During Lab
 
+* `(char-alphabetic? char)` determines whether or not `char` is a letter.
+* `(length lst)` tells you how many values are in a list
+* `(tally-value lst val)` tells you how many times `val` appears in `lst`.
+* `(tally pred? lst)` tells you how many things in the list meet the 
+  predicate.
+* Please number lines as Racket would: The first line is line 0.
+
 ### Wrapup
+
+* I think the autograder is fixed.
+* If you don't submit the text file(s) with your Racket file, you will
+  likely get a "This does not run" message.
 

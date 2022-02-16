@@ -65,6 +65,25 @@ Questions
 
 ### From the readings (discussing)
 
+What should the J-r-d code look like?
+
+```
+; Brute force
+(define j-r-d/1
+  (rex-any-of (rex-string "Jerod")
+              (rex-string "Jared")
+              (rex-string "Jered")
+              (rex-string "Jarod")))
+
+; A bit more elegant
+(define j-r-d/2
+  (rex-concat (rex-string "J")
+              (rex-char-set "ea")
+              (rex-string "r")
+              (rex-char-set "eo")
+              (rex-string "d")))
+```
+
 ### Other questions
 
 Lab

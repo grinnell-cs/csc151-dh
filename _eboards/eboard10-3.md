@@ -1,5 +1,5 @@
 ---
-title: "EBoard 10 (Section 3): Files and Regular Expressions"
+title: "EBoard 10 (Section 3): Files (and Regular Expressions)"
 number: 10
 section: eboards
 held: 2022-02-16
@@ -10,9 +10,9 @@ link: true
 _Approximate overview_
 
 * Administrative stuff [~5 min]
-* Racket stuff [~10 min]
+* Racket stuff [~15 min]
 * Questions [~5 min]
-* Lab [~60 min]
+* Lab [~55 min]
 
 Administrivia
 -------------
@@ -95,12 +95,21 @@ What's wrong with the following? (TPS)
   "take the following thing verbatim, without evaluating it".
     * With symbols, it distinguishes the symbol from the variable.
     * With lists, it distinguishes the lists from expressions.
+* It is a "syntax shorthand" for `(quote THING)`.
+* What do you expect for
+    * `(list (list 'a 'b) (list 'c 'd) 'e)`?
 * Quote applies to *all* of a list; we take the whole thing verbatim.
     * Please don't nest quotes
 * Examples
-    * `'stuff` is short for `(quote stuff)`.
     * `'('stuff 'more stuff)` is short for 
       `(quote ((quote stuff) (quote more) stuff))`
+* Questions
+    * `(list? (list (list 'a 'b) (list 'c 'd) 'e))`
+    * `(map list? (list (list 'a 'b) (list 'c 'd) 'e))`
+    * `(map list? '((a b) (c d) e))`
+    * `(list? '((quote stuff) (quote more) stuff))`
+    * `(map list? '((quote stuff) (quote more) stuff))`
+    * `(map list? '('stuff 'more stuff))`
 
 ### `apply` vs `reduce` vs `map`
 
@@ -143,26 +152,11 @@ advisor (and my great grand advisor).  (I use grandparent-like terminology
 here.)  Church was Kleene's advisor.  Church invented "lambda" as a
 way of writing procedures.
 
+Can we go over regular expressions a bit?
+
+> Yes, on Friday, as long as you bring questions.
+
 ### From the readings (discussing)
-
-What should the J-r-d code look like?
-
-```
-; Brute force
-(define j-r-d/1
-  (rex-any-of (rex-string "Jerod")
-              (rex-string "Jared")
-              (rex-string "Jered")
-              (rex-string "Jarod")))
-
-; A bit more elegant
-(define j-r-d/2
-  (rex-concat (rex-string "J")
-              (rex-char-set "ea")
-              (rex-string "r")
-              (rex-char-set "eo")
-              (rex-string "d")))
-```
 
 ### Other questions
 

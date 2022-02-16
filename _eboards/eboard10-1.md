@@ -1,5 +1,5 @@
 ---
-title: "EBoard 10 (Section 1): Files and Regular Expressions"
+title: "EBoard 10 (Section 1): Files (and Regular Expressions)"
 number: 10
 section: eboards
 held: 2022-02-16
@@ -10,9 +10,9 @@ link: true
 _Approximate overview_
 
 * Administrative stuff [~5 min]
-* Racket stuff [~10 min]
+* Racket stuff [~20 min]
 * Questions [~5 min]
-* Lab [~60 min]
+* Lab [~50 min]
 
 Administrivia
 -------------
@@ -90,18 +90,34 @@ What's wrong with the following? (TPS)
        "Not a mentor"])))
 ```
 
+* It might be better to use `string-ci=?` to do case-insensitive matching.
+* The `or`s look kinda weird.
+* It feels like `or` should return #t or #f, not a string.
+    * But `(mentor->section "Cassandra")` works.
+    * Unfortunately, `(mentor->section "Quang")` doesnt' work.
+* Why not?  Because `(or "Cassandra" "Quang")` is `"Cassandra"`.
+* Moral: Remember the tracing/replacement model!
+
 ### Tick marks
 
 * The tick mark (quote) does not mean "symbol" or "list".  It means
   "take the following thing verbatim, without evaluating it".
     * With symbols, it distinguishes the symbol from the variable.
     * With lists, it distinguishes the lists from expressions.
+* `'(+ 2 3)` looks a lot like `(+ 2 3)`.
 * Quote applies to *all* of a list; we take the whole thing verbatim.
     * Please don't nest quotes
 * Examples
     * `'stuff` is short for `(quote stuff)`.
     * `'('stuff 'more stuff)` is short for 
       `(quote ((quote stuff) (quote more) stuff))`
+* Questions
+    * `(map list? '((a b) (c d) e))`
+    * `(map list? (quote ((quote stuff) (quote more) stuff)))`
+    * `(map list? '('stuff 'more stuff))`
+* Conclusions:
+    * Quote is weird
+    * Don't nest quote
 
 ### `apply` vs `reduce` vs `map`
 
@@ -146,25 +162,6 @@ way of writing procedures.
 
 ### From the readings (discussing)
 
-What should the J-r-d code look like?
-
-```
-; Brute force
-(define j-r-d/1
-  (rex-any-of (rex-string "Jerod")
-              (rex-string "Jared")
-              (rex-string "Jered")
-              (rex-string "Jarod")))
-
-; A bit more elegant
-(define j-r-d/2
-  (rex-concat (rex-string "J")
-              (rex-char-set "ea")
-              (rex-string "r")
-              (rex-char-set "eo")
-              (rex-string "d")))
-```
-
 ### Other questions
 
 I have an eight-hour lab tomorrow.  Can I have an extension on the SoLA?
@@ -178,5 +175,14 @@ Lab
 
 ### During Lab
 
+* `(char-alphabetic? char)` determines whether or not `char` is a letter.
+* `(length lst)` tells you how many values are in a list
+* `(tally-value lst val)` tells you how many times `val` appears in `lst`.
+* `(tally pred? lst)` tells you how many things in the list meet the 
+  predicate.
+
 ### Wrapup
+
+* If you don't submit the text file(s) with your Racket file, you will
+  likely get a "This does not run" message.
 
