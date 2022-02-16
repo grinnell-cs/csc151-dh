@@ -45,18 +45,31 @@ Administrivia
 
 ### Upcoming Token-Generating Activities
 
-_Note: You do not get credit if others are supporting you (e.g., if you're
-playing at a tennis meet or hosting Lunar New Year).  You also don't get
-credit for evening tutors._
-
 * Mentor sessions Sunday and Monday.
 * Visit the current exhibit in the Grinnell Art Museum.  (At least 15 min.)
-* Conference swimming and diving this weekend.
 
 ### Other Upcoming Activities
 
-Racket Stuff
-------------
+Racket/Lab Stuff
+----------------
+
+### Tallying a's
+
+```
+(define count-of-as-1
+  (tally-value book-characters #\a))
+(define count-of-as-2
+  (tally (section char=? <> #\a) book-characters))
+(define count-of-as-3
+  (length (filter (section char=? <> #\a) book-characters)))
+```
+
+### Grabbing lines 100 to 120
+
+```
+(define grab-lines-100-to-120
+  (o (take <> 20) (drop <> 100)))
+```
 
 Questions
 ---------
