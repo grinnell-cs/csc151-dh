@@ -1,5 +1,5 @@
 ---
-title: "EBoard 10 (Section 1): Files and Regular Expressions"
+title: "EBoard 10 (Section 2): Files and Regular Expressions"
 number: 10
 section: eboards
 held: 2022-02-16

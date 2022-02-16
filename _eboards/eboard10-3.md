@@ -1,5 +1,5 @@
 ---
-title: "EBoard 10 (Section 1): Files and Regular Expressions"
+title: "EBoard 10 (Section 3): Files and Regular Expressions"
 number: 10
 section: eboards
 held: 2022-02-16
@@ -64,10 +64,9 @@ credit for evening tutors._
 * Mentor sessions.
 * Visit the current exhibit in the Grinnell Art Museum.  (At least 15 min.)
 * Conference swimming and diving this weekend.
+* Neuroscience Journal Club, Thursday, February 17, Noon, Noyce 2517.
 
 ### Other Upcoming Activities
-
-* Neuroscience Journal Club, Thursday, February 17, Noon, Noyce 2517.
 
 Racket Stuff
 ------------
