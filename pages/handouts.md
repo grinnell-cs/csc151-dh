@@ -13,7 +13,7 @@ information.  To ensure that you read the information, I even give you
 ## Teaching, grading, and such
 
 [On teaching and learning](teaching)
-  : A bit of philosophy (more or less)
+  : A bit of philosophy (more or less).
 
 [Grading](grading)
   : More details on grading processes (and a bit on the underlying philosophy).
@@ -31,6 +31,9 @@ information.  To ensure that you read the information, I even give you
 
 [Academic integrity](academic-integrity)
   : A long document that attempts to explain key issues of academic integrity in this course and in the discipline.
+
+[Tips on working more productively](working-tips)
+  : Some tips from students, mentors, and instructors.
 
 ## Secondary topics
 
@@ -54,6 +57,7 @@ information.  To ensure that you read the information, I even give you
 ## Previous versions of the course
 
 These also aren't strictly handouts, but I didn't have another place for them.
+The list is incomplete.
 
 [CSC 151-01 2021 Fall (Rebelsky)](https://rebelsky.cs.grinnell.edu/Courses/CSC151/2021Fa)
   : Last semester's offering of the course.
