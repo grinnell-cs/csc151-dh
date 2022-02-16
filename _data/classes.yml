@@ -155,8 +155,11 @@
   abbrev: regexp-continued
   summary:
     We continue our exploration of regular expressions and files.
+  reading:
+    - page: /handouts/style-guide.html
+    - page: /handouts/zen-of-booleans.html
   lab:
-    - page: /labs/files-rex.html
+    - page: /labs/files-rex-more.html
 
 - topic: Introduction to list recursion
   abbrev: recursion-intro
