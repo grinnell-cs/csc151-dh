@@ -150,14 +150,20 @@
     - page: /readings/regexp.html
   lab:
     - page: /labs/files-rex.html
+  eboards: 
+    - page: /eboards/eboard10-1.html
+    - page: /eboards/eboard10-2.html
+    - page: /eboards/eboard10-3.html
 
 - topic: Files and regular expressions, continued
   abbrev: regexp-continued
   summary:
     We continue our exploration of regular expressions and files.
   reading:
-    - page: /handouts/style-guide.html
-    - page: /handouts/zen-of-booleans.html
+    - title: SamR's Style Guide for Racket
+      resource: /handouts/style-guide.html
+    - title: The Zen of Booleans
+      resource: /handouts/zen-of-booleans.html
   lab:
     - page: /labs/files-rex-more.html
 
