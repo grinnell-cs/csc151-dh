@@ -106,15 +106,16 @@ in the book.
 (define total-letters "<FILL IN>")
 
 #|
-d. Write instructions to extract lines 100 (inclusive) through 120
+e. Write instructions to extract lines 100 (inclusive) through 120
 (exclusive) from the book.
 |#
 
 (define lines-100-to-120 "<FILL IN>")
 
 #|
-e. Write instructions to determine how many times the letter "a" appears 
-in the book. (You need deal only with lowercase "a".)
+f. Write instructions to determine how many times the letter "a" appears 
+in the book. (You need deal only with lowercase "a".)  Please use
+`tally` or `tally-value` for this problem.
 |#
 
 (define count-of-as "<FILL IN>")
