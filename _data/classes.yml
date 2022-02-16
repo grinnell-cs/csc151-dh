@@ -149,7 +149,7 @@
     - page: /readings/text-files.html
     - page: /readings/regexp.html
   lab:
-    - page: /labs/files-rex.html
+    - page: /labs/files.html
   eboards: 
     - page: /eboards/eboard10-1.html
     - page: /eboards/eboard10-2.html
@@ -165,7 +165,7 @@
     - title: The Zen of Booleans
       resource: /handouts/zen-of-booleans.html
   lab:
-    - page: /labs/files-rex-more.html
+    - page: /labs/rex.html
 
 - topic: Introduction to list recursion
   abbrev: recursion-intro
