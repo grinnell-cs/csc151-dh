@@ -463,3 +463,10 @@ and "her" appear in a string and we do not want to count the number
 of times they appear in other words (e.g., "sheet" and "there").
 
 How could you use regular expressions to count those appearances?
+
+## Questions and Answers
+
+What does `concat` stand for?
+
+> It's short for "concatenate", meaning "join together".
+
