@@ -239,7 +239,7 @@ In some versions, you'll find the two parameters reversed.)
 
 **`(list? val)`** --- Determine if `val` is a list.
 
-**`(list-ref lst pos)`** --- Find the value at the given position in `str`.
+**`(list-ref lst pos)`** --- Find the value at the given position in `lst`.
 
 **`(list->string list-of-characters)`** --- Build a string from a list of characters.
 
