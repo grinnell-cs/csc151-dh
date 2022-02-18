@@ -25,5 +25,9 @@ f. Grab the code for this lab.
 
 * [rex.rkt](../code/labs/rex.rkt)
 
-g. Get started!
+g. Grab the words file for this lab.
+
+* [words.txt](../files/words.txt)
+
+h. Get started!
 
