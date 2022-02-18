@@ -168,6 +168,22 @@ What is happening with this?
   (o (section take <> 20) (section drop <> 100)))
 ```
 
+* It's confusing, at least at first.
+* `grab-elements-100-to-120` is a procedure.
+    * We can tell because it combines two procedures with `o`.
+* This drops the first 100 elements and then takes the first twenty
+  remaining elements.
+    * It takes a list as input.
+    * So while the problem we did on the lab involved lines from
+      a file, this will work with any list.
+* Where does the list come from?
+    * It's implicit in the sections and the compose.
+* Note that compose will only work with one-parameter procedures.
+* If we had a file, we'd want to turn it into a list of lines.
+    * `(file->chars filename)`
+    * `(file->words filename)`
+    * `(file->lines filename)`
+
 Questions
 ---------
 
@@ -228,6 +244,19 @@ should look like
 * `(rex-split-string rex str)`
      * `rex` must be created by the rex procedures (e.g., `rex-string`)
 * If you want to do "a sequence of _this pattern_", use `rex-repeat`.
+* Order matters.  See code below.
+
+```
+; v1
+(rex-any-of (rex-repeat (rex-string " "))
+            (rex-repeat (rex-string "\n"))
+            (rex-repeat (rex-string "\t")))
+
+; v2
+(rex-repeat (rex-any-of (rex-string " ")
+                        (rex-string "\n"))
+                        (rex-string "\t"))
+```
 
 #### Exercise 2
 
@@ -247,4 +276,4 @@ should look like
 
 * Today is a "SAM SAID I COULD STOP HERE" day.
 * But you should read through the rest and think on it.
-* Don't upload the words.txt file.
+* Please don't upload the `words.txt` file.

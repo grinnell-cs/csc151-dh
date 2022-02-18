@@ -53,6 +53,44 @@ Sample Quiz Question
 Racket/Lab Stuff
 ----------------
 
+### Order matters (in rexes and elsewhere)
+
+```
+; v1
+(rex-any-of (rex-repeat (rex-string " "))
+            (rex-repeat (rex-string "\n"))
+            (rex-repeat (rex-string "\t")))
+
+; v2
+(rex-repeat (rex-any-of (rex-string " ")
+                        (rex-string "\n"))
+                        (rex-string "\t"))
+```
+
+### Multiple approaches
+
+```
+; V1
+(define letter (rex-char-set "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"))
+; V2
+(define letter (rex-any-of (rex-char-range #\a #\z)
+                           (rex-char-range #\A #\Z)))
+```
+
+### Exercise 3
+
+```
+; The basic solution
+(define rex-match-strings
+  (lambda (rex strings)
+    (filter (section rex-matches? rex <>) strings)))
+
+(define rex-match-strings
+  (lambda (rex strings)
+    (filter (lambda (str) (rex-matches? rex str))
+            strings)))
+```
+
 Questions
 ---------
 
