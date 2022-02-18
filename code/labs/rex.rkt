@@ -59,11 +59,13 @@ Write an expression to do so. (You still should not need regular
 expressions, at least not yet.)
 |#
 
+(define split-at-newline "<TODO>")
+
 #|
 c. The word "and" appears a few times in that string. Split it at that word.
 |#
 
-(define split-at-newline "<TODO>")
+(define split-at-and "<TODO>")
 
 #|
 d. As you may have noted in the previous exercise, it seems insufficient
