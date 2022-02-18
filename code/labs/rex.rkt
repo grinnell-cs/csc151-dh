@@ -23,7 +23,7 @@ and strings using file and regular-expression (rex) procedures.
 
 a. Don't forget our new "start of session".  Chat with your partner
 about working habits and strengths.  Maybe share something interesting
-about yourself
+about yourself.
 
 b. Make sure to save this file as `rex.rkt`.
 |#
@@ -112,10 +112,10 @@ you can copy them from here.
 ; +------------------------------+
 
 #|
-Write a procedure, (string->words str), that takes a string as
+a. Write a procedure, (string->simple-words str), that takes a string as
 input and splits it into the "words" (sequences of alphabetical
 characters).  You should use `rex-find-matches` and an appropriate
-rex pattern
+rex pattern.
 
 > (string->words phishy)
 '("fishy" "one" "cat" "one" "hat" "two" "things" "one" "fish" "two" "fish" "red" "fish" "blue" "fish" "green" "and" "yellow" "fish" "red" "books" "one" "and" "two" "or" "three" "and" "four" "that" "is" "flat")
@@ -123,10 +123,24 @@ rex pattern
 '("hello" "goodbye" "ph" "r")
 |#
 
-;;; (string->words str) -> listof? string?
+;;; (string->simple-words str) -> listof? string?
 ;;;   str : string?
 ;;; Make a list of all the words (sequences of letters)
 ;;; that appear in str.
+(define string->simple-words
+  (lambda (str)
+    ???))
+
+#|
+b. Write a procedure, `(string->words str)`, that takes a string
+as input and splits into words that can contain alphabetical characters,
+hyphens, apostrophes, and digits.
+|#
+
+;;; (string->words str) -> listof? string?
+;;;   str : string?
+;;; Make a list of all the words (sequences of letters, hyphens,
+;;; apostrophes, and digits) that appear in str.
 (define string->words
   (lambda (str)
     ???))
@@ -164,6 +178,11 @@ and returns those in the list that match `rex`.
     '("one" "one" "two" "one" "two" "yellow" "books" "one" "two" "or" "four")
 |#
 
+;;; (rex-match-strings rex strings) -> list-of string?
+;;;   rex : rex?
+;;;   strings : list-of string?
+;;; Find all of the elements of strings for which `(rex-match rex str)`
+;;; holds.
 (define rex-match-strings
   (lambda (rex strings)
     ???))
