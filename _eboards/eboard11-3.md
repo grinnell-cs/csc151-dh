@@ -1,5 +1,5 @@
 ---
-title: "EBoard 11 (Section 1): Regular Expressions"
+title: "EBoard 11 (Section 3): Regular Expressions"
 number: 11
 section: eboards
 held: 2022-02-18

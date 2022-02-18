@@ -166,6 +166,10 @@
       resource: /handouts/zen-of-booleans.html
   lab:
     - page: /labs/rex.html
+  eboards: 
+    - page: /eboards/eboard11-1.html
+    - page: /eboards/eboard11-2.html
+    - page: /eboards/eboard11-3.html
 
 - topic: Introduction to list recursion
   abbrev: recursion-intro
