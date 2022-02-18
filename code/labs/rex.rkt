@@ -42,13 +42,16 @@ b. Make sure to save this file as `rex.rkt`.
 ; +--------------------------------------------------------+
 
 #|
-Let's suppose we want to break `phishy` into smaller groups.
+Let's suppose we want to break `phishy` into smaller groups of strings.
 |#
 
 #|
 a. One way to break up that string is at each space. Write an expression 
 to do so. (You should not need regular expressions, at least not yet;
-`string-split` should suffice.)
+`string-split` should suffice.)  
+
+Note that your goal here is that `split-at-space` is a list of strings.
+You need not write a procedure here (or anywhere in exercise 1).
 |#
 
 (define split-at-space "<TODO>")
@@ -117,9 +120,9 @@ input and splits it into the "words" (sequences of alphabetical
 characters).  You should use `rex-find-matches` and an appropriate
 rex pattern.
 
-> (string->words phishy)
+> (string->simple-words phishy)
 '("fishy" "one" "cat" "one" "hat" "two" "things" "one" "fish" "two" "fish" "red" "fish" "blue" "fish" "green" "and" "yellow" "fish" "red" "books" "one" "and" "two" "or" "three" "and" "four" "that" "is" "flat")
-> (string->words "hello+goodbye, ph33r")
+> (string->simple-words "hello+goodbye, ph33r")
 '("hello" "goodbye" "ph" "r")
 |#
 
