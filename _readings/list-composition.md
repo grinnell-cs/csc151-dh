@@ -1,5 +1,5 @@
 ---
-title: Cnstructing and destructing lists
+title: Composing and decomposing lists
 ---
 # {{ page.title }}
 
