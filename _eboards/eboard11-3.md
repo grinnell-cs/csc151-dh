@@ -168,18 +168,6 @@ What is happening with this?
   (o (section take <> 20) (section drop <> 100)))
 ```
 
-* What is `grab-elements-100-to-120`?  Is it a list, a number, a
-  procedure, a string?  It's a procedure, built from composition
-  (and procedures built from section).
-* Output: Give back a list of the elements at positions 100 to 120.
-* Input: A list
-* How does it work?  Not sure.
-* First it drops 100 elements.  `(section drop <> 100)` is "a procedure
-  that takes a list as input and drops 100 elements".
-* Then it takes the first 20 elements of the remaining list because
-  `(section take <> 20)`.
-* The sequencing is given by the `o`.
-
 Questions
 ---------
 
