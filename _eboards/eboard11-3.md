@@ -168,32 +168,17 @@ What is happening with this?
   (o (section take <> 20) (section drop <> 100)))
 ```
 
-* This is a procedure, created with `o`
-* First it drops the first 100 elements from a list of lines (which
-  we assume are taken from a file).
-* Then it takes the next twenty.
-* Would I write `(grab-elements-100-to-120 "pg1260.txt")`?  No.
-* But I would write `(grab-elements-100-to-120 (file->lines "pg1260.txt")`.
-
-How would we change this to read from a file rather than a list?
-
-```
-(define grab-elements-100-to-120-from-file
-  (lambda (fname)
-    (take (drop (file->lines fname) 100) 20)))
-```
-
-```
-(define grab-elements-100-to-120-from-file
-  (o (section take <> 20) (section drop <> 100) (section file->lines <>)))
-```
-
-or
-
-```
-(define grab-elements-100-to-120-from-file
-  (o (section take <> 20) (section drop <> 100) file->lines))
-```
+* What is `grab-elements-100-to-120`?  Is it a list, a number, a
+  procedure, a string?  It's a procedure, built from composition
+  (and procedures built from section).
+* Output: Give back a list of the elements at positions 100 to 120.
+* Input: A list
+* How does it work?  Not sure.
+* First it drops 100 elements.  `(section drop <> 100)` is "a procedure
+  that takes a list as input and drops 100 elements".
+* Then it takes the first 20 elements of the remaining list because
+  `(section take <> 20)`.
+* The sequencing is given by the `o`.
 
 Questions
 ---------
@@ -250,7 +235,8 @@ should look like
 
 #### Exercise 1
 
-* In exercise 1, you are defining values, not procedures
+* In exercise 1, you are defining values, not procedures.  So,
+  for example, `(define split-at-space (string-split phishy " "))`.
 * `(rex-split-string rex str)`
      * `rex` must be created by the rex procedures (e.g., `rex-string`)
 * If you want to do "a sequence of _this pattern_", use `rex-repeat`.
@@ -263,6 +249,7 @@ should look like
 #### Exercise 3
 
 * Your goal is to filter `strings` using the regular expression.
+* If you look at the example, you'll get an idea of how to do so.
 
 #### Exercise 4
 
@@ -272,3 +259,4 @@ should look like
 
 * Today is a "SAM SAID I COULD STOP HERE" day.
 * But you should read through the rest and think on it.
+* Don't upload the words.txt file.
