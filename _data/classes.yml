@@ -135,6 +135,7 @@
     of repetition available in Scheme.  You can use recursion to
     both build and iterate over different kinds of values.
   reading:
+    - page: /readings/list-construction.html
     - page: /readings/recursion-basics.html
 
 - topic: Introduction to list recursion, continued
