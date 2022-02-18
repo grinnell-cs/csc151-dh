@@ -196,6 +196,10 @@ What should the J-r-d code look like?
 
 ### Other questions
 
+Why can't I use `test-equal?` or `test-true`?
+
+> You need to use `(require rackunit)`
+
 Lab
 ---
 
