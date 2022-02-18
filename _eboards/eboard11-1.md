@@ -246,19 +246,29 @@ should look like
 ### During Lab
 
 * Don't forget Ctrl-I.
+* Look up at the screen every once in a while.
 
 #### Exercise 1
 
 * In exercise 1, you are defining values, not procedures
 * `(rex-split-string rex str)`
      * `rex` must be created by the rex procedures (e.g., `rex-string`)
+* If you want to do "a sequence of _this pattern_", use `rex-repeat`.
 
 #### Exercise 2
 
 * `(rex-char-range #\a #\z)` gives all lowercase letters.
 * `(rex-char-range #\A #\Z)` gives all uppercase letters.
 
+#### Exercise 3
+
+* Your goal is to filter `strings` using the regular expression.
+
+#### Exercise 4
+
+* The `words.txt` file is linked from the lab page.
+
 ### Wrapup
 
-* Yes, today is a "SAM SAID I COULD STOP HERE" day.
+* Today is a "SAM SAID I COULD STOP HERE" day.
 * But you should read through the rest and think on it.

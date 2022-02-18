@@ -9,10 +9,10 @@ link: true
 
 _Approximate overview_
 
-* Administrative stuff [~5 min]
+* Administrative stuff [~10 min]
 * Racket stuff [~10 min]
 * Questions [~5 min]
-* Lab [~60 min]
+* Lab [~55 min]
 
 Administrivia
 -------------
@@ -29,9 +29,7 @@ Administrivia
   just called you by name).
 * Evening tutors are available 7--10 p.m. Sunday through Thursday as
   well as 3--5 p.m. on Sunday.
-    * But not for SoLAs.
 * Mentor sessions are Wednesday, 8--9 p.m., Sunday 4--5 p.m., Monday 8--9 p.m.
-    * No Mentor Session tonight.
 
 ### Upcoming work
 
@@ -163,9 +161,38 @@ Racket/Lab Stuff
 
 ### Grabbing lines 100 to 120
 
+What is happening with this?
+
 ```
-(define grab-lines-100-to-120
-  (o (take <> 20) (drop <> 100)))
+(define grab-elements-100-to-120
+  (o (section take <> 20) (section drop <> 100)))
+```
+
+* This is a procedure, created with `o`
+* First it drops the first 100 elements from a list of lines (which
+  we assume are taken from a file).
+* Then it takes the next twenty.
+* Would I write `(grab-elements-100-to-120 "pg1260.txt")`?  No.
+* But I would write `(grab-elements-100-to-120 (file->lines "pg1260.txt")`.
+
+How would we change this to read from a file rather than a list?
+
+```
+(define grab-elements-100-to-120-from-file
+  (lambda (fname)
+    (take (drop (file->lines fname) 100) 20)))
+```
+
+```
+(define grab-elements-100-to-120-from-file
+  (o (section take <> 20) (section drop <> 100) (section file->lines <>)))
+```
+
+or
+
+```
+(define grab-elements-100-to-120-from-file
+  (o (section take <> 20) (section drop <> 100) file->lines))
 ```
 
 Questions
@@ -196,12 +223,52 @@ What should the J-r-d code look like?
 
 ### Other questions
 
+Why can't I use `test-equal?` or `test-true`?
+
+> You need to use `(require rackunit)`
+
 Lab
 ---
 
 ### Preliminaries
 
+Make sure you have the latest version of the lab.  Exercise 1
+should look like
+
+```
+#| B |#
+
+; +--------------------------------------------------------+---------
+; | Exercise 1: Splitting strings with regular expressions |
+; +--------------------------------------------------------+
+```
+
 ### During Lab
+
+* Don't forget Ctrl-I.
+* Look up at the screen every once in a while.
+
+#### Exercise 1
+
+* In exercise 1, you are defining values, not procedures
+* `(rex-split-string rex str)`
+     * `rex` must be created by the rex procedures (e.g., `rex-string`)
+* If you want to do "a sequence of _this pattern_", use `rex-repeat`.
+
+#### Exercise 2
+
+* `(rex-char-range #\a #\z)` gives all lowercase letters.
+* `(rex-char-range #\A #\Z)` gives all uppercase letters.
+
+#### Exercise 3
+
+* Your goal is to filter `strings` using the regular expression.
+
+#### Exercise 4
+
+* The `words.txt` file is linked from the lab page.
 
 ### Wrapup
 
+* Today is a "SAM SAID I COULD STOP HERE" day.
+* But you should read through the rest and think on it.
