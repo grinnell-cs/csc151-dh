@@ -13,6 +13,9 @@ _Approximate overview_
 * Racket stuff [~5 min]
 * Questions [~5 min]
 * Discussion [~60 min]
+    * Review: Algorithm components
+    * Recursion
+    * Examples
 
 Administrivia
 -------------
@@ -45,6 +48,7 @@ Administrivia
 
 ### Upcoming Token-Generating Activities
 
+* TODAY: Mentor Session
 * WEDNESDAY: Mentor Session
 * THURSDAY, 11am, JRC 101, "Physics Is More Than Problem-solving: Building 
   Inclusivity and Belonging by Practicing Professionalism".  Prof Marty Baylor 
@@ -54,8 +58,12 @@ Administrivia
 
 ### Other Upcoming Activities
 
+* SATURDAY: Tennis in the Field House
+
 Sample Quiz Question
 --------------------
+
+_Not written yet; forthcoming._
 
 Racket/Lab Stuff
 ----------------
@@ -72,6 +80,9 @@ Racket/Lab Stuff
 (rex-repeat (rex-any-of (rex-string " ")
                         (rex-string "\n"))
                         (rex-string "\t"))
+
+; v3
+(rex-repeat (rex-char-set " \n\t"))
 ```
 
 ### Multiple approaches
@@ -82,6 +93,12 @@ Racket/Lab Stuff
 ; V2
 (define letter (rex-any-of (rex-char-range #\a #\z)
                            (rex-char-range #\A #\Z)))
+; V3 INCORRECT
+; One issue: The two sequences are separate, so this will include some
+;   things that are not letters.
+; Another issue: Uppercase letters come before lowercase letters in
+;   unicode, so this is the empty range
+(define letter (rex-char-range #\a #\Z))
 ```
 
 ### Exercise 3
@@ -101,6 +118,23 @@ Racket/Lab Stuff
 Questions
 ---------
 
+How much time should we be spending on the mini projects?
+
+> My goal is four hours. 
+
+> I assume you ask questions early.
+
+> When you hit four hours, let me know how far you've gotten and, if
+  possible, where you've spent the time.
+
+> "I didn't know what procedures to use."
+
+MP2 took me ten to twelve hours.
+
+> I'll need to figure out what to cut.
+
+> Ah, it's the bar chart.
+
 Algorithms, Revisited
 ---------------------
 
@@ -110,18 +144,118 @@ _What are the core building blocks of algorithms?_
 
 _How do we achieve them in Scheme?_
 
-### Core building blocks
+### Core pieces of algorithms
 
 * Basic values and the operations on those values
+* Conditionals - How to make choices
+* Naming - We need to name values
+* Procedures / Subroutines / Functions - Named algorithms with parameters
+* Repetition - We need to be able to do something again and again and again
+* Sequencing - It's sometimes important to control what order you do things
+
+Extra stuff
+
+* Data structures; ways to organize data
+* Input/Output
 
 ### Basic values and the operations on those values
 
 * Numbers (exact and inexact, complex, real, rational, integer):  Standard 
   mathematical operations (`+`, `-`, `*`, `/`).  predicates (e.g., 
   `integer?`), conversion (e.g., `exact->inexact`, `floor`), etc.
+* Booleans: `#t`, `#f`, operations include `not`
+* Strings: `string->list`, `string-split`, `string-length`, `string-append`
+* Lists: `list`, `make-list`, `list->string`, `map`, `list-ref`, 
+  `take`, `drop`, `length`, `apply`, `reduce`
+* Characters: `char->integer`, `integer->char`, `char?`
+* Files: `file->string`, `file->lines`, `string->file`, ...
+* Images: `rectangle`, `above`
+* Regular expressions: `rex-char-range`
+* Symbols: `equal?` (Or make them with quote)
+* Libraries generally give us these things
+
+### Conditionals in Racket
+
+* `(cond [GUARD1 CONSEQUENT1] [GUARD2 CONSEQUENT2] ... [ELSE ALTERNATE])`
+     * Evaluate each guard in sequence
+     * When one holds, evaluate the corresponding consequent and return
+       its value.
+     * If no guards hold, evaluate and return the alternate.
+* `(if TEST WHAT-TO-DO-IF-TEST-IS-TRUE WHAT-TO-DO-IF-TEST-IS-FALSE)`
+    * `(if TEST CONSEQUENT ALTERNATE)`
+    * Evaluate the test
+    * If the test is truish, evaluate the consequent
+    * If the test is false, evaluate the alternate
+* `(when TEST CONSEQUENT1 CONSEQUENT2 ... CONSEQUENTn)`
+    * Evaluate the test
+    * If the test is truish, evaluate all the consequents in sequence
+    * Return the value of the last one
+    * If the test is #f, returns nothing
+* `(and ...)`
+* `(or ...)`
+
+### Naming
+
+* Custom: Choose names that indicate what role things serve (what
+  procedures do)
+* `(define NAME EXPRESSION)`
+* `lambda` names the parameters
+* Files act as names of a sort.
+
+### Subroutines (procedures)
+
+* `(define NAME (lambda (PARAMS) BODY))`
+* Rename an existing procedure `(define add +)`
+* `section`
+* `o`
+
+Sorry
+
+* `um` - the universal maker
+
+### Sequencing
+
+* Conditionals in general involve this kind of sequencing.
+    * `if` and `and` involve sequencing.  The `if` runs the test first,
+      the `and` evaluates arguments in turn until it hits false.
+* Standard Racket model: Usually evaluate expressions inside out.
+  And the parentheses give us the nesting to help us understand
+  what is inside something else.
+    * Evaluate parameters before procedures
+* Compose builds a procedure that applies procedures from right to left.
+* `reduce` doesn't give you control over sequencing, but `reduce-left`
+  and `reduce-right` do.
+* Racket reads the file (and the interactions pane) from top to bottom.
+* Anti-sequencing: Quote doesn't evaluate it
+
+### Repetition
+
+* map repeatedly applies a procedure to each element of a list
+* make-list builds a list (a kind of repetition)
+* filter goes through the list value by value, checking the predicate
+  on each
+* Recursion is one model of repetition
+* We can repeat things by hand.
+* We repeatedly try to annoy Sam.
 
 About Recursion
 ---------------
+
+* The most general form of repetition in Scheme (and in most languages)
+* Builds on an idea we already know: Break a large problem down into
+  smaller parts.
+* In recursion, we break the input into smaller parts
+* Traditionally, when we write a recursive procedure, we think about
+  three things (not necessarily in this order).
+    * How do I make a big problem smaller?
+    * When is the problem small enough that I can solve it directly?
+    * Suppose I solve the smaller problem, how does that help me solve
+      the bigger problem?
+* Key idea: You will use *the same process* to solve the smaller problem.
+  This is weird because you're assuming you've successfully written
+  your procedure (and that it works) before you finish writing your
+  procedure.
+    * The Magic Recursion Fairy ensures that it works.
 
 Some Examples
 -------------
@@ -136,7 +270,41 @@ explore how to solve problems with delegation.
 
 ### Counting
 
+```
+To count the number of cards
+  If I have zero or one, just say the same number
+Otherwise
+  Remove one card
+  Ask your assistant to count the remaining cards
+  Add one to the number they give you
+```
+
 ### Alphabetically first
+
+```
+To find the alphabetically first card
+
+If I have zero cards there is no such card 
+If I have one card return that card
+If I have more than one card
+  Remove one card
+  Ask your assistant to find the alphabetically first of the remaining cards
+  ...
+```
+
+```
+(define first-of-two
+  (lambda (x y)
+    (if (char<=? x y)
+        x
+        y)))
+
+(define alphabetically-first
+  (lambda (lst)
+    (if (null? (cdr lst))
+        (car lst)
+        (first-of-two (alphabetically-first (cdr lst)) (car lst)))))
+```
 
 ### Ordering 
 
