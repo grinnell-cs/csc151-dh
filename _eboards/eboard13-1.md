@@ -1,8 +1,8 @@
 ---
-title: "EBoard 12 (Section 1): Recursion"
-number: 12
+title: "EBoard 13 (Section 1): Recursion Lab"
+number: 13
 section: eboards
-held: 2022-02-18
+held: 2022-02-20
 link: true
 ---
 # {{ page.title }}

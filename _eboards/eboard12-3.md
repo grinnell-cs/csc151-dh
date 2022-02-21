@@ -1,5 +1,5 @@
 ---
-title: "EBoard 12 (Section 1): Recursion"
+title: "EBoard 12 (Section 3): Recursion"
 number: 12
 section: eboards
 held: 2022-02-18
