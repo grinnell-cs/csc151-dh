@@ -2,7 +2,7 @@
 title: "EBoard 12 (Section 2): Recursion"
 number: 12
 section: eboards
-held: 2022-02-18
+held: 2022-02-21
 link: true
 ---
 # {{ page.title }}
