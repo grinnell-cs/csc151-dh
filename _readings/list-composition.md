@@ -341,13 +341,13 @@ Predict the results of evaluating the following expressions.
 (cons 2 null)
 (cons 1 (cons 2 null))
 (cons 5 (list 1 2))
-(caddr (iota 7))
-(list-ref 2 (iota 7))
-(append (iota 2) (iota 2))
-(list (iota 2) (iota 2))
-(append (iota 2) null)
-(list (iota 2) null)
-(cons (iota 2) null)
+(caddr (range 7))
+(list-ref 2 (range 7))
+(append (range 2) (range 2))
+(list (range 2) (range 2))
+(append (range 2) null)
+(list (range 2) null)
+(cons (range 2) null)
 ```
 
 You may verify your predictions using DrRacket, but be sure you understand
