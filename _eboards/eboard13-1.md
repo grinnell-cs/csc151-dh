@@ -51,6 +51,7 @@ Administrivia
   of Carleton College.
 * ANYTIME: Visit the current exhibit in the Grinnell Art Museum.
   (At least 15 min.)
+* SATURDAY: Men's Tennis at the Field House
 
 ### Other Upcoming Activities
 
@@ -60,84 +61,69 @@ Sample Quiz Question
 Racket/Lab Stuff
 ----------------
 
-### Order matters (in rexes and elsewhere)
-
-```
-; v1
-(rex-any-of (rex-repeat (rex-string " "))
-            (rex-repeat (rex-string "\n"))
-            (rex-repeat (rex-string "\t")))
-
-; v2
-(rex-repeat (rex-any-of (rex-string " ")
-                        (rex-string "\n"))
-                        (rex-string "\t"))
-```
-
-### Multiple approaches
-
-```
-; V1
-(define letter (rex-char-set "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"))
-; V2
-(define letter (rex-any-of (rex-char-range #\a #\z)
-                           (rex-char-range #\A #\Z)))
-```
-
-### Exercise 3
-
-```
-; The basic solution
-(define rex-match-strings
-  (lambda (rex strings)
-    (filter (section rex-matches? rex <>) strings)))
-
-(define rex-match-strings
-  (lambda (rex strings)
-    (filter (lambda (str) (rex-matches? rex str))
-            strings)))
-```
-
 Questions
 ---------
 
-Algorithms, Revisited
----------------------
+### Reading questions
 
-TPS:
+Can you go over tracing of recursive procedures?
 
-_What are the core building blocks of algorithms?_
+> It should be the same as tracing of any other procedure.
 
-_How do we achieve them in Scheme?_
+> But what you'll often observe is that we build up a *lot* of delayed
+  computations that only get done when we reach the base case.
 
-### Core building blocks
+> Example ...
 
-* Basic values and the operations on those values
+Why is `cdr` pronounced "could-er"?
 
-### Basic values and the operations on those values
+> It's hard to pronounce things with no vowels.  I suppose "code-er" would
+  be funnier.
 
-* Numbers (exact and inexact, complex, real, rational, integer):  Standard 
-  mathematical operations (`+`, `-`, `*`, `/`).  predicates (e.g., 
-  `integer?`), conversion (e.g., `exact->inexact`, `floor`), etc.
+Between the "big three" list functions and recursive list function,
+which is more efficient/concise? Are there any special cases where
+we should use one over the other?
 
-About Recursion
----------------
+> There are so many contextual issues that it's hard to answer your
+  question.  It's nice to think in terms of the "big three" list
+  functions.  But as we'll see, the "big three" are often implemented
+  with recursion.  I tend to prefer that you use the big three, except
+  when you're learning how to write recursive procedures.
 
-Some Examples
--------------
+What's going on with `(awesum (list 5 2))`?
 
-_We will design these in English and perhaps then convert them to Scheme._
+```
+    (awesum (list 5 2))
+--> (+ 5 (awesum (list 5 2)))
+--> (+ 5 (+ 5 (awesum (list 5 2))))
+--> (+ 5 (+ 5 (+ 5 (awesum (list 5 2)))))
+--> ...
+```
 
-_These examples will use volunteers (or voluntolds)._
+> It keeps expanding forever because we never make the input "smaller".
 
-Congratulations, you are employees of MicroGoogazonBook.  We have some
-tasks for you.  Fortunately, you can delegate most of the task.  We'll
-explore how to solve problems with delegation.
+What does `(awesum (list 5 2))` really result in?
 
-### Counting
+> It runs forever, so there is no final result.
 
-### Alphabetically first
+Can you use `car` and `cdr` outside of recursion? 
 
-### Ordering 
+> Yup.  Anywhere you have a list you can use recursion.
 
-_No, not with GrubHub or Uber Eats; that's unethical._
+Can you use procedures other than `car` and `cdr` in recursion?
+
+> Yes, as long as they simplify the parameters.  `take` and `drop`
+  are a nice pair.
+
+Can two procedures each refer to each other?
+
+> Yes.  We often call that "mutual recursion".
+
+Lab
+---
+
+### Preparation
+
+### During Lab
+
+### Wrapup
