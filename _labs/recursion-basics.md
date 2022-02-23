@@ -4,9 +4,9 @@ summary: |
   In this laboratory, you will explore the basics of recursion over lists
   by reading and interpreting some recursive procedures.
 todo: |
-  For the in-person lab, most groups barely make it through problem 2.
-  How do we make the lab shorter?  Maybe give them one trace and ask
-  them to do the other.
+  For the in-person lab, most groups barely make it through problem 2
+  in fifty minutes.  How do we make the lab shorter?  The traces are
+  helpful.
 ---
 
 In this lab, we'll gain some intuition about the *mechanics* of recursion by practicing reading and interpreting recursive code using our mental model of computation.
