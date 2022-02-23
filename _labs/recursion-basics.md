@@ -15,8 +15,7 @@ In this lab, we'll gain some intuition about the *mechanics* of recursion by pra
 
 ## Preparation
 
-a. Introduce yourself to your partner, discuss work procedures, who
-will submit the lab, other important issues.
+a. Introduce yourself to your partner, discuss your preferred work processes, your stengths, and other issues you deem important.
 
 <!--
 b. Decide who is side A and who is side B.  
@@ -26,7 +25,7 @@ A side: [recursion-basics-a.rkt](../code/labs/recursion-basics-a.rkt)
 B side: [recursion-basics-b.rkt](../code/labs/recursion-basics-b.rkt)
 -->
 
-b. Grab the code from the following location.  Side A will be the person
+b. Grab the code from the following link.  Side A will be the person
 closer to the board.
 
 * [recursion-basics.rkt](../code/labs/recursion-basics.rkt)
