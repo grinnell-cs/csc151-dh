@@ -83,15 +83,15 @@ c. Finally, develop an explanation of what your chosen function does.
 Consider the following two recursive function definition below.
 |#
 
-;;; (func-1 x l) -> ??
+;;; (func-1a x l) -> ??
 ;;;   x : any/c
 ;;;   l : list?
 ;;; ??
-(define func-1
+(define func-1a
   (lambda (x l)
     (if (null? l)
         (list x)
-        (cons (car l) (func-1 x (cdr l))))))
+        (cons (car l) (func-1a x (cdr l))))))
 
 #|
 Analyze your function by doing the following:
@@ -107,8 +107,8 @@ the interactions pane here.>
 #|
 b. Trace
 
-    ; for func-1
-    (func-1 9 '(1 8 2))
+    ; for func-1a
+    (func-1a 9 '(1 8 2))
 --> 
 <TODO: Finish the derivation>
 |#
@@ -132,15 +132,15 @@ Recursive case: <TODO: write your explanation here>
 Consider the following recursive function definition below.
 |#
 
-;;; (func-2 l1 l2) -> ??
+;;; (func-1b l1 l2) -> ??
 ;;;   l1 : list?
 ;;;   l2 : list?
 ;;; ??
-(define func-2
+(define func-1b
   (lambda (l1 l2)
     (if (null? l1)
         l2
-        (cons (car l1) (func-2 (cdr l1) l2)))))
+        (cons (car l1) (func-1b (cdr l1) l2)))))
 
 #|
 a. Examples
@@ -151,8 +151,8 @@ a. Examples
 #|
 b. Trace
 
-    ; for func-2
-    (func-2 '(8 4 2) '(1 8 9 6 3))
+    ; for func-1b
+    (func-1b '(8 4 2) '(1 8 9 6 3))
 ---> 
 
 <TODO: finish the trace here>
@@ -197,17 +197,17 @@ a, b, and c from the prior problem.
 ; | Exercise 2a: Deeper Waters |
 ; +----------------------------+
 
-;;; (func-3 x l) -> ??
+;;; (func-2a x l) -> ??
 ;;;   x : any/c
 ;;;   l : list?
 ;;; ??
-(define func-3
+(define func-2a
   (lambda (x l)
     (if (null? l)
         null
         (if (equal? (car l) x)
-            (func-3 x (cdr l))
-            (cons (car l) (func-3 x (cdr l)))))))
+            (func-2a x (cdr l))
+            (cons (car l) (func-2a x (cdr l)))))))
 
 #|
 a. Examples
@@ -220,7 +220,7 @@ b. Trace
 When working through the step-by-step evaluation of your function,
 use the following expression:
 
-    (func-3 7 '(1 7 2 7))
+    (func-2a 7 '(1 7 2 7))
 --> 
 |#
 
@@ -236,15 +236,15 @@ c. Explanation
 ; +----------------------------+
 
 
-;;; (func-4 l1 l2) ->??
+;;; (func-2b l1 l2) ->??
 ;;;   l1 : list?
 ;;;   l2 : list?
 ;;; ??
-(define func-4
+(define func-2b
   (lambda (l1 l2)
     (if (null? l2)
         l1
-        (func-4 (cons (car l2) l1) (cdr l2)))))
+        (func-2b (cons (car l2) l1) (cdr l2)))))
 
 #|
 a. Examples
@@ -257,14 +257,24 @@ b. Trace
 When working through the step-by-step evaluation of your function,
 use the following expressions:
 
-; for func-4
-(func-4 '() '(8 3 9 1))
+; for func-2b
+(func-2b '(1) '(8 3 9))
 |#
 
 #|
 c. Explanation
 
 |#
+
+#|
+d. What does the following function do?
+
+<ENTER YOUR ANSWER HERE>
+|#
+
+(define r
+  (lambda (lst)
+    (func-2b '() lst)))
 
 #| AB |#
 
