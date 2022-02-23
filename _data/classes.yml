@@ -206,6 +206,8 @@
   summary: |
     We continue to continue our introductory exploration of recursion
     in Racket.
+  reading:
+    - page: /readings/recursion-magic.html
   lab:
     - page: /labs/recursion-practice.html
 
@@ -385,7 +387,6 @@
     - page: /readings/pattern-matching.html
     - page: /readings/tail-recursion.html
     - page: /readings/list-recursion-revisited.html
-    - page: /readings/recursion-magic.html
   lab:
     - page: /labs/tail-recursion.html
 
