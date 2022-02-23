@@ -222,7 +222,7 @@ use the following expression.  It's fine if you do a more casual trace.
 
     (func-2a 7 '(2 1 7 2 7))
     ; l is not null.  car l is not equal to x
---> (cons 2 (func2a '(1 7 2 7)))
+--> (cons 2 (func2a 7 '(1 7 2 7)))
     ;
 --> 
 |#
@@ -263,7 +263,7 @@ trace
 
     (func-2b '(1) '(2 8 3 9))
     ; l2 is not null
---> (func-2 (cons '2 '(1)) '(8 3 9))
+--> (func-2 (cons 2 '(1)) '(8 3 9))
     ; Evaluate the cons
 --> (func-2 '(2 1) '(8 3 9))
     ;
