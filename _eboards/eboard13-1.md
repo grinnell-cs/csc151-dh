@@ -191,12 +191,6 @@ the pattern given by `rex` appears in string.
 4
 > (rex-tally (rex-char-set "aeiou") "alphonse says albert and fatima are alphabetical")
 17
-> (rex-tally (rex-append (rex-string "a")
-                         (rex-char-antiset "a")
-                         (rex-string "a"))
-             "alphonse says albert and fatima are alphabetical")
-. . rex-append: undefined;
- cannot reference an identifier before its definition
 > (rex-tally (rex-concat (rex-string "a")
                          (rex-char-antiset "a")
                          (rex-string "a"))

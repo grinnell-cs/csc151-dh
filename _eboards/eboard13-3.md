@@ -189,12 +189,6 @@ the pattern given by `rex` appears in string.
 4
 > (rex-tally (rex-char-set "aeiou") "alphonse says albert and fatima are alphabetical")
 17
-> (rex-tally (rex-append (rex-string "a")
-                         (rex-char-antiset "a")
-                         (rex-string "a"))
-             "alphonse says albert and fatima are alphabetical")
-. . rex-append: undefined;
- cannot reference an identifier before its definition
 > (rex-tally (rex-concat (rex-string "a")
                          (rex-char-antiset "a")
                          (rex-string "a"))
@@ -330,4 +324,16 @@ re-review some of the concerns.
 
 ### During Lab
 
+* Copy, paste, change is a good way to trace.
+* I'm sorry that one (1) and el (l) look similar.
+* Strangely enough, `(*)` is `1` and `(+)` is `0`.
+
 ### Wrapup
+
+* We have you learn tracing, in part, so that you can better understand
+  what's happening in recursion.
+* Congratulations, you get the cheesy department sticker.  
+  (No, I did not design it.)
+* Submit whatever you've finished at about 11:15 a.m.  Make sure that
+  you write `"; SAM SAID I COULD STOP HERE"` so that the grader does
+  not attempt to look at more.

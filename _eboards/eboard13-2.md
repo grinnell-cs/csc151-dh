@@ -71,7 +71,8 @@ Administrivia
   of Carleton College.
 * ANYTIME: Visit the current exhibit in the Grinnell Art Museum.
   (At least 15 min.)
-* SATURDAY: Men's Tennis at the Field House
+* SOMETIME THIS WEEKEND: Popcorn House Movie (only one)
+* SATURDAY: Men's Tennis at the Field House at 2pm
 * SUNDAY: Mentor Session
 
 ### Other Upcoming Activities
@@ -188,12 +189,6 @@ the pattern given by `rex` appears in string.
 4
 > (rex-tally (rex-char-set "aeiou") "alphonse says albert and fatima are alphabetical")
 17
-> (rex-tally (rex-append (rex-string "a")
-                         (rex-char-antiset "a")
-                         (rex-string "a"))
-             "alphonse says albert and fatima are alphabetical")
-. . rex-append: undefined;
- cannot reference an identifier before its definition
 > (rex-tally (rex-concat (rex-string "a")
                          (rex-char-antiset "a")
                          (rex-string "a"))
@@ -254,6 +249,14 @@ we should use one over the other?
 What's going on with `(awesum (list 5 2))`?
 
 ```
+(define awesum
+  (lambda (lst)
+    (if (null? lst)
+        0
+        (+ (car lst) (awesum lst)))))
+```
+
+```
     (awesum (list 5 2))
     ; The list is not null
 --> (+ 5 (awesum (list 5 2)))
@@ -273,7 +276,7 @@ What does `(awesum (list 5 2))` really result in?
 
 Can you use `car` and `cdr` outside of recursion? 
 
-> Yup.  Anywhere you have a list you can use recursion.
+> Yup.  Anywhere you have a list you can use `car` and `cdr`.
 
 Can you use procedures other than `car` and `cdr` in recursion?
 
@@ -283,6 +286,15 @@ Can you use procedures other than `car` and `cdr` in recursion?
 Can two procedures each refer to each other?
 
 > Yes.  We often call that "mutual recursion".
+
+Can we use Zen of Booleans ideas in recursion?
+
+> Yes.
+
+Do we have to?
+
+> Walk before your run.  First get competent with recursion, then 
+  worry about doing it elegantly.
 
 ### Other issues
 
@@ -318,7 +330,43 @@ I don't like working in pairs.  Can I work alone?
 Can you change the due date for quizzes to Sunday?
 
 > Sure.  But I'll probably make them due before the mentor session.
-`
+
+Why do we use three commas for documentation?
+
+> It's common practice that lets us distinguish documentation from
+  other comments.
+
+> We can then do fun things like the following.
+
+```
+(define doc
+  (rex-concat (rex-string ";;; ")
+              (rex-repeat (rex-any-char))))
+(define extract-doc
+  (lambda (fname)
+    (filter (section rex-matches? doc <>)
+            (file->lines fname))))
+```
+
+What happens if I forgot to do something required?
+
+> Ask Sam to spend a token for a lab or reading writeup.
+
+> Wait until the SoLA for a quiz.
+
+> Wait until the next SoLA for a SoLA.
+
+> Spend tokens for the "redo" for an MP.
+
+If I get the quiz right but the corresponding SoLA wrong, what happens?
+
+> Look at the grade sheet.  If it's checked off, you are fine.
+
+How do I resubmit the decomposition SoLA that's due tonight?
+
+> Email or DM me.  You can also enter the answer as a comment under 
+  "Request Regrade".
+
 Lab
 ---
 
@@ -327,6 +375,20 @@ Lab
 Please take the time to chat with your partner.  You may want to
 re-review some of the concerns.
 
+Make sure that exercise 1 begins with `func-1a` and not `func-1`.
+
 ### During Lab
 
+* Copy, paste, change is a good way to trace.
+* I'm sorry that one (1) and el (l) look similar.
+* Strangely enough, `(*)` is `1` and `(+)` is `0`.
+
 ### Wrapup
+
+* We have you learn tracing, in part, so that you can better understand
+  what's happening in recursion.
+* Congratulations, you get the cheesy department sticker.  
+  (No, I did not design it.)
+* Submit whatever you've finished at about 11:15 a.m.  Make sure that
+  you write `"; SAM SAID I COULD STOP HERE"` so that the grader does
+  not attempt to look at more.
