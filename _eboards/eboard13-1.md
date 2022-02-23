@@ -54,8 +54,9 @@ Administrivia
 ### Upcoming work
 
 * No reading for Friday!  We have a "compute differently" day.
-* Monday readings forthcoming.  
-    * We continue to explore list recursion on Monday.
+* Monday reading will be updated by tonight.  It's a short reading
+  on recursion.
+    * As that suggests, we continue to explore list recursion on Monday.
 * Today's lab writeup is due Sunday night.  
     * But we hope to finish in lab.
 * Quiz 5 due Sunday: Regular expressions
@@ -63,7 +64,6 @@ Administrivia
 * MP3 due Thursday the 3rd at 10:30 p.m.
     * But if you have it done, submit it asap.
 * MP4 due Thursday the 3rd at 10:30 p.m.
-    * Yes, we'll talk about it today
 
 ### Upcoming Token-Generating Activities
 
@@ -71,9 +71,10 @@ Administrivia
 * THURSDAY, 11am, JRC 101, "Physics Is More Than Problem-solving: Building 
   Inclusivity and Belonging by Practicing Professionalism".  Prof Marty Baylor 
   of Carleton College.
+* FRIDAY, ??? Concert in Harris Gym, Magdalena Bay
 * ANYTIME: Visit the current exhibit in the Grinnell Art Museum.
   (At least 15 min.)
-* SATURDAY: Men's Tennis at the Field House
+* SATURDAY: Men's Tennis at the Field House (2pm)
 * SUNDAY: Mentor Session
 
 ### Other Upcoming Activities
@@ -256,6 +257,14 @@ we should use one over the other?
 What's going on with `(awesum (list 5 2))`?
 
 ```
+(define awesum
+  (lambda (lst)
+    (if (null? lst)
+        0
+        (+ (car lst) (awesum lst)))))
+```
+
+```
     (awesum (list 5 2))
     ; The list is not null
 --> (+ 5 (awesum (list 5 2)))
@@ -320,7 +329,11 @@ I don't like working in pairs.  Can I work alone?
 Can you change the due date for quizzes to Sunday?
 
 > Sure.  But I'll probably make them due before the mentor session.
-`
+
+Will you still release quizzes Friday morning?
+
+> Yes
+
 Lab
 ---
 
@@ -329,6 +342,15 @@ Lab
 Please take the time to chat with your partner.  You may want to
 re-review some of the concerns.
 
+Someone may be looking over your shoulders.
+
 ### During Lab
 
+* Note: We often use `l` or `lst` to name a list.  That's an L or L-S-T.
+* Note: `(*)` -> `1` (exercise 4)
+
 ### Wrapup
+
+* If you didn't finish everything, I probably screwed up.
+* We teach you tracing, in part, so that you can understand recursion better.
+* Congratulations, you've earned the cheesy CS department sticker!
