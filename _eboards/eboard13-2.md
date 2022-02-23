@@ -1,5 +1,5 @@
 ---
-title: "EBoard 13 (Section 1): Recursion Lab"
+title: "EBoard 13 (Section 2): Recursion Lab"
 number: 13
 section: eboards
 held: 2022-02-23
@@ -29,8 +29,6 @@ Administrivia
   individual tutor.
     * If you didn't get email from me, have been attending mentor sessions,
       and think you'd benefit from an individual tutor, let me know.
-* We will have an observer in class today who wants to see how students
-  first encounter recursion.
 * I have split MP3 into MP3 (problems 1 and 2 from the old MP3) and 
   MP4 (everything else from the old MP3).
     * Both are due a week from tomorrow.  
