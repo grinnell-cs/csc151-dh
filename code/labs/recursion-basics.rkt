@@ -218,9 +218,12 @@ a. Examples
 b. Trace
 
 When working through the step-by-step evaluation of your function,
-use the following expression:
+use the following expression.  It's fine if you do a more casual trace.
 
-    (func-2a 7 '(1 7 2 7))
+    (func-2a 7 '(2 1 7 2 7))
+    ; l is not null.  car l is not equal to x
+--> (cons 2 (func2a '(1 7 2 7)))
+    ;
 --> 
 |#
 
@@ -255,10 +258,16 @@ a. Examples
 b. Trace
 
 When working through the step-by-step evaluation of your function,
-use the following expressions:
+use the following expression.  It's fine if you do a more casual
+trace
 
-; for func-2b
-(func-2b '(1) '(8 3 9))
+    (func-2b '(1) '(2 8 3 9))
+    ; l2 is not null
+--> (func-2 (cons '2 '(1)) '(8 3 9))
+    ; Evaluate the cons
+--> (func-2 '(2 1) '(8 3 9))
+    ;
+--> 
 |#
 
 #|
@@ -311,7 +320,10 @@ a. Build a small test suite for this function using `rackunit` in the
    the cases" of this program's execution?
 |#
 
-;;; <TODO: write your rackunit test suite for my-length here>
+; Here's one to get you started.  Uncomment it when you're ready.
+; (test-equal? "sample test" (my-length '(1 2 3)) 3)
+
+;;; <TODO: write your additional rackunit tests for my-length here>
 
 #|
 b. In your testing, you should have noted that the function doesn't
@@ -352,7 +364,10 @@ a. Build a small test suite for this function using `rackunit` in the
    the cases" of this program's execution?
 |#
 
-;;; <TODO: write your rackunit test suite for my-sum here>
+; Here's one to get you started.  Uncomment it when you're ready.
+; (test-equal? "sample test" (my-product '(2 3 4)) 24)
+
+;;; <TODO: write your additional rackunit tests for my-product here>
 
 #|
 b. In your testing, you should have noted that the function doesn't
