@@ -192,6 +192,10 @@
     - page: /readings/recursion-basics.html
   lab:
     - page: /labs/recursion-basics.html
+  eboards: 
+    - page: /eboards/eboard13-1.html
+    - page: /eboards/eboard13-2.html
+    - page: /eboards/eboard13-3.html
 
 - topic: Unofficial Working Differently Day
   abbrev: working-differently
