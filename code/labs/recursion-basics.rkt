@@ -4,7 +4,7 @@
 (require rackunit)
 
 ;; CSC 151 (SEMESTER)
-;; Lab: Recursion basics
+;; Lab: Recursion basics (recursion-basics.rkt)
 ;; Authors: YOUR NAMES HERE
 ;; Date: THE DATE HERE
 ;; Acknowledgements:
@@ -14,6 +14,20 @@
 In this lab, we'll gain some intuition about the *mechanics* of
 recursion by practicing reading and interpreting recursive code using
 our mental model of computation.
+|#
+
+#| AB |#
+
+; +-------------+----------------------------------------------------
+; | Preparation |
+; +-------------+
+
+#|
+a. If you have not done so already, be sure to discuss work habits
+and such with your partner.  Perhaps mention things that have worked
+less well, so that you can avoid them.
+
+b. Make sure to save this as `recursion-basics.rkt`.
 |#
 
 #| AB |#
@@ -459,3 +473,42 @@ You may not use `length` or `recursion` in solving this problem.
 (define simple-length
   (lambda (lst)
     ???))
+
+; +-----------------------------------------------------+------------
+; | Extra 3: Finding the alphabetically first character |
+; +-----------------------------------------------------+
+
+#|
+In class, we developed the following procedures to find the alphabetically
+first character in a list of characters.
+|#
+
+(define first-of-two
+  (lambda (ch ar)
+    (if (char<=? ch ar)
+        ch
+        ar)))
+
+(define alphabetically-first
+  (lambda (chars)
+    ; If there's only one character
+    (if (null? (cdr chars))
+        ; It's that one character
+        (car chars)
+        ; Otherwise, delegate and then compare results
+        (first-of-two (car chars) (alphabetically-first (cdr chars))))))
+
+#|
+a. Why do we need `first-of-two`?
+
+<ENTER YOUR ANSWER HERE>
+
+b. What purpose does `(null? (cdr chars))` serve?
+
+<ENTER YOUR ANSWER HERE>
+
+c. What happens if we call `alphabetically-first` with the empty list?
+
+<ENTER YOUR ANSWER HERE>
+|#
+
