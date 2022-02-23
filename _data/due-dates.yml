@@ -46,16 +46,13 @@
   assigned:
     - page: /mps/mp04.html
 
-- date: 2022-02-24
-  due:
-    - page: /mps/mp03.html
-
 - date: 2022-02-27
   due:
     - Quiz 5
 
 - date: 2022-03-03
   due:
+    - page: /mps/mp03.html
     - page: /mps/mp04.html
 
 - date: 2022-03-04
