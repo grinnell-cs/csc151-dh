@@ -17,8 +17,7 @@ And follow the instructions in your respective files!
 When you are done, combine the files, rename the result to `local-bindings.rkt`, and upload the completed lab to Gradescope.
 -->
 
-For now (and perhaps for the foreseeable future), the person closest
-to the board is Side A.
+For now (and perhaps for the foreseeable future), the person closest to the board is Side A.
 The other person is Side B.
 
 Download the code from

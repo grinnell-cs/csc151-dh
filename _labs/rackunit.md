@@ -13,7 +13,6 @@ Make sure that `testing.rkt` includes `require` declarations for the appropriate
 ```drracket
 (require csc151)
 (require rackunit)
-(require rackunit/text-ui)
 ```
 
 Throughout this lab, we will provide procedure examples that may use language features we have not yet introduced in this course.
@@ -156,7 +155,7 @@ At this point, you are ready to turn in the lab.
 Take a few minutes to make sure that file has everything.
 Then submit the work on Gradescope.
 
-## Exercise 4: Test-driven development
+## Exercise 5: Test-driven development
 
 **Side B** should serve as *driver* for this exercise.
 
@@ -199,20 +198,30 @@ a. As before, write a set of tests for this function.
 b. Write your own version of `describe-triangle`.
 Make sure it passes your tests.
 
-c. Your instructor has set up a place for you to post your tests and your version of `describe-triangle`.
-They will give you instructions in class.
-Please post your tests and your version.
+c. Here's an incorrect implementation.  How many errors do your tests find?
 
-d. Test at least two of the other versions of `describe-triangle`.  (If there are no other versions, temporarily skip to the next step and then come back here later.)  If you find an error, let the authors know.  
+#|
+(define describe-triangle
+  (lambda (side1 side2 side3)
+    (cond
+      [(or (<= side1 0) (<= side2 0) (<= side3 0))
+       #f]
+      [(or (< (+ side1 side2) side3) 
+           (< (+ side1 side3) side2)
+           (< (+ side2 side3) side1))
+       #f]
+      [(and (equal? side1 side2)
+            (equal? side2 side3))
+       "equilateral"]
+      [(or (equal? side1 side2)
+           (equal? side2 side3)
+           (equal? side1 side3))
+       "isosceles"]
+      [else
+       "scalene"])))
+|#
 
-e. If you hear about an error in your own version, delete it from the thread, rename the old version (e.g., to `describe-triangle-bad-01`), fix the error, and then repost.
-You might also want to add some appropriate tests.
-
-f. Once you believe that you have a sufficient set of tests that will approve all correct implementations and reject all incorrect implementations, reach out to the course staff, who may provide you with an additional version of `describe-triangle` to check.  
-
-g. Incorporate your tests and the final version of `describe-triangle` in the file.
-
-h. Make sure to share the fle with all group members.
+d. Find another group who has written `describe-triangle` and trade procedures with them.  Do you pass all of their tests?  Do they pass all of your tests?
 
 <!-- 
 Issues tests of `describe-triangle` should check.
