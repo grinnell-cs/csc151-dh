@@ -201,6 +201,10 @@
   abbrev: working-differently
   summary: |
     A day (or at least a class period) for you to not worry about CS.
+  eboards: 
+    - page: /eboards/eboard14-1.html
+    - page: /eboards/eboard14-2.html
+    - page: /eboards/eboard14-3.html
 
 - topic: Recursion practice
   summary: |
