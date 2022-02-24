@@ -95,7 +95,23 @@ You should, too.
 
 ## Self Checks
 
-### Check 1: Some base cases (‡)
+### Check 1: Trust the recursion fairy
+
+a. Suppose we've found how many elements are in `(cdr lst)`.  How
+does that help us find how many elements are in `lst`?
+
+b. Suppose we want to find the last element of `lst` and we've found
+the last element of `(cdr lst)`.  How does that help us find the last
+element of `lst`?
+
+c. Suppose we've counted how many times `val` appears in `(cdr lst)`.
+How does that help us find how many times `val` appears in `lst`?
+
+d. This one is a little bit different.  Suppose we want to drop
+the first `n` values from `lst`.  How many values should we drop
+from `(cdr lst)`?
+
+### Check 2: Some base cases (‡)
 
 a. Suppose you want to count how many elements are in a list.  What's
 a list that's so simple that even a cs prof can figure out how many
@@ -120,18 +136,3 @@ out how to drop `n` elements?
 
 h. And how do they drop those `n` elements?
 
-### Check 2: Trust the recursion fairy
-
-a. Suppose we've found how many elements are in `(cdr lst)`.  How
-does that help us find how many elements are in `lst`?
-
-b. Suppose we want to find the last element of `lst` and we've found
-the last element of `(cdr lst)`.  How does that help us find the last
-element of `lst`?
-
-c. Suppose we've counted how many times `val` appears in `(cdr lst)`.
-How does that help us find how many times `val` appears in `lst`?
-
-d. This one is a little bit different.  Suppose we want to drop
-the first `n` values from `lst`.  How many values should we drop
-from `(cdr lst)`?
