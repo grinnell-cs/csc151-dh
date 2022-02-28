@@ -187,11 +187,11 @@ a. Build a small test suite for this function using `rackunit` in the
 b. In your testing, you should have noted that the function doesn't
    behave as expected! Using the debugging techniques we've developed
    as well as your mental model of computation, determine the cause
-   of the problem and fix it in your code. Ensure that your modified
-   function passes all of your tests. Describe the problem and your
-   fix in the space below.  (Note, your goal is to define `my-length`
-   in such a way that it mimics the behavior of `length`.  Hence,
-   you should not call `length` in your definition.)
+   of the problem and FIX IT IN THE CODE ABOVE. Ensure that your
+   modified function passes all of your tests. Describe the problem
+   and your fix in the space below.  (Note, your goal is to define
+   `my-length` in such a way that it mimics the behavior of `length`.
+   Hence, you should not call `length` in your definition.)
 
 ;;; <TODO: write your explanation of the code's problem and your fix>
 
@@ -221,8 +221,9 @@ a. Build a small test suite for this function using `rackunit` in the
    the cases" of this program's execution?
 |#
 
-; Here's one to get you started.  Uncomment it when you're ready.
+; Here are two to get you started.  Uncomment them when you're ready.
 ; (test-equal? "sample test" (my-product '(2 3 4)) 24)
+; (test-equal? "special case of empty list" (my-product '()) 1)
 
 ;;; <TODO: write your additional rackunit tests for my-product here>
 
@@ -230,7 +231,7 @@ a. Build a small test suite for this function using `rackunit` in the
 b. In your testing, you should have noted that the function doesn't
    behave as expected! Using the debugging techniques we've developed
    as well as your mental model of computation, determine the cause
-   of the problem and fix it in your code. Ensure that your modified
+   of the problem and FIX IT IN THE CODE ABOVE. Ensure that your modified
    function passes all of your tests. Describe the problem and your
    fix in the space below.
 
@@ -316,13 +317,17 @@ We very much prefer this alternate definition.
 a. Explain how the second `singleton?` procedure works.
 
 <ENTER YOUR ANSWER HERE>
+|#
 
+#|
 b. The first version of `singleton?` is definitely easier to read.
 Explain why we might still prefer the second one?  (Consider the
 definition of length from before as you answer this question.)
 
 <ENTER YOUR ANSWER HERE>
+|#
 
+#|
 c. Write a non-recursive procedure, `(simple-length lst)` that returns 
 
 * "empty", if the list has no elements;
