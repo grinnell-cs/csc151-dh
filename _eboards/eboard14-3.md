@@ -1,5 +1,5 @@
 ---
-title: "EBoard 14 (Section 1): Compute Differently Day"
+title: "EBoard 14 (Section 3): Compute Differently Day"
 number: 14
 section: eboards
 held: 2022-02-25
@@ -50,12 +50,13 @@ Administrivia
 
 ### Upcoming Token-Generating Activities
 
-* FRIDAY: Concert
-* SATURDAY: Men's Tennis at the Field House
 * SUNDAY: Mentor Session
 * MONDAY: Mentor Session
 
 ### Other Upcoming Activities
+
+* SATURDAY: Men's Tennis at the Field House
+* WEEKEND: Popcorn house movies
 
 Racket/Lab Stuff
 ----------------

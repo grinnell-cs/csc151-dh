@@ -220,168 +220,68 @@ following to the top of the definitions pane.
 
 ```
 (require rackunit)
-(require rackunit/text-ui)
 ```
 
 RackUnit provides a variety of procedures that we can use to check
 results. Most of them take an expected result, an input expression,
 and an optional message.
 
-`(check-= expression expected epsilon)`{:.signature}, `(check-= expression expected epsilon optional-message)`{:.signature}  [*requires `rackunit`*]
-  : Evaluate *`expression ... expected`* and then compare them for
-  numeric equality (within *`epsilon)`{:.signature}. If they are equal,
-  do nothing. If they are not equal, print an error message. If the
-  optional message is included, also print that message.
+`(test-= message expression expected epsilon)`{:.signature} [*requires `rackunit`*]
+  : Evaluate `expression` and `expected` and then compare them for
+  numeric equality (within `epsilon`). If they are equal,
+  do nothing. If they are not equal, print an error message. 
 
-`(check-equal? expression expected)`{:.signature}, `(check-equal? expression expected optional-message)`{:.signature} [*requires `rackunit`*]
-  : Evaluate *`expression ... expected`* and then compare them for
+`(test-equal? message expression expected)`{:.signature} [*requires `rackunit`*]
+  : Evaluate `expression` and `expected` and then compare them for
   equality. If they are equal, do nothing. If they are not equal, print
-  an error message. If the optional message is included, also print
-  that message.
+  an error message. 
 
- `(check-not-equal? expression expected)`{:.signature}, `(check-not-equal? expression expected optional-message)`{:.signature}  [*requires `rackunit`*]
-  : Evaluate *`expression ... expected`* and then compare them. If they
-  are not equal, do nothing. If they are equal, print an error message. If
-  the optional message is included, also print that message.
+`(test-not-equal? message expression expected)`{:.signature} [*requires `rackunit`*]
+  : Evaluate `expression`and `expected` and then compare them. If they
+  are not equal, do nothing. If they are equal, print an error message. 
 
 Although we will typically put checks into tests, we can run them on
 their own. When they succeed, they print no result. When they fail,
 they print an error message. For example,
 
 ```
-> (check-= 4 4 0)
-> (check-= 4 (* 2 2) 0 "two times two is four")
-> (check-= 2 (* (sqrt 2) (sqrt 2)) 0.00001 "sqrt 2 squared, approximate")
-> (check-= 2 (* (sqrt 2) (sqrt 2)) 0 "sqrt 2 squared, exact")
-Error! --------------------
-Error! FAILURE
-Error! name:       check-=
-Error! location:   (stdin #f #f 230 59)
-Error! expression: (check-= 2 (* (sqrt 2) (sqrt 2)) 0)
-Error! params:     (2 2.0000000000000004 0)
-Error! message:    "sqrt 2 squared, exact"
-Error! 
-Error! Check failure
-Error! --------------------
+> (test-= "exact equality of 4" 4 4 0)
+> (test-= "two times two is four" 4 (* 2 2) 0 
+> (test-= "sqrt 2 squared, approximately" 2 (* (sqrt 2) (sqrt 2)) 0.00001)
+> (test-= "sqrt 2 squared, exactly" 2 (* (sqrt 2) (sqrt 2)) 0)
+--------------------
+sqrt 2 squared, exactly
+. FAILURE
+name:       check-=
+location:   16-interactions from an unsaved editor:8:2
+params:     '(2 2.0000000000000004 0)
+--------------------
 ```
-
-We group checks into tests with `test-case`.
-
-`(test-case description check-1 ... check-n)`{:.signature} [*requires `rackunit`]*
-  : Create a new test case by running a series of checks.
-
-Note that `test-case` runs the test immediately. Sometimes that's useful;
-sometimes we'd like to build up a bunch of tests for running later. And
-that's where test suites come into play.
-
-`(test-suite description check-or-test-or-suite-1 ... check-or-test-or-suite-n)`{:.signature} [*requires `rackunit`*]
-  : Create a new test suite that groups together a variety of checks,
-  tests, and other suites. Unlike tests and checks, which are executed
-  immediately, test suites are objects that can be run separately.
-
-Note that, unlike `test-case`, `test-suite` does *not* run
-the tests. Instead, it builds a suite that we can later run with
-`run-tests`. (Why make the distinction? Sometimes it ends up being easier
-to have the tests grouped so that you can easily redefine them.) So,
-whenever you make a test suite, you'll probably have to name it with
-`define`.
 
 Let's return to our procedure to remove negative values and consider
 how we might put together our simple checks. Here's one approach: We
 can just type them directly.
 
 ```
-> (check-equal? (remove-negatives (list)) 
-                (list)
-                "empty list")
-> (check-equal? (remove-negatives (list 3))
-                (list 3)
-                "singleton list - no negatives")
-> (check-equal? (remove-negatives (list 3 7 11))
-                (list 3 7 11)
-                "no negatives")
-> (check-equal? (remove-negatives (list -1 3 7 11))
-                (list 3 7 11)
-                "negative at front of list")
-> (check-equal? (remove-negatives (list -1 3 -2 7 -3 11))
-                (list 3 7 11)
-                "mixed")
-> (check-equal? (remove-negatives (list -1 -2 -3))
-                (list)
-                "all negative")
+> (test-equal? "empty list" 
+               (remove-negatives (list)) 
+               (list))
+> (test-equal? "singleton list, no negatives"
+               (remove-negatives (list 3))
+               (list 3))
+> (test-equal? "multiple elements, no negatives"
+               (remove-negatives (list 3 7 11))
+               (list 3 7 11))
+> (test-equal? "negative at front of list"
+               (remove-negatives (list -1 3 7 11))
+               (list 3 7 11))
+> (test-equal? "mixed list"
+               (remove-negatives (list -1 3 -2 7 -3 11))
+               (list 3 7 11))
+> (test-equal? "all negative"
+               (remove-negatives (list -1 -2 -3))
+               (list))
 ```
-
-We might also find it useful to put them together into a suite.
-
-```
-(define test-remove-negatives
-  (test-suite
-   "Tests of remove-negatives"
-   (test-case
-    "small lists"
-    (check-equal? (remove-negatives (list)) 
-                  (list)
-                  "empty list")
-    (check-equal? (remove-negatives (list 3))
-                  (list 3)
-                  "singleton list - positive")
-    (check-equal? (remove-negatives (list 0))
-                  (list 0)
-                  "singleton list - zero")
-    (check-equal? (remove-negatives (list - 1))
-                  (list)
-                  "singleton list - negative"))
-   (test-case
-    "all positive"
-    (check-equal? (remove-negatives (list 3 7 11))
-                  (list 3 7 11)
-                  "three elements"))
-   (test-case
-    "mixed"
-    (check-equal? (remove-negatives (list -1 3 7 11))
-                  (list 3 7 11)
-                  "negative at front of list")
-    (check-equal? (remove-negatives (list -1 3 -2 7 -3 11))
-                  (list 3 7 11)
-                  "alternating")
-    (check-equal? (remove-negatives (list -1 -2 -3 1 -2 -3 2 -3 -4 5))
-                  (list 1 2 5)
-                  "sequences of negatives"))
-   (test-case
-    "all negative"
-    (check-equal? (remove-negatives (list -1 -2 -3))
-                  (list)
-                  "boring"))))
-```
-
-We can then run the tests.
-
-```
-> (run-tests test-remove-negatives)
---------------------
-Tests of remove-negatives > small lists
-small lists
-ERROR
-. . negative?: contract violation
-  expected: real?
-  given: #<procedure:->
-
---------------------
-3 success(es) 0 failure(s) 1 error(s) 4 test(s) run
-1
-```
-
-Whoops!  There seems to  have been an error.  Where?  We can tell.
-It's somewhere in the small lists section.  Oh, I see, I typed
-`- 1` rather than `-1`.  Let me fix that error and see what happens.
-
-```
-> (run-tests test-remove-negatives)
-4 success(es) 0 failure(s) 0 error(s) 4 test(s) run
-0
-```
-
-Ah, that's much nicer.  
 
 ## When to write tests
 
@@ -407,40 +307,64 @@ called *test-driven development* (TDD), in which you always write the
 tests first. Test-driven development is a key part of a variety of
 so-called "agile software development strategies".
 
+## Edge cases and corner cases
+
+Although most of our tests will be for "normal" inputs, it can also
+be useful to ensure that your procedure works correctly for values
+at the "edge" of legality.  
+
+* If a procedure on lists should work correctly with the empty list, 
+  make sure that you have a test that uses the empty list.  
+* If a procedure is looking in a list for a particular kind of value, 
+  make sure to include a test which has that kind of value at the front 
+  of the list, a test that has that kind of value at the back of the list,
+  and another that has it at both back and front.  
+* If a procedure is supposed to work with real numbers, make sure you check
+  both exact and inexact numbers.  Check zero.  Check a really small
+  number.  Check a really large number.  
+* If a procedure is supposed to work with strings, make sure you try 
+  the empty strings.
+
+Often, it's these "edge cases" that help us find the most subtle bugs
+in a procedure.  So we always try to include some.
+
 ## Self checks
 
-Start DrRacket and add `(require rackunit)` and `(require
-rackunit/text-ui)` to your definitions pane and click **Run**.
+Start DrRacket and add `(require rackunit)` to your definitions pane
+and then click **Run**.
 
 ### Check 1: RackUnit experiments
 
 RackUnit provides a variety of procedures to help you write tests.  They
 are described above.
 
-In the Interactions pane, try each of the operations (`check-=`, 
-`check-equal?`, and `check-not-equal?`) a few times to make sure that you
-understand their operation.  You should also look for both matching and
-non-matching expression and expected.  And you should see what happens
-when you include and do not include the message.
+In the Interactions pane, try each of the operations (`test-=`, 
+`test-equal?`, `test-not-equal?`, `test-true`, and `test-false`) a
+few times to make sure that you understand their operation.  You
+should also look for both matching and non-matching expression and
+expected.  And you should see what happens when you include and do
+not include the message.
 
 Is this check vague?  Yes.  That's intentional.  We're at the point in
 the course when you should make it a matter of course (no pun intended)
 to try different inputs to see what happens.
 
-### Check 2: Checking `check-=`
+### Check 2: Checking `test-=`
 
-Explain, in your own words, what purpose the third parameter to
-`check-=` serves.  (If you can't, you may want to conduct some
+Explain, in your own words, what purpose the last parameter to
+`test-=` serves.  (If you can't, you may want to conduct some
 more experiments.)
 
 ### Check 3: Testing `bound-grade` (‡)
 
-Sketch a test suite for the `bound-grade` procedure, which takes a real
+Sketch a set of tests for the `bound-grade` procedure, which takes a real
 number as input and outputs
 
 * That number, if it is between 0 and 100, inclusive.
 * Zero, if it is less than 0.
 * 100, if it is greater than 100.
+
+By "sketch", we mean "list the tests you'd write".
 
 ## Appendix: An historical tale {#anchor-appendix-anecdote}
 
@@ -461,7 +385,6 @@ trouble persisted through several deployed generations of the system.
 > McIlroy, Doug (2006). Trig routine risk: An Oldie. _Risks Digest_
 24(49), December 2006.
 
-If Bell Labs had arranged for a count of successes and a list of failures
-rather than a thick printout they (and their customers) would have have
+If Bell Labs had arranged for a count of successes and a list of failures---rather than a thick printout---they (and their customers) would have have
 been in much better shape.
 

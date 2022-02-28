@@ -55,7 +55,7 @@
     - page: /mps/mp03.html
     - page: /mps/mp04.html
 
-- date: 2022-03-04
+- date: 2022-03-06
   due:
     - Quiz 6
 
@@ -63,7 +63,7 @@
   due:
     - Learning Assessments 2
 
-- date: 2022-03-11
+- date: 2022-03-13
   assigned:
     - page: /mps/mp05.html
   due:
@@ -76,48 +76,46 @@
 - date: 2022-03-18
   assigned:
     - page: /mps/mp06.html
-  due:
-    - Quiz 8
 
 - date: 2022-04-07
   due:
     - page: /mps/mp06.html
 
-- date: 2022-04-08
+- date: 2022-04-10
   due:
-    - Quiz 9
+    - Quiz 8
 
 - date: 2022-04-14
   due:
     - Learning Assessments 3
 
-- date: 2022-04-15
+- date: 2022-04-17
   assigned:
     - page: /mps/mp07.html
   due:
-    - Quiz 10
+    - Quiz 9
 
 - date: 2022-04-21
   due:
     - page: /mps/mp07.html
 
-- date: 2022-04-22
+- date: 2022-04-24
   assigned:
     - page: /mps/mp08.html
   due:
-    - Quiz 11
+    - Quiz 10
 
-- date: 2022-04-29
+- date: 2022-05-01
   due:
-    - Quiz 12
+    - Quiz 11
 
 - date: 2022-05-05
   due:
     - page: /mps/mp08.html
 
-- date: 2022-05-06
+- date: 2022-05-08
   due:
-    - Quiz 13
+    - Quiz 12
 
 - date: 2022-05-12
   due:

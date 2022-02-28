@@ -1,5 +1,5 @@
 ---
-title: "EBoard 15 (Section 1): Recursion, Continued"
+title: "EBoard 15 (Section 2): Recursion, Continued"
 number: 15
 section: eboards
 held: 2022-02-28
@@ -28,7 +28,6 @@ Administrivia
   readings, our mentors will be running classes.
     * I will be available on Teams at unpredictable times.
 * Congrats to Mens' Tennis for their victory this weekend.
-* Congrats to Softball for their victory in their first game of the season.
 
 ### Reminders
 
