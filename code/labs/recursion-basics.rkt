@@ -294,97 +294,10 @@ of the presenter if you are unsure  about how the function behaves or
 why it behaves in the way described.
 |#
 
-#| A |#
-
-; +----------------------------------------+-------------------------
-; | Exercise 3: Debugging, recursive style |
-; +----------------------------------------+
-
-;;; You'll drive in this exercise. The next exercise is similar, but
-;;; with your partner driving instead.
-
-#|
-Consider the following attempt at a recursive definition of a function
-that computes the length of a list.
-|#
-
-(define my-length
-  (lambda (l)
-      (if (null? l)
-          1
-          (my-length (cdr l)))))
-
-#|
-a. Build a small test suite for this function using `rackunit` in the
-   space below. What tests do you need to ensure that you "cover all
-   the cases" of this program's execution?
-|#
-
-; Here's one to get you started.  Uncomment it when you're ready.
-; (test-equal? "sample test" (my-length '(1 2 3)) 3)
-
-;;; <TODO: write your additional rackunit tests for my-length here>
-
-#|
-b. In your testing, you should have noted that the function doesn't
-   behave as expected! Using the debugging techniques we've developed
-   as well as your mental model of computation, determine the cause
-   of the problem and fix it in your code. Ensure that your modified
-   function passes all of your tests. Describe the problem and your
-   fix in the space below:
-
-;;; <TODO: write your explanation of the code's problem and your fix>
-
-|#
-
-#| B |#
-
-; +----------------------------------------+-------------------------
-; | Exercise 4: Debugging, recursive style |
-; +----------------------------------------+
-
-#|
-You'll drive in this exercise. The prior exercise was similar, but
-with your partner driving instead.
-
-Consider the following attempt at a recursive definition of a function
-that computes the product of the elements of a list.  (The product is
-the result of multiplying them together.)
-|#
-
-(define my-product
-  (lambda (l)
-    (if (null? l)
-        0
-        (my-product (cdr l)))))
-
-#|
-a. Build a small test suite for this function using `rackunit` in the
-   space below. What tests do you need to ensure that you "cover all
-   the cases" of this program's execution?
-|#
-
-; Here's one to get you started.  Uncomment it when you're ready.
-; (test-equal? "sample test" (my-product '(2 3 4)) 24)
-
-;;; <TODO: write your additional rackunit tests for my-product here>
-
-#|
-b. In your testing, you should have noted that the function doesn't
-   behave as expected! Using the debugging techniques we've developed
-   as well as your mental model of computation, determine the cause
-   of the problem and fix it in your code. Ensure that your modified
-   function passes all of your tests. Describe the problem and your
-   fix in the space below:
-
-;;; <TODO: write your explanation of the code's problem and your fix>
-
-|#
-
 #| AB |#
 
 ; +----------------------------------------+-------------------------
-; | Exercise 5: Go tell it on the mountain |
+; | Exercise 3: Go tell it on the mountain |
 ; +----------------------------------------+
 
 #|
@@ -400,7 +313,6 @@ Discuss this prompt with your partner and write up your response in a
 few sentences in the space below:
 
 <TODO: write your explanation here>
-
 |#
 
 #| AB |#
@@ -452,55 +364,8 @@ After recursive call: ___ to the recursive result
 c. Repeat step b as many as times as you wish.
 |#
 
-; +--------------------------+---------------------------------------
-; | Extra 2: Singleton lists |
-; +--------------------------+
-
-#|
-As you've seen, `(null? lst)` checks if a list has zero elements.
-
-Suppose we want to write a procedure, `(singleton? lst)`, that checks 
-whether a list has exactly one element.
-
-Many students are tempted to write the following.
-
-(define singleton?
-  (lambda (lst)
-    (= 1 (length lst))))
-
-We very much prefer this alternate definition.
-
-(define singleton?
-  (lambda (lst)
-    (and (not (null? lst))
-         (null? (cdr lst)))))
-
-a. Explain how the second `singleton?` procedure works.
-
-<ENTER YOUR ANSWER HERE>
-
-b. The first version of `singleton?` is definitely easier to read.
-Explain why we might still prefer the second one?  (Consider the
-definition of length from before as you answer this question.)
-
-<ENTER YOUR ANSWER HERE>
-
-c. Write a non-recursive procedure, `(simple-length lst)` that returns 
-
-* "empty", if the list has no elements;
-* "one", if the list has one element; 
-* "two", if the list has two elements; and
-* "many", if the list has more than two elements.
-
-You may not use `length` or `recursion` in solving this problem.
-|#
-
-(define simple-length
-  (lambda (lst)
-    ???))
-
 ; +-----------------------------------------------------+------------
-; | Extra 3: Finding the alphabetically first character |
+; | Extra 2: Finding the alphabetically first character |
 ; +-----------------------------------------------------+
 
 #|
