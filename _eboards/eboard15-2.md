@@ -20,10 +20,13 @@ Administrivia
 
 ### CPUs
 
+* Computing Peers United
+* You should have received email about this.
 * A great program to partner students in intro CS classes with students
   in upper-level classes for advice.  (Extends the non-technical support
   you get from the mentors.)
-* Meet as often as you want.
+* Meet as often as you want (within reason).
+* The department will pay for food at the Grill (sadly, it has no e).
 
 ### Introductory notes
 
@@ -48,6 +51,11 @@ Administrivia
 ### Upcoming work
 
 * Wednesday readings due Tuesday at 10:00 p.m.
+* Today's lab due Tuesday at 10:30 p.m.
+    * Since Tuesday is a work differently day, today qualifies as 
+      "SAM SAID WE COULD STOP HERE".  However, I strongly recommend
+      that you finish the lab on your own, particularly since learning
+      recursion is important.
 * Friday readings due Thursday at 10:00 p.m.
 * MP3 due Thursday the 3rd at 10:30 p.m.
 * MP4 due Thursday the 3rd at 10:30 p.m.
@@ -61,6 +69,8 @@ Administrivia
 * WEDNESDAY: Mentor Session (8pm)
 * THURSDAY 11 a.m.: Scholars' Convocation: Jennifer Ho.
   [From Public Libraries to American Girl Doll: My Story as a Public Humanities Intellectual](https://www.grinnell.edu/calendar?trumbaEmbed=view%3Devent%26eventid%3D524082345)
+* THURSDAY: Support your Union peers by going to the emergency meeting
+  4pm in JRC 101.
 * COMING WEEKEND: Hack-a-thon for Social Good (see signs in classroom).
 * NEXT THURSDAY 11 a.m., JRC 101: Scholars' Convocation: Greg Duncan.
 
@@ -105,7 +115,7 @@ You've learned how a few primary procedures are written.
 * We did a version of `list-remove`.
 * You may even have gotten to `reverse`.
 
-Animportant moral: The computer spends a decent amount of work on
+An important moral: The computer spends a decent amount of work on
 each of these.  `list-append`, for example, has to step through
 every element of the first list.
 
@@ -190,35 +200,45 @@ _Many of you didn't make things simple enough.  The base case is supposed to be 
 
 a. Suppose you want to count how many elements are in a list. What’s a list that’s so simple that even a cs prof can figure out how many elements are in the list?
 
-> 
+> A one element list, such as `'(a)`.
+
+> The empty list, `'()`
 
 b. And how many elements are in that list?
 
-> 
+> For the empty list, Sam can say "zero"
 
 c. Suppose you want to find the last element of a list. What’s a list that’s so simple that even a cs prof can figure out the last element?
 
-> 
+> The empty list `'()`
+
+> A list with one element.
 
 d. How do they get that last element?
 
-> 
+> Whoops, there is no last element in an empty list.
+
+> `(car lst)`
 
 e. Suppose we want to count how many times a value, val, appears in a list. What’s a list that’s so simple that even a CS prof can count the number of appearances of val?
 
-> 
+> `'()`
 
 f. And how many times does val appear in the list?
 
-> 
+> Zero
 
 g. Suppose we want to take the drop the first `n` elements of a list. What’s a value of `n` that’s so simple that even a cs prof can figure out how to drop `n` elements?
 
-> 
+> Zero
+
+> One
 
 h. And how do they drop those `n` elements?
 
-> 
+> Zero: Don't change the list at all
+
+> One: `(cdr lst)`
 
 ### Other issues
 
@@ -237,15 +257,19 @@ Lab
 
 * Save early and often!
 
-* On problems 2 and 3, you should fix `my-length` and `my-product`.
-* On problem 2: The length of the empty list is 0.
-* On problem 3: `(*)` is 1, so `(product '())` should be 1.  
+### During Lab
+
+* On exercise 1, "parameter simplification" is what we do to make the
+  problem smaller.  
+* On exercises 2 and 3, you should fix `my-length` and `my-product`.
+* On exercise 2: The length of the empty list is 0.
+* On exercise 3: `(*)` is 1, so `(product '())` should be 1.  
   You could also have a base case of one element.
-* On problem 5: Please look at similar procedures, such as `largest-in-list`
-  or `longest-string-in-list`.
+* On exercise 5: Please look at similar procedures, such as `largest-in-list`
+  or `longest-string-in-list`.  (There's a bit of decomposition there.)
 
 ### Wrapup
 
 * Since tomorrow is a work differently day, today is a "SAM SAID I COULD
   STOP HERE" day.  But I would strongly recommend that you work through
-  the remaining problems on your own.
+  the remaining problems on your own, whenever you choose to do so.
