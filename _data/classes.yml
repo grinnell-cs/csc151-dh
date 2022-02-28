@@ -214,6 +214,10 @@
     - page: /readings/recursion-magic.html
   lab:
     - page: /labs/recursion-practice.html
+  eboards: 
+    - page: /eboards/eboard15-1.html
+    - page: /eboards/eboard15-2.html
+    - page: /eboards/eboard15-3.html
 
 - topic: Local bindings
   abbrev: local-bindings
