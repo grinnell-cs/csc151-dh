@@ -9,6 +9,7 @@ link: true
 
 _Approximate overview_
 
+* CPUs announcement [~5 min]
 * Administrative stuff [~5 min]
 * Racket stuff [~10 min]
 * Questions [~5 min]
@@ -16,6 +17,16 @@ _Approximate overview_
 
 Administrivia
 -------------
+
+### CPUs
+
+* Computing Peers United
+* You should have received email about this.
+* A great program to partner students in intro CS classes with students
+  in upper-level classes for advice.  (Extends the non-technical support
+  you get from the mentors.)
+* Meet as often as you want (within reason).
+* The department will pay for food at the Grill (sadly, it has no e).
 
 ### Introductory notes
 
@@ -40,6 +51,11 @@ Administrivia
 ### Upcoming work
 
 * Wednesday readings due Tuesday at 10:00 p.m.
+* Today's lab due Tuesday at 10:30 p.m.
+    * Since Tuesday is a work differently day, today qualifies as 
+      "SAM SAID WE COULD STOP HERE".  However, I strongly recommend
+      that you finish the lab on your own, particularly since learning
+      recursion is important.
 * Friday readings due Thursday at 10:00 p.m.
 * MP3 due Thursday the 3rd at 10:30 p.m.
 * MP4 due Thursday the 3rd at 10:30 p.m.
@@ -53,6 +69,9 @@ Administrivia
 * WEDNESDAY: Mentor Session (8pm)
 * THURSDAY 11 a.m.: Scholars' Convocation: Jennifer Ho.
   [From Public Libraries to American Girl Doll: My Story as a Public Humanities Intellectual](https://www.grinnell.edu/calendar?trumbaEmbed=view%3Devent%26eventid%3D524082345)
+* THURSDAY: Support your Union peers by going to the emergency meeting
+  4pm in JRC 101.
+* COMING WEEKEND: Hack-a-thon for Social Good (see signs in classroom).
 * NEXT THURSDAY 11 a.m., JRC 101: Scholars' Convocation: Greg Duncan.
 
 ### Other Upcoming Activities
@@ -96,7 +115,7 @@ You've learned how a few primary procedures are written.
 * We did a version of `list-remove`.
 * You may even have gotten to `reverse`.
 
-Animportant moral: The computer spends a decent amount of work on
+An important moral: The computer spends a decent amount of work on
 each of these.  `list-append`, for example, has to step through
 every element of the first list.
 
@@ -162,7 +181,9 @@ What does the self check have to do with recursion?
 Was the reading as simple as it seemed?
 
 > I don't know.  If you can embrace "If the recursive call works ...",
-  recursion will be straightforward.
+  recursion will be straightforward.  But enough people had trouble with
+  the "simple enough for a CS prof" base cases that I guess that it's not
+  so simple.
 
 How do we write `drop`?
 
@@ -170,7 +191,8 @@ How do we write `drop`?
 
 How do we write `tally-value` (e and f on self-check 2)
 
-> _We'll do something similar in the lab (exercise 4)._
+> _There's something similar in the sample code on the lab.
+  We'll also do something similar in exercise 4._
 
 ### The real reading questions
 
@@ -178,35 +200,45 @@ _Many of you didn't make things simple enough.  The base case is supposed to be 
 
 a. Suppose you want to count how many elements are in a list. What’s a list that’s so simple that even a cs prof can figure out how many elements are in the list?
 
-> The empty list.
+> A one element list, such as `'(a)`.
+
+> The empty list, `'()`
 
 b. And how many elements are in that list?
 
-> None.  (Zero)
+> For the empty list, Sam can say "zero"
 
 c. Suppose you want to find the last element of a list. What’s a list that’s so simple that even a cs prof can figure out the last element?
+
+> The empty list `'()`
 
 > A list with one element.
 
 d. How do they get that last element?
 
-> Take the `car` of the list.
+> Whoops, there is no last element in an empty list.
+
+> `(car lst)`
 
 e. Suppose we want to count how many times a value, val, appears in a list. What’s a list that’s so simple that even a CS prof can count the number of appearances of val?
 
-> The empty list
+> `'()`
 
 f. And how many times does val appear in the list?
 
-> None!  (Zero)
+> Zero
 
-g. Suppose we want to take the drop the first n elements of a list. What’s a value of n that’s so simple that even a cs prof can figure out how to drop n elements?
+g. Suppose we want to take the drop the first `n` elements of a list. What’s a value of `n` that’s so simple that even a cs prof can figure out how to drop `n` elements?
 
-> Zero!
+> Zero
 
-h. And how do they drop those n elements?
+> One
 
-> Give bck the same list.
+h. And how do they drop those `n` elements?
+
+> Zero: Don't change the list at all
+
+> One: `(cdr lst)`
 
 ### Other issues
 
@@ -227,5 +259,17 @@ Lab
 
 ### During Lab
 
+* On exercise 1, "parameter simplification" is what we do to make the
+  problem smaller.  
+* On exercises 2 and 3, you should fix `my-length` and `my-product`.
+* On exercise 2: The length of the empty list is 0.
+* On exercise 3: `(*)` is 1, so `(product '())` should be 1.  
+  You could also have a base case of one element.
+* On exercise 5: Please look at similar procedures, such as `largest-in-list`
+  or `longest-string-in-list`.  (There's a bit of decomposition there.)
+
 ### Wrapup
 
+* Since tomorrow is a work differently day, today is a "SAM SAID I COULD
+  STOP HERE" day.  But I would strongly recommend that you work through
+  the remaining problems on your own, whenever you choose to do so.
