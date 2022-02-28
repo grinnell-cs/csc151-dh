@@ -9,6 +9,7 @@ link: true
 
 _Approximate overview_
 
+* CPUs Announcement [~5 min]
 * Administrative stuff [~5 min]
 * Racket stuff [~10 min]
 * Questions [~5 min]
@@ -16,6 +17,13 @@ _Approximate overview_
 
 Administrivia
 -------------
+
+### Computing Peers United
+
+* Connects students in introductory CS classes to upper-level students
+  for peer support.
+* Sign up and you get paired.
+* We pay for snacks from the grill(e).
 
 ### Introductory notes
 
@@ -54,6 +62,7 @@ Administrivia
 * WEDNESDAY: Mentor Session (8pm)
 * THURSDAY 11 a.m.: Scholars' Convocation: Jennifer Ho.
   [From Public Libraries to American Girl Doll: My Story as a Public Humanities Intellectual](https://www.grinnell.edu/calendar?trumbaEmbed=view%3Devent%26eventid%3D524082345)
+* COMING WEEKEND: Hack-a-thon for Social Good (see signs in classroom).
 * NEXT THURSDAY 11 a.m., JRC 101: Scholars' Convocation: Greg Duncan.
 
 ### Other Upcoming Activities
@@ -97,7 +106,7 @@ You've learned how a few primary procedures are written.
 * We did a version of `list-remove`.
 * You may even have gotten to `reverse`.
 
-Animportant moral: The computer spends a decent amount of work on
+An important moral: The computer spends a decent amount of work on
 each of these.  `list-append`, for example, has to step through
 every element of the first list.
 
@@ -207,7 +216,7 @@ g. Suppose we want to take the drop the first n elements of a list. What’s a v
 
 h. And how do they drop those n elements?
 
-> Give bck the same list.
+> Give back the same list.
 
 ### Other issues
 
@@ -228,5 +237,16 @@ Lab
 
 ### During Lab
 
+* On problems 2 and 3, you should fix `my-length` and `my-product`.
+* On problem 2: The length of the empty list is 0.
+* On problem 3: `(*)` is 1, so `(product '())` should be 1.  
+  You could also have a base case of one element.
+* On problem 5: Please look at similar procedures, such as `largest-in-list`
+  or `longest-string-in-list`.
+
 ### Wrapup
+
+* Since tomorrow is a work differently day, today is a "SAM SAID I COULD
+  STOP HERE" day.  But I would strongly recommend that you work through
+  the remaining problems on your own.
 
