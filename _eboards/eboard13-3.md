@@ -249,6 +249,14 @@ we should use one over the other?
 What's going on with `(awesum (list 5 2))`?
 
 ```
+(define awesum
+  (lambda (lst)
+    (if (null? lst)
+        0
+        (+ (car lst) (awesum lst)))))
+```
+
+```
     (awesum (list 5 2))
     ; The list is not null
 --> (+ 5 (awesum (list 5 2)))
@@ -268,7 +276,7 @@ What does `(awesum (list 5 2))` really result in?
 
 Can you use `car` and `cdr` outside of recursion? 
 
-> Yup.  Anywhere you have a list you can use recursion.
+> Yup.  Anywhere you have a list you can use `car` and `cdr`.
 
 Can you use procedures other than `car` and `cdr` in recursion?
 
@@ -313,7 +321,22 @@ I don't like working in pairs.  Can I work alone?
 Can you change the due date for quizzes to Sunday?
 
 > Sure.  But I'll probably make them due before the mentor session.
-`
+
+### MP3
+
+How do I stop my procedure from reading the file more than once.
+
+> I would suggest writing a separate procedure, 
+  `(count-words-from-list list-of-words file-contents)` and
+  then make `count-words` call that.  `count-words` will read the
+  file and pass its contents on to `count-words-from-list`.
+
+When writing the weird `cadar` and other procedures, can we use
+any combination of `a`'s and `d`s?
+
+> Up to about four, yes.  If you're from Boston, it's harder to understand
+  though.
+
 Lab
 ---
 
@@ -325,15 +348,17 @@ re-review some of the concerns.
 ### During Lab
 
 * Copy, paste, change is a good way to trace.
+* Micah says `any/c` means "anything" not "any character"
+    * It's "c" for "contract", which is beyond our understanding in this course.
 * I'm sorry that one (1) and el (l) look similar.
 * Strangely enough, `(*)` is `1` and `(+)` is `0`.
 
 ### Wrapup
 
+* Submit whatever you've finished at about 2:15 p.m.  Make sure that
+  you write `"; SAM SAID I COULD STOP HERE"` so that the grader does
+  not attempt to look at more.
 * We have you learn tracing, in part, so that you can better understand
   what's happening in recursion.
 * Congratulations, you get the cheesy department sticker.  
   (No, I did not design it.)
-* Submit whatever you've finished at about 11:15 a.m.  Make sure that
-  you write `"; SAM SAID I COULD STOP HERE"` so that the grader does
-  not attempt to look at more.
