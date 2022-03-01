@@ -127,11 +127,6 @@ Then rewrite the examples from above to use `verbose-let` or
 ; +-------------------------------+
 
 #|
-For this exercise, we will also need the verbose bindings.  Add the
-following line to your definitions pane.
-
-(require csc151/verbose-bindings)
-
 In the reading, we noted that it is possible to move bindings outside
 of the lambda in a procedure definition. In particular, we noted
 that the first of the two following versions of years-to-seconds
