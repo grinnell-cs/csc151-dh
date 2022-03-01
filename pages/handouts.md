@@ -54,6 +54,9 @@ information.  To ensure that you read the information, I even give you
 [Some tips and tricks for DrRacket](drracket-tips)
   : Just what it says; a selection of tips for DrRacket.
 
+[Tracing `alphabetically-first`](tracing-alphabetically-first)
+  : An exploration of some definitions of a recursive procedure.
+
 ## Previous versions of the course
 
 These also aren't strictly handouts, but I didn't have another place for them.
