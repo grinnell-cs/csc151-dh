@@ -78,7 +78,6 @@ looks something like the following.
        [gamma (* 2 beta)]
        ...)
   (list alpha beta gamma delta epsilon))
-      ...)))
 
 What if you decided that instead of doubling each previous value, you
 wanted to add three to that value?  You'll have four different
@@ -89,7 +88,7 @@ to each element of the list.  Your expression should look something
 like the following.
 
 (let* ([fun (lambda (x) (* 2 x))]
-       [alpha 1]
+       [alpha 1/3]
        [beta (fun alpha)]
        ...)
   ...)
