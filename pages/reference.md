@@ -143,10 +143,11 @@ first `n` elements of `lst`.
 
 ### E
 
-**`(eq? val0 val1 val2 ...)`** --- Determine if all the values have
-the same location in the computer's memory.
+**`(eq? val0 val1)`** --- Determine if the two values have the same
+location in the computer's memory.  (We generally use the `equal?` 
+procedure instead of the `eq?` procedure.)
 
-**`(equal? val0 val1 val2 ...)`** --- Determine if all the values are equal.
+**`(equal? val0 val1)`** --- Determine if the two values are equal.
 
 **`(error str ...)`** --- Report an error and stop the computation immediately.
  
