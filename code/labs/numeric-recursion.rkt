@@ -310,10 +310,14 @@ c. Complete the definition of `my-take`.
 #|
 The `rhythm10` of any non-negative number is the number of times
 that we must divide the number by 10 to reach a number less than
-1.  For example,
+or equal to 1.  For example,
 
     > (rhythm10 0)
     0
+    > (rhythm10 1)
+    0
+    > (rhythm10 1.00001)
+    1
     > (rhythm10 5)
     1
     > (rhythm10 512)
@@ -331,6 +335,10 @@ are necessary.  If so, add them.
 b. Write `rhythm10` recursively.
 |#
 
+;;; (rhythm10 n) -> exact-integer?
+;;;   n : non-negative-real?
+;;; Compute the number of times we have to divide n by 10 in
+;;; order to reach a number less than or equal to one.
 (define rhythm10
   (lambda (n)
     ???))
@@ -341,6 +349,9 @@ b. Write `rhythm10` recursively.
              0)
 (test-equal? "one"
              (rhythm10 1)
+             0)
+(test-equal? "slightly more than one"
+             (rhythm10 1.00001)
              1)
 (test-equal? "two"
              (rhythm10 2)
@@ -382,7 +393,7 @@ b. Implement `rhythm`.
 ;;;   n : non-negative-real?
 ;;;   b : real? (greater than one)
 ;;; Compute the number of times we have to divide n by b in
-;;; order to reach a number less than one.
+;;; order to reach a number less than or equal to one.
 (define rhythm 
   (lambda (n b)
     ???))
