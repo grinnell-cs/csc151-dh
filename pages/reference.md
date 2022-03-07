@@ -420,6 +420,8 @@ values with `compare?`.
 
 **`(string->number str)`** --- Convert a string to the corresponding number.  Returns `#f` if it cannot be converted.
 
+**`(string-prefix? str pre)`** --- Determine if `pre` is a prefix of `str` (that is, it falls at the beginning of `str`).
+
 **`(string-ref str pos)`** --- Find the character at the given position in `str`.
 
 **`(string-replace str old new)`** --- Replace all copies of `old` in `str` with `new`.
@@ -427,6 +429,8 @@ values with `compare?`.
 **`(string-split str)`** --- Split `str` into a list of strings at sequences of spaces.
 
 **`(string-split str separator)`** --- Split `str` into a list of strings, splitting at every instance of `separator`.
+
+**`(string-suffix? str suf)`** --- Determine if `suf` is a suffix of `str` (that is, it falls at the end of `str`).
 
 **`(substring str start)`** --- Extract the substring of `str` starting at `start` and finishing at the end of the string.
 
