@@ -13,7 +13,7 @@
 
 #|
 In this lab, we'll continue practice designing and writing recursive
-functions, this time, over the natural numbers.
+functions, this time, functions that recurse over the natural numbers.
 |#
 
 #| AB |#
@@ -302,6 +302,123 @@ c. Complete the definition of `my-take`.
 (test-equal? "my-take: take all the list"
              (my-take '(a b c) 3)
              '(a b c))
+
+; +-------------------------------+----------------------------------
+; | Exercise 7: Repeated division |
+; +-------------------------------+
+
+#|
+The `rhythm10` of any non-negative number is the number of times
+that we must divide the number by 10 to reach a number less than
+or equal to 1.  For example,
+
+    > (rhythm10 0)
+    0
+    > (rhythm10 1)
+    0
+    > (rhythm10 1.00001)
+    1
+    > (rhythm10 5)
+    1
+    > (rhythm10 512)
+    3
+    > (rhythm10 9812.412)
+    4
+|#
+
+#|
+a. Review the tests we've written below and decide if any other tests
+are necessary.  If so, add them.
+|#
+
+#|
+b. Write `rhythm10` recursively.
+|#
+
+;;; (rhythm10 n) -> exact-integer?
+;;;   n : non-negative-real?
+;;; Compute the number of times we have to divide n by 10 in
+;;; order to reach a number less than or equal to one.
+(define rhythm10
+  (lambda (n)
+    ???))
+
+#|
+(test-equal? "zero"
+             (rhythm10 0)
+             0)
+(test-equal? "one"
+             (rhythm10 1)
+             0)
+(test-equal? "slightly more than one"
+             (rhythm10 1.00001)
+             1)
+(test-equal? "two"
+             (rhythm10 2)
+             2)
+(test-equal? "three digits"
+             (rhythm10 212)
+             3)
+(test-equal? "one hundred"
+             (rhythm10 100)
+             3)
+(test-equal? "inexact number with fractional part"
+             (rhythm10 9312.2321)
+             4)
+(test-equal? "exact number with fractional part"
+             (rhythm10 93123/2)
+             5)
+|#
+
+#| B |#
+
+; +-----------------------------------------+------------------------
+; | Exercise 8: Repeated division, repeated |
+; +-----------------------------------------+
+
+#|
+Consider the `(rhythm n d)` procedure documented below, which
+generalizes `rhythm10`.
+|#
+
+#|
+a. Write tests for `rhythm`.
+|#
+
+#|
+b. Implement `rhythm`.
+|#
+
+;;; (rhythm n d) -> exact-integer?
+;;;   n : non-negative-real?
+;;;   b : real? (greater than one)
+;;; Compute the number of times we have to divide n by b in
+;;; order to reach a number less than or equal to one.
+(define rhythm 
+  (lambda (n b)
+    ???))
+
+#|
+(test-equal? "zero/ten"
+             (rhythm 0 10)
+             0)
+(test-equal? "zero/two"
+             (rhythm 0 2)
+             0)
+(test-equal? "zero/small divisor"
+             (rhythm 0 1.1)
+             0)
+|#
+
+#| AB |#
+
+; +------------------+-----------------------------------------------
+; | Submit your work |
+; +------------------+
+
+#|
+You know the drill.
+|#
 
 #| AB |#
 
