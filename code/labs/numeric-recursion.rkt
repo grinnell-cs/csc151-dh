@@ -79,8 +79,12 @@ Complete the definition of `(count-down n)` below that takes a
 natural number `n` and returns a list that contains the numbers
 starting with `n` going down to 1.  For example
 
-> (count-down 5)
-'(5 4 3 2 1)
+    > (count-down 1)
+    '(1)
+    > (count-down 5)
+    '(5 4 3 2 1)
+    > (count-down 0)
+    '()
 
 **You must use recursion to accomplish this task.**  That is,
 don't just use `(range n 0 -1)` or something similar.
