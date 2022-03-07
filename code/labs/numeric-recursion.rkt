@@ -303,8 +303,85 @@ c. Complete the definition of `my-take`.
              (my-take '(a b c) 3)
              '(a b c))
 
+#| A |#
+
+; +-------------------------+----------------------------------------
+; | Exercise 7: Counting up |
+; +-------------------------+
+
+#|
+Consider a procedure, `(values-between start finish)`, that takes
+two exact integers as parameters produces a list of all the values
+between `start` (inclusive) and `finish` (exclusive).  For example,
+
+    > (values-between 5 10)
+    '(5 6 7 8 9)
+    > (values-between 5 5)
+    '()
+    > (values-between -3 3)
+    '(-3 -2 -1 0 1 2)
+|#
+
+#|
+a. We've written a few tests for `values-between`.  Read over those and
+determine whether it would be useful to add a few more.
+|#
+
+#|
+b. Consider the normal questions for recursive design
+
+What's your base case test?
+
+<ANSWER>
+
+What should you return in the base case?
+
+<ANSWER>
+
+What does the recursive call look like?
+
+<ANSWER>
+
+What should you do after the recursive call?
+
+<ANSWER>
+|#
+
+#|
+c. Implement `values-between`.
+|#
+
+;;; (values-between start finish) -> listof? integer?
+;;;   start : exact-integer?
+;;;   finish : exact-integer?
+;;; Create a list of integers between start (niclusive) and finish
+;;; (exclusive).
+(define values-between
+  (lambda (start finish)
+    ???))
+
+#|
+(test-equal? "five to ten" 
+             (values-between 5 10)
+             '(5 6 7 8 9))
+(test-equal? "zero to zero"
+             (values-between 0 0)
+             '())
+(test-equal? "ten to five"
+             (values-between 10 5)
+             '())
+(test-equal? "negative to positive"
+             (values-between -3 3)
+             '(-3 -2 -1 0 1 2))
+(test-equal? "positive to negative"
+             (values-between 3 -3)
+             '())
+|#
+
+#| B |#
+
 ; +-------------------------------+----------------------------------
-; | Exercise 7: Repeated division |
+; | Exercise 8: Repeated division |
 ; +-------------------------------+
 
 #|
@@ -355,12 +432,15 @@ b. Write `rhythm10` recursively.
              1)
 (test-equal? "two"
              (rhythm10 2)
-             2)
+             1)
 (test-equal? "three digits"
              (rhythm10 212)
              3)
 (test-equal? "one hundred"
              (rhythm10 100)
+             2)
+(test-equal? "one hundred and one"
+             (rhythm10 101)
              3)
 (test-equal? "inexact number with fractional part"
              (rhythm10 9312.2321)
@@ -370,11 +450,32 @@ b. Write `rhythm10` recursively.
              5)
 |#
 
+#| AB |#
+
+; +------------------+-----------------------------------------------
+; | Submit your work |
+; +------------------+
+
+#|
+You know the drill.
+|#
+
+#| AB |#
+
+; +---------------------------+--------------------------------------
+; | For those with extra time |
+; +---------------------------+
+
+#|
+If you find that you have extra time and want to further explore some
+of these issues, consider implementing any of the following procedures.
+|#
+
 #| B |#
 
-; +-----------------------------------------+------------------------
-; | Exercise 8: Repeated division, repeated |
-; +-----------------------------------------+
+; +--------------------------------------+---------------------------
+; | Extra 1: Repeated division, repeated |
+; +--------------------------------------+
 
 #|
 Consider the `(rhythm n d)` procedure documented below, which
@@ -410,29 +511,8 @@ b. Implement `rhythm`.
              0)
 |#
 
-#| AB |#
-
-; +------------------+-----------------------------------------------
-; | Submit your work |
-; +------------------+
-
-#|
-You know the drill.
-|#
-
-#| AB |#
-
-; +---------------------------+--------------------------------------
-; | For those with extra time |
-; +---------------------------+
-
-#|
-If you find that you have extra time and want to further explore some
-of these issues, consider implementing any of the following procedures.
-|#
-
 ; +--------------------------+---------------------------------------
-; | Extra 1: Range revisited |
+; | Extra 2: Range revisited |
 ; +--------------------------+
 
 #|
@@ -522,7 +602,7 @@ tests for this procedure.
     (acc-range n ???)))
 
 ; +------------------------+-----------------------------------------
-; | Extra 2: Powers of ... |
+; | Extra 3: Powers of ... |
 ; +------------------------+
 
 #|
@@ -604,7 +684,7 @@ Note: If possible, use `section` rather than `lambda`.
   ???)
 
 ; +------------------+-----------------------------------------------
-; | Extra 3: Fibbing |
+; | Extra 4: Fibbing |
 ; +------------------+
 
 #|
@@ -665,7 +745,7 @@ make `naive-fib` more efficient.
 |#
 
 ; +-----------------------+------------------------------------------
-; | Extra 4: More Fibbing |
+; | Extra 5: More Fibbing |
 ; +-----------------------+
 
 #|
