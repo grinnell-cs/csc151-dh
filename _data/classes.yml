@@ -255,14 +255,6 @@
   lab:
     - page: /labs/numeric-recursion.html
 
-- topic: Patterns of Recursion
-  abbrev: recursion-patterns
-  summary: |
-    We consider a host of other issues in the design of
-    recursive procedures.
-  lab:
-    - page: /labs/recursion-patterns.html
-
 - topic: Randomness
   abbrev: randomness
   summary: |
@@ -272,6 +264,14 @@
     - page: /readings/randomness.html
   lab:
     - page: /labs/random-language.html
+
+- topic: Patterns of Recursion
+  abbrev: recursion-patterns
+  summary: |
+    We consider a host of other issues in the design of
+    recursive procedures.
+  lab:
+    - page: /labs/recursion-patterns.html
 
 - topic: Pairs
   abbrev: pairs
