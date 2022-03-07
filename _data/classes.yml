@@ -254,6 +254,10 @@
     - page: /readings/numeric-recursion-ex.html
   lab:
     - page: /labs/numeric-recursion.html
+  eboards: 
+    - page: /eboards/eboard18-1.html
+    - page: /eboards/eboard18-2.html
+    - page: /eboards/eboard18-3.html
 
 - topic: Randomness
   abbrev: randomness

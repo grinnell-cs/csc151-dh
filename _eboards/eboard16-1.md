@@ -91,6 +91,7 @@ You've seen a few common patterns of list recursion.
 * How to select kinds of values in a list.
 
 It's probably helpful to have those patterns written down somewhere.
+(Hint hint hint.)
 
 ### Testing
 
@@ -105,49 +106,6 @@ interest is at the front or end of the list).
   `(my-length '(me 2))` 
 * It can be helpful to use other procedures in your tests.
   `(test-equal? "long list" (my-length (make-list 1000 'a)) 1000)`
-
-### Tracing one version of `alphabetically-first`.  
-
-_Sam sent this via email, so we're not going over it in class.  However,
-Sam thinks it's important enough that he's reproducing it in the eboard._
-
-Here's a way many students wrote `alphabetically-first`.
-
-```
-(define alphabetically-first
-  (lambda (lst)
-    (cond
-      [(null? (cdr lst))
-       (car lst)]
-      [(string-ci<=? (car lst) (alphabetically-first (cdr lst)))
-       (car lst)]
-      [else
-       (alphabetically-first (cdr lst))])))
-```
-
-This solution is correct.  However, it can have some unexpected behavior.
-Let's trace a few examples.  I'm going to shorten it a bit for tracing.
-(You may want to verify to yourself that it's the same.)
-
-```
-(define af
-  (lambda (lst)
-    (if (null? (cdr lst)) (car lst) (if (string-ci<=? (car lst) (af (cdr lst))) (car lst) (cdr lst)))
-    ))
-```
-
-    (af '("a" "b" "c"))
-    ; Expand the call to af
---> (if (null? (cdr '("a" "b" "c"))) (car '("a" "b" "c")) (if (string-ci<=? (car '("a" "b" "c")) (af (cdr '("a" "b" "c")))) (car '("a" "b" "c")) (cdr '("a" "b" "c"))))
-    ; Evaluate that first `cdr`
---> (if (null? '("b" "c")) (car '("a" "b" "c")) (if (string-ci<=? (car '("a" "b" "c")) (af (cdr '("a" "b" "c")))) (car '("a" "b" "c")) (cdr '("a" "b" "c"))))
-    ; Evaluate the null?
---> (if #f (car '("a" "b" "c")) (if (string-ci<=? (car '("a" "b" "c")) (af (cdr '("a" "b" "c")))) (car '("a" "b" "c")) (cdr '("a" "b" "c"))))
-    ; (if #f CONSEQUENT ALTERNATIVE) -> ALTERNATIVE
---> (if (string-ci<=? (car '("a" "b" "c")) (af (cdr '("a" "b" "c")))) (car '("a" "b" "c")) (cdr '("a" "b" "c")))
-    ; Evaluate the `car`
---> (if (string-ci<=? "a" (af (cdr '("a" "b" "c")))) (car '("a" "b" "c")) (cdr '("a" "b" "c")))
-```
 
 ### Writing `tally-odd`
 
