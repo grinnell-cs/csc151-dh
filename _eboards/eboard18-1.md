@@ -10,8 +10,8 @@ link: true
 _Approximate overview_
 
 * Administrative stuff [~5 min]
-* Racket stuff [~10 min]
-* Questions [~5 min]
+* Racket stuff [~0 min]
+* Questions [~10 min]
 * Lab [~60 min]
 
 Administrivia
@@ -21,19 +21,24 @@ Administrivia
 
 * I'm back.  THANK YOU to our amazing class mentors for taking over.
     * There's a chance I've forgotten everyone's name.
+* I lost one of my hearing aids, so may be even less responsive than normal.
 * I hope you were safe during the tornado.
 * I'd forgotten how busy conferences are.  I am even further behind than
   when I left.  (Most of my days ran from 8am to 9pm or later.)
-    * I still expect to have quizzes and summaries to you Tuesday night.
+    * I still expect to have quizzes and grade summaries to you Tuesday 
+      night.
 * Reminder: It's good practice for the navigator to look at the screen 
   or whiteboard once in a while to see if there are any notes on
   the exercise.
+* I've rearranged the schedule slightly.  We'll be doing randomness on
+  Wednesday and more recursion on Friday.
 
 ### Class mask policy
 
 * Please bring your mask to class.  Wear it if you wish.
 * If your partner is wearing a mask, please put on your mask.
-* I will be wearing a mask at least through spring break.
+* As a member of a high-risk group, I will be wearing a mask at least 
+  through spring break.
 
 ### Reminders
 
@@ -116,27 +121,15 @@ Rewrite the procedure using `o` and `section` so that it has *no* lambdas.
 Notes:
 
 * Use `o` when you want to sequence actions. (Do *this* to the parameter,
-then *this* to the result, then *this* to the next result, and so on and
-so forth.)
-* Use `section` when you want to fill in one or more parameters to a procedure, thereby creating a new procedure.
+  then *this* to the result, then *this* to the next result, and so on 
+  and so forth.)
+* Use `section` when you want to fill in one or more parameters to a 
+  procedure, thereby creating a new procedure.
 * This is a case in which the lambda-free version is likely much harder to
   read.
 
 Racket/Lab Stuff
 ----------------
-
-More notes coming via email.
-
-### Common patterns of list recursion
-
-You've seen a few common patterns of list recursion.
-
-* How to find an extreme value in a list.
-* How to tally kinds of values in a list.
-* How to select kinds of values in a list.
-
-It's probably helpful to have those patterns written down somewhere.
-(Hint hint hint.)
 
 Questions
 ---------
@@ -155,5 +148,24 @@ Lab
 
 ### During Lab
 
+**WRITE TESTS!**  Writing tests helps you
+
+* Check whether your procedure works correctly.  (And shouldn't be much
+  slower than just typing in the expression and reading the result.)
+* Think through what the procedure should do.
+* Consider potential problems.
+
+Bonus question
+
+* The "rhythm10" of any non-negative number is the number of times
+  that we must divide the number by 10 to reach a number less than or
+  equal to 1.
+* E.g., `(rhythm10 5)` = 1; `(rhythm10 512)` = 3; `(rhythm10 9812.412)` = 4
+* Write `(rhythm10 n)` recursively.
+    * Note: Simplification will be different than in other numeric
+      recursive procedures.
+
 ### Wrapup
 
+* Please make sure to do the bonus question before you go on to the extras.
+* It's a "SAM SAID STOP HERE" day.

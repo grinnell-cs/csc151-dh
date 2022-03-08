@@ -1,5 +1,5 @@
 ---
-title: "EBoard 18 (Section 2): Numeric Recursion"
+title: "EBoard 18 (Section 1): Randomness"
 number: 18
 section: eboards
 held: 2022-03-07
@@ -21,8 +21,6 @@ Administrivia
 
 * I'm back.  THANK YOU to our amazing class mentors for taking over.
     * There's a chance I've forgotten everyone's name.
-    * I brought you Gradescope stickers.
-* I lost one of my hearing aids, so may be even less responsive than normal.
 * I hope you were safe during the tornado.
 * I'd forgotten how busy conferences are.  I am even further behind than
   when I left.  (Most of my days ran from 8am to 9pm or later.)
@@ -53,7 +51,6 @@ Administrivia
 
 * Reading for Wednesday: Randomness (due Tuesday at 10:00 pm)
 * Today's lab due Tuesday at 10:30 p.m.
-    * Today is a "SAM SAID I COULD STOP HERE" day
 * Quiz 7 due Sunday at 4pm: Use higher-order procedures
 * SoLA 2 due Thursday the 10th at 10:30 p.m.
 
@@ -133,21 +130,52 @@ Notes:
 Racket/Lab Stuff
 ----------------
 
+### The bad range procedure
+
+Here's the "bad" version of `range` from the lab
+
+```
+(define bad-range
+  (lambda (n)
+    (if (zero? n)
+        null
+        (cons n (bad-range (- n 1))))))
+```
+
+As you might have noted, this gives us the values in the wrong order.
+Although it's inefficient, we might consider adding a `reverse` to
+the mix to get them in the right order.
+
+```
+(define less-bad-range
+  (lambda (n)
+    (if (zero? n)
+        null
+        (reverse (cons n (less-bad-range (- n 1)))))))
+```
+
+Will this work? (Ignore the inefficiency.)
+
+Here's another approach.  Since we're putting the values at the wrong
+position, just swap the parameters to `cons`.
+
+```
+(define lesser-bad-range
+  (lambda (n)
+    (if (zero? n)
+        null
+        (cons (lesser-bad-range (- n 1)) n))))
+```
+
+Will this work?
+
+
 Questions
 ---------
 
 ### Reading questions
 
 ### Other issues
-
-When do we get our redos back?
-
-> Soon, I hope.  I'll talk to the graders on Thursday.
-
-How do we know which LAs to complete?
-
-> Use the list I send you Tuesday night.  You should do the ones that
-  are (a) not checked and (b) on this SoLA.
 
 Lab
 ---
@@ -159,21 +187,5 @@ Lab
 
 ### During Lab
 
-**WRITE TESTS!**  Writing tests helps you
-
-* Check whether your procedure works correctly.  (And shouldn't be much
-  slower than just typing in the expression and reading the result.)
-* Think through what the procedure should do.
-* Consider potential problems.
-
-When writing tests, only use valid inputs!
-
-On Exercise 3, you do not need to fix `bad-range`.  You just need to
-propose a way that you might fix it.
-
-On Exercise 7, some of the tests may be wrong.  It was to see if you
-were reading closely.  
-
 ### Wrapup
 
-* It's a "SAM SAID STOP HERE" day.

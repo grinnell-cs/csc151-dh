@@ -13,7 +13,7 @@
 
 #|
 In this lab, we'll continue practice designing and writing recursive
-functions, this time, over the natural numbers.
+functions, this time, functions that recurse over the natural numbers.
 |#
 
 #| AB |#
@@ -303,6 +303,163 @@ c. Complete the definition of `my-take`.
              (my-take '(a b c) 3)
              '(a b c))
 
+#| A |#
+
+; +-------------------------+----------------------------------------
+; | Exercise 7: Counting up |
+; +-------------------------+
+
+#|
+Consider a procedure, `(values-between start finish)`, that takes
+two exact integers as parameters produces a list of all the values
+between `start` (inclusive) and `finish` (exclusive).  For example,
+
+    > (values-between 5 10)
+    '(5 6 7 8 9)
+    > (values-between 5 5)
+    '()
+    > (values-between -3 3)
+    '(-3 -2 -1 0 1 2)
+|#
+
+#|
+a. We've written a few tests for `values-between`.  Read over those and
+determine whether it would be useful to add a few more.
+|#
+
+#|
+b. Consider the normal questions for recursive design
+
+What's your base case test?
+
+<ANSWER>
+
+What should you return in the base case?
+
+<ANSWER>
+
+What does the recursive call look like?
+
+<ANSWER>
+
+What should you do after the recursive call?
+
+<ANSWER>
+|#
+
+#|
+c. Implement `values-between`.
+|#
+
+;;; (values-between start finish) -> listof? integer?
+;;;   start : exact-integer?
+;;;   finish : exact-integer?
+;;; Create a list of integers between start (niclusive) and finish
+;;; (exclusive).
+(define values-between
+  (lambda (start finish)
+    ???))
+
+#|
+(test-equal? "five to ten" 
+             (values-between 5 10)
+             '(5 6 7 8 9))
+(test-equal? "zero to zero"
+             (values-between 0 0)
+             '())
+(test-equal? "ten to five"
+             (values-between 10 5)
+             '())
+(test-equal? "negative to positive"
+             (values-between -3 3)
+             '(-3 -2 -1 0 1 2))
+(test-equal? "positive to negative"
+             (values-between 3 -3)
+             '())
+|#
+
+#| B |#
+
+; +-------------------------------+----------------------------------
+; | Exercise 8: Repeated division |
+; +-------------------------------+
+
+#|
+The `rhythm10` of any non-negative number is the number of times
+that we must divide the number by 10 to reach a number less than
+or equal to 1.  For example,
+
+    > (rhythm10 0)
+    0
+    > (rhythm10 1)
+    0
+    > (rhythm10 1.00001)
+    1
+    > (rhythm10 5)
+    1
+    > (rhythm10 512)
+    3
+    > (rhythm10 9812.412)
+    4
+|#
+
+#|
+a. Review the tests we've written below and decide if any other tests
+are necessary.  If so, add them.
+|#
+
+#|
+b. Write `rhythm10` recursively.
+|#
+
+;;; (rhythm10 n) -> exact-integer?
+;;;   n : non-negative-real?
+;;; Compute the number of times we have to divide n by 10 in
+;;; order to reach a number less than or equal to one.
+(define rhythm10
+  (lambda (n)
+    ???))
+
+#|
+(test-equal? "zero"
+             (rhythm10 0)
+             0)
+(test-equal? "one"
+             (rhythm10 1)
+             0)
+(test-equal? "slightly more than one"
+             (rhythm10 1.00001)
+             1)
+(test-equal? "two"
+             (rhythm10 2)
+             1)
+(test-equal? "three digits"
+             (rhythm10 212)
+             3)
+(test-equal? "one hundred"
+             (rhythm10 100)
+             2)
+(test-equal? "one hundred and one"
+             (rhythm10 101)
+             3)
+(test-equal? "inexact number with fractional part"
+             (rhythm10 9312.2321)
+             4)
+(test-equal? "exact number with fractional part"
+             (rhythm10 93123/2)
+             5)
+|#
+
+#| AB |#
+
+; +------------------+-----------------------------------------------
+; | Submit your work |
+; +------------------+
+
+#|
+You know the drill.
+|#
+
 #| AB |#
 
 ; +---------------------------+--------------------------------------
@@ -314,8 +471,48 @@ If you find that you have extra time and want to further explore some
 of these issues, consider implementing any of the following procedures.
 |#
 
+#| B |#
+
+; +--------------------------------------+---------------------------
+; | Extra 1: Repeated division, repeated |
+; +--------------------------------------+
+
+#|
+Consider the `(rhythm n d)` procedure documented below, which
+generalizes `rhythm10`.
+|#
+
+#|
+a. Write tests for `rhythm`.
+|#
+
+#|
+b. Implement `rhythm`.
+|#
+
+;;; (rhythm n d) -> exact-integer?
+;;;   n : non-negative-real?
+;;;   b : real? (greater than one)
+;;; Compute the number of times we have to divide n by b in
+;;; order to reach a number less than or equal to one.
+(define rhythm 
+  (lambda (n b)
+    ???))
+
+#|
+(test-equal? "zero/ten"
+             (rhythm 0 10)
+             0)
+(test-equal? "zero/two"
+             (rhythm 0 2)
+             0)
+(test-equal? "zero/small divisor"
+             (rhythm 0 1.1)
+             0)
+|#
+
 ; +--------------------------+---------------------------------------
-; | Extra 1: Range revisited |
+; | Extra 2: Range revisited |
 ; +--------------------------+
 
 #|
@@ -405,7 +602,7 @@ tests for this procedure.
     (acc-range n ???)))
 
 ; +------------------------+-----------------------------------------
-; | Extra 2: Powers of ... |
+; | Extra 3: Powers of ... |
 ; +------------------------+
 
 #|
@@ -487,7 +684,7 @@ Note: If possible, use `section` rather than `lambda`.
   ???)
 
 ; +------------------+-----------------------------------------------
-; | Extra 3: Fibbing |
+; | Extra 4: Fibbing |
 ; +------------------+
 
 #|
@@ -548,7 +745,7 @@ make `naive-fib` more efficient.
 |#
 
 ; +-----------------------+------------------------------------------
-; | Extra 4: More Fibbing |
+; | Extra 5: More Fibbing |
 ; +-----------------------+
 
 #|
