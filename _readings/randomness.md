@@ -281,3 +281,17 @@ Here's one example of the primary procedure in action.
 
 5.  What other procedures have you encountered that may return different values each time you call them with the same parameters?
     (The answer may be "none".)
+
+Questions and Answers
+---------------------
+
+Is there a way to return a fraction output randomly with the random procedure?
+
+> It depends on what range you want for your fractions.  If you want 
+  fractions in the range 0 to 1, you could use `(inexact->exact (random))`.
+  You could also use something like `(/ (random 1000) (+ 1 (random 1000)))`, 
+  although that gives a very strange distribution of numbers.
+
+What if I want numbers in the range 0 to 5.5?
+
+> Use `(* 5.5 (random))`.
