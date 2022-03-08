@@ -345,9 +345,12 @@ And our implementation would be updated to reflect this change:
 (define even?
   (lambda (n)
     (cond
-      [(= 0 n) #t]
-      [(= 1 n) #f]
-      [else (even? (- n 2))])))
+      [(= 0 n) 
+       #t]
+      [(= 1 n) 
+       #f]
+      [else 
+       (even? (- n 2))])))
 ~~~
 
 We switch to a `cond` because our conditional has three branches instead of two now.
