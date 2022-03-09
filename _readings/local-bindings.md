@@ -165,13 +165,13 @@ you a new imlementation of the `vowel?` predicate?  Mostly to
 remind you that there's a value to writing documentation, even
 when our procedures are short and simple.
 
-Will anyone very use `lower-case-vowel?` by itself?  Possibly.
+Will anyone ever use `lower-case-vowel?` by itself?  Possibly.
 But if not, we should try something else.  Is there something
 else?
 
 ## Racket's `let` Expressions
 
-There is.  Raacket provides `let` expressions as a way to bind
+There is.  Racket provides `let` expressions as a way to bind
 values to names.  A `let`-expression contains a *binding list* and
 a *body*.  The body can be any expression, or any sequence of
 expressions, to be evaluated with the help of the local name bindings.
@@ -221,11 +221,11 @@ without helpers.
 (define vowel?
   (lambda (ch)
     (let ([lc (char-downcase ch)])
-      (or (lcar=? lc #\a)
-          (lcar=? lc #\e)
-          (lcar=? lc #\i)
-          (lcar=? lc #\o)
-          (lcar=? lc #\u)))))
+      (or (char=? lc #\a)
+          (char=? lc #\e)
+          (char=? lc #\i)
+          (char=? lc #\o)
+          (char=? lc #\u)))))
 ```
 
 *Important!*  Note that even though binding lists and binding
@@ -574,7 +574,7 @@ advantage of our friends `any` and sectioning to help out.
   (lambda (ch)
     (let ([lc (char-downcase ch)]
           [vowels (string->list "aeiou")])
-      (any (section char=? lc <>) vowels))))
+      (ormap (section char=? lc <>) vowels))))
 ```
 
 But that definition requires DrRacket to build the list every time
@@ -592,7 +592,7 @@ extra work.  Hence, we might more sensibly write the following.
   (let ([vowels (string->list "aeiou")])
     (lambda (ch)
       (let ([lc (char-downcase ch)])
-        (any (section char=? lc <>) vowels)))))
+        (ormap (section char=? lc <>) vowels)))))
 ```
 
 Unfortunately, it is not always possible to move the bindings outside of
@@ -607,7 +607,7 @@ need to keep them within the body of the lambda.
   (let ([vowels (string->list "aeiou")]
         [lc (char-downcase ch)])
     (lambda (ch)
-      (any (section char=? lc <>) vowels))))
+      (ormap (section char=? lc <>) vowels))))
 ```
 
 If you try to run this, it will complain that it doesn't know what `ch`
@@ -775,3 +775,22 @@ redundant call to `string->list`.
 
 b. Rewrite `v2c-ratio` using `let` to avoid the redundant call
 to `string->list`..
+
+Questions and Answers
+---------------------
+
+Why do we care about avoiding the redundant call to `string->list`?
+
+> `string->list` is a comparatively "expensive" procedure (in terms
+of computing resources).  So we'd rather not do it twice.
+
+What do you mean by "helper procedure"?
+
+> We tend to use "helper" generically for "any procedure we write to use 
+  specifically in another procedure".
+
+Why would we want to use `let` instead of `let*`?
+
+> `let` permits simultaneous evaluation, which can be more efficient.
+
+> Also, we may want to use the original value associated with a name.
