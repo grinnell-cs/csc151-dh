@@ -288,11 +288,13 @@ many more.)
 |#
 
 #|
-b. Make a list of all the rolls that will give you seven or eleven.  
-For example, 1 and 6 give you 7; 6 and 5 give you eleven.  Using
-that list, compute the probability that you roll seven or eleven.
-(There are thirty-six different possible rolls.)  How many games would
-you expect to win if you played 36,000 games?
+b. Make a list of all the rolls of a red die and a black die that
+will give you seven or eleven.  For example, red 1 and black 6 give
+you 7, as do red 6 and black 1; red 6 and and black 5 give you
+eleven.  Using that list, compute the probability that you roll
+seven or eleven.  (There are thirty-six different possible rolls
+on two dice.) How many games would you expect to win if you played
+36,000 games?
 
 <TODO: ENTER NOTES AND ANALYSIS>
 |#
