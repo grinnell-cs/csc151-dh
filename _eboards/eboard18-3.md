@@ -60,7 +60,6 @@ Administrivia
 ### Upcoming Token-Generating Activities
 
 * TONIGHT: Mentor Session (8pm)
-* WEDNESDAY: Mentor Session (8pm)
 * THURSDAY 11 a.m., JRC 101: Scholars' Convocation: Greg Duncan '70.
   [_America's Long Struggle to Reduce Child Poverty_](https://grinnellcollege.webex.com/grinnellcollege/onstage/g.php?MTID=e6593d17f299f27465981e67fd39a6580)
 
@@ -159,11 +158,11 @@ Lab
 
 ### During Lab
 
-**WRITE TESTS!**  Writing tests helps you
+**WRITE TESTS!**  Writing tests helps you ...
 
 * Check whether your procedure works correctly.  (And shouldn't be much
   slower than just typing in the expression and reading the result.)
-* Think through what the procedure should do.
+* Think through what the procedure should do in various situations.
 * Consider potential problems.
 
 When writing tests, only use valid inputs!
@@ -171,7 +170,11 @@ When writing tests, only use valid inputs!
 On Exercise 3, you do not need to fix `bad-range`.  You just need to
 propose a way that you might fix it.
 
-On Exercise 7, some of the tests may be wrong.  It was to see if you
+On Exercise 4, there's a reason we have the hint.
+
+On Exercises 5 and 6, please write the tests first!
+
+On Exercise 8, some of the tests may be wrong.  It was to see if you
 were reading closely.  
 
 ### Wrapup
