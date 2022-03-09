@@ -1,5 +1,5 @@
 ---
-title: "EBoard 19 (Section 1): Randomness"
+title: "EBoard 19 (Section 3): Randomness"
 number: 19
 section: eboards
 held: 2022-03-09
