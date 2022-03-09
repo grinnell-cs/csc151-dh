@@ -13,7 +13,9 @@ todo:
 
 ## Important procedures
 
-+   `(random n)`: given a positive integer, generate a difficult-to-predict value between 0 and `n`-1, inclusive.
+* `(random n)`: given a positive integer, generate a difficult-to-predict integer value between 0 (inclusive) and `n` (exclusive).
+* `(random)`: generate a difficult-to-predict real value between 0 (inclusive) and 1 (exclusive).
+* `(random a b)`: Given two exact integers, the second of which is larger than the first, generate a difficult-to-predict value between `a` (inclusive) and `b` (exclusive).
 
 ## Preparation
 
