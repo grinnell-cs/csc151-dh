@@ -58,6 +58,7 @@ Administrivia
 * No reading for Friday.
 * Today's lab due Thursday at 10:30 p.m.
     * As usual, "SAM SAID I CAN STOP HERE"
+    * We'll be talking about it more on Friday.
 * SoLA 2 released today at 2:30 and due Thursday the 10th at 10:30 p.m.
 * Quiz 7 due Sunday at 4pm: Use higher-order procedures.
 * Week seven survey distributed Friday, due Sunday at 10:00 p.m.
@@ -68,7 +69,8 @@ Administrivia
 
 * THURSDAY 11 a.m., JRC 101: Scholars' Convocation: Greg Duncan '70.
   [_America's Long Struggle to Reduce Child Poverty_](https://grinnellcollege.webex.com/grinnellcollege/onstage/g.php?MTID=e6593d17f299f27465981e67fd39a6580)
-* ???, Forum on Student Unionization (if the forum exists)
+* Grinnell Singers concert Sunday at 2pm (we think) in See, Bring, Lou, Us
+* International dinner Saturday night.
 
 ### Other Upcoming Activities
 
@@ -196,10 +198,15 @@ _Sam will attempt this "live", perhaps with help._
 
 ```
 (define v2c-ratio
-  (let ([helper
-         (lambda (lst) (/ (tally vowel? lst) (tally consonant? lst)))])
-    (lambda (str)
-      (helper (string->list str)))))
+  (lambda (str)
+    ((lambda (lst) (/ (tally vowel? lst) (tally consonant? lst)))
+     (string->list str))))
+```
+
+```
+(define v2c-ratio
+  (o (lambda (lst) (/ (tally vowel? lst) (tally consonant? lst)))
+     string->list))
 ```
 
 _No, I don't expect you to do this._
@@ -299,5 +306,13 @@ Lab
 
 ### During Lab
 
+* Exercise 2: The odds of getting an average of 1 (or an average of 6)
+  on ten dice rolls are 1/60466176.
+* Exercise 4: In my analysis, we should win approximately 800 out of
+  3600 games of seven-eleven.
+* Exercise 4: Unfortunately, we don't.  Exercise 5 helps you think about why.
+
 ### Wrapup
 
+* It's another "SAM SAYS STOP HERE" day.  We'll go over much of the lab
+  next time.

@@ -19,8 +19,8 @@ Administrivia
 
 ### Introductory notes
 
-* I hope the SoLA went well.  I look forward to a weekend of intense
-  grading.
+* I hope the SoLA went well.  I look forward to a weekend of intense grading.
+* Don't forget: The navigator should check the board once in a while.
 
 ### Class mask policy
 
@@ -59,7 +59,76 @@ Racket/Lab Stuff
 
 ### Rolling dice
 
+#### Starter code
+
+```
+(define play-seven-eleven
+  (lambda ()
+    (cond 
+      [(= 7 (pair-a-dice))
+       1]
+      [(= 11 (pair-a-dice))
+       1]
+      [else
+       0])))
+
+(define pair-a-dice
+  (lambda ()
+    (+ (roll-a-die) (roll-a-die))))
+
+(define roll-a-die
+  (lambda ()
+    (random 1 7)))
+```
+
+#### Count how many times we win
+
+```
+(define count-wins
+  (lambda (n)
+    (cond
+      ; No games -> No wins
+      [(zero? n)
+       0]
+      ; We win (-:  Count it and move on
+      [(= (play-seven-eleven) 1)
+       (+ 1 (count-wins (- n 1)))]
+      ; We lose )-:  Just move on
+      [(= (play-seven-eleven) 0)
+       (count-wins (- n 1))]
+      ; ??? This should never happen
+      [else
+       (error "Tie!")])))
+```
+
+#### Improving the code
+
+```
+(define count-wins
+  (lambda (n)
+    (if (zero? n)
+        0
+        (+ (play-seven-eleven)
+           (count-wins (- n 1))))))
+```
+
+#### Observe problem
+
+8/36 rolls win.  So when we play a lot of games, we should win about 8/36
+of the time.  If we play 3600 games, we should win approximately 800 times.
+Do we?
+
+#### Comments from Dan and Tina
+
+* Blues Brothers, "Rawhide": <https://www.youtube.com/watch?v=RdR6MN2jKYs>
+* Tina Turner, "Proud Mary": <https://www.youtube.com/watch?v=T2T5_seDNZE>
+
+#### Further observations
+
 ### Random language
+
+The key procedure:
+
 
 ### Morals
 
@@ -68,16 +137,19 @@ Racket/Lab Stuff
   it's good to think carefully.
     * We want to call `random` neither too few nor too many times.
 * Randomness can be fun.
+* `pair-a-dice` is one of the best procedure names ever.
 
 MP5
 ---
+
+Extensions of the random language exercises ...
 
 Questions
 ---------
 
 ### Reading questions
 
-_There shouldn't be any._
+_Since there wasn't a reading, there shouldn't be any._
 
 ### Other issues
 
