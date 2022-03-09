@@ -10,8 +10,8 @@ link: true
 _Approximate overview_
 
 * Administrative stuff [~5 min]
-* Racket stuff [~0 min]
-* Questions [~10 min]
+* Racket stuff [~10 min]
+* Questions [~5 min]
 * Lab [~60 min]
 
 Administrivia
@@ -19,18 +19,16 @@ Administrivia
 
 ### Introductory notes
 
-* I'm back.  THANK YOU to our amazing class mentors for taking over.
-    * There's a chance I've forgotten everyone's name.
-* I hope you were safe during the tornado.
-* I'd forgotten how busy conferences are.  I am even further behind than
-  when I left.  (Most of my days ran from 8am to 9pm or later.)
-    * I still expect to have quizzes and grade summaries to you Tuesday 
-      night.
-* Reminder: It's good practice for the navigator to look at the screen 
-  or whiteboard once in a while to see if there are any notes on
-  the exercise.
-* I've rearranged the schedule slightly.  We'll be doing randomness on
-  Wednesday and more recursion on Friday.
+* Thank you to those of you who posted corrections in your reading questions.
+  I enjoy awarding tokens.
+* The College required me to post midterm assessments yesterday.
+  Unfortunately, midterm assessments don't match well with the mastery
+  grading we use in this course, particularly since the graders have not
+  graded redos and you have not had a chance to do SoLA 2.  Take your
+  midterm assessments with a large grain of salt.
+* It appears that Gradescope misled me about the readings for class 15;
+  I'll get the rest of those graded soon.
+* Our graders are trying hard to catch up on grading.
 
 ### Class mask policy
 
@@ -49,15 +47,14 @@ Administrivia
 
 ### Upcoming work
 
-* Reading for Wednesday: Randomness (due Tuesday at 10:00 pm)
-* Today's lab due Tuesday at 10:30 p.m.
+* No reading for Friday.
+* Today's lab due Thursday at 10:30 p.m.
+    * As usual, "SAM SAID I CAN STOP HERE"
+* SoLA 2 released today at 2:30 and due Thursday the 10th at 10:30 p.m.
 * Quiz 7 due Sunday at 4pm: Use higher-order procedures
-* SoLA 2 due Thursday the 10th at 10:30 p.m.
 
 ### Upcoming Token-Generating Activities
 
-* TONIGHT: Mentor Session (8pm)
-* WEDNESDAY: Mentor Session (8pm)
 * THURSDAY 11 a.m., JRC 101: Scholars' Convocation: Greg Duncan '70.
   [_America's Long Struggle to Reduce Child Poverty_](https://grinnellcollege.webex.com/grinnellcollege/onstage/g.php?MTID=e6593d17f299f27465981e67fd39a6580)
 
@@ -130,6 +127,93 @@ Notes:
 Racket/Lab Stuff
 ----------------
 
+### The local bindings self check
+
+Rewrite `v2c-ratio` so that we don't duplicate work.
+
+#### Original
+
+```
+;;; (v2c-ratio str) -> rational?
+;;;   str : string
+;;; Determine the ratio of vowels to consonants in str
+(define v2c-ratio
+  (lambda (str)
+    (/ (tally vowel? (string->list str))
+       (tally consonant? (string->list str)))))
+```
+
+#### Rewritten (without `let`)
+
+```
+(define v2c-helper
+  (lambda (lst)
+    (/ (tally vowel? lst)
+       (tally consonant? lst))))
+
+(define v2c-ratio
+  (lambda (str)
+    (v2c-helper (string->list str))))
+```
+
+#### Rewritten (with a local helper)
+
+```
+(define v2c-ratio
+  (let ([helper
+         (lambda (lst)
+           (/ (tally vowel? lst)
+              (tally consonant? lst)))])
+    (lambda (str)
+      (helper (string->list str)))))
+```
+
+or
+
+```
+(define v2c-ratio
+  (let ([helper
+         (lambda (lst) (/ (tally vowel? lst) (tally consonant? lst)))])
+    (lambda (str)
+      (helper (string->list str)))))
+```
+
+#### Rewritten, substituting the local helper
+
+_Sam will attempt this "live", perhaps with help._
+
+```
+(define v2c-ratio
+  (let ([helper
+         (lambda (lst) (/ (tally vowel? lst) (tally consonant? lst)))])
+    (lambda (str)
+      (helper (string->list str)))))
+```
+
+_No, I don't expect you to do this._
+
+### Termial and natural numbers
+
+```
+> (natural? 0)
+#t
+> (natural? 1)
+#t
+> (natural? 4)
+#t
+> (natural? -1)
+#f
+> (natural? 1.0)
+#f
+```
+
+Moral: If we say that something expects a natural number, we mean
+"an exact non-negative integer".
+
+### Quiz 6
+
+While I won't put answers in the eboard, I will go over it in DrRacket.
+
 ### The bad range procedure
 
 Here's the "bad" version of `range` from the lab
@@ -174,6 +258,14 @@ Questions
 ---------
 
 ### Reading questions
+
+Why do we include `(lambda () ...)` in the definitions of random
+functions?
+
+> The `lambda ()` makes it a function, which means that we execute
+  the body each time it is called, giving ourselves the opportunity
+  to get different results.  If we don't have the lambda, it's just
+  a value, and it does not change (at least in one run of the program).
 
 ### Other issues
 
