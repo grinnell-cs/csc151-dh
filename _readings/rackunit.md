@@ -103,8 +103,8 @@ suite in which you must manually read all of the results.
 Since reading the results is tedious and perhaps even dangerous, it is
 often useful to have the computer do the comparison for you. For example,
 we might write a procedure, `check`, that checks to make sure that two
-expressions are equal. (This procedure uses `if`, which you have not
-learned yet. But you should be able understand the general approach.)
+expressions are equal. <!-- (This procedure uses `if`, which you have not
+learned yet. But you should be able understand the general approach.) -->
 
 ```
 (define check

@@ -76,8 +76,8 @@ post-recursion step: <TODO: fill in>
 
 #|
 Complete the definition of `(count-down n)` below that takes a
-natural number `n` and returns a list that contains the numbers
-starting with `n` going down to 1.  For example
+non-negative integer, `n`, and returns a list that contains the
+numbers starting with `n` going down to 1.  For example
 
     > (count-down 1)
     '(1)
@@ -324,7 +324,8 @@ between `start` (inclusive) and `finish` (exclusive).  For example,
 
 #|
 a. We've written a few tests for `values-between`.  Read over those and
-determine whether it would be useful to add a few more.
+determine whether it would be useful to add a few more.  Also consider
+the implications of those tests.
 |#
 
 #|
