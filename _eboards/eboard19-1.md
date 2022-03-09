@@ -68,7 +68,6 @@ Administrivia
 
 * THURSDAY 11 a.m., JRC 101: Scholars' Convocation: Greg Duncan '70.
   [_America's Long Struggle to Reduce Child Poverty_](https://grinnellcollege.webex.com/grinnellcollege/onstage/g.php?MTID=e6593d17f299f27465981e67fd39a6580)
-* ???, Forum on Student Unionization (if the forum exists)
 
 ### Other Upcoming Activities
 
@@ -196,10 +195,9 @@ _Sam will attempt this "live", perhaps with help._
 
 ```
 (define v2c-ratio
-  (let ([helper
-         (lambda (lst) (/ (tally vowel? lst) (tally consonant? lst)))])
-    (lambda (str)
-      (helper (string->list str)))))
+  (lambda (str)
+    ((lambda (lst) (/ (tally vowel? lst) (tally consonant? lst))) 
+     (string->list str))))
 ```
 
 _No, I don't expect you to do this._
@@ -289,6 +287,26 @@ then reuse.  How do I do so?
 > In the file that you want to use the library, write
   `(require (file "my-library.rkt"))`.
 
+Can I provide only some of my functions?
+
+> Yes `(provide fun1 fun2 fun3)`
+
+Are Sam's office hours still online?
+
+> Until break, yes.
+
+How should we cite required files?
+
+> The `require` suffices.
+
+How should we cite a procedure we copied.
+
+> `; I copied this procedure from the lab on numeric recursion, which I did with Par Tner`
+
+Do we have a mentor session tonight?
+
+> No.  The exam is live.  But Sam will answer DMs.
+
 Lab
 ---
 
@@ -296,8 +314,16 @@ Lab
 
 * Don't forget to wear your mask if your partner is wearing a mask.
 * Have the normal 'start-of-lab' discussion.
+* Save as `random-language.rkt`
 
 ### During Lab
+
+* I saw a group write `(average (make-list 10 (roll-a-die)))` and get `6`.
+  If things are going right, is that likely to happen?
+    * Answer: No.  The odds are 1/60466176 that you will roll ten 6's
+      in a row.
+* C says "volume is crazy"
+* How many times should I win if I roll the dice 3600 times?  About 800.
 
 ### Wrapup
 

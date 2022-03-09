@@ -57,6 +57,21 @@ Administrivia
 Racket/Lab Stuff
 ----------------
 
+### Rolling dice
+
+### Random language
+
+### Morals
+
+* It's harder to test random procedures.
+* We can easily create subtle (or not so subtle) errors in simulations;
+  it's good to think carefully.
+    * We want to call `random` neither too few nor too many times.
+* Randomness can be fun.
+
+MP5
+---
+
 Questions
 ---------
 
