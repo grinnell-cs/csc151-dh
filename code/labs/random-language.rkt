@@ -182,6 +182,13 @@ them. If you did get the results you expected, explain those.
 
 |#
 
+#|
+c. Try the following expression a following expression a few times
+and see if it heps explain what was happening.
+
+> (make-list 10 (roll-a-die))
+|#
+
 ; +----------------------------------------------+-------------------
 ; | Exercise 3: Rolling multiple dice, revisited |
 ; +----------------------------------------------+
