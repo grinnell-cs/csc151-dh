@@ -2,7 +2,7 @@
 title: Patterns of recursion
 summary: |
   In this laboratory, you will continue your initial explorations with
-  recursion, working to expand your approach to include patterns of recursion..
+  recursion, working to expand your approach to include patterns of recursion.
 todo: 
   - TBD
 ---
