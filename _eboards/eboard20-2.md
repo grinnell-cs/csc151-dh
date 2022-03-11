@@ -1,5 +1,5 @@
 ---
-title: "EBoard 20 (Section 1): Pause for Breath"
+title: "EBoard 20 (Section 2): Pause for Breath"
 number: 20
 section: eboards
 held: 2022-03-11
