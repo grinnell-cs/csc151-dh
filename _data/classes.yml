@@ -273,13 +273,16 @@
     - page: /eboards/eboard19-2.html
     - page: /eboards/eboard19-3.html
 
-- topic: Patterns of Recursion
-  abbrev: recursion-patterns
+- topic: Pause for Breath
+  abbrev: pause07
   summary: |
-    We consider a host of other issues in the design of
-    recursive procedures.
+    We pause to discuss a variety of issues.
   lab:
     - page: /labs/recursion-patterns.html
+  eboards: 
+    - page: /eboards/eboard20-1.html
+    - page: /eboards/eboard20-2.html
+    - page: /eboards/eboard20-3.html
 
 - topic: Pairs
   abbrev: pairs
