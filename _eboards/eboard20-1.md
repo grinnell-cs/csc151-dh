@@ -1,5 +1,5 @@
 ---
-title: "EBoard 20 (Section 1): Patterns of recursion"
+title: "EBoard 20 (Section 1): Pause for Breath"
 number: 20
 section: eboards
 held: 2022-03-11
@@ -9,10 +9,12 @@ link: true
 
 _Approximate overview_
 
-* Administrative stuff [~5 min]
-* Racket stuff [~10 min]
-* Questions [~5 min]
-* Lab [~60 min]
+* Administrative stuff [~10 min]
+* Rolling dice (from randomness lab) [~15 min]
+* Random language (from the randomness lab) [~10 min]
+* About MP5 [~10 min]
+* Fun with higher-order programming [~20 min]
+* Time to fill out the survey [~15 min]
 
 Administrivia
 -------------
@@ -20,7 +22,13 @@ Administrivia
 ### Introductory notes
 
 * I hope the SoLA went well.  I look forward to a weekend of intense grading.
-* Don't forget: The navigator should check the board once in a while.
+* Since you are probably recovering from the SoLA, today will mostly be a
+  talk day.
+    * There is a listed lab that you might want to look at, but there's
+      nothing to submit.
+* Please ask questions as we go.  I'll encourage you from time to time.
+* Don't forget that we spring ahead this weekend.  Plan ahead for the
+  loss of sleep time.
 
 ### Class mask policy
 
@@ -30,6 +38,7 @@ Administrivia
   through spring break.
 * Note: Masks remain good for preventing transmission of cold and
   flu and other similar diseases.
+* The survey asks you for other thoughts on the mask policy.
 
 ### Reminders
 
@@ -41,25 +50,33 @@ Administrivia
 
 ### Upcoming work
 
-* Today's lab due Sunday at 10:30 p.m.
-    * As usual, "SAM SAID I CAN STOP HERE"
 * Quiz 7 due Sunday at 4pm: Use higher-order procedures.
-* Week seven survey distributed today , due Sunday at 10:00 p.m.
-* Reading for Monday's class, also due Sunday at 10:00 p.m.
+* Week seven survey distributed today, due Sunday at 10:00 p.m.
+   
+* Reading for Monday's class (Pairs and Pair Structures), also due 
+  Sunday at 10:00 p.m.
 * MP 5 due next Thursday at 10:30 p.m.  Released today.
 
 ### Upcoming Token-Generating Activities
 
-* ???, Forum on Student Unionization (if the forum exists)
+_None right now._
 
 ### Other Upcoming Activities
 
-Racket/Lab Stuff
-----------------
+### Administrative questions
 
-### Rolling dice
+### The Friday PSA returns
 
-#### Starter code
+* Choose what is right for you, not what you think others are doing.
+* Take care of yourself.
+* Moderation!
+* Consent is essential.  
+    * Go beyond consent.
+
+Rolling dice
+------------
+
+### Starter code
 
 ```
 (define play-seven-eleven
@@ -81,7 +98,7 @@ Racket/Lab Stuff
     (random 1 7)))
 ```
 
-#### Count how many times we win
+### Count how many times we win
 
 ```
 (define count-wins
@@ -101,7 +118,7 @@ Racket/Lab Stuff
        (error "Tie!")])))
 ```
 
-#### Improving the code
+### Improving the code
 
 ```
 (define count-wins
@@ -112,23 +129,18 @@ Racket/Lab Stuff
            (count-wins (- n 1))))))
 ```
 
-#### Observe problem
+### Observe problem
 
 8/36 rolls win.  So when we play a lot of games, we should win about 8/36
 of the time.  If we play 3600 games, we should win approximately 800 times.
 Do we?
 
-#### Comments from Dan and Tina
+### Comments from Dan and Tina
 
 * Blues Brothers, "Rawhide": <https://www.youtube.com/watch?v=RdR6MN2jKYs>
 * Tina Turner, "Proud Mary": <https://www.youtube.com/watch?v=T2T5_seDNZE>
 
-#### Further observations
-
-### Random language
-
-The key procedure:
-
+### Further observations
 
 ### Morals
 
@@ -139,29 +151,110 @@ The key procedure:
 * Randomness can be fun.
 * `pair-a-dice` is one of the best procedure names ever.
 
+### Dice questions
+
+Random language
+---------------
+
+### A key procedure
+
+```
+;;; (random-list-element lst) -> any?
+;;;   lst : listof any?
+;;; Randomly select an element of `lst`
+(define random-list-element
+  (lambda (lst)
+    (list-ref lst (random (length lst)))))
+```
+
+### Sample usage
+
+```
+;;; people -> listof string?
+;;; A list of some of the folks who teach 151
+(define people (list "Peter-Michael" "Nicole" "Sarah" "SamR" "Barbara" "Priscilla" "Jerod"))
+
+;;; (random-person) -> string?
+;;; Randomly select an element of the people list.
+(define random-person
+  (lambda ()
+    (random-list-element people)))
+```
+
+Why does `random-person` have a `lambda` with no parameters?
+
+How might we use this idea to generate text?
+
 MP5
 ---
 
-Extensions of the random language exercises ...
+Our goal: Generate some interesting language.
 
-Questions
----------
+* Haiku.
+* Mad libs.
+* Haiku, using words from another text.
 
-### Reading questions
+Higher-order procedures
+-----------------------
 
-_Since there wasn't a reading, there shouldn't be any._
+### Sample LA 1
 
-### Other issues
+Consider the following procedures
 
-Lab
----
+```drracket
+;;; (vowel? char) -> boolean
+;;;   char : char?
+;;; Determine if char is a vowel.
+(define vowel?
+  (let ([vowels (string->list "aeiou")])
+    (lambda (ch)
+      (integer? (index-of vowels (char-downcase ch))))))
 
-### Preparation
+;;; (count-vowels str) -> integer?
+;;;   str : string?
+;;; Count the number of vowels in str
+(define count-vowels
+  (lambda (str)
+    (tally vowel? (string->list str))))
 
-* Don't forget to wear your mask if your partner is wearing a mask.
-* Have the normal 'start-of-lab' discussion.
+;;; (select-special-words words) -> list-of string?
+;;;   words : list-of string?
+;;; Selects all the special words in words using the ALTV criterion.
+(define select-special-words
+  (lambda (words)
+    (filter (o (section > <> 2) count-vowels) words)))
+```
 
-### During Lab
+a. What kinds of words does `select-special-words` select?
 
-### Wrapup
+b. Explain how `(o (section > <> 2) count-vowels)` works as a
+predicate for such words.
+
+c. Rewrite `vowel?` using `section` and composition but no
+`lambda`.
+
+### Sample LA 2 (hard!)
+
+_You are unlikely to receive a problem this hard._
+
+Consider the following procedure.
+
+```drracket
+(define silly
+  (lambda (lst)
+    (map (lambda (x) (sqr (+ 1 x)))
+         (filter odd? lst))))
+```
+
+Rewrite the procedure using `o` and `section` so that it has *no* lambdas.
+
+Notes:
+
+* Use `o` when you want to sequence actions. (Do *this* to the parameter,
+  then *this* to the result, then *this* to the next result, and so on 
+  and so forth.)
+* Use `section` when you want to fill in one or more parameters to a 
+  procedure, thereby creating a new procedure.
+* This is a case in which the lambda-free version is likely much harder to
+  read.
 
