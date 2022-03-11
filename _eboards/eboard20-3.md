@@ -61,9 +61,15 @@ Administrivia
 
 ### Upcoming Token-Generating Activities
 
-_None right now._
+* Diversity and Inclusion in Economics stuff this weekend.
+  Saturday at 1pm.
+* Rave Harris tonight.
+* Slavic spring celebration 5-6pm outside Russian house.
 
 ### Other Upcoming Activities
+
+* Grinnell Singers, Sunday 2pm
+* International Dinner Saturday at 6pm (responses were due awhile ago)
 
 ### Administrative questions
 
@@ -120,7 +126,36 @@ Rolling dice
        (error "Tie!")])))
 ```
 
+### Problems
+
+* Most of the time, this crashes with "Tie!".
+* But `(play-seven-eleven)` returns 0 or 1, so we should never reach
+  the else case.  What's going wrong?
+
+Hypotheses
+ 
+* The recursive call. (nope)
+* The logic makes us play twice if we don't win the first time (yup)
+    * We could lose then win, which would mean all guards fail.
+
 ### Improving the code
+
+* Get rid of the (= 0 ...) test, and just use an else.
+
+```
+(define count-wins
+  (lambda (n)
+    (cond
+      ; No games -> No wins
+      [(zero? n)
+       0]
+      ; We win (-:  Count it and move on
+      [(= (play-seven-eleven) 1)
+       (+ 1 (count-wins (- n 1)))]
+      ; We lose )-:  Just move on
+      [else
+       (count-wins (- n 1))])))
+```
 
 ```
 (define count-wins
@@ -135,7 +170,9 @@ Rolling dice
 
 8/36 rolls win.  So when we play a lot of games, we should win about 8/36
 of the time.  If we play 3600 games, we should win approximately 800 times.
-Do we?
+Do we?  Nope.
+
+Fix.
 
 ### Comments from Dan and Tina
 
@@ -146,7 +183,8 @@ Do we?
 
 ### Morals
 
-* It's harder to test random procedures.
+* It's harder to test random procedures.  We should probably do multiple
+  runs to make sure they make sense.
 * We can easily create subtle (or not so subtle) errors in simulations;
   it's good to think carefully.
     * We want to call `random` neither too few nor too many times.
@@ -187,7 +225,18 @@ Random language
 
 Why does `random-person` have a `lambda` with no parameters?
 
-How might we use this idea to generate text?
+Couldn't we just use
+
+```
+(define random-person
+  (random-list-element people))
+```
+
+> Without the `lambda`, it evaluates the `random-list-element` once,
+  so we won't get different strings.
+
+> Procedures run their body *each time* you call them, permitting
+  different behavior with randomness.
 
 ### Your questions
 
@@ -232,14 +281,51 @@ Consider the following procedures
     (filter (o (section > <> 2) count-vowels) words)))
 ```
 
+```
+> (select-special-words '("uh" "happy" "bob" "sad" "uh" "chemistry" "galaxy" "galaxian" "shoe"
+                               "um" "microphone"))
+'("galaxian" "microphone")
+> (select-special-words '("um" "position" "uh" "mumble" "evaluate"))
+'("position" "evaluate")
+```
+
 a. What kinds of words does `select-special-words` select?
+
+> Words with more than two vowels.
+
+> ALTV = At Least Three Vowels
 
 b. Explain how `(o (section > <> 2) count-vowels)` works as a
 predicate for such words.
 
+> `tally` uses this to check each element in the list to see if
+  it has more than two vowels.
+
+> The meaning of the composition is "apply count vowels, then
+  apply the section", the section is "thing greater than two".
+
+> `(o f g)` is a shorthand for `(lambda (x) (f (g x)))`
+
 c. Rewrite `vowel?` using `section` and composition but no
 `lambda`.
 
+```
+(define vowel?
+  (let ([vowels (string->list "aeiou")])
+    (lambda (ch)
+      (integer? (index-of vowels (char-downcase ch))))))
+```
+
+Hint: Think about the order in which we do things in this procedure.
+
+* First downcase the character, then use index-of to look for it in
+  vowels, and then check to see if it's an integer.
+
+```
+(define vowel?
+  (let ([vowels (string->list "aeiou")])
+    (o integer? (section index-of vowels <>) char-downcase)))
+```
 ### Sample LA 2 (hard!)
 
 _You are unlikely to receive a problem this hard._
@@ -255,15 +341,21 @@ Consider the following procedure.
 
 Rewrite the procedure using `o` and `section` so that it has *no* lambdas.
 
-Notes:
+* Think about ordering (this then that uses `o`) and filling in parameters
+  (with section).
+* `(lambda (x) (sqr (+ 1 x)))` is "a procedure that takes one parameter,
+  adds 1, then squares.  "add 1" is `(section + 1 <>)`.  So "add 1 then
+  square" is `(o sqr (section + 1 <>))`.
+* `silly` first filters all the odd elements, then maps that add-then-square.
+    * "filter odd elements" is `(section filter odd? <>)`
+    * "map procedure" is `(section map procedure <>)`
+* Putting it together ...
 
-* Use `o` when you want to sequence actions. (Do *this* to the parameter,
-  then *this* to the result, then *this* to the next result, and so on 
-  and so forth.)
-* Use `section` when you want to fill in one or more parameters to a 
-  procedure, thereby creating a new procedure.
-* This is a case in which the lambda-free version is likely much harder to
-  read.
+```
+(define silly
+  (o (section map (o sqr (section + 1 <>)) <>)
+     (section filter odd? <>)))
+```
 
 ### Survey
 

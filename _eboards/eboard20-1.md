@@ -65,11 +65,14 @@ _None right now._
 
 ### Other Upcoming Activities
 
+* Grinnell Singers, Sunday at 2pm.
+
 ### Administrative questions
 
 ### The Friday PSA returns
 
-* Choose what is right for you, not what you think others are doing.
+* Choose what is right for you, not what you think others are doing
+  or what you think others want you to do.
 * Take care of yourself.
 * Moderation!
 * Consent is essential.  
@@ -144,6 +147,9 @@ Do we?
 
 ### Further observations
 
+* We had the same problem with `play-seven-eleven`.  Be careful about
+  extra calls to recursive procedures.
+
 ### Morals
 
 * It's harder to test random procedures.
@@ -154,6 +160,14 @@ Do we?
 * `pair-a-dice` is one of the best procedure names ever.
 
 ### Dice questions
+
+Can we use `or` to solve the seven-eleven problem?
+
+> No.
+
+Can we use a more sophisticated version of `or` that we don't learn in 151?
+
+> Perhaps.
 
 Random language
 ---------------
@@ -187,9 +201,22 @@ Random language
 
 Why does `random-person` have a `lambda` with no parameters?
 
-How might we use this idea to generate text?
+> We don't need the list of people, since that's already defined.
+  (`random-list-element` only needs one parameter)
+
+Why don't I just write
+`(define random-person (random-list-element people))`.
+
+> Putting in the lambda ensures that we re-do the `random-list-element`
+  each time the procedure is called.
+
+> We don't need any inputs (see above), so we leave the parameters blank.
 
 ### Your questions
+
+Are there other cases in which we'd need an empty lambda?
+
+> Not normally.  If we were to do more sophisticated file I/O, we might.
 
 MP5
 ---
@@ -234,11 +261,59 @@ Consider the following procedures
 
 a. What kinds of words does `select-special-words` select?
 
+> Words that have more than two vowels.
+
 b. Explain how `(o (section > <> 2) count-vowels)` works as a
 predicate for such words.
 
+> First it counts the vowels in the word and then compares that number
+  to two.  `(section > <> 2)` is a Scheme way to write "greater than two"
+
 c. Rewrite `vowel?` using `section` and composition but no
 `lambda`.
+
+Old
+
+```
+(define vowel?
+  (let ([vowels (string->list "aeiou")])
+    (lambda (ch)
+      (integer? (index-of vowels (char-downcase ch))))))
+```
+
+New
+
+Approach
+
+* What are the three main steps in the `vowel?` procedure?
+    * downcase the character with `string-downcase`
+    * call `index-of` to find it in the list of vowels
+    * call `integer?` to see if `index-of` found it
+
+```
+(define vowel?
+  (let ([vowels (string->list "aeiou")])
+    (o integer? (section index-of vowels <>) char-downcase)))
+```
+
+Morals:
+
+* Think about sequencing, use `o` to build the sequence.
+* If you have any multi-parameter procedures, use `section` to fix
+  some of those parameters and give you a one-parameter procedure.
+
+#### Questions
+
+Why didn't we need `section` for `char-downcase`?
+
+> `char-downcase` only takes one parameter.  We use `section` when we're
+  trying to reduce the number of parameters.
+
+Where is the lambda?
+
+> `o` adds an implicit lambda
+
+> `(o f g)` --> `(lambda (x) (f (g x)))`
 
 ### Sample LA 2 (hard!)
 
@@ -255,15 +330,26 @@ Consider the following procedure.
 
 Rewrite the procedure using `o` and `section` so that it has *no* lambdas.
 
-Notes:
+* First we're extracting all the odd numbers from the list.
+* Then we're mapping some weird procedure over that list.
+* We can use `o` to sequence those two.
 
-* Use `o` when you want to sequence actions. (Do *this* to the parameter,
-  then *this* to the result, then *this* to the next result, and so on 
-  and so forth.)
-* Use `section` when you want to fill in one or more parameters to a 
-  procedure, thereby creating a new procedure.
-* This is a case in which the lambda-free version is likely much harder to
-  read.
+```
+(define silly
+  (o (section map (lambda (x) (sqr (+ 1 x))) <>)
+     (section filter odd? <>)))
+```
+
+That procedure adds one and then squares.  We can write that as
+`(o sqr (section + 1 <>))`.
+
+Putting it together
+
+```
+(define silly
+  (o (section map (o sqr (section + 1 <>)) <>)
+     (section filter odd? <>)))
+```
 
 ### Survey
 

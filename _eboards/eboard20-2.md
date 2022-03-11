@@ -46,7 +46,7 @@ Administrivia
   just called you by name).
 * Evening tutors are available 7--10 p.m. Sunday through Thursday as
   well as 3--5 p.m. on Sunday.
-* Mentor sessions are Monday 8--9 p.m.  Wednesday, 8--9 p.m., Sunday 4--5 p.m.
+* Mentor sessions are Sunday 4--5 p.m., Monday 8--9 p.m.  Wednesday, 8--9 p.m.
 
 ### Upcoming work
 
@@ -54,16 +54,19 @@ Administrivia
      * We're going through the samples today.
 * Week seven survey distributed today, due at the end of class.
      * <https://bit.ly/csc151-2022Sp-week07>
-     * 60%+ class response rate -> a token for all
+     * 60%+ class response rate yields a token for all
 * Reading for Monday's class (Pairs and Pair Structures), due 
   Sunday at 10:00 p.m.
 * MP 5 due next Thursday at 10:30 p.m.  Released today.
 
 ### Upcoming Token-Generating Activities
 
-_None right now._
+* International student dinner Saturday at 6 p.m.
+* Grinnell Singers Sunday at 2 p.m.
 
 ### Other Upcoming Activities
+
+* Movie: King Richard III, some time this weekend.
 
 ### Administrative questions
 
@@ -120,6 +123,14 @@ Rolling dice
        (error "Tie!")])))
 ```
 
+The problem: If we lose in the =1 block, we play again.  We could win
+that second time.  In that case, we fall to the else.  (We've also
+played one more game than we should.)
+
+* Ideas: `if` statement.
+* Use a `let` in which we set the variable equal to `(play-seven-eleven)`
+
+
 ### Improving the code
 
 ```
@@ -136,6 +147,10 @@ Rolling dice
 8/36 rolls win.  So when we play a lot of games, we should win about 8/36
 of the time.  If we play 3600 games, we should win approximately 800 times.
 Do we?
+
+Nope.
+
+It's because we're calling `(pair-a-dice)` twice.
 
 ### Comments from Dan and Tina
 
@@ -187,7 +202,18 @@ Random language
 
 Why does `random-person` have a `lambda` with no parameters?
 
-How might we use this idea to generate text?
+Why not write
+
+```
+(define random-person
+  (random-list-element people))
+```
+
+> If we do the `define` without the lambda, we'll get the same value
+  every time.  We also won't have a procedure.  
+
+Moral: We use empty lambdas when we want procedures to run, which is
+necessary for random output.
 
 ### Your questions
 
@@ -232,13 +258,52 @@ Consider the following procedures
     (filter (o (section > <> 2) count-vowels) words)))
 ```
 
+```
+> (select-special-words '("Um" "banana" "apple" "orange" "pizza" "grape" "coal" "no"))
+'("banana" "orange")
+```
+
 a. What kinds of words does `select-special-words` select?
+
+> Words with more than two vowels.  (ATLV is "at least three vowels")
 
 b. Explain how `(o (section > <> 2) count-vowels)` works as a
 predicate for such words.
 
+> `filter` expects a predicate.  The `(o (section > <> 2) count-vowels)`
+  gets applied to each element in the list.  So it first counts the vowels,
+  and then checks if it's greater than two.
+
 c. Rewrite `vowel?` using `section` and composition but no
 `lambda`.
+
+```
+(define vowel?
+  (let ([vowels (string->list "aeiou")])
+    (lambda (ch)
+      (integer? (index-of vowels (char-downcase ch))))))
+```
+
+Hint: Think about the sequence of operations, use `o`.  (`o` goes
+right to left.)
+
+* Since it's already in the right order, it's easier.
+* First char-downcase, then use index-of to look in vowels, then check
+  whether it's an integer.
+
+```
+(define vowel?
+  (let ([vowels (string->list "aeiou")])
+    (o integer? (section index-of vowels <>) char-downcase))
+```
+
+Why does `char-downcase` get used?
+
+> `(o f g)` is a shorthand for `(lambda (x) (f (g x)))`
+
+> Our `o` is `(lambda (x) (integer? ((section index-of vowels <>) (char-downcase x))))`
+
+> `(section f val <>)` is a shorhand for `(lambda (y) (f val y))`.  Maybe that's not relevant here.
 
 ### Sample LA 2 (hard!)
 
@@ -255,15 +320,29 @@ Consider the following procedure.
 
 Rewrite the procedure using `o` and `section` so that it has *no* lambdas.
 
-Notes:
+* The `(lambda (x) (sqr (+ 1 x)))` is "a procedure that adds one and
+  then squares.  We can rewrite it as `(o sqr (section + 1 <>))`
+* More broadly, first we filter the odd elements, then we map that
+  add-then-square procedure.  So we could write
 
-* Use `o` when you want to sequence actions. (Do *this* to the parameter,
-  then *this* to the result, then *this* to the next result, and so on 
-  and so forth.)
-* Use `section` when you want to fill in one or more parameters to a 
-  procedure, thereby creating a new procedure.
-* This is a case in which the lambda-free version is likely much harder to
-  read.
+```
+(define silly
+  (o (section map (o sqr (section + 1 <>)) <>)
+     (section filter odd? <>)))
+```
+
+With the diamonds, how do you know which parameters they take?
+
+> Careful analysis.
+
+> The last diamond is "the input to the procedure"
+
+> Because I have composition, I know that the penultimate diamond is
+  "the output from filter".
+
+> The first diamond is used in `map`, so I know that it's going to be
+  used for every element in some list (that list is the output from
+  filter)
 
 ### Survey
 
