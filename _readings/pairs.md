@@ -225,6 +225,12 @@ or we can use the dotted-pair notation inside a literal constant beginning with 
 '(((0 . 1) . (2 . 3)) . ((4 . 5) . (6 . 7)))
 ```
 
+or
+
+```
+'(((0 . 1) 2 . 3) (4 . 5) 6 . 7)
+```
+
 (As we've said previously, we'd prefer that you use `cons` rather than
 quote to build structures.)
 
