@@ -170,29 +170,41 @@ Using that recursive definition of lists, write a procedure,
 ; +-------------------------------------------------------+
 
 #|
-a. Write a procedure, `(int-list->string ints)` that takes as input a
+a. Write a procedure, `(spaces-and-ints ints)`, that takes a potentially
+empty list of integers as a parameter and produces a string that consists
+of each integer preceded by a space.
+
+    > (spaces-and-ints '())
+    ""
+    > (spaces-and-ints '(4))
+    " 4"
+    > (spaces-and-ints '(3 4))
+    " 3 4"
+    > (spaces-and-ints '(2 3 4))
+    " 2 3 4"
+
+Recall that you can use `number->string` to convert a number to a string.
+|#
+
+(define spaces-and-ints
+  (lambda (ints)
+    ???))
+
+#|
+b. Write a procedure, `(int-list->string ints)` that takes as input a
 list of integers and returns a string that represents the list.
 
-> (int-list->string null)
-"()"
-> (int-list->string '(1))
-"(1)"
-> (int-list->string '(1 2 3))
-"(1 2 3)"
-> (int-list->string (cons 1 2))
-BOOM!
+    > (int-list->string null)
+    "()"
+    > (int-list->string '(1))
+    "(1)"
+    > (int-list->string '(1 2 3))
+    "(1 2 3)"
+    > (int-list->string (cons 1 2))
+    BOOM!
 
-Hint: You will likely want a helper that you use when you know that it's
-a nonempty list.  That helper might take a potentially empty list of
-integers as a parameter and return a string representing those integers,
-each preceded by a space.
-
-> (int-list->string/helper '(1))
-" 1"
-> (int-list->string/helper '(1 2))
-" 1 2"
-> (int-list->string/helper '())
-""
+Hint: You can treat the empty list as a special case and then take advantage
+of `spaces-and-ints` for the nonempty list.
 |#
 
 (define int-list->string
@@ -200,17 +212,18 @@ each preceded by a space.
     ???))
 
 #|
-b. Extend your procedure to print a period and the cdr when the cdr is
-not null.
+c. Write an extended version of `int-list->string`, called
+`int-listish->string`, that behaves much the same except that it
+prints a period and the cdr when the cdr is neither a pair nor null.
 
-> (int-listish->string null)
-"()"
-> (int-list->string '(1 2 3))
-"(1 2 3)"
-> (int-listish->string (cons 1 2))
-"(1 . 2)"
-> (int-listish->string (cons 1 (cons 2 3)))
-"(1 2 . 3)"
+    > (int-listish->string null)
+    "()"
+    > (int-list->string '(1 2 3))
+    "(1 2 3)"
+    > (int-listish->string (cons 1 2))
+    "(1 . 2)"
+    > (int-listish->string (cons 1 (cons 2 3)))
+    "(1 2 . 3)"
 |#
 
 (define int-listish->string
