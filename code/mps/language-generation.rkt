@@ -205,12 +205,12 @@ Examples
 ; | Part two: Randomized replacement |
 ; +----------------------------------+
 
-; Tests taht end "(SR)" are by SamR
+; Tests that end "(SR)" are by SamR
 
 ; a. 
 
-;;; (randomly-replace old new lst) ->
-(define randomly-replace
+;;; (replace-all old new lst) ->
+(define replace-all
   ???)
 
 #|
