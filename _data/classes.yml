@@ -293,16 +293,10 @@
     - page: /readings/pairs.html
   lab:
     - page: /labs/pairs.html
-
-- topic: Dictionaries and hash tables
-  abbrev: dictionaries
-  summary: |
-    We consider structures that allow us to store information for
-    quick retrieval.
-  reading:
-    - page: /readings/hash-tables.html
-  lab:
-    - page: /labs/hash-tables.html
+  eboards: 
+    - page: /eboards/eboard21-1.html
+    - page: /eboards/eboard21-2.html
+    - page: /eboards/eboard21-3.html
 
 - topic: Vectors
   abbrev: vectors
@@ -313,6 +307,16 @@
     - page: /readings/vectors.html
   lab:
     - page: /labs/vectors.html
+
+- topic: Dictionaries and hash tables
+  abbrev: dictionaries
+  summary: |
+    We consider structures that allow us to store information for
+    quick retrieval.
+  reading:
+    - page: /readings/hash-tables.html
+  lab:
+    - page: /labs/hash-tables.html
 
 - topic: Data abstraction
   abbrev: data-abstraction

@@ -1,5 +1,5 @@
 ---
-title: "EBoard 21 (Section 1): Pairs and Pair Structures"
+title: "EBoard 21 (Section 2): Pairs and Pair Structures"
 number: 21
 section: eboards
 held: 2022-03-14
