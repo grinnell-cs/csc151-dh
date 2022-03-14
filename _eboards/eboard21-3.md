@@ -131,6 +131,8 @@ _Note: For mentor sessions, I'd like reflections and not just "this is what we d
 
 * Mentor session tonight at 8pm.
 * Mentor session Wednesday at 8pm
+* Fight Debate Tuesday night HSSC Kernel 7pm-8pm
+* Ultimate Tournament here last weekend of spring break
 
 ### Other Upcoming Activities
 
@@ -180,6 +182,19 @@ Can we go over the second half of the self check?
 
 > Certainly.  I should have the board all set for that.
 
+> To get to `e`, I need `(car (cdr (cdr (cdr thingy))))`.  Also
+  `(cadddr thingy)` or `((o car cdr cdr cdr) thingy)`.
+
+> If we just wrote `(cdr (cdr (cdr thingy)))`, we'd end up with
+  `'(e)`.
+
+> To get to `d`, `(cadaddr thingy)` or
+  `(car (cdr (car (cdr (cdr thing)))))`
+  Except ... `cadaddr` is not defined.  Racket only allows four
+  letters between c and r.
+
+> We could write `(define cadaddr (o car cdr cdr car cdr))`.
+
 ### Other issues
 
 Am I spending enough time on the reading?  I only spent twenty minutes.
@@ -203,5 +218,24 @@ Lab
 
 ### During Lab
 
+* null is a list, but not a pair.
+* Every non-null list is also a pair.
+* Every pair whose cdr is a list is a list.
+* Every pair whose cdr is not a list is not a list.
+* Agh!  No complete containment.
+
+Exercise 4
+
+* Note that a list is either (a) null or (b) a pair whose cdr is a list.
+* We can determine whether a value is a pair with `pair?`
+* Embrace the magic recursion fairy.
+
+Exercise 5
+
+* You found that a helper was useful for part b, so you'll likely
+  find it useful for part c.
+
 ### Wrapup
 
+* Give up at 2:15ish
+* Looking ahead to 3.14 15....
