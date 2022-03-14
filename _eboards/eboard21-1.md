@@ -180,6 +180,12 @@ Can we go over the second half of the self check?
 
 > Certainly.  I should have the board all set for that.
 
+> To get `e`, we need `(cadddr thing)` or `(car (cdr (cdr (cdr thing))))`
+  or `((o car cdr cdr cdr) thing)`
+
+> To get to `d`, we need `(cadaddr thing)`.  Unfortunately, `cadaddr`
+  doesn't exist, so ... `(cadr (caddr (thing)))`.
+
 ### Other issues
 
 Am I spending enough time on the reading?  I only spent twenty minutes.
@@ -203,5 +209,27 @@ Lab
 
 ### During Lab
 
+General
+
+* A list of `n` elements will have `n` cons cells.
+* Every non-empty list is a pair.  (So not every list is a pair.)
+* Every pair whose cdr is a list is a list.  (So not every pair is a list.)
+* Anything you create with `cons` is a pair.
+* Because the "list printing algorithm" is optimistic (in that it
+  assumes every cons cell is part of a list, unless there is good
+  evidence to the contrary), we only see the dot (representing
+  "not a list") right before the last element.
+
+Exercise 4
+
+* You cannot take the `cdr` of a non-pair.
+* There is a `pair?` predicate with the expected behavior.
+
+Exercise 5
+
+* You needed a helper for 5b; you'll probably want a helper for 5c.
+
 ### Wrapup
+
+* "Sam said I could stop here."
 

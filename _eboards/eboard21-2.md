@@ -123,7 +123,7 @@ Recommendations / General Issues
 * MP 5 due Thursday at 10:30 p.m.  
 * MP 6 NOT due Thursday after break.
   (Revisions to schedule and grading system coming soon.)
-* Mini-competition NOW.
+* Mini-competition (with other sections) NOW.
 
 ### Upcoming Token-Generating Activities
 
@@ -180,6 +180,26 @@ Can we go over the second half of the self check?
 
 > Certainly.  I should have the board all set for that.
 
+> To get `e`, I take cdr, cdr, cdr, car, which we would write
+  as `(car (cdr (cdr (cdr thingy))))` or `(cadddr thingy)`
+  or `((o car cdr cdr cdr) thingy)`.
+
+> To get `d`, we write `(cadaddr thingy)`
+
+How many a's and d's can we have in the cadadr type things?
+
+> It appears four.
+
+> But we could define them ourselves.
+  `(define cadadaddr (o car cdr car cdr car cdr cdr))`
+
+Do we use pairs to make lists?
+
+> Yes.  A list is either null or a pair of something and a list
+  (a pair whose cdr is a list).
+
+> We can use them to make other things.
+
 ### Other issues
 
 Am I spending enough time on the reading?  I only spent twenty minutes.
@@ -203,5 +223,19 @@ Lab
 
 ### During Lab
 
+* Dots represent "this list-like value turned out not to be a list because
+  the last thing is not null"
+
+Exercise 4
+
+* Remember: A list is either (a) null or (b) a pair whose cdr is a list
+* We can check whether something is a pair with `pair?`
+* Trust the magic recursion fairy!
+
+Exercise 5
+
+* Just as part b needed a helper (part a), part c will also need a helper.
+
 ### Wrapup
 
+* Stop at 11:15 or so to submit.
