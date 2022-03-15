@@ -1,25 +1,25 @@
-last-updated: 03 January 2022
+last-updated: 15 March 2022
 
 totals:
   readings: 27
   labs:     27
   quizzes:  27
-  demos:     8
+  demos:     7
   las:      28
 
 tiers:
   - grade: C
     readings:   21xS
     labs:       22xS
-    demos:      4xR+, 3xM+, 1xE
+    demos:      4xR+, 2xM+, 1xE
     las:        21xS
   - grade: B
     readings:   23xS
     labs:       23xS
-    demos:      2xR+, 3xM+, 3xE
+    demos:      2xR+, 3xM+, 2xE
     las:        24xS
   - grade: A
     readings:   25xS
     labs:       25xS
-    demos:      1xR+, 3xM+, 4xE
+    demos:      1xR+, 3xM+, 3xE
     las:        26xS
