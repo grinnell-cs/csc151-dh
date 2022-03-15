@@ -72,18 +72,12 @@
     - Quiz 7
 
 - date: 2022-03-17
-  due:
-    - page: /mps/mp05.html
   assigned:
     - Quiz 8
 
-- date: 2022-03-18
-  assigned:
-    - page: /mps/mp06.html
-
 - date: 2022-04-07
   due:
-    - page: /mps/mp06.html
+    - page: /mps/mp05.html
 
 - date: 2022-04-10
   due:
@@ -93,19 +87,23 @@
   due:
     - Learning Assessments 3
 
-- date: 2022-04-17
+- date: 2022-04-15
   assigned:
-    - page: /mps/mp07.html
+    - page: /mps/mp06.html
+
+- date: 2022-04-17
   due:
     - Quiz 10
 
 - date: 2022-04-21
   due:
+    - page: /mps/mp06.html
+
+- date: 2022-04-22
+  assigned:
     - page: /mps/mp07.html
 
 - date: 2022-04-24
-  assigned:
-    - page: /mps/mp08.html
   due:
     - Quiz 11
 
@@ -115,7 +113,7 @@
 
 - date: 2022-05-05
   due:
-    - page: /mps/mp08.html
+    - page: /mps/mp07.html
 
 - date: 2022-05-08
   due:
