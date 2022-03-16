@@ -1,11 +1,10 @@
 ---
-title: Vectors
+title: Vectors, continued
 summary: |
-  In this laboratory, you will explore vectors, an alternative to
-  lists for storing sequences of values.
+  In this laboratory, you will continue to explore vectors, an 
+  alternative to lists for storing sequences of values.
 note: | 
-  in 2021Fa, there were more problems and students only go through
-  the first four.  So I split the lab.
+  Brand new lab for 2022Sp.
 ---
 
 ## Preparation
@@ -16,15 +15,9 @@ strengths, and areas to improve.
 
 b. Grab the code for the lab.
 
-* [vectors.rkt](../code/labs/vectors.rkt)
+* [vectors-continued.rkt](../code/labs/vectors-continued.rkt)
 
-c. Grab the text of _Jane Eyre_.
-
-* [pg1260.txt](../files/pg1260.txt)
-
-d. Review the documentation for the supplied procedures to
-ensure you understand what they are suposed to do.  If you're
-not sure, feel free to experiment or to ask the staff.
+c. Get started!
 
 ## Acknowledgements
 
@@ -33,4 +26,6 @@ The earliest version available is available at
 <https://rebelsky.cs.grinnell.edu/Courses/CS151/2000F/Labs/vectors.html>
 and appears to bear little resemblance to the current lab.  That
 suggests that it has been updated by many hands over the years.
-Samuel A. Rebelsky is likely responsible for the helper code.
+
+In 2022Sp, the lab was split into two parts.  This part of the lab
+likely bears closer resemblance to the earliest lab.

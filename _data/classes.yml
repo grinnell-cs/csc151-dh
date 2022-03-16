@@ -308,6 +308,13 @@
   lab:
     - page: /labs/vectors.html
 
+- topic: Vectors, continued
+  abbrev: vectors
+  summary: |
+    We continue to explore vectors.
+  lab:
+    - page: /labs/vectors-continued.html
+
 - topic: Dictionaries and hash tables
   abbrev: dictionaries
   summary: |
@@ -375,7 +382,7 @@
   lab:
     - page: /labs/processing-xml.html
 
-- topic: Transforming XML (1)
+- topic: Transforming XML
   summary: |
     We consider additional ways to extract data from XML documents
     or to transform XML documents into new XML documents.
@@ -385,10 +392,6 @@
     - Deleting elements
   reading:
     - page: /readings/transforming-xml.html
-
-- topic: Transforming XML (2)
-  summary: |
-    We do some "hands on" work in processing and transforming
   lab:
     - page: /labs/transforming-xml.html
 
