@@ -242,7 +242,8 @@ a. Explain what it happening in this experiment.
 
 #|
 b. Find values for `size` and `rounds` that make the computation
-of `list-result` take around half a second (500 milliseconds). 
+of `list-result` take around half a second (500 milliseconds; anywhere
+between 300 milliseconds and 800 milliseconds should be fine). 
 
 <TODO: ENTER NUMBERS AND RESULT TIME>
 |#
@@ -287,13 +288,29 @@ Will `vector-result` be the same as `list-result`?  Why or why not?
 |#
 
 #|
-f. Without changing `size`, find a value of `rounds` that makes
-the computation of `vector-result` take about 50 milliseconds.  **Make
-sure that you do not recompute list-result**.  
+f. Check your answer experimentally
+
+    (equal? list-result vector-result)
 |#
 
 #|
-g. What do you expect to happen to the time for the computation of
+g. Without changing `size`, find a value of `rounds` that makes
+the computation of `vector-result` take about 50 milliseconds 
+(anywhere between 30 and 80 should be fine.  
+
+**Make sure that you do not recompute list-result**.  
+
+    (define size 10000)
+    (define rounds 2000000)
+    (define list-of-values (range size))
+    (define list-of-probes (random-nums rounds size))
+    (define vector-of-values (list->vector list-of-values))
+    (define vector-result 
+      (time (map (section vector-ref vector-of-values <>) list-of-probes)))
+|#
+
+#|
+h. What do you expect to happen to the time for the computation of
 `vector-result` if we double the number of rounds (`rounds`)?  What
 if we triple it?
 
@@ -305,7 +322,7 @@ Check your answer experimentally and update as appropriate.
 |#
 
 #|
-h. What do you expect to happen to the time for the computation if
+i. What do you expect to happen to the time for the computation if
 we double the vector size (given by `size`)?  What if we triple
 it?
 
@@ -317,7 +334,7 @@ Check your answer experimentally and update as appropriate.
 |#
 
 #|
-i. What have you taken from these experiments?
+j. What have you taken from these experiments?
 
 <TODO: ENTER AN ANSWER HERE>
 |#
