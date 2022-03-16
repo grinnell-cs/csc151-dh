@@ -404,23 +404,23 @@ as `(cond [TEST EXP1 EXP2 ...])`.
 (define tally-letters-in-string
   (lambda (str)
     (let ([tallies (make-vector 26 0)])
-      (tally-letters-in-string/kernel str 
+      (tally-letters-in-string/helper str 
                                       tallies
                                       (- (string-length str) 1))
       tallies)))
 
-;;; (tally-letters-in-string/kernel str tallies pos) -> (void)
+;;; (tally-letters-in-string/helper str tallies pos) -> (void)
 ;;;   str : string?
 ;;;   tallies : vectorof integer? (length 26)
 ;;;   pos : non-negative integer?
 ;;; Tallies the letters in str from 0 to pos (inclusive)
-(define tally-letters-in-string/kernel
+(define tally-letters-in-string/helper
   (lambda (str tallies pos)
     (when (>= pos 0)
       (let ([ch (string-ref str pos)])
         (when (char<=? #\a ch #\z)
-          ???
-          ???)))))
+          ???))
+      ???)))
 
 #| AB |#
 
