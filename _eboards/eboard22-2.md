@@ -1,5 +1,5 @@
 ---
-title: "EBoard 22 (Section 1): Vectors"
+title: "EBoard 22 (Section 2): Vectors"
 number: 22
 section: eboards
 held: 2022-03-16
