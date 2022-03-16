@@ -22,7 +22,10 @@ Administrivia
 * Happy Wednesday!
 * I hope that you are adjusting to daylight savings time.  (I'm not sure
   that I am yet.)
-* You should have received a grade summary.
+    * This may be the last time we have to adjust!
+* I'm still working on the grade summaries.  Sorry.
+* We will be doing a second vectors lab on Friday.
+    * If you can't be in class on Friday, please do it on your own.
 
 ### Class mask policy
 
@@ -41,22 +44,19 @@ Administrivia
 
 ### Upcoming work
 
-* Reading for Friday: Hash Tables, due Thursday at 10:00 p.m.
+* No reading for Friday.
 * Today's lab due Thursday at 10:30 p.m.
     * As usual, "SAM SAID I CAN STOP HERE"
 * Quiz 8 distributed Thursday at 8am, due Sunday at 4pm: Randomness.
-* MP 5 due Thursday at 10:30 p.m.  
+* **UPDATE**: MP 5 due Thursday after break at 10:30 p.m.  
 
 ### Upcoming Token-Generating Activities
 
 _Note: For mentor sessions, I'd like reflections and not just "this is what we did._
 
-* Mentor session tonight at 8pm.
-* Mentor session Wednesday at 8pm
+* Mentor session tonight at 8pm
 
 ### Other Upcoming Activities
-
-* Follow baseball/softball/golf on their spring trip
 
 Sample Quiz 8
 -------------
@@ -85,6 +85,50 @@ One of the points of the `int-list->string` exercise was that printing
 of lists is optimistic in Racket.  We assume we have a list until
 proven otherwise.
 
+We'll use a local helper rather than the separate procedure.  To
+define local recursive helpers, we use `letrec` rather than `let.
+(The reason is complicated.)
+
+I'm using `cond` rather than `if` because I expect to add more cases.
+
+```
+(define int-list->string
+  (letrec ([; helper is used for all but the car; it add spaces and values
+            helper
+            (lambda (val)
+              (cond
+                [(null? val)
+                 ""]
+                [else
+                 (string-append " " 
+                                (number->string (car val))
+                                (helper (cdr val)))]))])
+    (lambda (val)
+      (cond
+        [(null? val)
+         "()"]
+        [else
+         (string-append "("
+                        (number->string (car val))
+                        (helper (cdr val))
+                        ")")]))))
+```
+
+Next version: Add support for a dot at the end.
+
+```
+```
+
+Minor update: Allow it to handle integers as well as lists of integers.
+
+```
+```
+
+Next variant: Add support for nesting
+
+```
+```
+
 Questions
 ---------
 
@@ -98,7 +142,7 @@ Lab
 ### Preparation
 
 * Have the normal start-of-lab discussion.
-* Save as `vectors.rkt`
+* Save the file as `vectors.rkt`
 
 ### During Lab
 
