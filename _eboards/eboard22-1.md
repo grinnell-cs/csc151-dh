@@ -30,7 +30,7 @@ Administrivia
   Big Data Increases Inequality and Threates Democracy_, DM me and
   I'll send you a copy.  (I bought a lot when it was on sale.)
 * There are a lot of illnesses going around campus.  If you feel
-  ill, please don't attend class.
+  ill, please don't attend class.  But do drop me a note.
 
 ### Class mask policy
 
@@ -135,22 +135,108 @@ I'm using `cond` rather than `if` because I expect to add more cases.
 Next version: Add support for a dot at the end.
 
 ```
+(define int-listish->string
+  (letrec ([; helper is used for all but the car; it add spaces and values
+            helper
+            (lambda (val)
+              (cond
+                [(null? val)
+                 ""]
+                [(number? val)                                  ; ADDED
+                 (string-append " . " (number->string val))]    ; ADDED
+                [else
+                 (string-append " "
+                                (number->string (car val))
+                                (helper (cdr val)))]))])
+    (lambda (val)
+      (cond
+        [(null? val)
+         "()"]
+        [else
+         (string-append "("
+                        (number->string (car val))
+                        (helper (cdr val))
+                        ")")]))))
 ```
 
 Minor update: Allow it to handle integers as well as lists of integers.
 
 ```
+(define int-thing->string
+  (letrec ([; helper is used for all but the car; it add spaces and values
+            helper
+            (lambda (val)
+              (cond
+                [(null? val)
+                 ""]
+                [(number? val)
+                 (string-append " . " (number->string val))]
+                [else
+                 (string-append " "
+                                (number->string (car val))
+                                (helper (cdr val)))]))])
+    (lambda (val)
+      (cond
+        [(null? val)
+         "()"]
+        [(number? val)                                          ; ADDED
+         (number->string val)]                                  ; ADDED
+        [else
+         (string-append "("
+                        (number->string (car val))
+                        (helper (cdr val))
+                        ")")]))))
 ```
 
-Next variant: Add support for nesting
+Next variant: Add support for nested structures
 
 ```
+(define int-thing->string
+  (letrec ([; helper is used for all but the car; it add spaces and values
+            helper
+            (lambda (val)
+              (cond
+                [(null? val)
+                 ""]
+                [(number? val)
+                 (string-append " . " (number->string val))]
+                [else
+                 (string-append " "
+                                (int-thing->string (car val))   ; CHANGED
+                                (helper (cdr val)))]))])
+    (lambda (val)
+      (cond
+        [(null? val)
+         "()"]
+        [(number? val)
+         (number->string val)]
+        [else
+         (string-append "("
+                        (int-thing->string (car val))           ; CHANGED
+                        (helper (cdr val))
+                        ")")]))))
 ```
 
 Questions
 ---------
 
 ### Reading questions
+
+Why do we use lists instead of vectors?  Vectors seem much better.
+
+> Vectors have a fixed size; lists are easy to add elements to and
+  remove elements from.
+
+> If you want to add one element to a vector, you need to build a new
+  vector that is slightly larger and copy over all the values.
+
+What chooses the vector size?
+
+> It's either explicit or implicit from how you create the vector.
+
+> `(make-vector 10 'a)` is size 10
+
+> `(vector 'a 'b 'c)` is size 3
 
 ### Other issues
 
@@ -159,13 +245,27 @@ Lab
 
 ### Preparation
 
+* Save the file as `vectors.rkt`
+* Download `pg1260.txt` too.
 * Have the normal start-of-lab discussion.
 * Read over the code!
-* Save the file as `vectors.rkt`
 
 ### During Lab
+
+#### Exercise 1
+
+There's a diagram on the board that might help you understand better.
+
+What do you expect this to give?
+
+    > (let* ([gibbon (list "a" "b" "c" "d")]
+             [hippo gibbon])
+        (let ([gibbon (cdr gibbon)])
+          (list gibbon hippo)))
+
+#### Exercise 3
 
 ### Wrapup
 
 * "Sam said I could stop here."
-
+* You'll need to submit the text file too (since we reference it).

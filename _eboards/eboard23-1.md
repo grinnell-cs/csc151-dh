@@ -74,6 +74,28 @@ _Note: For mentor sessions, I'd like reflections and not just "this is what we d
 Racket/Lab Stuff
 ----------------
 
+### Yesterday's lab, exercise 3
+
+What you might have found
+
+* For lists, if we double the number of rounds, we double the time.
+    * Implication: More lookups take more time.  That seems reasonable.
+* For lists, if we double the size of the list, we also double the time.
+    * Implication: the time for `list-ref` scales with the position in 
+      the list
+* For vectors, if we double the number of rounds, we double the time.
+    * Implication: More lookups take more time.  That seems reasonable.
+* For vectors, if we double the size of the vector, we have almost no
+  effect on time.
+    * Implication: The time for `vector-ref` does not depend on the 
+      size of the vector.
+
+Broader idea: How do we test assertions about speed, particularly when
+most individual operations  are lighting fast.
+
+Question: Why does the time for `list-ref` scale with the position in 
+the list?
+
 Questions
 ---------
 

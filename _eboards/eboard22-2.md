@@ -10,9 +10,9 @@ link: true
 _Approximate overview_
 
 * Administrative stuff [~5 min]
-* Racket stuff [~10 min]
+* Racket stuff [~20 min]
 * Questions [~5 min]
-* Lab [~60 min]
+* Lab [~50 min]
 
 Administrivia
 -------------
@@ -30,7 +30,7 @@ Administrivia
   Big Data Increases Inequality and Threates Democracy_, DM me and
   I'll send you a copy.  (I bought a lot when it was on sale.)
 * There are a lot of illnesses going around campus.  If you feel
-  ill, please don't attend class.
+  ill, please don't attend class.  But do send me email.
 
 ### Class mask policy
 
@@ -135,22 +135,131 @@ I'm using `cond` rather than `if` because I expect to add more cases.
 Next version: Add support for a dot at the end.
 
 ```
+; What if the pair structure does not end in null?  What would you
+; change in this code?
+(define int-listish->string
+  (letrec ([; helper is used for all but the car; it add spaces and values
+            helper
+            (lambda (val)
+              (cond
+                [(null? val)
+                 ""]
+                [(number? val)                                  ; ADDED
+                 (string-append " . " (number->string val))]    ; ADDED
+                [else
+                 (string-append " "
+                                (number->string (car val))
+                                (helper (cdr val)))]))])
+    (lambda (val)
+      (cond
+        [(null? val)
+         "()"]
+        [else
+         (string-append "("
+                        (number->string (car val))
+                        (helper (cdr val))
+                        ")")]))))
 ```
 
 Minor update: Allow it to handle integers as well as lists of integers.
 
 ```
+(define int-thing->string
+  (letrec ([helper
+            (lambda (val)
+              (cond
+                [(null? val)
+                 ""]
+                [(number? val)
+                 (string-append " . " (number->string val))]
+                [else
+                 (string-append " "
+                                (number->string (car val))
+                                (helper (cdr val)))]))])
+    (lambda (val)
+      (cond
+        [(null? val)
+         "()"]
+        [(number? val)
+         (number->string val)]
+        [else
+         (string-append "("
+                        (number->string (car val))
+                        (helper (cdr val))
+                        ")")]))))
 ```
 
-Next variant: Add support for nesting
+Next variant: Add support for nested structures.
 
 ```
+(define int-thing->string
+  (letrec ([helper
+            (lambda (val)
+              (cond
+                [(null? val)
+                 ""]
+                [(number? val)
+                 (string-append " . " (number->string val))]
+                [else
+                 (string-append " "
+                                (int-thing->string (car val))
+                                (helper (cdr val)))]))])
+    (lambda (val)
+      (cond
+        [(null? val)
+         "()"]
+        [(number? val)
+         (number->string val)]
+        [else
+         (string-append "("
+                        (int-thing->string (car val))
+                        (helper (cdr val))
+                        ")")]))))
 ```
 
 Questions
 ---------
 
 ### Reading questions
+
+What's a vector literal vs. a vector?
+
+> A vector literal is one we create with a tick.  `'#(1 2 3)`
+
+> A "normal" vector is one we create in almost any other way (with
+  `vector` or `make-vector` or `list->vector` or ...)
+
+> We often avoid vector literals because they do not permit `vector-set!`
+  (or other mutation).
+
+Can we see an example of `vector-set!`
+
+> Yup
+
+Why do the examples have so many `/kernel` at the end.
+
+> We use `/kernel` to name our helper procedures.
+
+> I'll work on changing that.
+
+What is `when`?
+
+> `(when TEST EXP1 EXP2 ...)` is an alternate to `cond` and `if`.
+  It first evaluates `TEST`.  If test holds, it evaluate *all* the expressions
+  in turn.  If the test doesn't hold, the `when` returns nothing.
+
+> Shorthand for `(cond [TEST EXP1 EXP2 ...])`.  Easier to read, formats
+  better.
+
+Can I think of it as a do-while loop?
+
+> I won't stop you, but that's not how most people think of it.
+
+> It is useful for recursive repetition.
+
+Will we ever do while loops.
+
+> Nope.  You have recursion.  Why would you need anything else?
 
 ### Other issues
 
@@ -159,13 +268,19 @@ Lab
 
 ### Preparation
 
+* Save the file as `vectors.rkt`.
+* Grab `pg1260.txt`, too.
 * Have the normal start-of-lab discussion.
 * Read over the code!
-* Save the file as `vectors.rkt`
 
 ### During Lab
+
+See board for memory model.
+
+`(time exp)` evaluates the expression, prints out the time, and then
+returns the value of the expression.
 
 ### Wrapup
 
 * "Sam said I could stop here."
-
+* Make sure to submit pg1260 too.
