@@ -1,7 +1,9 @@
 #lang racket
 
 (require csc151)
+(require csc151/rex)
 (require rackunit)
+
 
 ;; CSC-151-NN (SEMESTER)
 ;; Lab: Vectors (vectors.rkt)
@@ -67,10 +69,13 @@
 ;;; word-list : listof string?
 ;;; A sample list of strings, taken from one of the Project Gutenberg
 ;;; collection.
-;;; N.B., the file is our old friend, Jane Eyre, from Gutenberg:
+;;; N.B., the paragraph is adapted from our old friend, Jane Eyre, 
+;;  in the version from Gutenberg:
 ;;;   https://www.gutenberg.org/cache/epub/1260/pg1260.txt
 (define word-list
-  (file->words "pg1260.txt"))
+  (rex-find-matches (rex-any-of (rex-char-range #\a #\z) 
+                                (rex-char-range #\A #\Z))
+                                "A preface to the first edition of Jane Eyre being unnecessary, I gave none; this second edition demands a few words both of acknowledgment and miscellaneous remark.  My thanks are due in three quarters.  To the Public, for the indulgent ear it has inclined to a plain tale with few pretensions.  To the Press, for the fair field its honest suffrage has opened to an obscure aspirant.  To my Publishers, for the aid their tact, their energy, their practical sense and frank liberality have afforded an unknown and unrecommended Author. The Press and the Public are but vague personifications for me, and I must thank them in vague terms; but my Publishers are definite: so are certain generous critics who have encouraged me as only large-hearted and high-minded men know how to encourage a struggling stranger; to them, _i.e._, to my Publishers and the select Reviewers, I say cordially, Gentlemen, I thank you from my heart.  Having thus acknowledged what I owe those who have aided and approved me, I turn to another class; a small one, so far as I know, but not, therefore, to be overlooked.  I mean the timorous or carping few who doubt the tendency of such books as \"Jane Eyre:\" in whose eyes whatever is unusual is wrong; whose ears detect in each protest against bigotry--that parent of crime--an insult to piety, that regent of God on earth.  I would suggest to such doubters certain obvious distinctions; I would remind them of certain simple truths."))
 
 ;;; word-vector : vectorof string?
 ;;; A sample vector of strings, taken from one of the Project Gutenberg
@@ -399,23 +404,23 @@ as `(cond [TEST EXP1 EXP2 ...])`.
 (define tally-letters-in-string
   (lambda (str)
     (let ([tallies (make-vector 26 0)])
-      (tally-letters-in-string/kernel str 
+      (tally-letters-in-string/helper str 
                                       tallies
                                       (- (string-length str) 1))
       tallies)))
 
-;;; (tally-letters-in-string/kernel str tallies pos) -> (void)
+;;; (tally-letters-in-string/helper str tallies pos) -> (void)
 ;;;   str : string?
 ;;;   tallies : vectorof integer? (length 26)
 ;;;   pos : non-negative integer?
 ;;; Tallies the letters in str from 0 to pos (inclusive)
-(define tally-letters-in-string/kernel
+(define tally-letters-in-string/helper
   (lambda (str tallies pos)
     (when (>= pos 0)
       (let ([ch (string-ref str pos)])
         (when (char<=? #\a ch #\z)
-          ???
-          ???)))))
+          ???))
+      ???)))
 
 #| AB |#
 

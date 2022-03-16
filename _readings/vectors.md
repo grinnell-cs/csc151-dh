@@ -393,7 +393,7 @@ to iterate over all the positions in a vector, applying our increment
 function along the way. Thus, we might track *`pos`*, the current position
 to modify in the vector, starting at zero and ending when we reach the
 length of the vector. We can encapsulate this repeated mutation with a
-named `let`
+named `let`.
 
 ```
 ;;; (number-vector-inrement-all! vec) -> void?
@@ -402,20 +402,30 @@ named `let`
 (define number-vector-increment-all!
   (lambda (vec)
     (let ([len (vector-length vec)]) ; unchanging value, tells recursion to stop
-      (number-vector-increment-all!/kernel vec 0 len))))
+      (number-vector-increment-all!/helper vec 0 len))))
 
-;;; (number-vector-increment-all!/kernel vec pos len) -> void?
+;;; (number-vector-increment-all!/helper vec pos len) -> void?
 ;;;   vec : vectorof? number
 ;;;   pos : integer? (index)
 ;;;   len : integer
 ;;; Increment all the elements at positions `pos` (inclusive)
 ;;; through `len` (exclusive)
-(define number-vector-increment-all!/kernel
+(define number-vector-increment-all!/helper
   (lambda (vec pos len)
     (when (< pos len)   ; When the position is valid
       (number-vector-increment! vec pos)
-      (number-vector-increment-all!/kernel vec (+ pos 1) len))))
+      (number-vector-increment-all!/helper vec (+ pos 1) len))))
 ```
+
+You'll note that we've used `when`.  `when` is another conditional
+structure, like `if` and `cond`.  `(when TEST EXP1 EXP2 ...)` evaluates
+the test.  If the test is truish, it then evaluates all of the expressions
+in turn, returning the value of the last one.    If the test is false,
+the `when` returns nothing.
+
+`(when TEST EXP1 EXP2 ....)` is effectively a shorthand for `(cond
+[TEST EXP1 EXP2 ...])`.  We prefer `when` because it's slightly
+easier to read and formats a bit more nicely.
 
 There are various ways to mutate all vector elements; the lab will
 suggest some alternatives. Unfortunately, we do not always have a special
@@ -441,22 +451,22 @@ procedure.
 (define number-vector-scale!
   (lambda (vec divisor)
     (let ([len (vector-length vec)]) 
-      (number-vector-scale!/kernel vec divisor 0 len))))
+      (number-vector-scale!/helper vec divisor 0 len))))
 
-;;; (number-vector-scale!/kernel vec divisor pos len) -> void?
+;;; (number-vector-scale!/helper vec divisor pos len) -> void?
 ;;;   vec : vectorof number?
 ;;;   divisor : number?
 ;;;   pos : integer? (index)
 ;;;   len : integer? (length of vec)
 ;;; Scale all the elements in the vector from pos (inclusive) to
 ;;; len (exclusive) by dividing by the given ;;; divisor.
-(define number-vector-scale!/kernel
+(define number-vector-scale!/helper
   (lambda (vec divisor pos len)
      (when (< pos len)       ; When the position is valid,
        (vector-set! vec      ; Set the new value in the vector
                     pos      ; at the current position
                     (/ (vector-ref vec pos) divisor)) ; to the quotient
-       (number-vector-scale!/kernel vec ; And process the rest
+       (number-vector-scale!/helper vec ; And process the rest
                                     divisor
                                     (+ pos 1)
                                     len))))
@@ -475,7 +485,7 @@ complete answer from the partial (recursive) answer.
 (define number-vector-largest
   (lambda (vec)
     (let ([last (- (vector-length vec) 1)]) ; last position to test
-      (number-vector-largest/kernel vec 0 last))))
+      (number-vector-largest/helper vec 0 last))))
 
 ;;; (number-vector-largest vec pos last) -> real?
 ;;;   vec : vectorof? real
@@ -483,7 +493,7 @@ complete answer from the partial (recursive) answer.
 ;;;   last : integer? (index)
 ;;; Finds the largest value in the subvector from pos to last
 ;;; (inclusive).
-(define number-vector-largest/kernel
+(define number-vector-largest/helper
   (lambda (vec pos last)
     ; Grab the current element from the vector
     (let ([current (vector-ref vec pos)])
@@ -493,7 +503,7 @@ complete answer from the partial (recursive) answer.
           ; Otherwise, find the largest in the remainder, and then
           ; take the largest of the current element and that element.
           (max current
-               (number-vector-largest/kernel vec (+ pos 1) last))))))
+               (number-vector-largest/helper vec (+ pos 1) last))))))
 ```
 
 Some folks find it easiest to work from back to front, rather than
@@ -506,7 +516,7 @@ front to back.  That also lets us stop when we reach (or pass) zero.
 (define number-vector-largest
   (lambda (vec)
     (let ([last (- (vector-length vec) 1)]) ; last position to test
-      (number-vector-largest/kernel vec last))))
+      (number-vector-largest/helper vec last))))
 
 ;;; (number-vector-largest vec pos) -> real?
 ;;;   vec : vectorof? real
@@ -514,14 +524,14 @@ front to back.  That also lets us stop when we reach (or pass) zero.
 ;;;   last : integer? (index)
 ;;; Finds the largest value in the subvector from 0 to pos.
 ;;; (inclusive).
-(define number-vector-largest/kernel
+(define number-vector-largest/helper
   (lambda (vec pos)
     ; Grab the current element from the vector
     (let ([current (vector-ref vec pos)])
       (if (zero? pos)
           current
           (max current
-               (number-vector-largest/kernel vec (- pos 1)))))))
+               (number-vector-largest/helper vec (- pos 1)))))))
 ```
 
 ## Patterns of recursion over vectors
@@ -541,14 +551,14 @@ the position. As usual, the "combine" step is problem dependent.
 (define vector-proc
   (lambda (vec other)
     (let ([len (vector-length vec)])
-      (vector-proc/kernel vec other 0 len))))
+      (vector-proc/helper vec other 0 len))))
 
-(define vector-proc/kernel 
+(define vector-proc/helper 
   (lambda (vec other pos len)
     (if (= pos len)
         (base-case vec other)
         (combine (vector-ref vec pos)
-                 (vector-proc/kernel vec other (+ pos 1) len)))))
+                 (vector-proc/helper vec other (+ pos 1) len)))))
 ```
 
 At other times, it's better to start at the end of the vector and
@@ -558,14 +568,14 @@ position reaches 0 and we simplify by subtracting 1.
 ```
 (define vector-proc
   (lambda (vec other)
-    (vector-proc/kernel vec other (- (vector-length vec) 1))))
+    (vector-proc/helper vec other (- (vector-length vec) 1))))
 
-(define vector-proc/kernel
+(define vector-proc/helper
   (lambda (vec other pos)
     (if (< pos 0)
         (base-case vec other)
         (combine (vector-ref vec pos)
-                 (vector-proc/kernel vec other (- pos 1))))))
+                 (vector-proc/helper vec other (- pos 1))))))
 ```
 
 Because vectors are mutable, we often use an imperative pattern with
@@ -575,9 +585,9 @@ Because vectors are mutable, we often use an imperative pattern with
 (define vector-proc!
   (lambda (vec other)
     (let ([len (vector-length vec)])
-      (vector-proc!/kernel vec other 0 len))))
+      (vector-proc!/helper vec other 0 len))))
 
-(define vector-proc!/kernel 
+(define vector-proc!/helper 
   (lambda (pos)
     (cond
       [(= pos len)
@@ -586,7 +596,7 @@ Because vectors are mutable, we often use an imperative pattern with
       [else
        (operation! vec pos)
        ...
-       (vector-proc!/kernel vec other (+ pos 1) len)])))
+       (vector-proc!/helper vec other (+ pos 1) len)])))
 ```
 
 Note that we have to use a `cond`, rather than an `if`, because we 
@@ -596,12 +606,12 @@ If there's nothing to do in the base case (e.g., it's just a note
 that we're done), we can use a `when`.
 
 ```
-(define vector-proc!/kernel 
+(define vector-proc!/helper 
   (lambda (vec other pos len)
       (when (< pos len)
         (operation! vec pos)
         ...
-        (vector-proc!/kernel vec other (+ pos 1) len)))))
+        (vector-proc!/helper vec other (+ pos 1) len)))))
 ```
 
 And, as before, we can count down, rather than up.
@@ -611,12 +621,12 @@ And, as before, we can count down, rather than up.
   (lambda (vec other)
     (vec other (- (vector-length vec) 1))))
 
-(define vector-proc!/kernel 
+(define vector-proc!/helper 
   (lambda (vec other pos)
       (when (>= pos 0)
         (operation! vec pos)
         ...
-        (vector-proc!/kernel vec other (- pos 1)))))
+        (vector-proc!/helper vec other (- pos 1)))))
 ```
 
 ## Summary of important vector procedures

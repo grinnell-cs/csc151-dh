@@ -18,11 +18,7 @@ b. Grab the code for the lab.
 
 * [vectors.rkt](../code/labs/vectors.rkt)
 
-c. Grab the text of _Jane Eyre_.
-
-* [pg1260.txt](../files/pg1260.txt)
-
-d. Review the documentation for the supplied procedures to
+c. Review the documentation for the supplied procedures to
 ensure you understand what they are suposed to do.  If you're
 not sure, feel free to experiment or to ask the staff.
 
