@@ -25,6 +25,8 @@ Administrivia
   I'll send you a copy.  (I bought a lot when it was on sale.)
 * I forgot my hearing aid today (and I'm still waiting for the
   replacement of my lost one).  Please speak loudly.
+* I need to work on the autograder for the first bit of lab.  Feel free
+  to grab me if you need help.
 
 ### Class mask policy
 
@@ -103,6 +105,11 @@ most individual operations  are lighting fast?
 Question: Why does the time for `list-ref` scale with the position in 
 the list?
 
+> To get to element `k`, you have to call `cdr` `k` times.
+
+> In a vector, you do a little math and you can figure out where in
+  the vector you are.
+
 Questions
 ---------
 
@@ -151,11 +158,38 @@ Could you review recursion over vectors?
 ```
 (define iota
   (lambda (n)
-    ???))
+    (iota/helper 0 (make-vector n) n)))
 
 (define iota/helper
-  (lambda (pos vec)
-    ???))
+  (lambda (pos vec n)
+    (when (<= pos n)
+      (vector-set! vec pos pos) 
+      (iota/helper (+ 1 pos) vec n))))
+```
+
+Whoops.  This version has (at least) two problems.  Can you figure out 
+what they are?
+
+* `n` is not a valid index, so the "continue" policy should be `(< pos n)`.
+*
+
+Let's fix it.
+
+```
+(define iota
+  (lambda (n)
+    (let ([vec (make-vector n)])
+      (iota/helper 0 vec n)
+      vec)))
+
+(define iota/helper
+  (lambda (pos vec n)
+    (when (< pos n)
+      (vector-set! vec pos pos)
+      (iota/helper (+ 1 pos) vec n))))
+
+(test-equal? "zero" (iota 0) (vector))
+(test-equal? "five" (iota 5) '#(0 1 2 3 4))
 ```
 
 ### Other issues
@@ -170,6 +204,8 @@ Lab
 * Save the file as `vectors-continued.rkt`
 
 ### During Lab
+
+#### Exercise 4
 
 ### Wrapup
 

@@ -11,8 +11,8 @@ _Approximate overview_
 
 * Administrative stuff [~5 min]
 * Racket stuff [~10 min]
-* Questions [~5 min]
-* Lab [~60 min]
+* Questions [~15 min]
+* Lab [~50 min]
 
 Administrivia
 -------------
@@ -25,6 +25,8 @@ Administrivia
   I'll send you a copy.  (I bought a lot when it was on sale.)
 * I forgot my hearing aid today (and I'm still waiting for the
   replacement of my lost one).  Please speak loudly.
+* There's a small bug in the autograder.  I'll be spending the first
+  few minutes of lab trying to address that bug.
 
 ### Class mask policy
 
@@ -148,14 +150,59 @@ Could you review recursion over vectors?
 > For example, let's build a simplified version of `range` that 
   constructs a vector from 0 to n-1.
 
+We'll start with the helper.
+
+```
+(define iota/helper
+  (lambda (vec pos)
+    (when (>= pos 0)
+      (vector-set! vec pos pos)
+      (iota/helper vec (- pos 1)))))
+```
+
+It seems to work
+
+```
+> (define vec (make-vector 5 'a))
+> (iota/helper vec 3)
+> vec
+'#(0 1 2 3 a)
+```
+
+Now we can write `iota`.
+
+Our original version
+
 ```
 (define iota
   (lambda (n)
-    ???))
+    (iota/helper (make-vector n 'whatever) (- n 1))))
+```
 
-(define iota/helper
-  (lambda (pos vec)
-    ???))
+Whoops; that doesn't return anything.
+
+```
+(define iota
+  (lambda (n)
+    (let ([vec (make-vector n 'whatever)])
+      (iota/helper vec (- n 1))
+      vec)))
+```
+
+That works!
+
+```
+(test-equal? "zero"
+             (iota 0)
+             #())
+
+(test-equal? "one"
+             (iota 1)
+             #(0))
+
+(test-equal? "five"
+             (iota 5)
+             #(0 1 2 3 4))
 ```
 
 ### Other issues
@@ -170,6 +217,10 @@ Lab
 * Save the file as `vectors-continued.rkt`
 
 ### During Lab
+
+Make sure you think about what pattern is right for the problem.  Are
+you extracting/combing values?  Are you changing values?  Are you
+doing something else?
 
 ### Wrapup
 
