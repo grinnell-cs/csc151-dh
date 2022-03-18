@@ -10,9 +10,9 @@ link: true
 _Approximate overview_
 
 * Administrative stuff [~5 min]
-* Racket stuff [~10 min]
+* Racket stuff [~20 min]
 * Questions [~5 min]
-* Lab [~60 min]
+* Lab [~50 min]
 
 Administrivia
 -------------
@@ -31,6 +31,7 @@ Administrivia
   I'll send you a copy.  (I bought a lot when it was on sale.)
 * There are a lot of illnesses going around campus.  If you feel
   ill, please don't attend class.
+* We are down a mentor and a bunch of students today.  Expect to rearrange.
 
 ### Class mask policy
 
@@ -107,6 +108,10 @@ We'll use a local helper rather than the separate procedure.  To
 define local recursive helpers, we use `letrec` rather than `let.
 (The reason is complicated.)
 
+I'm using a local helper to make it easier to change things, since
+that means I don't have to rename it when I make a new procedure
+like `int-list->string`.
+
 I'm using `cond` rather than `if` because I expect to add more cases.
 
 ```
@@ -135,16 +140,88 @@ I'm using `cond` rather than `if` because I expect to add more cases.
 Next version: Add support for a dot at the end.
 
 ```
+; What if the pair structure does not end in null?  What would you
+; change in this code?
+(define int-listish->string
+  (letrec ([; helper is used for all but the car; it add spaces and values
+            helper
+            (lambda (val)
+              (cond
+                [(null? val)
+                 ""]
+                [(number? val)                                  ; ADDED
+                 (string-append " . " (number->string val))]    ; ADDED
+                [else
+                 (string-append " "
+                                (number->string (car val))
+                                (helper (cdr val)))]))])
+    (lambda (val)
+      (cond
+        [(null? val)
+         "()"]
+        [else
+         (string-append "("
+                        (number->string (car val))
+                        (helper (cdr val))
+                        ")")]))))
 ```
 
 Minor update: Allow it to handle integers as well as lists of integers.
 
 ```
+(define int-thing->string
+  (letrec ([; helper is used for all but the car; it add spaces and values
+            helper
+            (lambda (val)
+              (cond
+                [(null? val)
+                 ""]
+                [(number? val)
+                 (string-append " . " (number->string val))]
+                [else
+                 (string-append " "
+                                (number->string (car val))
+                                (helper (cdr val)))]))])
+    (lambda (val)
+      (cond
+        [(null? val)
+         "()"]
+        [(number? val)
+         (number->string val)]
+        [else
+         (string-append "("
+                        (number->string (car val))
+                        (helper (cdr val))
+                        ")")]))))
 ```
 
-Next variant: Add support for nesting
+Next variant: Add support for nested structures.
 
 ```
+(define int-thing->string
+  (letrec ([; helper is used for all but the car; it add spaces and values
+            helper
+            (lambda (val)
+              (cond
+                [(null? val)
+                 ""]
+                [(number? val)
+                 (string-append " . " (number->string val))]
+                [else
+                 (string-append " "
+                                (int-thing->string (car val))
+                                (helper (cdr val)))]))])
+    (lambda (val)
+      (cond
+        [(null? val)
+         "()"]
+        [(number? val)
+         (number->string val)]
+        [else
+         (string-append "("
+                        (int-thing->string (car val))
+                        (helper (cdr val))
+                        ")")]))))
 ```
 
 Questions
@@ -152,7 +229,36 @@ Questions
 
 ### Reading questions
 
+What are the differences between lists, vectors, and pairs?
+
+> Lists and pairs are (effectively) immutable, most vectors are
+  mutable.  Mutation causes confusion.  (But it's also really
+  useful.)
+
+> However, it's easy to extend a list; just cons something on the front.
+
+> Vectors are a fixed size; they cannot easily be extended.  You must 
+  build a new vector that is larger and then copy over all the elements.
+
+> Similarly, throwing away the first element of a list is easy; take the
+  cdr.
+
+> Throwing away the first element of a vector requires building a new
+  vector.  (Vectors are fixed size).
+
+> Pairs exist primarily to allow you to build lists efficiently.
+
+Why did we use lists and pairs?
+
+> Immutability is easier conceptually.
+
+> It's nice to grow things (or shrink).
+
 ### Other issues
+
+When are the redos for MP3 and MP4 happening?
+
+> After break.  Probably two weeks after break (April 17).
 
 Lab
 ---
@@ -164,6 +270,22 @@ Lab
 * Save the file as `vectors.rkt`
 
 ### During Lab
+
+#### Exercise 1
+
+See the board for the memory model.
+
+#### Exercise 3
+
+Core idea: We are randomly looking in a list or vector of size `size`.
+We look in that list or vector `rounds` times.  (Each individual `-ref`
+is too fast to measure, so we do it again and again and again to make
+it easier to measure.)
+
+We want to determine whether and how much the size of the list or vector
+affects the overall/average time for lookup.
+
+We'll discuss results next time.
 
 ### Wrapup
 
