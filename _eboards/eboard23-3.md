@@ -1,5 +1,5 @@
 ---
-title: "EBoard 23 (Section 1): Vectors, Continued"
+title: "EBoard 23 (Section 3): Vectors, Continued"
 number: 23
 section: eboards
 held: 2022-03-18
@@ -20,6 +20,8 @@ Administrivia
 ### Introductory notes
 
 * Happy Friday!
+* There's a slim chance that we'll have no mentors today.  If that's the
+  case, Sam will do his best.
 * If anyone wants a Kindle copy of _Weapons of Math Destruction: How 
   Big Data Increases Inequality and Threates Democracy_, DM me and
   I'll send you a copy.  (I bought a lot when it was on sale.)
