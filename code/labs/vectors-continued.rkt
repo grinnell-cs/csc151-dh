@@ -1,4 +1,3 @@
-
 #lang racket
 
 (require csc151)
@@ -23,7 +22,7 @@ a. Introduce yourselves and have the normal start of lab discussion.
 b. Make sure to save this file as `vectors-continued.rkt`.
 
 c. Remind yourself of the patterns of vector recrusion from the
-reading and previous lab on vectors.
+reading.
 |#
 
 #| A |#
@@ -37,15 +36,19 @@ Write a recursive procedure, `(vector-sum numbers)`, that takes one
 argument, a vector of numbers, and returns the sum of the elements
 of that vector.
 
-You can use the recursion pattern(s) and `number-vector-largest`
-from the reading as starting points. If you do, be sure to cite
-your sources appropriately.
+You can use the recursion pattern(s) and the model of
+`number-vector-largest` from the reading as starting points. If you
+do, be sure to cite your sources appropriately.
 
 You may not convert your vector into a list.
 
 Note: In case you hadn't noticed it yet, vector recursion is usually
 a form of numeric recursion, where you are use the index in the
 vector as the value you recurse over.
+
+Note: In case you hadn't noticed it yet, vector recursion generally
+involves a helper procedure that takes the position as an extra
+parameter.
 |#
 
 (define vector-sum
@@ -104,6 +107,8 @@ of `elt` if it appears in the vector and #f otherwise.
 2
 > (vector-index-of (vector 'a 'b 'c) 'd)
 #f
+
+Once again, you should not convert the vector to a list.
 |#
 
 (define vector-index-of
@@ -118,7 +123,19 @@ of `elt` if it appears in the vector and #f otherwise.
 #|
 a. Write a procedure, `(vector-reverse vec)`, that creates a new
 vector whose elements appear in the reverse order of the elements
-in *`vec`*.
+in `vec`.
+
+    > (define letters (vector 'a 'b 'c 'd))
+    > letters
+    '#(a b c d)
+    > (define srettel (vector-reverse letters))
+    > srettel
+    '#(d c b a)
+    > letters
+    '#(a b c d)
+
+You may not use `list->vector` or `vector->list` in defining
+`vector-reverse`.
 |#
 
 (define vector-reverse
@@ -128,7 +145,17 @@ in *`vec`*.
 #|
 b. Write a procedure, `(vector-reverse! vec`), that reverses *`vec`*
 “in place”. That is, instead of producing a new vector, it rearranges
-the elements within *`vec`*.
+the elements within `vec`.
+
+    > (define letters (vector 'a 'b 'c 'd))
+    > letters
+    '#(a b c d)
+    > (vector-reverse! letters)
+    > letters
+    '#(d c b a)
+
+Once again, you may not use `list->vector` or `vector->list` in
+defining `vector-reverse!`.
 |#
 
 (define vector-reverse!
@@ -156,8 +183,33 @@ If you find that you have time left at the end of lab, consider
 doing one or more of the following problems.
 |#
 
+; +----------------------------+-------------------------------------
+; | Extra 1: Adding to vectors |
+; +----------------------------+
+
+#|
+Write a procedure, `(vector-cons val vec)`, that builds a new vector
+by adding `val` to the front of `vec`.
+
+   > (define nums (vector 4 3 8))
+   > nums
+   '#(4 3 8)
+   > (define morenums (vector-cons 6 nums))
+   > morenums
+   '#(6 4 3 8)
+
+|#
+
+;;; (vector-cons val vec) -> vector?
+;;;   val : any?
+;;;   vec : vector?
+;;; Add val to the front of `vec`, thereby creating a new vector..
+(define vector-cons
+  (lambda (val vec)
+    ???))
+
 ; +---------------------------+--------------------------------------
-; | Extra 1: Rotating vectors |
+; | Extra 2: Rotating vectors |
 ; +---------------------------+
 
 #|
@@ -166,6 +218,17 @@ in `vec` left by one position, moving the first element to the end.
 That is, `vector-rotate-l!` puts the initial element of `vec` at the end,
 the element at position 1 in position 0, the element at position 2
 in position 1, and so on and so forth.
+
+    > (define letters (vector 'a 'b 'c 'd))
+    > letters
+    '#(a b c d)
+    > (vector-rotate-1! letters)
+    > letters
+    '#(b c d a)
+    > (vector-rotate-1! letters)
+    > letters
+    '#(c d a b
+    )
 |#
 
 (define vector-rotate-l!
@@ -173,7 +236,7 @@ in position 1, and so on and so forth.
     ???))
 
 ; +--------------------------------------+---------------------------
-; | Extra 2: Rotating vectors, revisited |
+; | Extra 3: Rotating vectors, revisited |
 ; +--------------------------------------+
 
 #|
@@ -182,6 +245,8 @@ the values in `vec` by `amt` positions. That is, the first `amt`
 values in `vec` move to the end, the value in position `amt` moves
 to position 0, the value in position `amt`+1 moves to position 1,
 and so on and so forth.
+
+Please do not use repeated calls to `vector-rotate-1!`.
 |#
 
 (define vector-rotate!
@@ -189,7 +254,7 @@ and so on and so forth.
     ???))
 
 ; +--------------------------------+---------------------------------
-; | Extra 3: Patterns of recursion |
+; | Extra 4: Patterns of recursion |
 ; +--------------------------------+
 
 #|
