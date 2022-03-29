@@ -218,6 +218,22 @@ selected words.
 <TODO: Enter your code and the output, copied from the interactions pane.>
 |#
 
+#|
+d. What do you expect to get from each of the following?  (That is,
+how many values do you expect to get and what range of values do
+you expect to get?)
+
+    (random-nums 10 20)
+    (random-nums 20 10)
+
+|#
+
+#|
+e. Check your answer experimentally.
+
+<TODO: Enter the results from the interactions pane here.>
+|#
+
 #| B |#
 
 ; +-------------------------------+----------------------------------
