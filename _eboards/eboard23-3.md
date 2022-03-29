@@ -1,5 +1,5 @@
 ---
-title: "EBoard 23 (Section 1): Vectors, Continued"
+title: "EBoard 23 (Section 3): Vectors, Continued"
 number: 23
 section: eboards
 held: 2022-03-18
@@ -11,8 +11,8 @@ _Approximate overview_
 
 * Administrative stuff [~5 min]
 * Racket stuff [~10 min]
-* Questions [~5 min]
-* Lab [~60 min]
+* Questions [~15 min]
+* Lab [~50 min]
 
 Administrivia
 -------------
@@ -20,13 +20,13 @@ Administrivia
 ### Introductory notes
 
 * Happy Friday!
+* There's a slim chance that we'll have no mentors today.  If that's the
+  case, Sam will do his best to act like multiple people.
 * If anyone wants a Kindle copy of _Weapons of Math Destruction: How 
   Big Data Increases Inequality and Threates Democracy_, DM me and
   I'll send you a copy.  (I bought a lot when it was on sale.)
 * I forgot my hearing aid today (and I'm still waiting for the
   replacement of my lost one).  Please speak loudly.
-* I need to work on the autograder for the first bit of lab.  Feel free
-  to grab me if you need help.
 
 ### Class mask policy
 
@@ -105,10 +105,15 @@ most individual operations  are lighting fast?
 Question: Why does the time for `list-ref` scale with the position in 
 the list?
 
-> To get to element `k`, you have to call `cdr` `k` times.
+* List ref is a recursive procedure that has to recurse through the list
+  until it hits the appropriate position.
+* Will it take any longer to do `(list-ref long-list 100)` than
+  `(list-ref short-list 100)`, assuming short-list has 105 elements
+  and long-list has 10000000 elements.
 
-> In a vector, you do a little math and you can figure out where in
-  the vector you are.
+Note vector-ref is independent of the position.  Why?  The location
+of the kth element in a vector is `k*box-size` from the start of the
+vector.  (We store links in the boxes, all links have the same size.)
 
 Questions
 ---------
@@ -137,8 +142,8 @@ Could you review recursion over vectors?
                  (recurse vec (- pos 1))))
 
     ; Extraction, counting up
-    (if (= pos (vector-length vec))
-        base-value
+    (if (>= pos (vector-length vec)) ; Like the null list case
+        base-value                   ; 0, if we were counting a's
         (combine (vector-ref vec pos)
                  (recurse vec (+ pos 1))))
 
@@ -155,42 +160,64 @@ Could you review recursion over vectors?
 > For example, let's build a simplified version of `range` that 
   constructs a vector from 0 to n-1.
 
-```
-(define iota
-  (lambda (n)
-    (iota/helper 0 (make-vector n) n)))
+> Here's the helper
 
+```
 (define iota/helper
-  (lambda (pos vec n)
-    (when (<= pos n)
-      (vector-set! vec pos pos) 
-      (iota/helper (+ 1 pos) vec n))))
-```
-
-Whoops.  This version has (at least) two problems.  Can you figure out 
-what they are?
-
-* `n` is not a valid index, so the "continue" policy should be `(< pos n)`.
-*
-
-Let's fix it.
-
-```
-(define iota
-  (lambda (n)
-    (let ([vec (make-vector n)])
-      (iota/helper 0 vec n)
-      vec)))
-
-(define iota/helper
-  (lambda (pos vec n)
-    (when (< pos n)
+  (lambda (vec pos)
+    (when (< pos (vector-length vec))
       (vector-set! vec pos pos)
-      (iota/helper (+ 1 pos) vec n))))
-
-(test-equal? "zero" (iota 0) (vector))
-(test-equal? "five" (iota 5) '#(0 1 2 3 4))
+      (iota/helper vec (+ pos 1)))))
 ```
+
+> Does it work?
+
+```
+> (define vec (make-vector 5 'a))
+> vec
+'#(a a a a a)
+> (iota/helper vec 3)
+> vec
+'#(a a a 3 4)
+> (iota/helper vec 0)
+> vec
+'#(0 1 2 3 4)
+```
+
+```
+(define iota
+  (lambda (n)
+    (let ([result (make-vector n 1)])
+      (iota/helper result 0)
+      result)))
+```
+
+Some tests
+
+```
+(test-equal? "eight"
+             (iota 8)
+             '#(0 1 2 3 4 5 6 7))
+(test-equal? "zero"
+             (iota 0)
+             '#())
+(test-equal? "one"
+             (iota 1)
+             '#(0))
+(test-equal? "annoyingly long vector"
+             (iota 100)
+             (list->vector (range 100)))
+```
+What's the difference between `when` and `cond`?
+
+> `cond` lets us check a sequence of conditions/guards and (normally) has
+  a final alternate (the `else`).
+
+> `when` only checks one condition/guard and executes multiple things
+  the guard holds.
+
+> Unlike `if`, when does not have an alternative.  (cond has an optional,
+  but expected alternative)
 
 ### Other issues
 
@@ -204,8 +231,6 @@ Lab
 * Save the file as `vectors-continued.rkt`
 
 ### During Lab
-
-#### Exercise 4
 
 ### Wrapup
 

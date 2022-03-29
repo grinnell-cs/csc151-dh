@@ -1,5 +1,5 @@
 ---
-title: "EBoard 23 (Section 1): Vectors, Continued"
+title: "EBoard 23 (Section 2): Vectors, Continued"
 number: 23
 section: eboards
 held: 2022-03-18
@@ -11,8 +11,8 @@ _Approximate overview_
 
 * Administrative stuff [~5 min]
 * Racket stuff [~10 min]
-* Questions [~5 min]
-* Lab [~60 min]
+* Questions [~15 min]
+* Lab [~50 min]
 
 Administrivia
 -------------
@@ -25,8 +25,8 @@ Administrivia
   I'll send you a copy.  (I bought a lot when it was on sale.)
 * I forgot my hearing aid today (and I'm still waiting for the
   replacement of my lost one).  Please speak loudly.
-* I need to work on the autograder for the first bit of lab.  Feel free
-  to grab me if you need help.
+* There's a small bug in the autograder.  I'll be spending the first
+  few minutes of lab trying to address that bug.
 
 ### Class mask policy
 
@@ -105,11 +105,6 @@ most individual operations  are lighting fast?
 Question: Why does the time for `list-ref` scale with the position in 
 the list?
 
-> To get to element `k`, you have to call `cdr` `k` times.
-
-> In a vector, you do a little math and you can figure out where in
-  the vector you are.
-
 Questions
 ---------
 
@@ -155,41 +150,59 @@ Could you review recursion over vectors?
 > For example, let's build a simplified version of `range` that 
   constructs a vector from 0 to n-1.
 
-```
-(define iota
-  (lambda (n)
-    (iota/helper 0 (make-vector n) n)))
+We'll start with the helper.
 
+```
 (define iota/helper
-  (lambda (pos vec n)
-    (when (<= pos n)
-      (vector-set! vec pos pos) 
-      (iota/helper (+ 1 pos) vec n))))
-```
-
-Whoops.  This version has (at least) two problems.  Can you figure out 
-what they are?
-
-* `n` is not a valid index, so the "continue" policy should be `(< pos n)`.
-*
-
-Let's fix it.
-
-```
-(define iota
-  (lambda (n)
-    (let ([vec (make-vector n)])
-      (iota/helper 0 vec n)
-      vec)))
-
-(define iota/helper
-  (lambda (pos vec n)
-    (when (< pos n)
+  (lambda (vec pos)
+    (when (>= pos 0)
       (vector-set! vec pos pos)
-      (iota/helper (+ 1 pos) vec n))))
+      (iota/helper vec (- pos 1)))))
+```
 
-(test-equal? "zero" (iota 0) (vector))
-(test-equal? "five" (iota 5) '#(0 1 2 3 4))
+It seems to work
+
+```
+> (define vec (make-vector 5 'a))
+> (iota/helper vec 3)
+> vec
+'#(0 1 2 3 a)
+```
+
+Now we can write `iota`.
+
+Our original version
+
+```
+(define iota
+  (lambda (n)
+    (iota/helper (make-vector n 'whatever) (- n 1))))
+```
+
+Whoops; that doesn't return anything.
+
+```
+(define iota
+  (lambda (n)
+    (let ([vec (make-vector n 'whatever)])
+      (iota/helper vec (- n 1))
+      vec)))
+```
+
+That works!
+
+```
+(test-equal? "zero"
+             (iota 0)
+             #())
+
+(test-equal? "one"
+             (iota 1)
+             #(0))
+
+(test-equal? "five"
+             (iota 5)
+             #(0 1 2 3 4))
 ```
 
 ### Other issues
@@ -205,7 +218,9 @@ Lab
 
 ### During Lab
 
-#### Exercise 4
+Make sure you think about what pattern is right for the problem.  Are
+you extracting/combing values?  Are you changing values?  Are you
+doing something else?
 
 ### Wrapup
 

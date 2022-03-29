@@ -316,8 +316,14 @@
   abbrev: vectors
   summary: |
     We continue to explore vectors.
+  reading:
+    - page: /readings/vectors.html
   lab:
     - page: /labs/vectors-continued.html
+  eboards: 
+    - page: /eboards/eboard23-1.html
+    - page: /eboards/eboard23-2.html
+    - page: /eboards/eboard23-3.html
 
 - topic: Dictionaries and hash tables
   abbrev: dictionaries
