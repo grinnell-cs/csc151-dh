@@ -523,21 +523,18 @@ than `map`._
 #|
 d. It seems worthwhile to work with a list that is slightly longer
 than our five-word list but shorter than the much longer lists that
-we get from a full novel.  In your definitions pane, add a definition
-for `eyre-w-words`, which gives all of the words in Jane Eyre that start
-with the lowercase letter "w".  
-
-Jane Eyre can be found at
-   http://www.gutenberg.org/files/1260/1260-0.txt
+we get from a full novel.  (In an assignment, you'll work with a full
+novel.)  For now, we'll work with the words in this file.
 |#
 
-(define eyre-w-words
-  ???)
+(define sample-words
+  (file->words "hash-tables.rkt"))
 
 #|
 e. Reset `word-counts` to an empty hash table and then use `for-each`
-and `add-word!` to add all the words in `eyre-w-words`.  That hash
+and `add-word!` to add all the words in `sample-words`.  That hash
 table should then be short enough to view in the interactions pane.
+
 Can you easily tell which is the most frequent word?
 
 <TODO: What is the most frequent word?  How do you know.>
