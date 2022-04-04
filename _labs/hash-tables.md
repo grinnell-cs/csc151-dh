@@ -38,16 +38,14 @@ element of the list, throwing away the result of `proc!`.
 
 a. Have the traditional start-of-lab conversation.
 
-b. Review your answers to the self-check problems from the reading.
-
-c. The person closest to the board is Side A.  The other person is side
+b. The person closest to the board is Side A.  The other person is side
 B.
 
-d. Grab your code files
+c. Grab your code files
 
 * [hash-tables.rkt](../code/labs/hash-tables.rkt)
 
-e. Review any provided code at the top of the file.
+d. Review any provided code at the top of the file.
 
 ## Acknowledgements
 
