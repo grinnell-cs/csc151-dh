@@ -550,16 +550,7 @@ Can you easily tell which is the most frequent word?
 ; +--------------------------+
 
 #|
-a. What does the following procedure do?  For example, what do
-you expect for `(seven-eh word-counts "window")`?
-|#
-
-(define seven-eh
-  (lambda (hash str)
-    (cons str (hash-ref hash str))))
-
-#|
-b. The procedure `hash-keys` takes a hash table as input and returns
+a. The procedure `hash-keys` takes a hash table as input and returns
 a list of all of the keys in that hash table.  Use `hash-keys` and
 `length` to determine how many entries there are in `word-counts`.
 |#
@@ -568,9 +559,18 @@ a list of all of the keys in that hash table.  Use `hash-keys` and
   ???)
 
 #|
+b. What does the following procedure do?  For example, what do
+you expect for `(seven-bee word-counts "window")`?
+|#
+
+(define seven-bee
+  (lambda (hash str)
+    (list str (hash-ref hash str))))
+
+#|
 c. What do you expect the following expression to produce?
 
-    (map (section seven-eh word-counts <>) 
+    (map (section seven-bee word-counts <>) 
          (sort (hash-keys word-counts) string<=?))
 
 <TODO: Enter your answer here>
@@ -588,12 +588,12 @@ d. What does the following `seven-dee?` procedure do?
 
 (define seven-dee?
   (lambda (entry1 entry2)
-    (>= (list-ref entry1 1) (list-ref entry2 1))))
+    (>= (cadr entry1) (cadr entry2))))
 
 #|
-f. What do you expect as the result of the following?
+e. What do you expect as the result of the following?
 
-    > (sort (map (section seven-eh word-counts <>)
+    > (sort (map (section seven-bee word-counts <>)
                  (hash-keys word-counts))
             seven-dee?)
 
