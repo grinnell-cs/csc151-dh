@@ -62,7 +62,7 @@ c. Make sure to save this code as `pairs.rkt`.
 ; +--------------------------------------+
 
 #|
-a. Draw own box-and-pointer diagrams (on paper) for the following
+a. Draw box-and-pointer diagrams (on paper) for the following
 expressions.  Each student should draw their own diagrams.
 
 i. '(("x") "y" "z")
@@ -170,9 +170,9 @@ Using that recursive definition of lists, write a procedure,
 ; +-------------------------------------------------------+
 
 #|
-a. Write a procedure, `(spaces-and-ints ints)`, that takes a potentially
-empty list of integers as a parameter and produces a string that consists
-of each integer preceded by a space.
+a. Write a recursive procedure, `(spaces-and-ints ints)`, that takes
+a potentially empty list of integers as a parameter and produces a
+string that consists of each integer preceded by a space.
 
     > (spaces-and-ints '())
     ""
@@ -204,7 +204,9 @@ list of integers and returns a string that represents the list.
     BOOM!
 
 Hint: You can treat the empty list as a special case and then take advantage
-of `spaces-and-ints` for the nonempty list.
+of `spaces-and-ints` for the nonempty list.  Please don't use `substring`;
+you'll likely need to call `spaces-and-ints` on the cdr of `ints` in the
+nonemtpy case.
 |#
 
 (define int-list->string
