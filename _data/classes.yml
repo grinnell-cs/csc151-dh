@@ -334,6 +334,10 @@
     - page: /readings/hash-tables.html
   lab:
     - page: /labs/hash-tables.html
+  eboards: 
+    - page: /eboards/eboard24-1.html
+    - page: /eboards/eboard24-2.html
+    - page: /eboards/eboard24-3.html
 
 - topic: Data abstraction
   abbrev: data-abstraction
