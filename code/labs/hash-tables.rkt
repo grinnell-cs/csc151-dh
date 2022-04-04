@@ -528,7 +528,7 @@ novel.)  For now, we'll work with the words in this file.
 |#
 
 (define sample-words
-  (file->words "hash-tables.rkt"))
+  (map string-downcase (file->words "hash-tables.rkt")))
 
 #|
 e. Reset `word-counts` to an empty hash table and then use `for-each`
