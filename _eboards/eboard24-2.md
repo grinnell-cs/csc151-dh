@@ -37,12 +37,13 @@ Administrivia
 
 ### Upcoming work
 
+* Reading for today due ASAP.
 * Wednesday's reading due Tuesday at 10:00 p.m.
 * Today's lab due Tuesday at 10:30 p.m. 
 * Quiz 9 distributed Friday at 8am: Vectors.
 * MP 5 due Thursday at 10:30 p.m.  
     * Autograder and submission form should be live tonight.
-* SoLA 3 the following week.
+* SoLA 3 next week.
 
 ### Upcoming Token-Generating Activities
 
@@ -66,6 +67,20 @@ nothing.  You call it only for the side effect of changing the vector.
 You'll discover that `hash-set!` and `hash-remove!` also don't
 return anything.
 
+Note: In reality, these procedures return a special value, `#<void>`.
+Racket generally doesn't display void values, unless they appear nested
+in other values.
+
+```
+> (hash-set! sample 'a 'b)
+> sample
+'#hash((a . b))
+> (list (hash-set! sample 'a 'c))
+'(#<void>)
+> sample
+'#hash((a . c))
+```
+
 Questions
 ---------
 
@@ -88,6 +103,16 @@ rather than a single author.
   (hash-set! book-authors "Goodnight Moon" 
                           '("Margaret Wise Brown"
                             "Clement Hurd"))
+  ```
+
+What if there's one author for multiple books?
+
+> In that case, you will just have different keys and the same value
+  (at least in the title->author hash tables)
+
+  ```
+  (hash-set! book-authors "Experiments in Java" "Samuel A. Rebelsky")
+  (hash-set! book-authors "FunDHum" "Samuel A. Rebelsky")
   ```
 
 ### Other issues
@@ -123,10 +148,19 @@ Lab
 
 * Have the normal start-of-lab discussion.
 * Read over the code!
-* Save the file as `hash-tables.rkt`
+* Save the file as `hash-tables.rkt`.
 
-### During Lab
+### During lab
+
+Note: `hash-set` and `hash-remove` (no exclamation points) do not modify
+their parameters; rather, they return new hash tables.
+
+Note: `'#((key1 . value1) (key2 . value2))` makes an *immutable* hash
+table while `(make-hash ...)` makes a mutable hash table.
+
+E6: You can use `(hash-has-key? hash key)` to determine if a hash table
+has a particular key.
 
 ### Wrapup
 
-
+* Finish the lab!  (E6 and E7 are important.)

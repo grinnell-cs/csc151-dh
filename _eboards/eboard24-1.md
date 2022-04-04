@@ -37,12 +37,13 @@ Administrivia
 
 ### Upcoming work
 
+* Reading for today due ASAP.
 * Wednesday's reading due Tuesday at 10:00 p.m.
 * Today's lab due Tuesday at 10:30 p.m. 
 * Quiz 9 distributed Friday at 8am: Vectors.
 * MP 5 due Thursday at 10:30 p.m.  
     * Autograder and submission form should be live tonight.
-* SoLA 3 the following week.
+* SoLA 3 next week.
 
 ### Upcoming Token-Generating Activities
 
@@ -59,11 +60,16 @@ Racket/Lab Stuff
 
 As I reviewed the reading responses on vectors, I noted that there
 was some confusion on `vector-set!`.  The `vector-set!` procedure,
-like most procedures that end in an exclamation point, returns
-nothing.  You call it only for the side effect of changing the vector.
+like most procedures that end in an exclamation point, returns nothing
+(or at least nothing you see).  You call it only for the side effect of
+changing the vector.
 
-You'll discover that `hash-set!` and `hash-remove!` also don't
+You'll discover that `hash-set!` and `hash-remove!` also don't seem to
 return anything.
+
+Note: In reality, these procedures return a special value, `#<void>`.
+Racket generally doesn't display void values, unless they appear nested
+in other values.
 
 Questions
 ---------
@@ -89,6 +95,10 @@ rather than a single author.
                             "Clement Hurd"))
   ```
 
+Can you keep doing that?
+
+> Sure.
+
 ### Other issues
 
 Are office hours still online?
@@ -101,11 +111,12 @@ Can I meet with you outside of office hours?
 
 Will there be an opportunity for a second redo of MP1 and MP2?
 
-> Yup.  It will cost two tokens to do so.
+> Yup.  It will cost two tokens to do a second redo.
 
 Have you updated tokens recently?
 
 > I will tonight.  If all goes well, they'll also be part of the grade sheet.
+  (I need to update the grade sheet software to include them.)
 
 Lab
 ---
@@ -126,6 +137,26 @@ Lab
 
 ### During Lab
 
+Why doesn't `hash-remove!` issue an error when the key is not present?
+
+> Because it still achieves your goal: Afterwards, the key is not present.
+
+Note: `hash-set!` changes a mutable hash table, while `hash-set`
+returns a *new* immutable hash table.  (Similar for `hash-remove!` and
+`hash-remove`.)
+
+For the Jane Eyre problem, use something like
+
+```
+(define sample-words
+  (file->words "hash-tables.rkt"))
+```
+
+Note: If you look at the value returned by `hash-set!` (or almost
+any exclamation procedure, you'll find that it's `#void`).
+
 ### Wrapup
 
-
+Please finish the lab on your own.  (Question 7 will be important for
+future activities.)  You can work with your partner or you can do it
+separately.

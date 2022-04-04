@@ -37,6 +37,7 @@ Administrivia
 
 ### Upcoming work
 
+* Reading for today due ASAP.
 * Wednesday's reading due Tuesday at 10:00 p.m.
 * Today's lab due Tuesday at 10:30 p.m. 
 * Quiz 9 distributed Friday at 8am: Vectors.
@@ -66,6 +67,10 @@ nothing.  You call it only for the side effect of changing the vector.
 
 You'll discover that `hash-set!` and `hash-remove!` also don't
 return anything.
+
+Note: In reality, these procedures return a special value, `#<void>`.
+Racket generally doesn't display void values, unless they appear nested
+in other values.
 
 Questions
 ---------
@@ -128,6 +133,15 @@ Lab
 
 ### During Lab
 
+Note: `hash-set` and `hash-remove` (no exclamation points) do not modify
+their parameters; rather, they return new hash tables.
+
+Note: `'#((key1 . value1) (key2 . value2))` makes an *immutable* hash
+table while `(make-hash ...)` makes a mutable hash table.
+
+E6: You can use `(hash-has-key? hash key)` to determine if a hash table
+has a particular key.
+
 ### Wrapup
 
-
+* Finish the lab!  (E6 and E7 are important.)
