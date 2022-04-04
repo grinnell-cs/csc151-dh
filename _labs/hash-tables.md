@@ -26,7 +26,7 @@ a key in a mutable hash table.
 `(hash-set immutable-hash key value)` --- Like `hash-set!`, but for
 immutable hash tables.
 
-`(hash-remove immutable-hash key)` --- Like `hash-remove`, but for
+`(hash-remove immutable-hash key)` --- Like `hash-remove!`, but for
 immutable hash tables.
 
 `(hash-keys hash)` --- Get a list of keys from the hash table.
