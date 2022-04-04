@@ -214,8 +214,8 @@ Examples
   ???)
 
 #|
-(test-equal? "randomly-replace/1 (SR)"
-             (randomly-replace 'a 'b '(a b a c d))
+(test-equal? "replace-all/1 (SR)"
+             (replace-all 'a 'b '(a b a c d))
              '(b b b c d))
 |#
 
