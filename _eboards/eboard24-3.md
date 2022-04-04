@@ -43,14 +43,15 @@ Administrivia
 * Quiz 9 distributed Friday at 8am: Vectors.
 * MP 5 due Thursday at 10:30 p.m.  
     * Autograder and submission form should be live tonight.
-* SoLA 3 the following week.
+* SoLA 3 next week.
 
 ### Upcoming Token-Generating Activities
 
 * Thursday 11am, Convocation
-* Thursday noon, Neuroscience journal club
+* Thursday noon, Neuroscience journal club.  Eating public policy.
 * Thursday 1pm, Baseball vs. Cornell College
 * Thursday 3:30pm, Baseball vs. Cornell College
+* SAAC stuff this week.
 
 ### Other Upcoming Activities
 
@@ -71,6 +72,19 @@ return anything.
 Note: In reality, these procedures return a special value, `#<void>`.
 Racket generally doesn't display void values, unless they appear nested
 in other values.
+
+```
+> sample
+'#hash()
+> (hash-set! sample 'tutors '(Paul Micah))
+> sample
+'#hash((tutors . (Paul Micah)))
+> (list (hash-set! sample 'tutors 'other))
+'(#<void>)
+```
+
+Using the return value from `hash-set!` or anything similar is generally
+a bad idea.
 
 Questions
 ---------
@@ -95,6 +109,11 @@ rather than a single author.
                           '("Margaret Wise Brown"
                             "Clement Hurd"))
   ```
+
+Is there a way to look up keys by value?
+
+> Um ... I don't think there's a built-in procedure to do that, but you
+  can iterate all of the keys, find the values, and ...
 
 ### Other issues
 
@@ -144,4 +163,8 @@ has a particular key.
 
 ### Wrapup
 
-* Finish the lab!  (E6 and E7 are important.)
+* Finish the lab!  (E6 and E7 are important to understand.)
+* You can stay around (I think)
+* You can plan another time to meet 
+* You can decide to finish it separately
+
