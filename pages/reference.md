@@ -261,6 +261,8 @@ table initialized with the given key/value pairs.
 
 **`(max v0 v1 v2 ...)`** --- Find the smallest of the specified values.
 
+**`(member? val lst)`** --- Determine whether or not `val` appears in `lst`.
+
 ### N
 
 **`(negative? num)`** --- Determine if the real number `num` is negative.
@@ -270,8 +272,7 @@ table initialized with the given key/value pairs.
 **`(not val)`** --- Compute the logical opposite of `val`.  `(not #f)` is
 `#t`.  `(not anything-else)` is `#f`.
 
-**`(numerator num)`** --- Compute the numerator of the internal 
-representation of a real number.
+**`(numerator num)`** --- Compute the numerator of the internal representation of a real number.
 
 ### O
 
