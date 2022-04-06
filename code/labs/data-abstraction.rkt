@@ -180,12 +180,13 @@ separated by spaces.
 
 #|
 b. Try each of the completed implementation of names to ensure that 
-your process works correctly independently of how names are impelmented.  
-(You can try each implementation by commenting out the require for
-one version and uncommenting another.)
+your process works correctly independently of how names are implemented.
+You can try each implementation by commenting out the require for
+one version and uncommenting another.  Note that `names-as-bar-strings.rkt`
+is not yet completed.  You'll complete that in exercise 4.
 
 You do not need to enter anything here; you may just have to fix
-your code.
+your code for `name->fg`.
 |#
 
 #| B |#
@@ -197,8 +198,8 @@ your code.
 #|
 a. Document, write tests for, and implement a procedure,
 `name->simple-string`, that takes a name as input and returns it
-as an appropriate string.  Make sure to rely on the procedures
-like `name-prefix` rather than the underyling implementation.
+as an appropriate string.  Once again, make sure to rely on the
+procedures like `name-prefix` rather than the underyling implementation.
 
     > (name->simple-string qe2)
     "Queen Elizabeth II"
@@ -213,7 +214,14 @@ like `name-prefix` rather than the underyling implementation.
 ;;; 
 (define name->simple-string
   (lambda (name)
-    ???))
+    (string-append (if (name-prefix name)
+                       (string-append (name-prefix name) " ")
+                       "")
+                   (name-given name)
+                   (if (name-middle name)
+                       (string-append " " (name-middle name))
+                       "")
+                   "FINISH ME")))
 
 #|
 (test-equal? "QE2"
@@ -222,8 +230,8 @@ like `name-prefix` rather than the underyling implementation.
 |#
 
 #|
-b. Once again, make sure your procedure works for each of the three.
-implementations.
+b. Once again, make sure your procedure works for each of the three
+completed implementations.
 |#
 
 ; +------------------------------+-----------------------------------
@@ -239,13 +247,13 @@ do so.
 |#
 
 ;;; (name<=? name1 name2) -> boolean?
-;;;   name1 : name
-;;;   name2 : name
+;;;   name1 : name?
+;;;   name2 : name?
 ;;; Determine whether name1 should come before name2 in traditional
-;;; alphabetical ordering.
+;;; alphabetical ordering of names.
 (define name<=?
   (lambda (name1 name2)
-    (string<=? (name->sortable name1) (name->sortable name2))))
+    (string-ci<=? (name->sortable name1) (name->sortable name2))))
 
 #|
 a. As you can tell, this relies on `name->sortable`.  Guess what?  It's
@@ -258,11 +266,15 @@ your job to write it for this exercise.
     > (name->sortable qe2)
     "Queen Elizabeth II"
     > (name->sortable ada)
-    "Byron, Ada Augusta"
+    "Byron, Ada Augusta Countess"
 
-For information on sort order, you refer to 
+For information on sort order, you shuld refer to 
 
   <https://www.webpages.uidaho.edu/cte419/Offline-Modules/M6/ARMA-12_Filing_Rules.htm>
+
+You will likely need pay attention only to the first five rules.
+
+And it's okay if your procedure is not perfect.
 |#
 
 ;;; (name->sortable name) -> string?
@@ -418,6 +430,6 @@ points.
 ; +--------------------------+
 
 #|
-Try a second implementation of points.
+Try writing a second implementation of points.
 |#
 
