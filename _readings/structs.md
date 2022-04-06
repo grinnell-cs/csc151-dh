@@ -323,6 +323,24 @@ With some careful work, we can require that our clients use the
 `date` husks, rather than the `date-kernel` procedures.  (For now,
 we'll just assume that our clients will not use the kernels.)
 
+There's one other issues.  Rather than `(date 2019 01 31)` creating
+something that says `#<date>`, we get something that says
+`#<date-kernel>`.  Fortunately, Racket allows us to address the
+problem by adding a note to the `date-kernel` struct that describes
+how it should be displayed.
+
+```
+(struct date-kernel (year month day)
+  #:reflection-name 'date)
+```
+
+Now things work better.
+
+```
+> (date 2022 01 01)
+#<date>
+```
+
 String conversion
 -----------------
 
@@ -436,7 +454,7 @@ Let's check it out.
 ```drracket
 > (define d (string->date "2019-01-15"))
 > d
-#<date-kernel>
+#<date>
 > (date-year d)
 2019
 > (date-month d)
@@ -465,11 +483,11 @@ first, middle, last, title, surname).
 
 ### Self check 3
 
-What do you see as the advantages of structs over lists for representing
-structured data types?
+What do you see as the advantages of structs over lists, vectors, or
+hash tables for representing abstract data types?
 
-What do you see as the advantages of lists over structs for representing
-structured data types?
+What do you see as the advantages of lists, vectors, or hash tables
+over structs for representing abstract data types?
 
 Acknowledgements
 ----------------
@@ -478,3 +496,5 @@ This reading was newly written for spring 2019.  I referred to
 [section 5 of _The Racket Reference_](https://docs.racket-lang.org/reference/structures.html)
 and 
 [section 5 of _The Racket Guide_](https://docs.racket-lang.org/guide/define-struct.html) while writing this reading.
+
+The reading has encountered minor cleanup in the semesters since.
