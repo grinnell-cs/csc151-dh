@@ -69,7 +69,7 @@
 
 (define ada (name "Countess" "Ada" "Augusta" "Byron" #f))
 (define babbage (name #f "Charles" #f "Babbage" #f))
-(define beyonce (name #f "Beyoncé" #f #f #f))
+(define simon (name #f "Simon" #f #f #f))
 (define clay (name #f "Roy" #f "Clay" "Sr"))
 (define hopper (name #f "Grace" "Murray" "Hopper" #f))
 (define qe2 (name "Queen" "Elizabeth" #f #f "II"))
@@ -83,7 +83,7 @@
 (test-true "Countess Ada Augusta Byron" (name? ada))
 (test-true "QEII" (name? qe2))
 (test-true "Roy Clay Sr." (name? clay))
-(test-true "Beyoncé" (name? beyonce))
+(test-true "Simon" (name? simon))
 
 (test-equal? "ada/prefix" (name-prefix ada) "Countess")
 (test-equal? "ada/given" (name-given ada) "Ada")
@@ -97,11 +97,11 @@
 (test-equal? "babbage/family" (name-family babbage) "Babbage")
 (test-false "babbage/suffix" (name-suffix babbage))
 
-(test-equal? "beyonce/given" (name-given beyonce) "Beyoncé")
-(test-false "beyonce/family" (name-family beyonce))
-(test-false "beyonce/middle" (name-middle beyonce))
-(test-false "beyonce/prefix" (name-prefix beyonce))
-(test-false "beyonce/suffix" (name-suffix beyonce))
+(test-equal? "simon/given" (name-given simon) "Simon")
+(test-false "simon/family" (name-family simon))
+(test-false "simon/middle" (name-middle simon))
+(test-false "simon/prefix" (name-prefix simon))
+(test-false "simon/suffix" (name-suffix simon))
 
 (test-false "clay/prefix" (name-prefix clay))
 (test-equal? "clay/given" (name-given clay) "Roy")
@@ -156,8 +156,8 @@ that takes a name as a parameter and returns a string consisting
 of the family name (if there is a family name) and the given name,
 separated by spaces.
 
-    > (name->fg beyonce)
-    "Beyoncé"
+    > (name->fg simon)
+    "Simon"
     > (name->fg clay)
     "Clay Roy"
 |#
@@ -170,9 +170,9 @@ separated by spaces.
     ???))
 
 #|
-(test-equal? "(name->fg beyonce)"
-             (name->fg beyonce)
-             "Beyoncé")
+(test-equal? "(name->fg simon)"
+             (name->fg simon)
+             "Simon")
 (test-equal? "(name->fg clay)"
              (name->fg clay)
              "Clay Roy")
@@ -202,8 +202,8 @@ like `name-prefix` rather than the underyling implementation.
 
     > (name->simple-string qe2)
     "Queen Elizabeth II"
-    > (name->simple-string beyonce)
-    "Beyoncé"
+    > (name->simple-string simon)
+    "Simon"
     > (name->simple-string babbage)
     "Charles Babbage"
 |#
@@ -253,8 +253,8 @@ your job to write it for this exercise.
 
     > (name->sortable babbage)
     "Babbage, Charles"
-    > (name->sortable beyonce)
-    "Beyoncé"
+    > (name->sortable simon)
+    "Simon"
     > (name->sortable qe2)
     "Queen Elizabeth II"
     > (name->sortable ada)
@@ -278,7 +278,7 @@ b. Using your new version of `name->sortable`, demonstrate what happens
 when you sort our list of names.
 
    > (map name->simple-string 
-          (sort (list hopper babbage ada qe2 clay beyonce) name<=?))
+          (sort (list hopper babbage ada qe2 clay simon) name<=?))
 
 <TODO: Enter the results of this experiment.
 |#
