@@ -69,11 +69,13 @@ Check out [Sample SoLA 3](../las/sample-sola-3).
 
 * Thursday 11am, Convocation, Stephanie Jones, JRC 101
 * Thursday Noon, Neurscientific Journal Club
-* Unknown times: SAACtivities
+* SAACtivities
     * Today at 4:15 in Cubs room in the Bear.  Earn money from your likeness.
       NIL
     * Tomorrow at 6:00 in JRC 209.  Mental health, sports injuries, and other
       super-cool things.
+    * Friday at 5:30 p.m. Yoga in Multipurpose room
+    * Saturday at Softball: FUNdraiser for Trans Advocacy 
 
 ### Other Upcoming Activities
 
