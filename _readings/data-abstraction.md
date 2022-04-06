@@ -400,7 +400,7 @@ how you implement things.
 
 This separation of *what* from *how* is a key part of computational
 thinking.  We call this separation "*abstraction*".  You've already
-become accustomed to "*procedural abstraction*"; you can use `fold`
+become accustomed to "*procedural abstraction*"; you can use `reduce`
 or `map `because you know what it does, even if you don't know how.
 (Well, at this point, you may know how, too.  But you used it before
 knowing that.)  You are now experiencing the ideas of "*data abstaction*";
