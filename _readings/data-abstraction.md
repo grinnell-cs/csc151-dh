@@ -10,9 +10,6 @@ summary: |
   consider this separation, which we traditionally refer to as
   *data abstraction*.
 ---
-_This reading is brand new.  It may have some infelicities.  If you
-notice any, please let SamR know._
-
 At this point in your career, you have already used a wide variety of
 types, including characters, strings, symbols, numbers (all sorts of
 numbers), and images.  You've also learned a few mechanisms for grouping
@@ -193,20 +190,23 @@ that those parameters are of the correct type.
 
 ```racket
 (define name
-  (lambda (prefix given middle family suffix)
-    (cond
-      [(and (not (string? prefix)) prefix)
-       (error "name: Invalid prefix:" prefix)]
-      [(not (string? given))
-       (error "name: Invalid given name:" given)]
-      [(and (not (string? middle)) middle)
-       (error "name: Invalid middle:" middle)]
-      [(and (not (string? family)) family)
-       (error "name: Invalid family:" family)]
-      [(and (not (string? suffix)) suffix)
-       (error "name: Invalid suffix:" suffix)]
-      [else
-       (list prefix given middle family suffix)])))
+  (let ([string-or-false?
+         (lambda (val)
+           (or (string? val) (false? val)))])
+    (lambda (prefix given middle family suffix)
+      (cond
+        [(not (string-or-false? prefix))
+         (error "name: Invalid prefix:" prefix)]
+        [(not (string? given))
+         (error "name: Invalid given name:" given)]
+        [(not (string-or-false? middle))
+         (error "name: Invalid middle:" middle)]
+        [(not (string-or-false? family))
+         (error "name: Invalid family:" family)]
+        [(not (string-or-false? suffix))
+         (error "name: Invalid suffix:" suffix)]
+        [else
+         (list prefix given middle family suffix)]))))
 ```
 
 Whoops.  Perhaps that was too much.  Oh well.  It's a good strategy.
@@ -268,24 +268,27 @@ Let's see ... The `name` procedure won't be much different.
 
 ```racket
 (define name
-  (lambda (prefix given middle family suffix)
-    (cond
-      [(and (not (string? prefix)) prefix)
-       (error "name: Invalid prefix:" prefix)]
-      [(not (string? given))
-       (error "name: Invalid given name:" given)]
-      [(and (not (string? middle)) middle)
-       (error "name: Invalid middle:" middle)]
-      [(and (not (string? family)) family)
-       (error "name: Invalid family:" family)]
-      [(and (not (string? suffix)) suffix)
-       (error "name: Invalid suffix:" suffix)]
-      [else
-       (vector prefix given middle family suffix)])))
+  (let ([string-or-false?
+         (lambda (val)
+           (or (string? val) (false? val)))])
+    (lambda (prefix given middle family suffix)
+      (cond
+        [(not (string-or-false? prefix))
+         (error "name: Invalid prefix:" prefix)]
+        [(not (string? given))
+         (error "name: Invalid given name:" given)]
+        [(not (string-or-false? middle))
+         (error "name: Invalid middle:" middle)]
+        [(not (string-or-false? family))
+         (error "name: Invalid family:" family)]
+        [(not (string-or-false? suffix))
+         (error "name: Invalid suffix:" suffix)]
+        [else
+         (vector prefix given middle family suffix)]))))
 ```
 
 Nor will the `name?` procedure.  In fact, we can even take advantage
-of other procedures we expect to write.
+of the other procedures we expect to write.
 
 ```racket
 (define name?
@@ -323,6 +326,9 @@ noted earlier, we can use `'prefix` and such as the keys.  Let's see
 what we might do.  I'd suggest only putting part of the name in the
 hash table if it's not false.
 
+In this case, we're not checking all of the preconditions; we'll
+just assume the person who calls our procedure meets the requirements.
+
 ```racket
 (define name
   (lambda (prefix given middle family suffix)
@@ -338,9 +344,6 @@ hash table if it's not false.
         (hash-set! n 'suffix suffix))
       n)))
 ```
-
-We could also add the whole parameter checking thing from before, but
-that's a job for another day.
 
 When is something this kind of name?  When it's a hash table with the
 appropriate keys.
@@ -359,8 +362,8 @@ appropriate keys.
            (ok-key? 'suffix val)))))
 ```
 
-Do these pass our tests?  They do.  (Well, they did once I corrected some
-errors the tests revealed.  Tests are my friend.)
+Do these pass our tests?  They do.  (Well, they did once we corrected some
+errors the tests revealed.  Tests are our friends.)
 
 On to extracting the fields.  Ah, the joy of `hash-ref`.
 
@@ -384,7 +387,7 @@ To those using your new "name" type, names are no different than
 images or strings or characters.  That is, they can create them and
 use them without completely understanding how they are represented.
 (The representation is a little easier to see, but we'll ignore
-that issue.)
+that issue for the time being.)
 
 _If you separate **what** you can do with a type from **how** you
 do so, it's easy to switch implementations._  A program that uses
@@ -397,9 +400,9 @@ how you implement things.
 
 This separation of *what* from *how* is a key part of computational
 thinking.  We call this separation "*abstraction*".  You've already
-become accustomed to "*procedural abstraction*"; you can use `fold`
-or `map `because you know what it does, even if you don't know  how.
-(Well, at this point, you know how, too.  But you used it before
+become accustomed to "*procedural abstraction*"; you can use `reduce`
+or `map `because you know what it does, even if you don't know how.
+(Well, at this point, you may know how, too.  But you used it before
 knowing that.)  You are now experiencing the ideas of "*data abstaction*";
 we can use a representation of data without knowing the underlying
 representation.
@@ -408,8 +411,10 @@ representation.
 
 ### Self-check 1: Printing names (‡)
 
-Write a procedure, `(name->string name)` that takes a name (in any
-representation) and converts it to the appropriate string.
+Write a procedure, `(name->string name)`, that takes a name 
+and converts it to the appropriate string.  `name->string` should
+work no matter what representation we use, even if we use a
+representation we have not yet covered.
 
 ```racket
 > (name->string qe2)
@@ -423,5 +428,6 @@ representation) and converts it to the appropriate string.
 Suppose we were planning to represent names as strings with the
 components separated by vertical bars.  For example,
 `"|Barack|Hussein|Obama|II"` or `"Queen|Elizabeth|||II"`.  Sketch
-how you would extract the various parts of the name (e.g., using
-`string-split` or regular expressions).
+how you would write procedures like `name-given` and `name-family`
+that extract the various parts of the name.  You might, for example,
+use `string-split`.
