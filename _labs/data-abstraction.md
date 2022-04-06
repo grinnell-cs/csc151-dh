@@ -3,6 +3,8 @@ title: Data abstraction
 summary: |
   In this laboratory, we explore the use of data abstraction to separate
   the interface of a type from its implementation.
+notes: | 
+  In Fall 2022, a fifty-minute lab got people about midway through exercise 4.
 ---
 ## Preparation
 
@@ -18,7 +20,15 @@ d. Grab your respective code files
 * [data-abstraction-a.rkt](../code/labs/data-abstraction-a.rkt)
 * [data-abstraction-b.rkt](../code/labs/data-abstraction-b.rkt)
 
-e. Review any provided code at the top of the file.
+e. Grab four associated library files.
+
+* [names-as-lists.rkt](../code/labs/names-as-lists.rkt)
+* [names-as-vectors.rkt](../code/labs/names-as-vectors.rkt)
+* [names-as-hash-tables.rkt](../code/labs/names-as-hash-tables.rkt)
+* [names-as-bar-strings.rkt](../code/labs/names-as-bar-strings.rkt)
+
+e. Review the supplied procedures, which should be similar to those
+from [the reading](../readings/data-abstraction).
 -->
 
 c. Grab the code file.
@@ -32,7 +42,7 @@ d. Grab four associated library files.
 * [names-as-hash-tables.rkt](../code/labs/names-as-hash-tables.rkt)
 * [names-as-bar-strings.rkt](../code/labs/names-as-bar-strings.rkt)
 
-d. Review the supplied procedures, which should be similar to those
+e. Review the supplied procedures, which should be similar to those
 from [the reading](../readings/data-abstraction).
 
 ## Acknowledgements
