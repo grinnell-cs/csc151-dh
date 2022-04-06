@@ -1,5 +1,5 @@
 ---
-title: "EBoard 25 (Section 1): Abstract Data Types"
+title: "EBoard 25 (Section 2): Abstract Data Types"
 number: 25
 section: eboards
 held: 2022-04-06
@@ -71,10 +71,11 @@ Check out [Sample SoLA 3](../las/sample-sola-3).
 * Thursday 11am, Convocation, Stephanie Jones, JRC 101
 * Thursday 1pm, Baseball vs. Cornell College
 * Thursday 3:30pm, Baseball vs. Cornell College
-* Saturday 1pm, Softball vs. University of Wisconsin Stevens Point
-* Saturday 3pm, Softball vs. University of Wisconsin Stevens Point
 
 ### Other Upcoming Activities
+
+* Saturday 1pm, Softball vs. University of Wisconsin Stevens Point
+* Saturday 3pm, Softball vs. University of Wisconsin Stevens Point
 
 Racket/Lab Stuff
 ----------------

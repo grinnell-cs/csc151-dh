@@ -1,8 +1,8 @@
 ---
-title: "EBoard 25 (Section 1): Abstract Data Types"
-number: 25
+title: "EBoard 26 (Section 1): Structured Types"
+number: 26
 section: eboards
-held: 2022-04-06
+held: 2022-04-08
 link: true
 ---
 # {{ page.title }}

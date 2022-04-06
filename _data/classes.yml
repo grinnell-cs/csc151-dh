@@ -349,6 +349,10 @@
     - page: /readings/data-abstraction.html
   lab:
     - page: /labs/data-abstraction.html
+  eboards: 
+    - page: /eboards/eboard25-1.html
+    - page: /eboards/eboard25-2.html
+    - page: /eboards/eboard25-3.html
    
 - topic: Structured data
   abbrev: structs
