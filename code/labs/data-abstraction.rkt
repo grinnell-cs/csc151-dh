@@ -247,13 +247,13 @@ do so.
 |#
 
 ;;; (name<=? name1 name2) -> boolean?
-;;;   name1 : name
-;;;   name2 : name
+;;;   name1 : name?
+;;;   name2 : name?
 ;;; Determine whether name1 should come before name2 in traditional
-;;; alphabetical ordering.
+;;; alphabetical ordering of names.
 (define name<=?
   (lambda (name1 name2)
-    (string<=? (name->sortable name1) (name->sortable name2))))
+    (string-ci<=? (name->sortable name1) (name->sortable name2))))
 
 #|
 a. As you can tell, this relies on `name->sortable`.  Guess what?  It's
@@ -266,11 +266,15 @@ your job to write it for this exercise.
     > (name->sortable qe2)
     "Queen Elizabeth II"
     > (name->sortable ada)
-    "Byron, Ada Augusta"
+    "Byron, Ada Augusta Countess"
 
-For information on sort order, you refer to 
+For information on sort order, you shuld refer to 
 
   <https://www.webpages.uidaho.edu/cte419/Offline-Modules/M6/ARMA-12_Filing_Rules.htm>
+
+You will likely need pay attention only to the first five rules.
+
+And it's okay if your procedure is not perfect.
 |#
 
 ;;; (name->sortable name) -> string?
