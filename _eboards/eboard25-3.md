@@ -12,7 +12,7 @@ _Approximate overview_
 * Administrative stuff [~5 min]
 * Racket stuff [~5 min]
 * Questions [~15 min]
-* Lab [~55 min]
+* Lab [~50 min]
 
 Administrivia
 -------------
@@ -40,9 +40,8 @@ Administrivia
 
 * ASAP: Sign up for a site on <https://sites.grinnelledu>
 * Thursday 10:00 p.m.: Reading for Friday (Structures)
-    * Warning!  I may be updating the reading at lunchtime.
 * Thursday 10:30 p.m.: Today's lab
-    * Likely "Sam says stop here"
+    * "Sam says stop here"
 * Thursday 10:30 p.m.: MP 5
 * Sunday 4:00 p.m.: Quiz 9: Vectors (Distributed Friday)
 * Thursday, April 14, 10:30 p.m.: SoLA 3
@@ -70,9 +69,11 @@ Check out [Sample SoLA 3](../las/sample-sola-3).
 
 * Thursday 11am, Convocation, Stephanie Jones, JRC 101
 * Thursday Noon, Neurscientific Journal Club
-* Thursday 1pm, Baseball vs. Cornell College
-* Thursday 3:30pm, Baseball vs. Cornell College
 * Unknown times: SAACtivities
+    * Today at 4:15 in Cubs room in the Bear.  Earn money from your likeness.
+      NIL
+    * Tomorrow at 6:00 in JRC 209.  Mental health, sports injuries, and other
+      super-cool things.
 
 ### Other Upcoming Activities
 
@@ -162,13 +163,13 @@ Questions
 How can I extract all of the one-syllable words from a list?
 
 > ```
-(define one-syllable
+(define one-syllable?
   (lambda (word)
     (= 1 (syllables word))))
 
 (define one-syllable-words
   (lambda (words)
-    (filter one-syllable words)))
+    (filter one-syllable? words)))
 ```
 
 > I assume that you will find a way to generalize that solution.
@@ -224,6 +225,10 @@ _Write a procedure, `(name->string name)`, that takes a name (in any representat
                        (string-append " " (name-suffix name))
                        ""))))
 ```
+
+> Big picture: We separate how things are implemented/represented from 
+  how they are used.  That means that if we change the implementatoin,
+  the usage stays the same.
 
 > Since there's repeated code, I'd probably write a helper.
 
@@ -305,6 +310,15 @@ When is our final?
 > I plan to release it at 8:00 a.m. on Tuesday of finals' week and have
   it due at 5:00 p.m. on Friday of finals' week.
 
+Will we be able to do other work then, such as really late labs and
+reading assignments (which we know will cost us tokens)?
+
+> Sure.
+
+When is the next grade report coming out?
+
+> As soon as I fix the software and enter the tokens.
+
 Lab
 ---
 
@@ -317,6 +331,28 @@ Lab
 
 ### During Lab
 
+To switch implementations, comment out `(require (file "names-as-lists.rkt"))`
+and uncomment another implementation.
+
+`names-as-bar-strings.rkt` is an incomplete implementation.  You will finish
+it later (Exercise 4, I believe).
+
+Exercise 3: There is a standard for sort order.  The lab contains a link
+for more info.
+
+Exercise 3: There seems to be ambiguity on "Queen Elizabeth II".  My take
+is that since "Queen Elizabeth" is treated as "Queen Elizabeth" and we
+would want "Queen Elizabeth" and "Queen Elizabeth II" to be neighbors in
+sort order, "Queen Elizabeth II" is sorted as "Queen Elizabeth II", not
+"Elizabeth Queen II".
+
 ### Wrapup
 
+`; SAM SAID I CAN STOP HERE`
+
+Turning it in ...
+
+* Make sure that you require `names-as-lists.rkt` and not the rest.
+* Turn in `data-abstraction.rkt`, `names-as-lists.rkt`, and
+ `names-as-bar-strings.rkt`.
 

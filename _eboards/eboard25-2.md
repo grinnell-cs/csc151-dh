@@ -69,13 +69,13 @@ Check out [Sample SoLA 3](../las/sample-sola-3).
 ### Upcoming Token-Generating Activities
 
 * Thursday 11am, Convocation, Stephanie Jones, JRC 101
-* Thursday 1pm, Baseball vs. Cornell College
-* Thursday 3:30pm, Baseball vs. Cornell College
+* Grinnell Singers Sunday at 2pm
 
 ### Other Upcoming Activities
 
 * Saturday 1pm, Softball vs. University of Wisconsin Stevens Point
 * Saturday 3pm, Softball vs. University of Wisconsin Stevens Point
+* Reminder that there's a union election
 
 Racket/Lab Stuff
 ----------------
@@ -160,13 +160,13 @@ Questions
 How can I extract all of the one-syllable words from a list?
 
 > ```
-(define one-syllable
+(define one-syllable?
   (lambda (word)
     (= 1 (syllables word))))
 
 (define one-syllable-words
   (lambda (words)
-    (filter one-syllable words)))
+    (filter one-syllable? words)))
 ```
 
 > I assume that you will find a way to generalize that solution.
@@ -238,6 +238,20 @@ _Write a procedure, `(name->string name)`, that takes a name (in any representat
                      (optional-space (name-suffix name))))))
 ```
 
+> Big idea on data abstraction: If you rely only on the provided procedures,
+  and don't make assumptions about the underlying representation, our code
+  will continue to work even if we change the representation.
+
+Can you explain the following code?
+
+```
+        [(not (string-or-false? prefix))
+         (error "name: Invalid prefix:" prefix)]
+```
+
+> This ensures that if the prefix is invalid, we get a sensible error,
+  and we get it as soon as we attempt to build a name.
+
 How would you solve self-check 2?
 
 _Suppose we were planning to represent names as strings with the components separated by vertical bars. For example, `"|Barack|Hussein|Obama|II"` or `"Queen|Elizabeth|||II"`. Sketch how you would extract the various parts of the name (e.g., using string-split or regular expressions)._
@@ -303,6 +317,10 @@ When is our final?
 > I plan to release it at 8:00 a.m. on Tuesday of finals' week and have
   it due at 5:00 p.m. on Friday of finals' week.
 
+How many things must I do for an A?
+
+> See the syllabus.
+
 Lab
 ---
 
@@ -315,6 +333,28 @@ Lab
 
 ### During Lab
 
+To switch implementations, comment out `(require (file "names-as-lists.rkt"))`
+and uncomment another implementation.
+
+`names-as-bar-strings.rkt` is an incomplete implementation.  You will finish
+it later (Exercise 4, I believe).
+
+Exercise 3: There is a standard for sort order.  The lab contains a link
+for more info.
+
+Exercise 3: There seems to be ambiguity on "Queen Elizabeth II".  My take
+is that since "Queen Elizabeth" is sorted as "Queen Elizabeth" and we
+would want "Queen Elizabeth" and "Queen Elizabeth II" to be neighbors in
+sort order, "Queen Elizabeth II" is sorted as "Queen Elizabeth II", not
+"Elizabeth Queen II".
+
 ### Wrapup
 
+`; SAM SAID I CAN STOP HERE`
+
+Turning it in ...
+
+* Make sure that you require `names-as-lists.rkt` and not the rest.
+* Turn in `data-abstraction.rkt`, `names-as-lists.rkt`, and
+ `names-as-bar-strings.rkt`.
 

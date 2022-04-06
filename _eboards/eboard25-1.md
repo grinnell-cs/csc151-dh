@@ -159,13 +159,13 @@ Questions
 How can I extract all of the one-syllable words from a list?
 
 > ```
-(define one-syllable
+(define one-syllable?
   (lambda (word)
     (= 1 (syllables word))))
 
 (define one-syllable-words
   (lambda (words)
-    (filter one-syllable words)))
+    (filter one-syllable? words)))
 ```
 
 > I assume that you will find a way to generalize that solution.
@@ -183,6 +183,10 @@ How many issues is enough to fix?
 
 > The rubric says something like "two additional rules beyond 'Count
   all of the vowel sequences'".
+
+How can I take the first thousand words of _Jane Eyre_?
+
+> `(define thousand-eyre (take (file->words "jane-eyre.txt") 1000))`
 
 ### Racket questions
 
@@ -236,6 +240,15 @@ _Write a procedure, `(name->string name)`, that takes a name (in any representat
                      (optional-space (name-family name))
                      (optional-space (name-suffix name))))))
 ```
+
+> Big picture: Your code should not depend on the underlying implementation
+  of a user-defined structure; you should rely only on the procedures
+  provided along with that structure.  We have abstracted away the
+  implementatoin.
+
+What was that word that you said would be hard for syllables?
+
+> mononym
 
 How would you solve self-check 2?
 
@@ -314,6 +327,27 @@ Lab
 
 ### During Lab
 
+To switch implementations, comment out `(require (file "names-as-lists.rkt"))`
+and uncomment another implementation.
+
+`names-as-bar-strings.rkt` is an incomplete implementation.  You will finish
+it later (Exercise 4, I believe).
+
+Exercise 3: There is a standard for sort order.  The lab contains a link
+for more info.
+
+Exercise 3: There seems to be ambiguity on "Queen Elizabeth II".  My take
+is that since "Queen Elizabeth" is treated as "Queen Elizabeth" and we
+would want "Queen Elizabeth" and "Queen Elizabeth II" to be neighbors in
+sort order, "Queen Elizabeth II" is sorted as "Queen Elizabeth II", not
+"Elizabeth Queen II".
+
 ### Wrapup
 
+`; SAM SAID I CAN STOP HERE`
+
+Turning it in ...
+
+* Make sure that you require `names-as-bar-strings.rkt` and not the rest.
+* Turn in `data-abstraction.rkt` and `names-as-bar-strings.rkt`.
 
