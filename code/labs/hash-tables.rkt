@@ -480,6 +480,18 @@ For example,
     > (add-word! word-counts "example")
     > word-counts
     '#hash(("example" . 2) ("snow" . 1))
+
+Here are the commands without the extra cruft, in case you want to
+copy and paste
+
+    (define word-counts (make-hash))
+    word-counts
+    (add-word! word-counts "example")
+    (add-word! word-counts "snow")
+    word-counts
+    (add-word! word-counts "example")
+    word-counts
+
 |#
 
 ;;; (add-word! counts word) -> void?
@@ -525,10 +537,15 @@ d. It seems worthwhile to work with a list that is slightly longer
 than our five-word list but shorter than the much longer lists that
 we get from a full novel.  (In an assignment, you'll work with a full
 novel.)  For now, we'll work with the words in this file.
+
+Make sure that you save this file as text (still with the name
+`hash-tables.rkt`) using
+
+   File -> Save Other -> Save Definitions As Text ...
 |#
 
 (define sample-words
-  (map string-downcase (file->words "hash-tables.rkt")))
+  (file->words "hash-tables.rkt"))
 
 #|
 e. Reset `word-counts` to an empty hash table and then use `for-each`
@@ -567,8 +584,8 @@ you expect for `(seven-bee word-counts "window")`?
 #|
 c. What do you expect the following expression to produce?
 
-    (map (section seven-bee word-counts <>) 
-         (sort (hash-keys word-counts) string<=?))
+    (map (section seven-bee word-counts <>)
+         (sort (hash-keys word-counts) string-ci<=?))
 
 <TODO: Enter your answer here>
 
@@ -590,9 +607,9 @@ d. What does the following `seven-dee?` procedure do?
 #|
 e. What do you expect as the result of the following?
 
-    > (sort (map (section seven-bee word-counts <>)
-                 (hash-keys word-counts))
-            seven-dee?)
+    (sort (map (section seven-bee word-counts <>)
+               (hash-keys word-counts))
+          seven-dee?)
 
 <TODO: Enter your answer here>
 
