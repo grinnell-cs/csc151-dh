@@ -3,13 +3,6 @@ title: Data abstraction
 summary: |
   In this laboratory, we explore the use of data abstraction to separate
   the interface of a type from its implementation.
-note: |
-  There was huge variation here.  Some students barely got to problem
-  three, others made it through the first five.  No one got to six.
-  Some students needed coaching not to use `car` and `cdr`.
-more: |  
-  It might be worth giving students different implementations in
-  different files, and asking them to require them.
 ---
 ## Preparation
 
@@ -32,9 +25,17 @@ c. Grab the code file.
 
 * [data-abstraction.rkt](../code/labs/data-abstraction.rkt)
 
+d. Grab four associated library files.
+
+* [names-as-lists.rkt](../code/labs/names-as-lists.rkt)
+* [names-as-vectors.rkt](../code/labs/names-as-vectors.rkt)
+* [names-as-hash-tables.rkt](../code/labs/names-as-hash-tables.rkt)
+* [names-as-bar-strings.rkt](../code/labs/names-as-bar-strings.rkt)
+
 d. Review the supplied procedures, which should be similar to those
 from [the reading](../readings/data-abstraction).
 
 ## Acknowledgements
 
-This lab was (mostly) newly written in spring 2021.  
+This lab was (mostly) newly written in spring 2021.  In spring 2022,
+the different implementations were moved to separate files.
