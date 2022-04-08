@@ -1,6 +1,4 @@
 #lang racket
-(require csc151)
-(require rackunit)
 
 ;; CSC-151-NN (SEMESTER)
 ;; Lab: Structs (structs.rkt)
@@ -8,6 +6,10 @@
 ;; Date: THE DATE HERE
 ;; Acknowledgements:
 ;;   ACKNOWLEDGEMENTS HERE
+
+(require csc151)
+(require rackunit)
+(require (file "date.rkt"))
 
 ; +---------------+--------------------------------------------------
 ; | Provided Code |
@@ -129,7 +131,7 @@ a. Open the `date.rkt` file that you previously downloaded and click "Run".
 
 #|
 b. What do you expect to get when you type the following in the interactions
-pane of the new window?
+pane of the `date.rkt` window?
 
     > (define date1 (date 2022 03 01))
     _____
@@ -148,7 +150,8 @@ c. Check your answer experimentally.
 
 #|
 d.  Since `date1` is valid, we should be able to extract its fields.
-What do you expect the results of the following to be?
+What do you expect the results of the following to be when typed in
+the `date.rkt` interactions pane?
 
     > (date-year date1)
     _____
@@ -158,11 +161,14 @@ What do you expect the results of the following to be?
     _____
     > (date? date1)
     _____
+
+Check your answer experimentally.
 |#
 
 #|
 e.  Since `date1` is valid, we should be able to extract its fields.
-What do you expect the results of the following to be?
+What do you expect the results of the following to be when typed in
+the `date.rkt` interactions pane?
 
     > (date-kernel-year date1)
     _____
@@ -172,6 +178,8 @@ What do you expect the results of the following to be?
     _____
     > (date-kernel? date1)
     _____
+
+Check your answers experimentally.
 |#
 
 #|
@@ -179,12 +187,10 @@ f. Of course, we'd prefer that the programmers who use dates not be
 able to directly access the `date-kernel` procedures, particularly
 `date-kernel`, which would permit them to make invalid dates.  The
 standard approach is to move them to a separate file and use it 
-as a library.  Switch from your `date.rkt` file to `structs.rkt`
-and add the following line.
+as a library.  You can tell that we've done so in `structs.rkt`
+because it includes the following line.
 
-    (require (file "dates.rkt"))
-
-Then click run.
+    (require (file "date.rkt"))
 |#
 
 #|
@@ -216,8 +222,8 @@ h. Check your answer experimentally.
 
 #|
 You should have seen that `date1` appears as a `date` structure
-and that `date2` does not exist because the second call to `date`
-is invalid.  
+(really a `date-kernel` structure, but ...) and that `date2` does
+not exist because the second call to `date` is invalid.
 |#
 
 #|
@@ -278,7 +284,7 @@ j. Check your answer experimentally.
 
 #|
 k. What do you expect to happen if we try to create a date with
-`date-kernel`?
+`date-kernel` in the `structs.rkt` interactions pane?
 
     > (define date3 (date-kernel 2022 03 01))
     > date3
