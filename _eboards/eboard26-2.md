@@ -27,6 +27,9 @@ Administrivia
     * Sunday and Monday's mentor sessions will be reviews for the SoLA.
 * If you have not yet done so, please sign up for an individual site
   on <https://sites.grinnell.edu>.
+* If you want to notify me that you're missing class because you are ill,
+  please use a DM on Teams.  (I don't tend to read email during the day.)
+* If you must miss class for a rescheduled sporting event, please notify me.
 
 ### Class mask policy
 
