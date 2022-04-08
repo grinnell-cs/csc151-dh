@@ -1,5 +1,5 @@
 ---
-title: "EBoard 26 (Section 1): Structured Types"
+title: "EBoard 26 (Section 2): Structured Types"
 number: 26
 section: eboards
 held: 2022-04-08
@@ -11,7 +11,7 @@ _Approximate overview_
 
 * Administrative stuff [~5 min]
 * Racket stuff [~5 min]
-* Questions [~15 min]
+* Questions [~10 min]
 * Lab [~55 min]
 
 Administrivia
@@ -53,8 +53,7 @@ Administrivia
 
 ### Upcoming Token-Generating Activities
 
-* Saturday 1pm, Softball vs. University of Wisconsin Stevens Point
-* Saturday 3pm, Softball vs. University of Wisconsin Stevens Point
+* Sunday 2pm, Grinnell Singers, Sebring Lewis
 * Wednesday, April 13, all day: Scarlett and Give Back Day
     * Token for donating.  (Equity: You can grab $5 from me to donate.)
         * Recommend: Food Pantry, Student Mental Health, Accessibility
@@ -64,7 +63,8 @@ Administrivia
 
 ### Other Upcoming Activities
 
-* Sunday 2pm, Grinnell Singers, Sebring Lewis
+* Saturday 1pm, Softball vs. University of Wisconsin Stevens Point
+* Saturday 3pm, Softball vs. University of Wisconsin Stevens Point
 
 Racket/Lab Stuff
 ----------------

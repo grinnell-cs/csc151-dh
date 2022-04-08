@@ -367,6 +367,10 @@
     - page: /readings/structs.html
   lab:
     - page: /labs/structs.html
+  eboards: 
+    - page: /eboards/eboard26-1.html
+    - page: /eboards/eboard26-2.html
+    - page: /eboards/eboard26-3.html
 
 - topic: Getting started with HTML and CSS
   abbrev: intro-markup
