@@ -184,6 +184,18 @@ Check your answers experimentally.
 
 #|
 f. What do you expect to happen if we create an invalid date using
+`date`?
+
+    > (define invalid (date 'in 'val 'id))
+    _____
+    > (date->string invalid)
+    _____
+
+Check your answer experimentally.
+|#
+
+#|
+g. What do you expect to happen if we create an invalid date using
 `date-kernel`?
 
     > (define invalid (date-kernel 'in 'val 'id))
@@ -195,7 +207,7 @@ Check your answer experimentally.
 |#
 
 #|
-g. As that last experiment suggested, we'd prefer that the programmers
+h. As that last experiment suggested, we'd prefer that the programmers
 who use dates not be able to directly access the `date-kernel`
 procedures, particularly `date-kernel`, which would permit them to
 make invalid dates.  One standard approach is to move them to a
@@ -206,7 +218,7 @@ done so in `structs.rkt` because it includes the following line.
 |#
 
 #|
-h. What do you expect to get when you type the following in the interactions
+i. What do you expect to get when you type the following in the interactions
 pane of the `structs.rkt`
 
     > (define date1 (date 2022 03 01))
@@ -220,7 +232,7 @@ pane of the `structs.rkt`
 |#
 
 #|
-i. Check your answer experimentally.
+j. Check your answer experimentally.
 
     > (define date1 (date 2022 03 01))
     _____
@@ -239,7 +251,7 @@ not exist because the second call to `date` is invalid.
 |#
 
 #|
-j.  Since `date1` is valid, we should be able to extract its fields.
+k.  Since `date1` is valid, we should be able to extract its fields.
 What do you expect the results of the following to be?
 
     > (date-year date1)
@@ -253,7 +265,7 @@ What do you expect the results of the following to be?
 |#
 
 #|
-k. Check your answer experimentally.
+l. Check your answer experimentally.
 
     > (date-year date1)
     _____
@@ -266,40 +278,30 @@ k. Check your answer experimentally.
 |#
 
 #|
-l. We've seen that `date1` appears as a `date` structure, but we know
-that it's a `date-kernel` structure.
-
-What do you expect the result of the following to be?
-
-    > (date-kernel? date1)
-    _____
-    > (date-kernel-year date1)
-    _____
-    > (date-kernel-month date1)
-    _____
-    > (date-kernel-day date1)
-    _____
-|#
-
-#|
-m. Check your answer experimentally.
-
-    > (date-kernel? date1)
-    _____
-    > (date-kernel-year date1)
-    _____
-    > (date-kernel-month date1)
-    _____
-    > (date-kernel-day date1)
-    _____
-|#
-
-#|
-n. What do you expect to happen if we try to create a date with
+m. What do you expect to happen if we try to create a date with
 `date-kernel` in the `structs.rkt` interactions pane?
 
     > (define invalid (date-kernel 'in 'val 'id))
     > invalid
+    _____
+
+Check your answer experimentally.
+|#
+
+#|
+n. We've seen that `date1` appears as a `date` structure, but we know
+that it's a `date-kernel` structure.
+
+What do you expect the result of the following to be?
+
+    > (define date1 (date 2022 03 01))
+    > (date-kernel? date1)
+    _____
+    > (date-kernel-year date1)
+    _____
+    > (date-kernel-month date1)
+    _____
+    > (date-kernel-day date1)
     _____
 
 Check your answer experimentally.
