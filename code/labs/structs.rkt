@@ -166,9 +166,9 @@ Check your answer experimentally.
 |#
 
 #|
-e.  Since `date1` is valid, we should be able to extract its fields.
-What do you expect the results of the following to be when typed in
-the `date.rkt` interactions pane?
+e.  Since `date1` is a date-kernel, we should be able to extract
+its fields.  What do you expect the results of the following to be
+when typed in the `date.rkt` interactions pane?
 
     > (date-kernel-year date1)
     _____
@@ -183,18 +183,42 @@ Check your answers experimentally.
 |#
 
 #|
-f. Of course, we'd prefer that the programmers who use dates not be
-able to directly access the `date-kernel` procedures, particularly
-`date-kernel`, which would permit them to make invalid dates.  The
-standard approach is to move them to a separate file and use it 
-as a library.  You can tell that we've done so in `structs.rkt`
-because it includes the following line.
+f. What do you expect to happen if we create an invalid date using
+`date`?
+
+    > (define invalid (date 'in 'val 'id))
+    _____
+    > (date->string invalid)
+    _____
+
+Check your answer experimentally.
+|#
+
+#|
+g. What do you expect to happen if we create an invalid date using
+`date-kernel`?
+
+    > (define invalid (date-kernel 'in 'val 'id))
+    _____
+    > (date->string invalid)
+    _____
+
+Check your answer experimentally.
+|#
+
+#|
+h. As that last experiment suggested, we'd prefer that the programmers
+who use dates not be able to directly access the `date-kernel`
+procedures, particularly `date-kernel`, which would permit them to
+make invalid dates.  One standard approach is to move them to a
+separate file and use it as a library.  You can tell that we've
+done so in `structs.rkt` because it includes the following line.
 
     (require (file "date.rkt"))
 |#
 
 #|
-g. What do you expect to get when you type the following in the interactions
+i. What do you expect to get when you type the following in the interactions
 pane of the `structs.rkt`
 
     > (define date1 (date 2022 03 01))
@@ -208,7 +232,7 @@ pane of the `structs.rkt`
 |#
 
 #|
-h. Check your answer experimentally.
+j. Check your answer experimentally.
 
     > (define date1 (date 2022 03 01))
     _____
@@ -227,7 +251,7 @@ not exist because the second call to `date` is invalid.
 |#
 
 #|
-g.  Since `date1` is valid, we should be able to extract its fields.
+k.  Since `date1` is valid, we should be able to extract its fields.
 What do you expect the results of the following to be?
 
     > (date-year date1)
@@ -241,7 +265,7 @@ What do you expect the results of the following to be?
 |#
 
 #|
-h. Check your answer experimentally.
+l. Check your answer experimentally.
 
     > (date-year date1)
     _____
@@ -254,11 +278,23 @@ h. Check your answer experimentally.
 |#
 
 #|
-i. We've seen that `date1` appears as a `date` structure, but we know
+m. What do you expect to happen if we try to create a date with
+`date-kernel` in the `structs.rkt` interactions pane?
+
+    > (define invalid (date-kernel 'in 'val 'id))
+    > invalid
+    _____
+
+Check your answer experimentally.
+|#
+
+#|
+n. We've seen that `date1` appears as a `date` structure, but we know
 that it's a `date-kernel` structure.
 
 What do you expect the result of the following to be?
 
+    > (define date1 (date 2022 03 01))
     > (date-kernel? date1)
     _____
     > (date-kernel-year date1)
@@ -267,40 +303,12 @@ What do you expect the result of the following to be?
     _____
     > (date-kernel-day date1)
     _____
+
+Check your answer experimentally.
 |#
 
 #|
-j. Check your answer experimentally.
-
-    > (date-kernel? date1)
-    _____
-    > (date-kernel-year date1)
-    _____
-    > (date-kernel-month date1)
-    _____
-    > (date-kernel-day date1)
-    _____
-|#
-
-#|
-k. What do you expect to happen if we try to create a date with
-`date-kernel` in the `structs.rkt` interactions pane?
-
-    > (define date3 (date-kernel 2022 03 01))
-    > date3
-    _____
-|#
-
-#|
-l. Check your answer experimentally.
-
-    > (define date3 (date-kernel 2022 03 01))
-    > date3
-    _____
-|#
-
-#|
-m. What does this exercise suggest?
+o. What does this exercise suggest?
 
 <TODO: Fill in your answer here.>
 |#
