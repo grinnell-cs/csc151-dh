@@ -53,16 +53,22 @@ Administrivia
     * Likely "Sam says stop here"
 * Thursday, April 14, 10:30 p.m.: SoLA 3
     * Don't forget that there are sample questions on the LAs page.
+    * We go over sample LAs in the mentor sessions
+    * You can also ask evening tutors or Sam
 
 ### Upcoming Token-Generating Activities
 
+* Saturday 2pm, 1010 High Street (or the HSSC), Holi celebration Saturday 
+  (colors and music and more)
 * Sunday 2pm, Grinnell Singers, Sebring Lewis
 * Wednesday, April 13, all day: Scarlett and Give Back Day
-    * Token for donating.  (Equity: You can grab $5 from me to donate.)
+    * Token for donating.
+      (Equity: You can grab $5 from me next week to donate.)
         * Recommend: Food Pantry, Student Mental Health, Accessibility
     * Token for participating in an activity.
 * Wednesday, April 13, 8pm, Writers@Grinnell: Jerald Walker, 
   <https://grinnellcollege.zoom.us/j/85126108306>
+* Vote in the Union election, if you are an hourly student worker
 
 ### Other Upcoming Activities
 
@@ -106,6 +112,12 @@ Racket/Lab Stuff
                           (space-before prefix))])))))
 ```
 
+Why are there two `let` expressions?
+
+> Things that don't depend on the input go outside the lambda.
+
+> Things that do depend on the input go inside the lambda.
+
 ### Acknowledgements
 
 ```
@@ -124,6 +136,8 @@ Racket/Lab Stuff
 ;;      https://www.howmanysyllables.com/syllable_rules/howtocountsyllables
 ;;   Presentation showing how to identify silent E's
 ;;      https://ckla.amplify.com/skillsboost/wp-content/uploads/2020/08/G3_TeacherExtension_W1_D4.pdf
+;;   Help figuring out recursion over lists
+;;      Hallie, Nameera,
 ```
 
 Questions
@@ -131,6 +145,26 @@ Questions
 
 ### Racket questions
 
+Could you explain `member` (or `member?`)?
+
+> `(member? val lst)` takes a value and a list and determines whether or
+  not the value appears in the list.
+
+> ```
+(define member? 
+  (lambda (val lst)
+    (cond
+      [(null? lst)
+       #f]
+      [(equal? val (car lst))
+       #t]
+      [else
+       (member? val (cdr lst))])))
+```
+> `(member val lst)` takes a value and a list and returns either (a)
+  the portion of the list starting with val, if val appears in the list,
+  or (b) false, if val does not appear in the list.
+    
 ### Reading questions
 
 When using struct do we ever have to use `define` or does `struct` 
@@ -173,13 +207,17 @@ Do you plan to distribute grade reports soon?
 I like CS.  What should I take next year.
 
 > CSC-161, Imperative Problem Solving, is the next course in our 
-  introductory sequence.
+  introductory sequence.  Cute robots!
 
 > CSC-207, Objects, Data Structures, and Algorithms, follows 161.
 
 > If you are considering a CS major, you might also look toward 
   MAT/CSC-208 or MAT-218, which provide the mathematical foundations 
   of CS.  (Taking one of the two is required for the major.)
+
+Does SamR do summer MAPs?
+
+> Sometimes, but not this summer.
 
 Lab
 ---
@@ -191,6 +229,10 @@ Lab
 
 ### During Lab
 
+Add `(define chirp-contents chirp-kernel-contents)` (and similar).
+
 ### Wrapup
 
+`; SAM SAID I CAN STOP HERE`
 
+Another token activity.

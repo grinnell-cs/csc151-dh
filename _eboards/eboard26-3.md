@@ -51,6 +51,7 @@ Administrivia
 * Sunday 10:00 p.m.: Reading for Monday 
 * Sunday 10:30 p.m.: Today's lab
     * Likely "Sam says stop here"
+* Monday 10:30 p.m.: MP3 and 4 redos.
 * Thursday, April 14, 10:30 p.m.: SoLA 3
     * Don't forget that there are sample questions on the LAs page.
 
@@ -127,6 +128,8 @@ Racket/Lab Stuff
 ;;      https://www.howmanysyllables.com/syllable_rules/howtocountsyllables
 ;;   Presentation showing how to identify silent E's
 ;;      https://ckla.amplify.com/skillsboost/wp-content/uploads/2020/08/G3_TeacherExtension_W1_D4.pdf
+;;   Using `map` instead of recursion
+;;      Mentor session with Micah
 ```
 
 Questions
@@ -181,7 +184,7 @@ I like CS.  What should I take next year.
 > CSC-207, Objects, Data Structures, and Algorithms, follows 161.
 
 > If you are considering a CS major, you might also look toward 
-  MAT/CSC-208 or MAT-218, which provide the mathematical foundations 
+  MAT/CSC-208 or MAT-218, which rovide the mathematical foundations 
   of CS.  (Taking one of the two is required for the major.)
 
 Lab
@@ -196,4 +199,4 @@ Lab
 
 ### Wrapup
 
-
+`;SAM SAID I CAN STOP HERE`
