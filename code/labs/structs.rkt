@@ -84,7 +84,7 @@ of the form `HH:MM:SS` as a parameter and returns a clock structure.
 ; +---------------------------------+
 
 #|
-*Chirp* is a new Internet startup that lets you sent notes to your
+*Chirp* is a new Internet startup that lets you send notes to your
 friends, which they call "chirps".  (Creativity is not their strong
 suit.)  Create a structured type, `chirp-kernel`, with the following
 fields.
@@ -112,6 +112,24 @@ You should generate that automatically with `(gensym "chirp")`.
 (define chirp
   (lambda (author contents tags date time)
     ???))
+
+#|
+(define chirp-id chirp-kernel-id)
+(define chirp-author chirp-kernel-author)
+(define chirp-contents chirp-kernel-contents)
+(define chirp-tags chirp-kernel-tags)
+(define chirp-date chirp-kernel-date)
+(define chirp-time chirp-kernel-time)
+(define chirp?
+  (lambda (val)
+    (and (chirp-kernel? val)
+         (string (chirp-author val))
+         (string (chirp-contents val))
+         (and (list? (chirp-tags val))
+              (andmap string? (chirp-tags val)))
+         (date? (chirp-date val))
+         (time? (chirp-time val)))))
+|#
 
 #| A |#
 
