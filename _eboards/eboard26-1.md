@@ -46,7 +46,7 @@ Administrivia
 
 * ASAP: Sign up for a site on <https://sites.grinnelledu>
 * Sunday 4:00 p.m.: Quiz 9: Vectors (Distributed this a.m.)
-* Sunday 10:00 p.m.: Reading for Monday 
+* Sunday 10:00 p.m.: Readings for Monday 
 * Sunday 10:30 p.m.: Today's lab
     * Likely "Sam says stop here"
 * Thursday, April 14, 10:30 p.m.: SoLA 3
@@ -122,6 +122,8 @@ Racket/Lab Stuff
 ;;      https://www.howmanysyllables.com/syllable_rules/howtocountsyllables
 ;;   Presentation showing how to identify silent E's
 ;;      https://ckla.amplify.com/skillsboost/wp-content/uploads/2020/08/G3_TeacherExtension_W1_D4.pdf
+;;   Observation that I only had four parts of speech.
+;;      SamR
 ```
 
 Questions
@@ -189,6 +191,10 @@ Lab
 
 ### During Lab
 
+Exercise 4: Sam screwed up.  Please add `(require (file "date.rkt"))` 
+to the top of your file.  (There's a built-in date type with ten fields;
+we're replacing that one.)
+
 ### Wrapup
 
-
+`; SAM SAID I COULD STOP HERE`
