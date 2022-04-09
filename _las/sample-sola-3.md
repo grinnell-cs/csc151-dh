@@ -88,17 +88,17 @@ Here's an approximate key for ASCII-art pair structures.
                               v          v
                              "t"        "u"
 
-(vector 'a 'b 'c):          /---+---+---+---+
-                            | 3 | * | * | * |
-                            \---+-|-+-|-+-|-+
-                                  v   v   v
-                                  a   b   c
+(vector 'a 'b 'c):          /-+---+---+---+
+                            |3| * | * | * |
+                            \-+-|-+-|-+-|-+
+                                v   v   v
+                                a   b   c
 
-(vector 'a 'b 'c 'd):       /---+---+---+---+---+
-                            | 4 | * | * | * | * |
-                            \---+-|-+-|-+-|-+-|-+
-                                  v   v   v   v
-                                  a   b   c   d
+(vector 'a 'b 'c 'd):       /-+---+---+---+---+
+                            |4| * | * | * | * |
+                            \-+-|-+-|-+-|-+-|-+
+                                v   v   v   v
+                                a   b   c   d
 ```
 
 ## Mental Models of Memory
