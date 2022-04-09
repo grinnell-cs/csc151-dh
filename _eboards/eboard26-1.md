@@ -22,6 +22,7 @@ Administrivia
 * We may have admitted students today (and over the next few weeks).
     * It appears that someone/something wants to warn admitted students
       about Grinnell weather.
+    * Nope, no visitors today.
 * Note that we will not have a Wednesday mentor session since SoLA 3
   will be live.
     * Sunday and Monday's mentor sessions will be reviews for the SoLA.
