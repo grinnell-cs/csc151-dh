@@ -26,13 +26,13 @@
     - "**Dictionaries**.  Design and write functions that use dictionaries."
     - "**Vectors**.  Design and write functions (potentially recursive functions) that use vectors."
     - "**Data abstraction**.  Design data structures to separate interface from implementation."
-    - "**Use higher-order procedures**. Use `section` and composition to simplify computations."
-    - "**Structure textual data**. Write and use HTML, XML, and CSS."
+    - "**Higher-order procedures**. Use `section` and composition to simplify computations."
+    - "**Precondition testing**.  Verify the preconditions of procedures."
 
 - assessment: Learning Assessments, Phase 4 (LAP 4)
   goals:
+    - "**Structure textual data**. Write and use HTML, XML, and CSS."
     - "**Write higher-order procedures**.  Write procedures that take procedures as parameters and return procedures as results."
-    - "**Refactoring**.  Identify repetitious code and factor out the common parts using local bindings or helper procedures."
     - "**Tail recursion**.  Transform recursive functions into tail-recursive functions."
     - "**Tree recursion**.  Design and write recursive functions over trees."
     - "**Running time**.  Use a mental model of computation to count the relevant number of operations performed by a function."

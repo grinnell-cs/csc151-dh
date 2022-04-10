@@ -491,19 +491,19 @@ so forth.)
 
 ---
 
-### Structuring textual data
+### Precondition testing
 
-_Write and use HTML, XML, and CSS._
+_Verify the preconditions of procedures._
 
-Write approximate XML, with only structural markup, to describe
-the following document fragment.
+Suppose we've created a `clock` struct using the following command.
 
-> **Our Mission**
+```
+(struct clock (hours minutes seconds)
+  #:reflection-name 'date)
+```
 
-> When <span style="color: red">Grinnell College</span> framed its charter in the Iowa Territory of the United States in 1846, it set forth a mission to educate its students "for the different professions and for the honorable discharge of the duties of life." <span style="color: red">The College</span> pursues that mission by providing an education in the liberal arts through free inquiry and the open exchange of ideas. As a teaching and learning community, <span style="colr: red">the College</span> holds that knowledge is a good to be pursued both for its own sake and for the _intellectual_, _moral_, and _physical_ well-being of individuals and of society at large. <span style="color:red">The College</span> exists to provide a lively academic community of students and teachers of high scholarly qualifications from diverse social and cultural circumstances. <span style="color:red">The College</span> aims to graduate individuals who can think clearly, who can speak and write persuasively and even eloquently, who can evaluate critically both their own and others' ideas, who can acquire new knowledge, and who are prepared in life and work to use their knowledge and their abilities to serve the common good.
-
-> Excerpted from _The Grinnell College Catalog_.
-
-Make sure to use at least three different kinds of tags and at
-least two attributes.  You may invent your own tags.  You may *not* 
-use appearance-oriented tags.
+Write a procedure, `(clock hours minutes seconds)`, that verifies that
+each of the parameters has the correct form and then calls `clock` with
+the verified parameters.  If any of the parameters is an incorrect form
+(e.g., if minutes is not a string, or if seconds is negative, or if
+hours is complex), issue an appropriate error message.
