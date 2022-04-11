@@ -10,8 +10,8 @@ link: true
 _Approximate overview_
 
 * Administrative stuff [~5 min]
-* Questions [~25 min]
-* Lab [~50 min]
+* Questions [~35 min]
+* Lab [~40 min]
 
 Administrivia
 -------------
@@ -74,12 +74,11 @@ Administrivia
 * Saturday, April 16, 11:00 am, Baseball vs. Monmouth
 * Saturday, April 16, 1:30 pm, Baseball vs. Monmouth
 * Saturday, April 16, 3:00 pm, Men's Tennis vs. Beloit
-    * SamR is confused: How can MTEN be at home and away?
 
 ### Other Upcoming Activities
 
-* Thursday April 21, 3:00 pm, Softbasll vs. Simpson
-* Thursday April 21, 5:00 pm, Softbasll vs. Simpson
+* Thursday April 21, 3:00 pm, Softball vs. Simpson
+* Thursday April 21, 5:00 pm, Softball vs. Simpson
 
 ### Strange Grinnell Tech History
 
@@ -199,15 +198,25 @@ What's wrong with each of these solutions?
       (let ([val (vector-ref vec pos)])
         (cond
           [(number? val)
-           (vector-increment/kernel! (vector-set! vec pos (+ 1 val)) 
+           (vector-increment!/kernel (vector-set! vec pos (+ 1 val)) 
                                      (+ pos 1))]
           [(string? val)
-           (vector-increment/kernel! (vector-set! vec pos (cons "x" val))
+           (vector-increment!/kernel (vector-set! vec pos (string-append "x" val))
                                      (+ pos 1))]
           [else
-           (vector-increment/kernel! (vector-set! vec pos val)
+           (vector-increment!/kernel (vector-set! vec pos val)
                                      (+ pos 1))])))))
 ```
+
+Not a problem: Doesn't return the vector at the end.  In general, procedures
+that end in an `!` generally don't return anything.
+
+Problem: `vector-set!` returns nothing (`#<void>`).  So when we recurse,
+we're calling `(vector-increment!/kernel #<void> 1)`.  
+`(vector-length #<void>)` is an error
+
+Moral: Don't use the result of `vector-set!` (or almost any procedure
+that ends with an `!`) as the parameter to another procedure.
 
 ```
 ; V2
@@ -223,9 +232,17 @@ What's wrong with each of these solutions?
           [(number? val)
            (vector-set! vec pos (+ 1 val))]
           [(string? val) 
-           (vector-set! vec pos (cons "x" val))])
+           (vector-set! vec pos (string-append "x" val))])
         (vector-increment!/kernel vec (+ pos 1))))))
 ```
+
+Problem: The `when` is what checks whether or not the position is
+valid.  Since we're using the position in the `let`, it might end
+up with an invalid position.
+
+This did mutate the vector, but it crashed at the end.
+
+Solution: Switch the order of the `let` and the `when`.
 
 ```
 ; V3
@@ -238,7 +255,7 @@ What's wrong with each of these solutions?
     (when (< pos (vector-length vec))
       (let* ([current-val (vector-ref vec pos)]
              [number-case (vector-set! vec pos (+ 1 current-val))]
-             [string-case (vector-set! vec pos (string-append "x" (current-val)))])
+             [string-case (vector-set! vec pos (string-append "x" current-val))])
         (cond
           [(number? current-val)
            number-case]
@@ -247,12 +264,36 @@ What's wrong with each of these solutions?
         (vector-increment!/kernel vec (+ pos 1))))))
 ```
 
-### Better precondition testing
+Problem: The expressions in the `let` are evaluated immediately, not
+within the cond.  
 
-Having to write all of those `(define foo-x foo-kernel-x)` is a PITA.
-Is there a better way?
+How do we fix it?
 
-> Yeah, I think so.
+```
+(define vector-increment!/kernel
+  (lambda (vec pos)
+    (when (< pos (vector-length vec))
+      (let* ([current-val (vector-ref vec pos)]
+             [number-case (lambda () (vector-set! vec pos (+ 1 current-val)))]
+             [string-case (lambda () (vector-set! vec pos (string-append "x" current-val)))])
+        (cond
+          [(number? current-val)
+           (number-case)]
+          [(string? current-val)
+           (string-case)])
+        (vector-increment!/kernel vec (+ pos 1))))))
+```
+
+That's probably not better than skiping the naming altogether.
+
+Conclusion: Don't try to do too much in the `let`?
+
+### Viewing structs
+
+Is there a way that we can see what's inside a structure, just as we can
+for vectors and lists?
+
+> Add `#:transparent` to the struct definition.
 
 ### Mutable structs
 
@@ -287,9 +328,11 @@ How do structure and formatting differ?
 
 How do the readings relate to what we've been doing?
 
-> We've been looking at different ways to represent data.  Markup languages are a way to represent data as text.
+> We've been looking at different ways to represent data.  Markup
+  languages are a way to represent data as text.
 
-> The course has a digital humanities focus (of sorts).  Markup is a key part of the digital humanities.
+> The course has a digital humanities focus (of sorts).  Markup is a
+  key part of the digital humanities.
 
 > We'll be writing programs that process XML (or HTML).
 
@@ -310,11 +353,32 @@ functions or are they there to provide information to a reader?
 Another question
 ----------------
 
+_TPS_
+
 What would you do if you saw these ...?
 
 * 23-25
 * 27-28 (30?)
 * 44-45
+
+Comments
+
+* It depends on who copies and who copied.
+* Remind people that quizzes and exams aren't collaborative.  Remind
+  people, then Let it go! 
+* Make them redo it.
+* Assume the best in people.  It could be coincidence / people who
+  study together.
+
+Sam's solution
+
+* Talk about it.
+* Ask them to talk to me.
+
+What should I do about the student who asked for a token for attending
+Thursday's baseball game?
+
+* See above.
 
 Lab
 ---
@@ -326,6 +390,12 @@ Lab
 
 ### During Lab
 
+* If neither your nor your partner have a sites.grinnell.edu site, 
+  go join another group.
+
 ### Wrapup
 
+* Do as much as you can.
+* Submit the URL of your site.  Eg.  
+  `https://ihate151.sites.grinnell.edu/csc151/`
 

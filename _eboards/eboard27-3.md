@@ -1,5 +1,5 @@
 ---
-title: "EBoard 27 (Section 2): Marking Text"
+title: "EBoard 27 (Section 3): Marking Text"
 number: 27
 section: eboards
 held: 2022-04-11
@@ -10,8 +10,8 @@ link: true
 _Approximate overview_
 
 * Administrative stuff [~5 min]
-* Questions [~25 min]
-* Lab [~50 min]
+* Questions [~35 min]
+* Lab [~40 min]
 
 Administrivia
 -------------
@@ -52,7 +52,7 @@ Administrivia
     * To be rewritten this afternoon; don't start until I tell you to.
     * Feedback appreciated!
 * Tuesday 10:30 p.m.: Today's lab
-    * Likely "Sam says stop here"
+    * Definitely "Sam says stop here"
 * Thursday, April 14, 10:30 p.m.: SoLA 3
     * Distributed Wednesday at 2:30 pm
     * Don't forget that there are sample questions on the LAs page.
@@ -70,16 +70,16 @@ Administrivia
   <https://grinnellcollege.zoom.us/j/85126108306>
 * Thursday, April 14, 11am, Convocation: Kaushik Basu
 * Friday, April 15, 2pm: Baseball vs. Monmouth
-* Saturday, April 16, 9:00 am, Men's Tennis vs. Monmouth
+* Friday talk.
 * Saturday, April 16, 11:00 am, Baseball vs. Monmouth
 * Saturday, April 16, 1:30 pm, Baseball vs. Monmouth
-* Saturday, April 16, 3:00 pm, Men's Tennis vs. Beloit
-    * SamR is confused: How can MTEN be at home and away?
 
 ### Other Upcoming Activities
 
-* Thursday April 21, 3:00 pm, Softbasll vs. Simpson
-* Thursday April 21, 5:00 pm, Softbasll vs. Simpson
+* Thursday April 21, 3:00 pm, Softball vs. Simpson
+* Thursday April 21, 5:00 pm, Softball vs. Simpson
+* Saturday, April 16, 9:00 am, Men's Tennis vs. Monmouth
+* Saturday, April 16, 3:00 pm, Men's Tennis vs. Beloit
 
 ### Strange Grinnell Tech History
 
@@ -199,15 +199,28 @@ What's wrong with each of these solutions?
       (let ([val (vector-ref vec pos)])
         (cond
           [(number? val)
-           (vector-increment/kernel! (vector-set! vec pos (+ 1 val)) 
+           (vector-increment!/kernel (vector-set! vec pos (+ 1 val)) 
                                      (+ pos 1))]
           [(string? val)
-           (vector-increment/kernel! (vector-set! vec pos (cons "x" val))
+           (vector-increment!/kernel (vector-set! vec pos (string-append "x" val))
                                      (+ pos 1))]
           [else
-           (vector-increment/kernel! (vector-set! vec pos val)
+           (vector-increment!/kernel (vector-set! vec pos val)
                                      (+ pos 1))])))))
 ```
+
+Question: Could we use `if` instead of `when`?
+
+> Probably not.  `when` allows multiple consequents, `if` usually
+  allows only one.
+
+Problem: The vector-set! returns nothing (or void), so that when we
+do the recursive call, the program will report an error, because
+we are passing void, rather than the vector, to the procedure.
+
+Not a problem: This procedure doesn't return anything.  That's okay,
+this is an `!` procedure.  The `when` is one way to do that.  YOu
+can also return nothing with `(void)`.
 
 ```
 ; V2
@@ -223,9 +236,29 @@ What's wrong with each of these solutions?
           [(number? val)
            (vector-set! vec pos (+ 1 val))]
           [(string? val) 
-           (vector-set! vec pos (cons "x" val))])
+           (vector-set! vec pos (string-append "x" val))])
         (vector-increment!/kernel vec (+ pos 1))))))
 ```
+
+Problem: Eventually, `pos` will equal or exceed the length of the vector,
+so we will get an out of bounds error.
+
+Fix:
+
+```
+(define vector-increment!/kernel
+  (lambda (vec pos)
+    (when (< pos (vector-length vec))
+      (let ([val (vector-ref vec pos)])
+        (cond
+          [(number? val)
+           (vector-set! vec pos (+ 1 val))]
+          [(string? val) 
+           (vector-set! vec pos (string-append "x" val))])
+        (vector-increment!/kernel vec (+ pos 1))))))
+```
+
+Moral: Test preconditions before executing code.
 
 ```
 ; V3
@@ -238,7 +271,7 @@ What's wrong with each of these solutions?
     (when (< pos (vector-length vec))
       (let* ([current-val (vector-ref vec pos)]
              [number-case (vector-set! vec pos (+ 1 current-val))]
-             [string-case (vector-set! vec pos (string-append "x" (current-val)))])
+             [string-case (vector-set! vec pos (string-append "x" current-val))])
         (cond
           [(number? current-val)
            number-case]
@@ -247,12 +280,15 @@ What's wrong with each of these solutions?
         (vector-increment!/kernel vec (+ pos 1))))))
 ```
 
-### Better precondition testing
+Problem: This evaluates the code in the let *immediately*, not within
+the cond.  That means that the code is guaranteed to crash.
 
-Having to write all of those `(define foo-x foo-kernel-x)` is a PITA.
-Is there a better way?
+### Seeing structures
 
-> Yeah, I think so.
+I don't like seeing things like `#<name>`.  Is there a way that we can
+see what's inside a structure, just as we can for vectors and lists?
+
+> Add `#:transparent` to the struct definition.
 
 ### Mutable structs
 
@@ -287,9 +323,11 @@ How do structure and formatting differ?
 
 How do the readings relate to what we've been doing?
 
-> We've been looking at different ways to represent data.  Markup languages are a way to represent data as text.
+> We've been looking at different ways to represent data.  Markup
+  languages are a way to represent data as text.
 
-> The course has a digital humanities focus (of sorts).  Markup is a key part of the digital humanities.
+> The course has a digital humanities focus (of sorts).  Markup is a
+  key part of the digital humanities.
 
 > We'll be writing programs that process XML (or HTML).
 
@@ -305,16 +343,52 @@ functions or are they there to provide information to a reader?
 > They are to provide information for either the program displaying the
   text or the reader/analyst who wants to process the text computationally.
 
+Do we need a special program for creating markup?
+
+> Nope.  You can use any program that lets you edit text files, inluding
+  DrRacket.
+
+> You can also write Racket programs that create markup files.
+
+Is there software that makes it easier to write markup?
+
+> Certainly.
+
+> But I'm old, I use plain text editors.
+
 ### Other issues
 
 Another question
 ----------------
+
+_TPS_
 
 What would you do if you saw these ...?
 
 * 23-25
 * 27-28 (30?)
 * 44-45
+
+Comments
+
+* When things are hard, we try to do it with someone else.  (Perhaps
+  they forgot that it was not allowed.)
+* Ignore it!  or Just let them redo it.
+* Note that something is going wrong if people need to share.
+* Send a warning!  This involves trust.
+* Sometimes it's just coincidence.
+
+Sam's solution
+
+* Reminder: This involves trust.
+* If you are one of the people whose code I showed, please talk to me.
+    * You can say "Let's pretend I didn't submit that"
+    * You can say "It's a coincidence"
+
+Followup question
+
+* What should I do with the student who asked for a token for attending
+  last Thursday's baseball game?
 
 Lab
 ---
@@ -326,6 +400,8 @@ Lab
 
 ### During Lab
 
+* Make sure one of you has a site.  If not, rearrange.
+
 ### Wrapup
 
-
+* To submit: Submit the URL of your site on Gradescope.

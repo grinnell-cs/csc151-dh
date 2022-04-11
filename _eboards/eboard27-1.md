@@ -75,8 +75,8 @@ Administrivia
 * Saturday, April 16, 1:30 pm, Baseball vs. Monmouth
 * Saturday, April 16, 3:00 pm, Men's Tennis vs. Beloit
     * SamR is confused: How can MTEN be at home and away?
-* Thursday April 21, 3:00 pm, Softbasll vs. Simpson
-* Thursday April 21, 5:00 pm, Softbasll vs. Simpson
+* Thursday April 21, 3:00 pm, Softball vs. Simpson
+* Thursday April 21, 5:00 pm, Softball vs. Simpson
 
 ### Other Upcoming Activities
 
@@ -111,7 +111,7 @@ or
 (define string->clock
   (lambda (str)
     (when (not string? str)
-      (error "string->clock: expects a string, recieved" str))
+      (error "string->clock: expects a string, received" str))
     (let ([parts (string-split str ":")])
       (when (not (= 3 (length parts)))
         (error "string->clock: string must have two colons" str))
@@ -198,14 +198,38 @@ What's wrong with each of these solutions?
       (let ([val (vector-ref vec pos)])
         (cond
           [(number? val)
-           (vector-increment/kernel! (vector-set! vec pos (+ 1 val)) 
+           (vector-increment!/kernel (vector-set! vec pos (+ 1 val)) 
                                      (+ pos 1))]
           [(string? val)
-           (vector-increment/kernel! (vector-set! vec pos (cons "x" val))
+           (vector-increment!/kernel (vector-set! vec pos (string-append "x" val))
                                      (+ pos 1))]
           [else
-           (vector-increment/kernel! (vector-set! vec pos val)
+           (vector-increment!/kernel (vector-set! vec pos val)
                                      (+ pos 1))])))))
+```
+
+Problem: `vector-set!` returns void.  So when we recurse, we're recursing
+on `#<void>` rather than on a vector.  _Don't use the result of `vector-set!`
+(or any `vector-xxx!` procedure) as the parameter when you recurse._
+
+Trace: 
+
+```
+    (vector-increment! (vector 1 2 "three" "four")
+--> (vector-increment!/kernel (vector 1 2 "three" "four") 0)
+--> (when (< 0 (vector-length (vector 1 2 "three" "four"))) STUFF)
+--> (when (< 0 4) STUFF)
+--> (when #t STUFF)
+--> (let ([val (vector-ref (vector 1 2 "three" "four") 0)]) STUFF2)
+--> (let ([val 1]) STUFF2)
+--> (cond [(number? 1) (vector-increment!/kernel (vector-set! (vector 1 2 "three" "four") 0 (+ 1 1)) (+ 0 1))] STUFF3)
+--> (cond [#t (vector-increment!/kernel (vector-set! (vector 1 2 "three" "four") 0 (+ 1 1)) (+ 0 1))] STUFF3)
+--> (vector-increment!/kernel (vector-set! (vector 1 2 "three" "four") 0 (+ 1 1)) (+ 0 1))
+--> (vector-increment!/kernel (vector-set! (vector 1 2 "three" "four") 0 2) (+ 0 1))
+--> (vector-increment!/kernel #<void> (+ 0 1))
+--> (vector-increment!/kernel #<void> 1)
+--> (when (< 1 (vector-length #<void>)) STUFF)
+--> BOOM!
 ```
 
 ```
@@ -222,9 +246,16 @@ What's wrong with each of these solutions?
           [(number? val)
            (vector-set! vec pos (+ 1 val))]
           [(string? val) 
-           (vector-set! vec pos (cons "x" val))])
+           (vector-set! vec pos (string-append "x" val))])
         (vector-increment!/kernel vec (+ pos 1))))))
 ```
+
+Note: This doesn't return the vector.  But we generally don't expect
+procedures that end with a `!` to return anything.
+
+The ordering of the `let` and the `when` is problematic.  If pos is
+`(vector-length vec)`, it is illegal to grab the thing at position
+`pos`, and the procedure will crash.
 
 ```
 ; V3
@@ -237,7 +268,7 @@ What's wrong with each of these solutions?
     (when (< pos (vector-length vec))
       (let* ([current-val (vector-ref vec pos)]
              [number-case (vector-set! vec pos (+ 1 current-val))]
-             [string-case (vector-set! vec pos (string-append "x" (current-val)))])
+             [string-case (vector-set! vec pos (string-append "x" current-val))])
         (cond
           [(number? current-val)
            number-case]
@@ -246,12 +277,7 @@ What's wrong with each of these solutions?
         (vector-increment!/kernel vec (+ pos 1))))))
 ```
 
-### Better precondition testing
-
-Having to write all of those `(define foo-x foo-kernel-x)` is a PITA.
-Is there a better way?
-
-> Yeah, I think so.
+Remember: `let`s and `let*`s evaluate the expression immediately.
 
 ### Mutable structs
 
@@ -271,24 +297,26 @@ I want to make my structures mutable.  Is that possible?
 
 What did you expect for the self-check?
 
-> _We discussed four possible kinds of markup. Summarize those four types.)
+> _We discussed four possible kinds of markup. Summarize those four types._
 
 > Something like, "Content, Formatting, Structure, Metadata" 
   (plus a sentence or two describing each).
 
 How do structure and formatting differ?
 
-> Structure indicates *why* we are writing text: "This is the header
-  of a section"
+> Structure indicates *why* we are marking text (or *what* the text
+  represents): "This is the header of a section"
 
 > Formatting indicates *how* the text should appear: "This should appear
   in a bold face, larger than the normal text"
 
 How do the readings relate to what we've been doing?
 
-> We've been looking at different ways to represent data.  Markup languages are a way to represent data as text.
+> We've been looking at different ways to represent data.  Markup
+  languages are a way to represent data as text.
 
-> The course has a digital humanities focus (of sorts).  Markup is a key part of the digital humanities.
+> The course has a digital humanities focus (of sorts).  Markup is 
+  a key part of the digital humanities.
 
 > We'll be writing programs that process XML (or HTML).
 
@@ -315,6 +343,22 @@ What would you do if you saw these ...?
 * 27-28 (30?)
 * 44-45
 
+Answers
+
+* "There are only a few possible answers; sometimes similar answers happen."
+* "The possibility is astronomically low, turn them in to CAS."
+* "Perhaps they forgot that you should not discuss LA questions with each
+  other."
+* "Use the Harvard CS50 approach."
+* "Stress leads people to make bad decisions."
+
+My Solution
+
+* If you are one of the people who might be identified, please contact me.
+* You can ask that I delete the submission (and promise not to do something
+  similar again in the future).
+* You can give another explanation.
+
 Lab
 ---
 
@@ -325,6 +369,9 @@ Lab
 
 ### During Lab
 
+* If neither partner got email about the site, you'll need to join 
+  another group.  Sorry.
+
 ### Wrapup
 
-
+* Just submit the URL of your site.
