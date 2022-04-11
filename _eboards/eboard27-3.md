@@ -1,5 +1,5 @@
 ---
-title: "EBoard 27 (Section 1): Marking Text"
+title: "EBoard 27 (Section 2): Marking Text"
 number: 27
 section: eboards
 held: 2022-04-11
@@ -75,10 +75,11 @@ Administrivia
 * Saturday, April 16, 1:30 pm, Baseball vs. Monmouth
 * Saturday, April 16, 3:00 pm, Men's Tennis vs. Beloit
     * SamR is confused: How can MTEN be at home and away?
-* Thursday April 21, 3:00 pm, Softbasll vs. Simpson
-* Thursday April 21, 5:00 pm, Softbasll vs. Simpson
 
 ### Other Upcoming Activities
+
+* Thursday April 21, 3:00 pm, Softbasll vs. Simpson
+* Thursday April 21, 5:00 pm, Softbasll vs. Simpson
 
 ### Strange Grinnell Tech History
 

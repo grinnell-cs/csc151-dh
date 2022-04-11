@@ -388,6 +388,10 @@
     - page: /readings/www.html
   lab:
     - page: /labs/www.html
+  eboards: 
+    - page: /eboards/eboard27-1.html
+    - page: /eboards/eboard27-2.html
+    - page: /eboards/eboard27-3.html
 
 - topic: Processing XML
   abbrev: xml
@@ -400,6 +404,7 @@
     - Seaching XML
     - Constructing new documents from old
   reading:
+    - page: /readings/match.html
     - page: /readings/processing-xml.html
   lab:
     - page: /labs/processing-xml.html
