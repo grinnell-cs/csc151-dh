@@ -5,6 +5,8 @@ summary: |
 ---
 ## Preliminaries
 
+_Side A_
+
 a. In a Web browser, open [the reading on HTML and CSS](../readings/www).
 
 b. In a Web browser, open [some instructions for working with sites.grinnell.edu](../files/sites.grinnell.edu.pdf).
@@ -42,15 +44,17 @@ g. Take a deep breath.
 
 ### Exercise 1: Exploring a Web page
 
+_Side B_
+
 Let's start by looking at the ThingymabobCoInc Web site from
 [the reading](../readings/www).
 
 a. If you have not already done so, use the File Manager to navigate
-to your `public_html` directory.
+to your `cusc151-www-lab directory on our local computer.
 
 b. Right click on the file named `thingy.html` and select
-**Open with "Text Editor"**.  A GEdit window should appear showing the
-HTML, colored to show the different parts of the code.
+**Open with "Text Editor"**.  An editor window should appear showing 
+the HTML, perhaps colored to show the different parts of the code.
 
 c. Scan through the page, identifying the different tags that are
 being used.  You may want to note them down on a piece of paper.
@@ -77,6 +81,8 @@ for example, add something like
 f. Reload the page to verify that the changes have taken effect.
 
 ### Exercise 2: Uploading a Web page
+
+_Side A_
 
 So far, we've just looked at the page on our local machine.  We'd rather see
 the page on the World-Wide Web.  
@@ -110,6 +116,8 @@ you can view their page as well as your own.
 
 ### Exercise 3: Exploring styles
 
+_Side B_
+
 As we noted, the design of the page is particularly hideous.  You can
 read the details of the design in the file `thingy.css`.
 
@@ -136,6 +144,8 @@ the Web browser.
 f. Spend no more than five minutes making the page less hideous.
 
 ### Exercise 4: Changing styles
+
+_Side A_
 
 In our description of CSS, we noted that one advantage of CSS is that
 it lets you quickly change the appearance of a page.  Let's try 
@@ -165,6 +175,8 @@ reload the remote `thingy.html` in your Web browser.
 
 ### Exercise 5: Reflection
 
+_Side B_
+
 _If you are color deficient or have other vision issues, you may choose
 to skip this exercise._
 
@@ -177,6 +189,8 @@ my version of gedit, it appears that green represents tags.
 b. What do the colors represent in the CSS document?
 
 ### Exercise 6: Building a new style sheet
+
+_Side A_
 
 a. Open `excerpt.html` and `excerpt.css` in the text editor (gedit).
 
@@ -258,6 +272,8 @@ o. Upload the modified files to your remote Web site and verify
 that you can view them.
 
 ### Exercise 7: Your own story
+
+_Side B_
 
 Using the tags and styles from the excerpt, create your own short story
 (with quotations) about Alice, the king, and the queen.  (The goal of
