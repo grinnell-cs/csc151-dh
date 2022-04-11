@@ -7,6 +7,9 @@ summary: |
 
 _Side A_
 
+Note: The person logged in to the MathLAN machine must be the same as
+the person whose CPanel site you will be using.
+
 a. In a Web browser, open [the reading on HTML and CSS](../readings/www).
 
 b. In a Web browser, open [some instructions for working with sites.grinnell.edu](../files/sites.grinnell.edu.pdf).
@@ -59,13 +62,12 @@ the HTML, perhaps colored to show the different parts of the code.
 c. Scan through the page, identifying the different tags that are
 being used.  You may want to note them down on a piece of paper.
 
-d. In your Web browser, select File -> Open File..., then navigate
-to `thingy.html` and open it.  You might also be able to use
-<file:///home/USERNAME/Desktop/csc151-www-lab/thingy.html>.  If all
-goes well, you should see a Web page that corresponds to the text
-you just read.  (Yes, the page is intentionally hideous.)  If you
-can't load the page in one of those ways, get help from one of the
-class assistants.
+d. In your Web browser, select File -> Open File... (or hit Ctrl-O),
+then navigate to `thingy.html` and open it.  You might also be able to
+use <file:///home/USERNAME/Desktop/csc151-www-lab/thingy.html>.  If all
+goes well, you should see a Web page that corresponds to the text you
+just read.  (Yes, the page is intentionally hideous.)  If you can't load
+the page in one of those ways, get help from one of the class assistants.
 
 e. In your text editor, make some changes to the page.  You might,
 for example, add something like 
