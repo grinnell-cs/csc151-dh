@@ -304,6 +304,7 @@
     - Seaching XML
     - Constructing new documents from old
   reading:
+    - page: /readings/pattern-matching.html
     - page: /readings/processing-xml.html
   lab:
     - page: /labs/processing-xml.html
@@ -316,8 +317,6 @@
     - Replacing elements
     - Inserting elements
     - Deleting elements
-  reading:
-    - page: /readings/transforming-xml.html
   lab:
     - page: /labs/transforming-xml.html
 
@@ -331,12 +330,11 @@
   lab:
     - page: /labs/higher-order-recursion.html
 
-- topic: Recursion, reviewed
-  abbrev: pause-recursion
+- topic: Tail recursion
+  abbrev: tail-recursion
   summary: |
     We get our brains back working on recursion
   reading:
-    - page: /readings/pattern-matching.html
     - page: /readings/tail-recursion.html
     - page: /readings/list-recursion-revisited.html
   lab:
