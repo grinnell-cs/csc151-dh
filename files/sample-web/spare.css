@@ -1,0 +1,56 @@
+body {
+  margin-left: 1in;
+  margin-right: 1in;
+  font-family: Besley, Georgia, Serif;
+}
+
+p.source {
+  display: none;
+}
+
+.king {
+  color: red;
+}
+
+.white-queen {
+  color: gray;
+}
+
+.alice {
+  color: cornflowerblue;
+}
+
+.spoken {
+}
+
+.written {
+  font-style: oblique;
+}
+
+.introspective {
+  text-shadow: 1px 1px 2px gray; 
+}
+
+.mirrored {
+  transform: scale(-1, 1);
+}
+
+p.title {
+  font-weight: bold;
+  font-variant: small-caps;
+}
+
+.line {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.continuation {
+  margin-left: 1em;
+  margin-top: 0;
+}
+
+.stanza {
+  margin-top: 1ex;
+  margin-bottom: 1ex;
+}

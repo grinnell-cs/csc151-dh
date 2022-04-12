@@ -1,0 +1,33 @@
+h1 {
+  text-align: right;
+}
+
+body {
+  background: pink;
+}
+
+em {
+  font-style: normal;
+  font-weight: bold;
+}
+
+#slogan {
+  background-color: blue;
+  color: white;
+}
+
+p {
+  margin-left: 1in;
+  margin-right: 1in;
+}
+
+p#introduction {
+  font-size: 150%;
+  color: blue;
+}
+
+em.company {
+  color: white;
+  font-family: Helvetica, Sans;
+  text-shadow: 1px 3px red;
+}
