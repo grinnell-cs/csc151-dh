@@ -19,21 +19,21 @@ When we mark documents using XML or HTML (a kind of XML document type), we add i
 What if we want to analyze or transform a document that contains the additional information?
 
 Regular expressions may serve in some cases.
-For example, if we want to count the number of paragraphs in an HTML document, we can use an expression like 
- 
+For example, if we want to count the number of paragraphs in an HTML document, we can use an expression like
+
 ```
 (length (rex-find-matches (rex-concat (rex-string "<")
                                          (rex-char-set "pP")
                                          (rex-char-set " >"))
 ```
- 
+
 That is, we want to find the number of times a paragraph tag appears.
 The `<` marks the start of the tag.
 It can be a `p` tag or a `P` tag.
 It may immediately end with a `>` or there may be a space and some attributes.
 
 However, it turns out that some aspects of hierarchical documents are difficult, if not impossible, to express with regular expressions.
-For example, what if we only want to count the number of times that emphasized text appears within another section of emphasized text, as in 
+For example, what if we only want to count the number of times that emphasized text appears within another section of emphasized text, as in
 
 > `<em>this is a <em>boring</em> example</em>`
 
@@ -49,7 +49,7 @@ We'll focus on the use of adaptations of XPath into the Racket language.
 
 ## Representing XML/HTML documents in Racket
 
-At first glance, it seems relatively straightforward to represent an XML document in Racket: Each element can be a list.  
+At first glance, it seems relatively straightforward to represent an XML document in Racket: Each element can be a list.
 We can then nest lists within lists (within lists, within lists, ...) to represent the hierarchy.
 For the text that appears in elements, we can just use strings.
 
@@ -94,7 +94,7 @@ You will find that the expressions look much like the example above, with the ad
 You can rely on four basic procedures to convert between text and this format.
 
 * `(file->xml fname)` reads an HTML document and converts it to the internal structure just described.
-* `(xml->file html fname)` saves a document in that representation to a text file which can then be loaded in a Web browser. 
+* `(xml->file html fname)` saves a document in that representation to a text file which can then be loaded in a Web browser.
 * `(string->xml str)` converts a string to the list representation.
 * `(xml->string html)` converts the list representation back to a string.
 
@@ -141,19 +141,19 @@ Let's see.
 > nested
 '(p "Why would anyone " (em "nest " (em "emphasis") " within " (strong (em "other emphasis"))) "?")
 > (sxpath-match "//em" nested)
-'((em "nest " (em "emphasis") " within " (strong (em "other emphasis"))) 
-  (em "emphasis") 
+'((em "nest " (em "emphasis") " within " (strong (em "other emphasis")))
+  (em "emphasis")
   (em "other emphasis"))
 ```
 
 It appears that we get all of the `em` elements, even when they
-include or are included within another such element.  
+include or are included within another such element.
 (Note that we've reformatted the output slightly for clarity.)
 
-What if we want just the `em` elements that are included within another element (so not the outer one)?  
+What if we want just the `em` elements that are included within another element (so not the outer one)?
 The patterns `"//tag0/tag1"` and `"//tag0//tag1"` allow us to look at nesting.
-In the first case `tag1` must appear as an immediate subelement of `tag0`.  
-In the latter, `tag1` can appear anywhere below `tag0`.  
+In the first case `tag1` must appear as an immediate subelement of `tag0`.
+In the latter, `tag1` can appear anywhere below `tag0`.
 
 ```drracket
 > (sxpath-match "//em/em" nested)
@@ -199,7 +199,7 @@ As you might expect, we get back the empty list if no paragraph has `n` elements
 What about all of those `class` attributes?
 Shouldn't we be able to use those, too?
 Yes!
-You can select the elements with a particular class by appending `[@class='name']` to the path pattern. 
+You can select the elements with a particular class by appending `[@class='name']` to the path pattern.
 
 ```drracket
 > (sxpath-match "//em[@class='prime']" stuff)
