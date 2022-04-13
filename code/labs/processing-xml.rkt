@@ -27,7 +27,11 @@ review the reading.
 |#
 
 #|
-b. You'll need a variety of packages for this lab.  Install the 
+b. Save this file as `processing-xml.rkt`.
+|#
+
+#|
+c. You'll need a variety of packages for this lab.  Install the 
 following packages in DrRacket using File -> Install Package....
 
 * `html-parsing`
@@ -37,7 +41,7 @@ following packages in DrRacket using File -> Install Package....
 |#
 
 #|
-c. Make a copy of [excerpt.html](../files/sample-web/excerpt.html),
+d. Make a copy of [excerpt.html](../files/sample-web/excerpt.html),
 which you may recall from a recent lab.
 |#
 
@@ -159,7 +163,7 @@ it elsewhere.)
 |#
 
 #|
-e. Check the contents of the file by opening the file with GEdit.
+e. Check the contents of the file by opening the file with a text editor.
 
 <TODO: Enter any notes you may have.>
 |#
