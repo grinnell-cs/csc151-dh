@@ -408,6 +408,10 @@
     - page: /readings/processing-xml.html
   lab:
     - page: /labs/processing-xml.html
+  eboards: 
+    - page: /eboards/eboard28-1.html
+    - page: /eboards/eboard28-2.html
+    - page: /eboards/eboard28-3.html
 
 - topic: Transforming XML
   summary: |
