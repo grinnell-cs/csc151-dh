@@ -328,8 +328,13 @@ To earn a token, attend the event (or watch a recording within one day) and subm
 You must submit your response paragraph within a week of the event.
 Additional information about these opportunities will be posted to Teams as they arise.
 
-If you use more tokens than you have, I will count the extras against lab writeups, readings, or quizzes, whichever affects your grade the least.
-But please try not to use more tokens than you have.
+If, at the end of the semester, you have used more tokens than you have, those extra tokens will count against your final grade.
+Overspending of 1--5 tokens will drop your grade by 1/3 letter.
+Overspending of 6--10 tokens will drop your grade by 2/3 letter.
+Overspending of 11--15 tokens will drop your grade by 1 letter.
+And so on and so forth.
+
+Please try not to use more tokens than you have.
 
 ## Software, textbooks, references, technology, and such
 
