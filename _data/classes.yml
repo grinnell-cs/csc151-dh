@@ -423,6 +423,10 @@
     - Deleting elements
   lab:
     - page: /labs/transforming-xml.html
+  eboards: 
+    - page: /eboards/eboard29-1.html
+    - page: /eboards/eboard29-2.html
+    - page: /eboards/eboard29-3.html
 
 - topic: Higher-order recursive design
   abbrev: higher-order-recursive-design
