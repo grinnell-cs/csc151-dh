@@ -31,6 +31,11 @@ that appear directly under elements with tag `tag0`.
 `"//tag[@class='name']"` 
   : An XPath pattern for all tags with the given class.
 
+`"//tag[contains(@class, 'name')]`
+  : An XPath pattern for all tags whose class includes the name.
+    Particularly useful when we assign multiple classes to the same
+    tag.
+
 `"//text()"` 
   : An XPath pattern for all of the text in a document.
 
