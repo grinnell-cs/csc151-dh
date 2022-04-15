@@ -74,8 +74,15 @@ document.
 
 #|
 b. Write an expression that identifies all of the quotations by the
-White Queen.  You may have to review the original document to determine
+White Queen.  You may have to review the list you just made to see
 how we have marked such quotations.
+
+Note that for elements with multiple classes, you will likely want
+to use a pattern like
+
+    "//TAG[contains(@class, 'NAME')]"
+
+You will, of course, substitute a different tag and class name.
 |#
 
 (define white-queen-says
@@ -96,8 +103,12 @@ c. Write an expression that identifies all of the spoken quotations.
 
 #|
 a. Write an expression that replaces every one of the White Queen's
-quotations with the text "Off with their heads!".  You can check
-the result by saving to a file with
+quotations with the text "Off with their heads!".  Note that 
+`sxpath-replace` needs a procedure as the third parameter.  It's
+probably easiest to make it a separate procedure, although a lambda
+expression might also work.
+
+You can check the result by saving to a file with
 
     > (xml->file white-queen-now-says "temp.html")
 
@@ -129,7 +140,9 @@ and then opening the file in a Web browser.
 #|
 a. Write an expression that strongly emphasizes every spoken quotation .
 That is, put a `strong` tag around the quotation.  Once again, you may
-want to preview the result in a Web browser.
+find a helper useful. (this one will simply add a string tag around
+some XML.)  Once again, you may want to preview the result in a Web
+browser.
 |#
 
 (define speak-strongly
