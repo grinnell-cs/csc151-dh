@@ -130,12 +130,12 @@ you observe.
 
 #|
 a. Write a list-based SXML representation of an unordered list of
-three aphorisms (common sayings), at least one of which contains
-an emphasized word.
+three aphorisms (common sayings), at least one of which (other than
+the starting one) contains an emphasized word.
 |#
 
 (define aphorisms
-  '(ul (li "Computers are sentient and malicious")
+  '(ul (li "Computers are " (em "sentient") " and " (strong " malicious") ".")
        (li "")
        (li "")))
 
@@ -155,9 +155,9 @@ c. Check your answer experimentally.  Then add any notes.
 |#
 
 #|
-d. Using `(string->file str fname)`, save the converted string to
-a file named `pxml-02a.html` on your Desktop.  (You may also save
-it elsewhere.)
+d. Using `(string->file (xml->string aphorisms) fname)`, save the
+converted string to a file named `aphorisms1.html` on your Desktop.
+(You may also save it elsewhere.)
 
     > <TODO: Enter the command you used>
 |#
@@ -170,15 +170,15 @@ e. Check the contents of the file by opening the file with a text editor.
 
 #|
 f. Load the file in your Web browser.  It will be at something like
-`file:///home/username/Desktop/pxml-02a.html`.  (You will have to
+`file:///home/username/Desktop/aphorisms1`.  (You will have to
 substitute your own user name.)
 
 <TODO: Enter any notes you may have.>
 |#
 
 #|
-g. Using `(xml->file aphorisms)`, save the XML to a file named
-`pxml-02b.html` on your Desktop.  (You may also save it elsewhere.)
+g. Using `(xml->file aphorisms fname)`, save the XML to a file named
+`aphorisms2.html` on your Desktop.  (You may also save it elsewhere.)
 |#
 
 #|
@@ -190,7 +190,7 @@ text editor.
 
 #|
 i. Load the file in your Web browser.  It will be at something like
-`file:///home/username/Desktop/pxml-02b.html`.
+`file:///home/username/Desktop/aphorisms2.html`.
 
 <TODO: Enter any notes you may have.>
 |#
@@ -216,7 +216,7 @@ b. Review the HTML document by opening it in your Web browser.
 
 #|
 c. Write instructions to read in `excerpt.html`, delete all spaces,
-and save it to `pxml-03a.html`.  You will likely want to use
+and save it to `space-free.html`.  You will likely want to use
 `file->string`, `string-replace`, and `string->file`.
 
 <TODO: Enter your instructions here.>
@@ -247,7 +247,7 @@ Do not spend more than three minutes on this part of the exercise.
 #|
 g. Write a set of instructions to read in `excerpt.html`, replace
 all `em` tags with `strong` tags, and save the result back to
-`pxml-03b.html`.  Once again, you should stick with the string
+`strong-excerpt.html`.  Once again, you should stick with the string
 representation, and use `file->string`, `string-replace`, and
 `string->file`.
 |#
