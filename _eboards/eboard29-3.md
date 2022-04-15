@@ -1,5 +1,5 @@
 ---
-title: "EBoard 29 (Section 2): Processing and Transforming XML"
+title: "EBoard 29 (Section 3): Processing and Transforming XML"
 number: 29
 section: eboards
 held: 2022-04-15
@@ -21,8 +21,6 @@ Administrivia
 ### Introductory notes
 
 * We may have admitted students.
-* The SXpath library is not working perfectly, which affects the lab.
-  I'll see what I can do to fix it.
 
 ### Class mask policy
 
@@ -43,6 +41,7 @@ Administrivia
 
 ### Upcoming work
 
+* Sunday, 4:00 p.m.: Quiz 10
 * Sunday, 10:00 p.m.: Monday's reading
 * Sunday, 10:30 p.m.: Today's lab
     * Today is "Sam says stop here"
@@ -52,11 +51,22 @@ Administrivia
 
 * Processing XML and more!
 
+What do you mean by having random and element in the data file?
+
+```
+<data>
+  <sentence id="sent01"><random tag="singular-noun"/> loves <random tag="singular-noun"/>.</sentence>
+  <sentences id="base"><random tag="sentence"/></sentences>
+  <sentences id="recursive"><random tag="sentence"/> <random tag="sentences"/></sentences>
+</data>
+```
+
 ### Upcoming Token-Generating Activities
 
 * ???, Notional Machines Interview, 
   <https://calendy.com/songjunt/map-interview>
 * TODAY, 2pm: Baseball vs. Monmouth
+* Open Mic tonight, 9:00 p.m., Loose Lounge
 * Saturday, April 16, ?:?? am, Dag Field Day on Mac Field
 * Saturday, April 16, 9:00 am, Men's Tennis vs. Monmouth
 * Saturday, April 16, 11:00 am, Baseball vs. Monmouth
@@ -91,10 +101,12 @@ _TPS_
        (li "Fruit flies like an apple")))
 ```
 
-What does this reveal about the English language?
+What complexities does this reveal about the English language?
 
-* 
-* 
+* In the first sentence, "flies" is a verb, in the second sentence,
+  it's a noun.
+* In the first sentence, "like" is the start of an adverbial phrase.
+  In the second sentence, it's a verb.
 
 Lab Review
 ----------
@@ -104,8 +116,19 @@ _TPS_
 What were your main takeaways from the "processing XML" lab (at least
 the parts you did) and reading?
 
+* Tags are at the heart of HTML/XML/markup.
+* <snark><thing class="short">labs</thing> + <thing class="long hard">solas</thing> = <result>forgetfulness</result></snark>
+* It's easy to convert between the two formats.
+* We can extract information from HTML files.
+* We can generate HTML files.
+
 What do you see as the relative advantages of XML (with "<em>tags</em>") 
 and SXML (as `'(em "lists")`.)
+
+* There are no angle brackets in the list one.
+* Tags make it easier to tell when things end.  Lists, it's hard to tell; you have to count those end parens.
+* Tags seem more readable than lists.
+* Lists are a familiar data type, it should be easier for us to work with them.
 
 Questions
 ---------
@@ -140,12 +163,73 @@ A bit of new stuff
   : Update any element matching the pattern by applying `proc`.
 
 ```
+> (define makestrong
+    (lambda (xml)
+      (cons 'strong (cdr xml))))
+> (make-strong '(em "HJello"))
+. . make-strong: undefined;
+ cannot reference an identifier before its definition
+> (makestrong '(em "HJello"))
+'(strong "HJello")
+> (makestrong '(q "HJello"))
+'(strong "HJello")
+> (sxpath-replace "//q//em" sample makestrong)
+'((div
+   (p "This is " (em "somewhat") " boring.  This is " (em "less") " boring.")
+   (p
+    "This is a "
+    (em "second")
+    " paragraph, with a "
+    (q "quotation that includes " (strong "emphasized") " text"))))
+> sample
+'(div
+  (p "This is " (em "somewhat") " boring.  This is " (em "less") " boring.")
+  (p "This is a " (em "second") " paragraph, with a " (q "quotation that includes " (em "emphasized") " text")))
+> (sxpath-replace "//q" sample makestrong)
+'((div
+   (p "This is " (em "somewhat") " boring.  This is " (em "less") " boring.")
+   (p
+    "This is a "
+    (em "second")
+    " paragraph, with a "
+    (strong "quotation that includes " (em "emphasized") " text"))))
+> (define censor
+    (lambda (xml)
+      "CENSORED"))
+> (sxpath-replace "//q" sample makestrong)
+'((div
+   (p "This is " (em "somewhat") " boring.  This is " (em "less") " boring.")
+   (p
+    "This is a "
+    (em "second")
+    " paragraph, with a "
+    (strong "quotation that includes " (em "emphasized") " text"))))
+> (sxpath-replace "//q" sample censor)
+'((div
+   (p "This is " (em "somewhat") " boring.  This is " (em "less") " boring.")
+   (p "This is a " (em "second") " paragraph, with a " "CENSORED")))
+> (sxpath-replace "//em" sample censor)
+'((div
+   (p "This is " "CENSORED" " boring.  This is " "CENSORED" " boring.")
+   (p "This is a " "CENSORED" " paragraph, with a " (q "quotation that includes " "CENSORED" " text"))))
 ```
 
 `(sxpath-delete pattern xml)`
   : Delete any element matching the pattern.
 
 ```
+> (sxpath-delete "//q//em" sample)
+'((div
+   (p "This is " (em "somewhat") " boring.  This is " (em "less") " boring.")
+   (p "This is a " (em "second") " paragraph, with a " (q "quotation that includes " " text"))))
+> (sxpath-delete "//em[contains(text(),'t')]" sample)
+'((div
+   (p "This is " " boring.  This is " (em "less") " boring.")
+   (p
+    "This is a "
+    (em "second")
+    " paragraph, with a "
+    (q "quotation that includes " (em "emphasized") " text"))))
 ```
 
 `(sxpath-remove pattern xml)`
@@ -154,6 +238,14 @@ A bit of new stuff
     element.
 
 ```
+> (sxpath-remove "//em" sample)
+'((div
+   (p "This is " "somewhat" " boring.  This is " "less" " boring.")
+   (p "This is a " "second" " paragraph, with a " (q "quotation that includes " "emphasized" " text"))))
+> (sxpath-remove "//q" sample)
+'((div
+   (p "This is " (em "somewhat") " boring.  This is " (em "less") " boring.")
+   (p "This is a " (em "second") " paragraph, with a " "quotation that includes " (em "emphasized") " text")))
 ```
 
 Lab
@@ -166,7 +258,11 @@ Lab
 
 ### During Lab
 
-* Lots of problems.
+* Fewer problems than the other sections.
+* New pattern: `"//q[contains(@class, 'white-queen')]"`
+* For `sxpath-replace`, you'll normally want to write a helper function.
+  Ours will replace `(q (@...) "Quotation")` with
+  `(q (@...) "Off with their heads!")`
 
 ### Wrapup
 
@@ -177,7 +273,7 @@ Surveys
 
 Peer educator survey: <https://grinnell.co1.qualtrics.com/jfe/form/SV_ekzWLjCG3g9ce46>
 
-> 70% response rate for the three sections - a token
+> 70%+ response rate for the three sections - a token
 
 CSC151 survey: <https://bit.ly/csc151-2022Sp-week10>
 
