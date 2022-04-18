@@ -9,9 +9,9 @@ link: true
 
 _Approximate overview_
 
-* Administrative stuff [~10 min]
+* Administrative stuff [~30 min]
 * Questions [~10 min]
-* Lab [~60 min]
+* Lab [~40 min]
 
 Administrivia
 -------------
@@ -27,6 +27,7 @@ Administrivia
     * It definitely made grading even more of a chore.
 * I did not finish grading SoLA 3 over the weekend.  I should finish 
   today or tomorrow.
+* Section 3 is losing the "fill out surveys" competition.
 
 ### Reminders
 

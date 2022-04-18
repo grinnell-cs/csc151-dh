@@ -51,23 +51,25 @@ Administrivia
 
 * ???, Notional Machines Interview, 
   <https://calendy.com/songjunt/map-interview>
-* TODAY, 2pm: Baseball vs. Monmouth
+* Today 4pm Long Jump Rope Game, Mac Field
+* Wednesday, 4:30 p.m., Bob's, Comedy Meeting
 * Thursday, April 21, 11am, Convocation
 * Thursday, April 21, Blood drive
 * Saturday, April 23, 10 am, Dick Young Classic
 * Saturday, April 23, Noon, Baseball vs. Illinois College
-* Saturday, April 23, 1pm, Softball vs. Lawrence
 * Saturday, April 23, 2:30 , Baseball vs. Illinois College
-* Saturday, April 23, 3pm, Softball vs. Lawrence
 * Saturday, April 23, 3:45 pm, Water Polo
 * Saturday, April 23, 6:00 pm, Water Polo
 * Sunday, April 24, 10:15 am, Water Polo (Conference Championship)
+* Sunday, April 24, noon, Illinois College
 * Strike-out-cancer stuff 
 
 ### Other Upcoming Activities
 
 * Thursday, April 21, 3:00 pm, Softball vs. Simpson
 * Thursday, April 21, 5:00 pm, Softball vs. Simpson
+* Saturday, April 23, 1pm, Softball vs. Lawrence
+* Saturday, April 23, 3pm, Softball vs. Lawrence
 
 ### Today's random detour
 
@@ -81,11 +83,29 @@ Notes from SoLA 3
 We are at the point that I will not give you credit for a list recursion
 problem if you use `(= (length lst) 1)` to check for a list of length 1.
 
+> `(null? lst) ` checks for 0 elements.
+
+> `(null? (cdr lst))` checks for 1 element.
+
+> `(and (not (null? lst)) (null? (cdr lst)))` eliminates the empty list.
+
+> We could use match
+
+> ```
+(define one-element-list?
+  (lambda (lst)
+    (match lst
+      [(_)
+       #t]
+      [_
+       #f])))
+```
+
 On the next SoLA, I will not give you credit for a problem in which you
 put the first cond block on the same line as the `cond` or the guard and
 consequent on the same line.
 
-`(section proc <>)` is just a long way to write `proc`.
+`(section car <>)` is just a long way to write `car`.
 
 Please do not use `display` to return a value.  It doesn't.
 
@@ -95,7 +115,44 @@ Please do not use `display` to return a value.  It doesn't.
     (if (and (integer? val) (exact? val) (even? val))
         (display #t)
         (display #f))))
+
+(define munge
+  (lambda (val)
+    (if (even-exact-integer? val)
+        (/ val 2)
+        (list val))))
 ```
+
+```
+> (even-exact-integer? 8)
+#t
+> (even-exact-integer? 'a)
+#f 
+> (munge 8)
+#t4 ; Note that the #t appears in purple
+> (munge 'a)
+#f. . /: contract violation
+  expected: number?
+  given: 'a
+```
+
+`(even-exact-integer? 'a)` displays false (`#f`), but returns ....
+
+```
+> (define x (even-exact-integer? 'a))
+#f
+> x
+> (list x)
+'(#<void>)
+```
+
+Void is truish, so we do the true part.
+
+Moral: Be cautious in using `display`.
+
+For now, we use display only when we want to print things along the way,
+usually for keeping track of what is happening in a more complicated
+procedure.
 
 ### Precondition testing
 
@@ -108,7 +165,12 @@ What's wrong with the following?
   ...)
 ```
 
-Something similar is wrong with this
+We're checking that start is greater than zero before we check
+that it's a number (integer).  
+
+Ordering issue: Swap the two tests.
+
+If there are only two cases, we should consider an `if`.
 
 ```
 (cond
@@ -119,7 +181,7 @@ Something similar is wrong with this
   ...)
 ```
 
-What's wrong with this?
+Same issue.  Check whether it's an integer before using it as an integer.
 
 ```
 (define fun-with-csv
@@ -133,6 +195,23 @@ What's wrong with this?
          (error "we need at least two values:" str)]
         ...]
 ```
+
+We can't split `str` if it's not a string.  We need to test that it's
+a string first.
+
+```
+(define fun-with-csv
+  (lambda (str)
+   (when (not (string? str))
+      (error "not a string:" str))
+   (let* ([parts (string-split str ",")]
+          [second-part (cadr parts)])
+     (cond 
+        [(< (length parts) 2)
+         (error "we need at least two values:" str)]
+        ...]))))
+```
+
 
 ### Local bindings
 
@@ -199,8 +278,20 @@ Common usage: Decompose lists for recursion.
        (error "Not a list" lst)])))
 ```
 
+Why can we use `a` and `b` and `x` and `xs` without defining them?
+
+> That's the model in `match`.  It's a way of introducing new variables
+  with an implicit `let`.
+
+Why doesn't Sam use `match` in his own code?
+
+> Some people like match, some people like other techniques.
+
 Questions
 ---------
+
+### SoLA questions
+
 
 ### MP6 questions
 
@@ -214,7 +305,7 @@ Why `f` and `l` rather than `pred?` and `lst`?
 
 > Different faculty opinions on parameter naming.
 
-How sad does it make you when I write `(equal? (f (car lst)) #t`) rather
+How sad does it make you when I write `(equal? (f (car lst)) #t)` rather
 than `(f (car lst))`?
 
 > Very.
