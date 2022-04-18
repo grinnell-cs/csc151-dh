@@ -142,10 +142,10 @@ you call in `my-index-of` can be.  For example, your body may
 
 (define my-index-of
   (lambda (lst val)
-    (index-of-by lst ???)))
+    (index-of-matches lst ???)))
 
 #|
-c. Rewrite `index-of-by` so that it returns #f, rather than crashing,
+c. Rewrite `index-of-matches` so that it returns #f, rather than crashing,
 if the value isn't in the list.  You may find the following pattern
 helpful.
 
@@ -159,7 +159,7 @@ helpful.
 
 |#
 
-(define new-index-of-by
+(define new-index-of-matches
   (lambda (lst pred?)
     ???))
 
