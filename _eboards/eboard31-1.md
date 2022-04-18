@@ -18,17 +18,14 @@ Administrivia
 
 ### Introductory notes
 
-* We may have admitted students.
-* We will continue to wear masks until the end of the semester.  Enough
-  people requested that on the survey that it seems like the best policy.
-* Sam's computer remains broken.  Sorry.  
-    * No recordings.  (No one requested them.)
-    * It definitely made grading even more of a chore.
-    * Traveling all weekend without my laptop is hard!
+* We may have admitted students (those are mostly on Friday).
 * SoLA 3 and grades should have been returned.
 
 ### Reminders
 
+* Sam's computer remains broken.
+* We will continue to wear masks until the end of the semester.  Enough
+  people requested that on the survey that it seems like the best policy.
 * Please say your name when you ask or answer a question (even if I've
   just called you by name).
 * Evening tutors are available 7--10 p.m. Sunday through Thursday as
@@ -73,8 +70,7 @@ Notes from SoLA 3
 
 Many people were a bit confused about the `register!` procedure.  The idea
 was that you have one extra field in the structure (vector, hash table,
-struct) that you increment each time people register.  So the `register!`
-procedure would look something like this.
+struct) that you increment each time people register.  
 
 Questions
 ---------
@@ -101,7 +97,16 @@ Could you go over `right-section`?
 
 > That inner `lambda` suggests that we're returning a procedure.
 
-> You might find this easier to understand.
+> If you think about something like `(define sub2 (right-section - 2))`,
+  we substitute `-` for `binproc` and `2` for `right`, giving us ...
+
+> ```
+(define sub2
+  (lambda (left)
+    (- left 2)))
+```
+
+> You might also find this easier to understand.
 
 ```
 (define right-section
@@ -110,6 +115,34 @@ Could you go over `right-section`?
                      (binproc left right))])
       newproc)))
 ```
+
+Could you go over `reduce-right`?
+
+> Base case: Singleton.  Return the value.
+
+> Recursive case: Let's suppose we successfully reduce the right.  What's
+  left to do?
+
+> For example, consider `(reduce-right + '(1 2 3 4 5))`
+
+> Our recursive call is `(reduce-right + '(2 3 4 5))`.  If that succeds,
+  it returns 14.
+
+> We still have to add 1.
+
+> So `(reduce-right + '(1 2 3 4 5))` -> `(+ 1 (reduce-right + '(2 3 4 5)))`
+
+> Generalizing, we want `(op (car lst) (reduce-right op (cdr lst)))`.
+
+> Putting it all together ...
+
+How do I define `map` in terms of `fold`?
+
+> It's easiest to use `foldr`.
+
+How do I define `filter` in terms of `fold`?
+
+> Once again, it's easier to use `foldr`.
 
 ### Racket questions
 
