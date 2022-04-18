@@ -9,8 +9,8 @@ For example, calculating the length of a list:
 
 ~~~racket
 (define length
-  (lambda (l)
-    (match l
+  (lambda (lst)
+    (match lst
       ['() 0]
       [(cons _ tail) (+ 1 (length tail))])))
 ~~~
@@ -29,10 +29,10 @@ Looks awfully similar to summing the elements of a list:
 
 ~~~racket
 (define sum
-  (lambda (l)
-    (match l
+  (lambda (lst)
+    (match lst
       ['() 0]
-      [(cons x tail) (+ x (sum tail))])))
+      [(cons x xs) (+ x (sum xs))])))
 ~~~
 
 or
@@ -77,8 +77,8 @@ We motivate the design of *higher-order recursive functions* by examining their 
 
 ## Map
 
-Recall that `(map f l)` returns list `l` but with every element of `l` transformed by unary function `f`.
-For example, we can `(map increment l)` to increment all the elements of `l` by 1 or we can `(map zero? l)` to turn every element of `l` into a boolean denoting whether that element was zero.
+Recall that `(map func lst)` returns a list but with every element of `lst` transformed by unary function `func`.
+For example, we can `(map increment lst)` to increment all the elements of `lst` by 1 or we can `(map zero? lst)` to turn every element of `lst` into a boolean denoting whether that element was zero.
 
 How can we implement `map`?
 Let's try writing out the `inc-list-1` and `list-zero?` functions using recursion and note the similarities.
@@ -86,16 +86,20 @@ Let's try writing out the `inc-list-1` and `list-zero?` functions using recursio
 {% capture code %}
 ~~~racket
 (define inc-list-1
-  (lambda (l)
-    (match l
-      ['() null]
-      [(cons x tail) (cons (+ x 1) (inc-list-1 tail))])))
+  (lambda (lst)
+    (match lst
+      ['() 
+       null]
+      [(cons x xs) 
+       (cons (+ x 1) (inc-list-1 xs))])))
 
 (define list-zero?
-  (lambda (l)
-    (match l
-      ['() null]
-      [(cons x tail) (cons (zero? x) (list-zero? tail))])))
+  (lambda (lst)
+    (match lst
+      ['() 
+       null]
+      [(cons x tail) 
+       (cons (zero? x) (list-zero? tail))])))
 ~~~
 
 or
@@ -127,24 +131,28 @@ If we take one of the implementations and *abstract away* the applied function t
 
 {% capture code %}
 ~~~racket
-;;; (map f l) -> list?
-;;;   f : procedure?
-;;;   l : list?
-;;; Returns list l but every element of l is transformed by function f.
+;;; (map func lst) -> list?
+;;;   func : procedure?
+;;;   lst : list?
+;;; Returns a new list with every element of lst transformed by function func
 (define map
-  (lambda (f l)
-    (match l
-      ['() null]
-      [(cons x tail) (cons (f x) (map f tail))])))
+  (lambda (func lst)
+    (match lst
+      ['() 
+       null]
+      [(cons x xs) 
+       (cons (f x) (map f xs))])))
 ~~~
+
 or
+
 ~~~
 (define map
-  (lambda (f lst)
+  (lambda (func lst)
     (if (null? lst)
         null
-        (cons (f (car lst)) 
-              (map f (cdr lst))))))
+        (cons (func (car lst)) 
+              (map func (cdr lst))))))
 ~~~
 {% endcapture %}
 
@@ -189,10 +197,10 @@ If our transformation requires information about the elements surrounding the on
 
 ## Filter
 
-Recall that `(filter f l)` is like `map` except:
+Recall that `(filter pred? lst)` is like `map` except:
 
-+   We require that `f` is a function that takes an element of `l` and then produces a boolean.
-+   `filter` uses that boolean to determine whether to keep that element (`#t`) or drop that element (`#f`) from the list.
++   We require that `pred?` is a function that takes an element of `l` and then produces a boolean.
++   `filter` uses that boolean to determine whether to keep that element (when `pred?` returns `#t` or a truish value) in the result or skip that element (when pred returns `#f`).
 
 We'll omit the implementation of `filter` here because it is very close to `map` and leave it as a self-check exercise below.
 However, `filter` inherits the same non-contextual limitations as `map`---`filter` can only decide whether to keep an element based on the current element and no other information.
@@ -229,34 +237,40 @@ To get a better sense of what `reduce` is doing, let's again try writing special
 {% capture code %}
 ~~~racket
 (define reduce-by-+
-  (lambda (l)
-    (match l
-      ['() (error "(reduce-by-+) received an empty list")]
-      [(cons x '()) x]
-      [(cons x tail) (+ x (reduce-by-+ tail))])))
+  (lambda (nums)
+    (match nums
+      ['() 
+       (error "(reduce-by-+) received an empty list")]
+      [(list x) 
+       x]
+      [(cons x xs) 
+       (+ x (reduce-by-+ xs))])))
 
 (define reduce-by-*
-  (lambda (l)
-    (match l
-      ['() (error "(reduce-by-*) received an empty list")]
-      [(cons x '()) x]
-      [(cons x tail) (* x (reduce-by-* tail))])))
+  (lambda (nums)
+    (match nums
+      ['()
+       (error "(reduce-by-*) received an empty list")]
+      [(list x) 
+       x]
+      [(cons x xs) 
+       (* x (reduce-by-* xs))])))
 ~~~
 
 or
 
 ~~~
 (define reduce-by-+
-  (lambda (lst)
-    (if (null? (cdr lst))
-        (car lst)
-        (+ (car lst) (reduce-by-+ (cdr lst))))))
+  (lambda (nums)
+    (if (null? (cdr nums))
+        (car nums)
+        (+ (car nums) (reduce-by-+ (cdr nums))))))
 
 (define reduce-by-*
-  (lambda (lst)
-    (if (null? (cdr lst))
-        (car lst)
-        (* (car lst) (reduce-by-* (cdr lst))))))
+  (lambda (nums)
+    (if (null? (cdr nums))
+        (car nums)
+        (* (car nums) (reduce-by-* (cdr nums))))))
 ~~~
 
 ~~~racket
@@ -298,11 +312,14 @@ And then turn this design into an implementation of `reduce`:
 {% capture code %}
 ~~~racket
 (define reduce-right
-  (lambda (f l)
-    (match l
-      ['() (error "(reduce) received an empty list")]
-      [(cons x '()) x]
-      [(cons x tail) (f x (reduce-right f tail))])))
+  (lambda (binfunc lst)
+    (match lst
+      ['() 
+       (error "(reduce) received an empty list")]
+      [(list x) 
+       x]
+      [(cons x xs) 
+       (f x (reduce-right f xs))])))
 ~~~
 
 or
@@ -316,9 +333,9 @@ or
 ~~~
 
 ~~~racket
-> (reduce + (list 1 2 3 4 5))
+> (reduce-right + (list 1 2 3 4 5))
 15
-> (reduce * (list 1 2 3 4 5))
+> (reduce-right * (list 1 2 3 4 5))
 120
 ~~~
 {% endcapture %}
@@ -341,8 +358,10 @@ We call this generalization `foldr`:
 (define foldr
   (lambda (f init l)
     (match l
-      ['() init]
-      [(cons x tail) (f x (foldr f init tail))])))
+      ['() 
+       init]
+      [(cons x tail) 
+       (f x (foldr f init tail))])))
 
 (define foldr
   (lambda (f init lst)
@@ -568,7 +587,7 @@ How is `right-section` defined? We leave that as an exercise for the reader.
 ### Check 1: Implementing `filter` (‡)
 
 In our discussion of higher-order recursive functions, we elided the implementation of `filter`.
-Write `(filter f l)` based on the recursive design we described in the reading.
+Write `(filter pred? lst)` based on the recursive design we described in the reading.
 
 ### Check 2: Implementing `right-section`.
 
