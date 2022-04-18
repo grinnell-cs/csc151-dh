@@ -23,8 +23,8 @@ Administrivia
   people requested that on the survey that it seems like the best policy.
 * Sam's computer remains broken.  Sorry.  
     * No recordings.  (No one requested them.)
-    * It definitely made grading even more of a chore.
     * Traveling all weekend without my laptop is hard!
+    * It definitely made grading even more of a chore.
 * I did not finish grading SoLA 3 over the weekend.  I should finish 
   today or tomorrow.
 
@@ -46,6 +46,7 @@ Administrivia
 * Tuesday, 10:30 p.m.: Makeup LA local bindings
     * Handles issue with local bindings LA.
 * Thursday, April 21, 10:30 p.m.: MP 6
+* Quiz Friday: Writing higher-order procedures
 
 ### Upcoming Token-Generating Activities
 
@@ -76,11 +77,15 @@ Notes from SoLA 3
 We are at the point that I will not give you credit for a list recursion
 problem if you use `(= (length lst) 1)` to check for a list of length 1.
 
+* Use `(null? (cdr lst))` or `(and (not (null? lst)) (null? (cdr lst)))`
+
 On the next SoLA, I will not give you credit for a problem in which you
 put the first cond block on the same line as the `cond` or the guard and
 consequent on the same line.
 
 `(section proc <>)` is just a long way to write `proc`.
+
+`(section car <>)` is just a long way to write `car`
 
 Please do not use `display` to return a value.  It doesn't.
 
@@ -90,7 +95,31 @@ Please do not use `display` to return a value.  It doesn't.
     (if (and (integer? val) (exact? val) (even? val))
         (display #t)
         (display #f))))
+(define munge
+  (lambda (val)
+    (if (even-exact-integer? val)
+        (/ val 2)
+        (list val))))
 ```
+
+```
+> (even-exact-integer? 2)
+#t
+> (even-exact-integer? 'a)
+#f
+> (munge 8)
+#t4
+> (munge 'a)
+#f. . /: contract violation
+  expected: number?
+  given: 'a
+```
+
+Notes:
+
+* That was a bad way to write `even-exact-integer?`.  It violates ZoB.
+* The value of `display` is `#<void>`
+* The procedure above returns a truish value no matter what the input is.
 
 ### Precondition testing
 
@@ -103,7 +132,20 @@ What's wrong with the following?
   ...)
 ```
 
-Something similar is wrong with this
+> We need to verify that it's an integer before we compare to 0.
+
+```
+> (func0 5)
+"Time to do the work"
+> (func0 3.2)
+. . start must be a non-negative integer, given 3.2
+> (func0 "a")
+. . >=: contract violation
+  expected: real?
+  given: "a"
+```
+
+Something similar is wrong with this.  How would we fix it?
 
 ```
 (cond
@@ -113,6 +155,9 @@ Something similar is wrong with this
    (error "start must be an integer, given" start)]
   ...)
 ```
+
+> Fix this by checking whether `start` is an integer before we use 
+  `start`
 
 What's wrong with this?
 
@@ -128,6 +173,25 @@ What's wrong with this?
          (error "we need at least two values:" str)]
         ...]
 ```
+
+> We're assuming that `str` is a string before checking it.
+
+> So ... although it's kinda messy, we should put an `if` statement
+  before the `let`.
+
+```
+(if (not (string? str))
+    (error "I want a string!  Why did you give me this garbage?" str)
+    (let* ([parts (string-split str ",")]
+           [second-part (cadr parts)])
+      (cond 
+         [(< (length parts) 2)
+          (error "we need at least two values:" str)]
+         ...)))
+``` 
+
+Whoops: We should be sure that we can take the `cadr` before we take the
+`cadr.
 
 ### Local bindings
 
@@ -146,6 +210,8 @@ Many people were a bit confused about the `register!` procedure.  The idea
 was that you have one extra field in the structure (vector, hash table,
 struct) that you increment each time people register.  So the `register!`
 procedure would look something like this.
+
+This is for another day.
 
 Pattern Matching
 ----------------
@@ -180,6 +246,43 @@ _We can refer to the variables in a pattern in the consequent._
        "everything else"])))
 ```
 
+```
+> (whatever '())
+"everything else"
+> (whatever '(23))
+"A pair structure that starts with the value 23"
+> (whatever '23)
+"everything else"
+```
+
+```
+(define whatever
+  (lambda (thing)
+    (match thing
+      [(list 'a)
+       "a list that starts with a"]
+      [(list a)
+       "a list with exactly one value"]
+      [(list b b)
+       "two copies of the same value"]
+      [(cons 23 x)
+       "A pair structure that starts with the value 23"]
+      [x
+       "everything else"])))
+```
+
+How to determine if a list has exactly one element using `match`
+
+```
+(define one-element-list?
+  (lambda (val)
+    (match val
+      [(_)
+       #t]
+      [_
+       #f])))
+```
+
 Common usage: Decompose lists for recursion.
 
 ```
@@ -203,13 +306,23 @@ Can you give us more information about XPATH patterns?
 
 > Probably not.  The Web is a wonderful thing.
 
+How do we edit the templates and data files?
+
+> You can use Racket.  Just save as `.xml`.
+
+> You can use TextEdit on the Mac (I think).
+
+Will we get a starter file?
+
+> I suppose.  It won't have much.
+
 ### Reading questions
 
 Why `f` and `l` rather than `pred?` and `lst`?
 
 > Different faculty opinions on parameter naming.
 
-How sad does it make you when I write `(equal? (f (car lst)) #t`) rather
+How sad does it make you when I write `(equal? (f (car lst)) #t)` rather
 than `(f (car lst))`?
 
 > Very.
@@ -263,7 +376,23 @@ Lab
 
 ### During Lab
 
+`index-of-by` -> `index-of-matching`
+
 ### Wrapup
 
 * `; SAM SAID I CAN STOP HERE`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

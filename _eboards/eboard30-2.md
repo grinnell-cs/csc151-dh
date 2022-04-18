@@ -11,7 +11,7 @@ _Approximate overview_
 
 * Administrative stuff [~10 min]
 * Questions [~10 min]
-* Lab [~60 min]
+* Lab [~50 min]
 
 Administrivia
 -------------
@@ -22,7 +22,7 @@ Administrivia
 * We will continue to wear masks until the end of the semester.  Enough
   people requested that on the survey that it seems like the best policy.
 * Sam's computer remains broken.  Sorry.  
-    * No recordings.  (No one requested them.)
+    * No recordings.  (But no one requested them.)
     * It definitely made grading even more of a chore.
     * Traveling all weekend without my laptop is hard!
 * I did not finish grading SoLA 3 over the weekend.  I should finish 
@@ -49,11 +49,12 @@ Administrivia
 
 ### Upcoming Token-Generating Activities
 
-* ???, Notional Machines Interview, 
+* This week, Notional Machines Interview, 
   <https://calendy.com/songjunt/map-interview>
-* TODAY, 2pm: Baseball vs. Monmouth
 * Thursday, April 21, 11am, Convocation
 * Thursday, April 21, Blood drive
+* Saturday, April 23, 10am, Dick Young Classic
+* Saturday, April 23, noon, Baseball vs Illinois
 * Saturday, April 23, 3:45 pm, Water Polo
 * Saturday, April 23, 6:00 pm, Water Polo
 * Sunday, April 24, 10:15 am, Water Polo (Conference Championship)
@@ -66,7 +67,7 @@ Administrivia
 
 ### Today's random detour
 
-The wonder's of the English language, continued.
+The wonders of the English language, continued.  How to spell "ghoti".
 
 Notes from SoLA 3
 -----------------
@@ -76,11 +77,14 @@ Notes from SoLA 3
 We are at the point that I will not give you credit for a list recursion
 problem if you use `(= (length lst) 1)` to check for a list of length 1.
 
+* A better solution: `(null? (cdr lst))`
+* Or `(and (not (null? lst)) (null? (cdr lst)))`
+
 On the next SoLA, I will not give you credit for a problem in which you
 put the first cond block on the same line as the `cond` or the guard and
 consequent on the same line.
 
-`(section proc <>)` is just a long way to write `proc`.
+`(section car <>)` is just a long way to write `car`.
 
 Please do not use `display` to return a value.  It doesn't.
 
@@ -90,29 +94,89 @@ Please do not use `display` to return a value.  It doesn't.
     (if (and (integer? val) (exact? val) (even? val))
         (display #t)
         (display #f))))
+
+(define munge
+  (lambda (val)
+    (if (even-exact-integer? val)
+        (/ val 2)
+        (list val))))
 ```
+
+```
+> (even-exact-integer? 4)
+#t
+> (even-exact-integer? 'a)
+#f
+> (munge 4)
+#t2
+> (munge 'a)
+#f. . /: contract violation
+  expected: number?
+  given: 'a
+```
+
+Why?
+
+> `(display #f)` does not have the value `#f`.
+
+```
+> (define f (display #f))
+#f
+> f
+> (list f)
+'(#<void>)
+```
+
+So ... `even-exact-integer?` always returns a truish value.
+
+Moral: Don't use `display` to return a value.  (Rarely use `display` to
+do anything.)
 
 ### Precondition testing
 
 What's wrong with the following?
 
 ```
-(cond
-  [(not (and (>= start 0) (integer? start)))
-   (error "start must be a non-negative integer, given" start)]
-  ...)
+(define func0
+  (lambda (start)
+    (cond
+      [(not (and (>= start 0) (integer? start)))
+       (error "start must be a non-negative integer, given" start)]
+      [else
+       "Time to do the work"])))
 ```
+
+```
+> (func0 5)
+"Time to do the work"
+> (func0 -3)
+. . start must be a non-negative integer, given -3
+> (func0 'a)
+. . >=: contract violation
+  expected: real?
+  given: 'a
+```
+
+Problem!  We're assuming start is a number before we check that it's an integer.
 
 Something similar is wrong with this
 
 ```
-(cond
-  [(< start 0)
-   (error "start must be non-negative, given" start)]
-  [(not (integer? start))
-   (error "start must be an integer, given" start)]
-  ...)
+(define func1
+  (lambda (str val)
+    (cond
+      [(>= val (string-length str))
+       (error "val must be less than the length of the string")]
+      [(not (integer? val))
+       (error "val must be an integer")]
+      [else
+       "do the work"])))
 ```
+
+* We should check that it's an integer before comparing it to the
+  string length
+* Easy fix: Rearrange the cond.
+* Another problem: We have haven't verified that `str` is a string.
 
 What's wrong with this?
 
@@ -128,6 +192,44 @@ What's wrong with this?
          (error "we need at least two values:" str)]
         ...]
 ```
+
+We didn't check that it was a string before we split it.
+
+How would we deal with this?
+
+```
+(define new-fun-with-csv
+  (lambda (str)
+    (if (not (string? str))
+        (error "not a string" str)
+        (let* ([parts (string-split str ",")]
+               [second-part (cadr parts)])
+          (cond
+            [(< (length parts) 2)
+             (error "we need at least two values:" str)]
+            [else
+             second-part])))))
+```
+
+```
+> (new-fun-with-csv "a,b")
+"b"
+> (new-fun-with-csv 'x)
+. . not a string 'x
+```
+
+Note: Anywhere you can put an expression, you can put a let.
+
+There's still a problem ....
+
+```
+> (new-fun-with-csv "a")
+. . cadr: contract violation
+  expected: (cons/c any/c pair?)
+  given: '("a")
+```
+
+The fix?  Another if.
 
 ### Local bindings
 
@@ -180,6 +282,15 @@ _We can refer to the variables in a pattern in the consequent._
        "everything else"])))
 ```
 
+```
+> (whatever 5)
+"everything else"
+> (whatever (cons 23 'a))
+"A pair structure that starts with the value 23"
+> (whatever '(23))
+"A pair structure that starts with the value 23"
+```
+
 Common usage: Decompose lists for recursion.
 
 ```
@@ -192,6 +303,18 @@ Common usage: Decompose lists for recursion.
        (cons "recursive" (recursive xs))]
       [_
        (error "Not a list" lst)])))
+```
+
+Note
+
+```
+(define one-element-list?
+  (lambda (val)
+    (match val
+      [(_)
+       #t]
+      [_
+       #f])))
 ```
 
 Questions
@@ -209,7 +332,7 @@ Why `f` and `l` rather than `pred?` and `lst`?
 
 > Different faculty opinions on parameter naming.
 
-How sad does it make you when I write `(equal? (f (car lst)) #t`) rather
+How sad does it make you when I write `(equal? (f (car lst)) #t)` rather
 than `(f (car lst))`?
 
 > Very.
@@ -262,6 +385,13 @@ Lab
 * Have the normal start-of-lab discussion.
 
 ### During Lab
+
+Note `(right-section - 2)` should give a procedure that takes one parameter
+and subtracts 2 from that parameter. 
+
+You'll need to nest lambdas to write right-section!
+
+Sam screwed up.  `index-of-matches` should be `index-of-matching`.
 
 ### Wrapup
 
