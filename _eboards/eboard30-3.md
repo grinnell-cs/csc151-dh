@@ -1,5 +1,5 @@
 ---
-title: "EBoard 30 (Section 1): Higher-order recursion"
+title: "EBoard 30 (Section 3): Higher-order recursion"
 number: 30
 section: eboards
 held: 2022-04-18
@@ -54,15 +54,15 @@ Administrivia
 * TODAY, 2pm: Baseball vs. Monmouth
 * Thursday, April 21, 11am, Convocation
 * Thursday, April 21, Blood drive
-* Thursday, April 21, 3:00 pm, Softball vs. Simpson
-* Thursday, April 21, 5:00 pm, Softball vs. Simpson
+* Saturday, April 23, 3:45 pm, Water Polo
+* Saturday, April 23, 6:00 pm, Water Polo
+* Sunday, April 24, 10:15 am, Water Polo (Conference Championship)
 * Strike-out-cancer stuff 
 
 ### Other Upcoming Activities
 
-* Saturday, April 23, 3:45 pm, Water Polo
-* Saturday, April 23, 6:00 pm, Water Polo
-* Sunday, April 24, 10:15 am, Water Polo (Conference Championship)
+* Thursday, April 21, 3:00 pm, Softball vs. Simpson
+* Thursday, April 21, 5:00 pm, Softball vs. Simpson
 
 ### Today's random detour
 
