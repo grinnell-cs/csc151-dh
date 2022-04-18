@@ -142,10 +142,10 @@ you call in `my-index-of` can be.  For example, your body may
 
 (define my-index-of
   (lambda (lst val)
-    (index-of-matches lst ???)))
+    (index-of-matching lst ???)))
 
 #|
-c. Rewrite `index-of-matches` so that it returns #f, rather than crashing,
+c. Rewrite `index-of-matching` so that it returns #f, rather than crashing,
 if the value isn't in the list.  You may find the following pattern
 helpful.
 
@@ -159,7 +159,7 @@ helpful.
 
 |#
 
-(define new-index-of-matches
+(define new-index-of-matching
   (lambda (lst pred?)
     ???))
 
@@ -244,8 +244,10 @@ extra problems, at least if you have time.
 ; | For those with extra time |
 ; +---------------------------+
 
+#|
 If you find that you have extra time, you might try one or more of
 the following problems.
+|#
 
 ; +-------------------+----------------------------------------------
 ; | Extra 1: Tallying |
