@@ -9,9 +9,9 @@ link: true
 
 _Approximate overview_
 
-* Administrative stuff [~10 min]
+* Administrative stuff [~30 min]
 * Questions [~10 min]
-* Lab [~60 min]
+* Lab [~40 min]
 
 Administrivia
 -------------
@@ -54,6 +54,11 @@ Administrivia
 * TODAY, 2pm: Baseball vs. Monmouth
 * Thursday, April 21, 11am, Convocation
 * Thursday, April 21, Blood drive
+* Saturday, April 23, 10 am, Dick Young Classic
+* Saturday, April 23, Noon, Baseball vs. Illinois College
+* Saturday, April 23, 1pm, Softball vs. Lawrence
+* Saturday, April 23, 2:30 , Baseball vs. Illinois College
+* Saturday, April 23, 3pm, Softball vs. Lawrence
 * Saturday, April 23, 3:45 pm, Water Polo
 * Saturday, April 23, 6:00 pm, Water Polo
 * Sunday, April 24, 10:15 am, Water Polo (Conference Championship)
@@ -66,7 +71,7 @@ Administrivia
 
 ### Today's random detour
 
-The wonder's of the English language, continued.
+The wonders of the English language, continued.
 
 Notes from SoLA 3
 -----------------

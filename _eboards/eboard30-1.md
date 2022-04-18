@@ -67,7 +67,7 @@ Administrivia
 
 ### Today's random detour
 
-The wonder's of the English language, continued.
+The wonders of the English language, continued.
 
 Notes from SoLA 3
 -----------------
