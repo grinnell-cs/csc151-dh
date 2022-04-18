@@ -11,10 +11,12 @@ Here, we define the function as `my-length` to avoid shadowing the standard libr
 (require racket/match)
 
 (define my-length
-  (lambda (l)
-    (match l
-      ['() 0]
-      [(cons _ tail) (+ 1 (my-length tail))])))
+  (lambda (lst)
+    (match lst
+      ['() 
+       0]
+      [(cons _ tail) 
+       (+ 1 (my-length tail))])))
 ~~~
 
 We can observe that this function behaves like `length` pretty easily, *e.g.*, with Charles Dickens's [*A Tale of Two Cities*](https://www.gutenberg.org/files/98/98-0.txt):
@@ -40,18 +42,50 @@ But on my machine at least, `my-length` takes noticeably longer to run.
 ~~~racket
 > (length big-list)     ; returns instantaneously
 1000000
-> (my-length big-list)  ; takes a solid couple of seconds to return
+> (my-length big-list)  ; takes a bit longer
+1000000
+~~~
+
+~~~racket
+> (time (length big-list))
+cpu time: 2 real time: 2 gc time: 0
+1000000
+> (time (my-length big-list))
+cpu time: 319 real time: 325 gc time: 244
 1000000
 ~~~
 
 When you try this example out on your own, you might find that your machine chokes on both `length` and `my-length` or is able to handle both fine.
 Try varying the size of `big-list` by factors of 10, *i.e.*, add/remove `0`s from `range` until you see this difference in behavior!
 
-## Recursion and Memory Usage
+## Recursion and memory usage
 
 Why is `my-length` slow whereas `length` is not slow?
 It isn't because `length` is part of the standard library!
-Our implementation, while technically correct, performs its execution in a way that is memory inefficient.
+It's also not because we're using matching.
+It turns out that matching is not much more costly than manual decomposition, at least compared to the original `length`.
+
+```racket
+(define my-length2
+  (lambda (lst)
+    (if (null? lst)
+        0
+        (+ 1 (my-length2 (cdr lst))))))
+```
+
+```
+> (time (my-length big-list))
+cpu time: 475 real time: 479 gc time: 405
+1000000
+> (time (my-length2 big-list))
+cpu time: 283 real time: 289 gc time: 203
+1000000
+```
+
+
+Rather, our implementations, while technically correct, perform their execution in a way that is memory inefficient.
+You might even have noticed that it sometimes runs out of memory.
+(It did for us in trying to compute `my-length` of a list of 10 million elements.
 To see why, let's use our mental model to begin to evaluate `(my-length big-list)`:
 
 ~~~racket
@@ -102,16 +136,17 @@ Rather than updating the result as it *returns* from successive recursive calls,
 Here's our updated `my-length` function which we call `my-length-helper` for reasons that will be made clear shortly:
 
 ~~~racket
-;;; (my-length-helper l so-far) -> exact-nonnegative-integer?
-;;; l : list?
-;;; so-far : exact-nonnegative-integer?
-;;;
-;;; Returns the length of l plus the length of the list calculated so-far.
+;;; (my-length-helper lst so-far) -> exact-nonnegative-integer?
+;;;   lst : list?
+;;;   so-far : exact-nonnegative-integer?
+;;; Returns the length of lst plus the length of the list calculated so-far.
 (define my-length-helper
-  (lambda (l so-far)
-    (match l
-      ['() so-far]
-      [(cons _ tail) (my-length-helper tail (+ 1 so-far))])))
+  (lambda (lst so-far)
+    (match lst
+      ['() 
+       so-far]
+      [(cons _ tail) 
+       (my-length-helper tail (+ 1 so-far))])))
 ~~~
 
 `my-length-helper` differs from `my-length` in that it takes an extra argument, `so-far`.
@@ -142,7 +177,7 @@ Note how the function executes: we *eagerly* evaluate the repeated additions rat
 As a result, `my-length-helper` consumes far less memory than our original `my-length` function!
 
 There's only one catch---`my-length-helper` isn't the function we wanted to write!
-We wanted to write `(my-length l)` which reports the length of `l`.
+We wanted to write `(my-length lst)` which reports the length of `lst`.
 Is there a way that we can write `my-length` in terms of `my-length-helper`?
 Certainly, we just need to provide an appropriate initial value for `so-far`!
 
@@ -154,18 +189,25 @@ In this particular case, `0` is a reasonable value to return if we haven't seen 
 This leads to a final, efficient implementation of `my-length` in terms of `my-length-helper`:
 
 ~~~racket
-(define my-length
-  (lambda (l)                 ; or (r-s my-length-helper 0)!
-    (my-length-helper l 0)))
+(define my-new-length
+  (lambda (lst)
+    (my-length-helper lst 0)))
 ~~~
 
-With this implementation, we can see that `my-length` is now as efficient as the standard library `length` function!
+We could also have defined `my-length` as `(section my-length-helper <> 0)`
+or even `(r-s my-length-helper 0)`.
+
+With this implementation, we can see that `my-length` is now almost as efficient as the standard library `length` function!
 
 ~~~racket
-> (define big-list (range 0 1000000))
-> (length big-list)
+> (time (length big-list))
+cpu time: 2 real time: 2 gc time: 0
 1000000
-> (my-length big-list)  ; just as fast as `length`!
+> (time (my-new-length big-list))
+cpu time: 74 real time: 78 gc time: 37
+1000000
+> (time (my-length big-list))
+cpu time: 363 real time: 368 gc time: 303
 1000000
 ~~~
 
