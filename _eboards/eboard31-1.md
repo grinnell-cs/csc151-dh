@@ -9,8 +9,8 @@ link: true
 
 _Approximate overview_
 
-* Administrative stuff [~30 min]
-* Questions [~10 min]
+* Administrative stuff [~10 min]
+* Questions [~30 min]
 * Lab [~40 min]
 
 Administrivia
@@ -18,8 +18,23 @@ Administrivia
 
 ### Introductory notes
 
+* I have a bad cough and so I'm teaching from home today (or trying to
+  teach from home).
+    * I've been telling you to stay home when you seem sick, so I'm
+      following the same advice.  Or at least sort of the same advice.
+    * Since I may be less able to answer questions, I've moved the
+      due date for MP6 to Tuesday.
 * We may have admitted students (those are mostly on Friday).
-* SoLA 3 and grades should have been returned.
+* SoLA 3 has been mostly returned.  I'm still working on the data abstraction
+  problem.
+* There were way too many questions for today!  I don't know how much time
+  we'll have for lab.
+* I've been helping a variety of folks; too many have not yet organized
+  the information we have.  
+    * "What procedure does X?"  
+    * "What does that procedure do?"
+    * "What available procedures work with strings?"  
+    * "Where would you look if you needed more info?"  
 
 ### Reminders
 
@@ -39,8 +54,8 @@ Administrivia
 * Thursday, 10:00 p.m.: Friday's reading (Projects)
 * Thursday, 10:30 p.m.: Today's lab
     * Today is "Sam says stop here"
-* Thursday, April 21, 10:30 p.m.: MP 6
 * Sunday, April 24, 4:00 p.m.: Quiz 11
+* Tuesday, April 26, 10:30 p.m.: MP 6
 
 ### Upcoming Token-Generating Activities
 
@@ -56,6 +71,7 @@ Administrivia
 * Saturday, April 23, 3:45 pm, Water Polo
 * Saturday, April 23, 6:00 pm, Water Polo
 * Sunday, April 24, 10:15 am, Water Polo (Conference Championship)
+* Sunday, April 24, ??:?? am, Baseball
 * Strike-out-cancer stuff 
 
 ### Other Upcoming Activities
@@ -63,19 +79,92 @@ Administrivia
 Sample quiz question
 --------------------
 
-Notes from SoLA 3
------------------
+Local bindings comments
+-----------------------
 
-### Data abstraction
+I found the local bindings problems useful, because they suggested that
+some of you didn't realize or or both of two things.
 
-Many people were a bit confused about the `register!` procedure.  The idea
-was that you have one extra field in the structure (vector, hash table,
-struct) that you increment each time people register.  
+* `let` bindings evaluate the expressions *immediately*, rather than waiting
+  until the names are used.
+* You can use `let` expressions *anywhere* an expression can go.  You can 
+  even write something silly like `(+ 5 (let ([x (sqr 4)]) (+ x x)))`.
+* Note: One thing that sets Scheme apart from many languages is that most
+  expressions can go anywhere an expression can go.  We've already seen
+  that you can use `lambda`s anywhere (e.g., as return values.
 
-Questions
----------
+### The Zen of Booleans returns
 
-### MP6 questions
+`(if TEST CODE #f)` -> `(???)`
+
+`(if (not TEST) #f CODE)` -> `(???)`.
+
+SoLA 3 questions
+----------------
+
+Could you go over the data abstraction problem?
+
+> Sure.  But not on the eboard.  You should take notes.
+
+Quiz 11 comments
+----------------
+
+_These will not be on the eboard.  I'd recommend taking notes._
+
+MP6 questions
+-------------
+
+Can you change the due date?
+
+> Yes.
+
+I'm having trouble decomposing.  Can you suggest some procedures?
+
+* A lot of what we're doing is searching the data.  I'd write procedures
+  that search the data.
+    * `(extract-elements-by-tag tag data)`
+    * `(extract-elements-by-class class data)`
+    * `(extract-element-by-id id data)` ; note that this is singular
+    * `(extract-field field xml)` ; Grab the first element with a particular
+      tag.
+* We also have to extract information from `element` and `random` tags.
+    * `(extract-attribute attribute element)`
+    * `(define extract-class (section extract-attribute 'class <>))`
+    * `(define extract-tag (section extract-attribute 'tag <>))`
+    * `(define extract-id (section extract-attribute 'id <>))`
+    * `(define extract-fieldname (section extract-attribute 'field <>))`
+
+Can you help me write `extract-element-by-id`?
+
+> Sure.
+
+> We'll use `sxpath-match`.  That returns a list of all matching things.
+  The list should contain zero or one elements.  (Zero means no matches;
+  One is the one match.)
+
+> Our pattern should be something like `"//*[@id='ID']"`, where we fill
+  in the appropriate id.
+
+> So
+
+> ```
+;;; (id-pattern id) -> string?
+;;;   id : string?
+;;; Build the pattern to match a particular id.  E.g., `(id-pattern "prof")`
+;;; should give `"//*[@id='prof']"`.
+(define id-pattern
+  (lambda (id)
+    ???))
+
+;;; (extract-element-by-id id data) -> xml? or false?
+;;;   id : string?
+;;;   data : xml
+;;; Find the element in data with a given id.  If there is no such
+;;; element, return false.
+(define extract-element-by-id
+  (lambda (id data)
+    ???))
+```
 
 ### Hop questions
 
@@ -102,11 +191,9 @@ Could you go over `right-section`?
 
 > ```
 (define sub2
-  (lambda (left)
-    (- left 2)))
 ```
 
-> You might also find this easier to understand.
+> Some people find this version easier to understand.
 
 ```
 (define right-section
@@ -136,19 +223,44 @@ Could you go over `reduce-right`?
 
 > Putting it all together ...
 
+> ```
+(define reduce-right
+  (lambda (binproc lst)
+    ???))
+```
+
 How do I define `map` in terms of `fold`?
 
 > It's easiest to use `foldr`.
 
-How do I define `filter` in terms of `fold`?
-
-> Once again, it's easier to use `foldr`.
-
 ### Racket questions
+
+You keep writing "Do not put right parens on a line by themselves".  Should
+I pay attention to that?
+
+> Yup.  From now on, you will get a zero if you put right parens on a line
+  by themselves.
 
 ### Reading questions
 
 ### Other questions
+
+I don't see the mentor sessions I attended on my grade report.  Why not?
+
+> You only get credit for mentor sessions for which you write reports.
+
+But the mentors take down our names.
+
+> Yes.  That's for other purposes.  Tokens require a multi-senetence 
+  reflective essay.
+
+Can I go beyond the one-week deadline for token reports?
+
+> Yes, if you were confused about the mentor report policies.
+
+Can you tell me which mentor sessions I attended?
+
+> I suppose so.  DM or email me.
 
 Lab
 ---
