@@ -451,13 +451,18 @@
     - page: /readings/list-recursion-revisited.html
   lab:
     - page: /labs/tail-recursion.html
+  eboards: 
+    - page: /eboards/eboard31-1.html
+    - page: /eboards/eboard31-2.html
+    - page: /eboards/eboard31-3.html
 
 - topic: Project prep
   abbrev: project-prep
   summary: |
     We prepare to undertake an individually designed project.
   reading:
-    - page: /assignments/mp08.html
+    - title: Project Instructions (MP07)
+      resource: /assignments/mp07.html
 
 - topic: Trees
   abbrev: trees

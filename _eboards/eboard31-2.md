@@ -1,5 +1,5 @@
 ---
-title: "EBoard 31 (Section 1): Tail recursion"
+title: "EBoard 31 (Section 2): Tail recursion"
 number: 31
 section: eboards
 held: 2022-04-20
@@ -62,8 +62,6 @@ Administrivia
 ### Upcoming Token-Generating Activities
 
 * Thursday, April 21, 11am, Convocation
-* Thursday, April 21, 3:00 pm, Softball vs. Simpson
-* Thursday, April 21, 5:00 pm, Softball vs. Simpson
 * Thursday, April 21, Blood drive
 * Saturday, April 23, 10 am, Dick Young Classic
 * Saturday, April 23, Noon, Baseball vs. Illinois College
@@ -77,6 +75,9 @@ Administrivia
 * Strike-out-cancer stuff 
 
 ### Other Upcoming Activities
+
+* Thursday, April 21, 3:00 pm, Softball vs. Simpson
+* Thursday, April 21, 5:00 pm, Softball vs. Simpson
 
 Sample quiz questions
 ---------------------
