@@ -442,15 +442,8 @@
     - page: /eboards/eboard30-2.html
     - page: /eboards/eboard30-3.html
 
-- topic: Tail recursion
-  abbrev: tail-recursion
-  summary: |
-    We get our brains back working on recursion
-  reading:
-    - page: /readings/tail-recursion.html
-    - page: /readings/list-recursion-revisited.html
-  lab:
-    - page: /labs/tail-recursion.html
+- topic: Class cancelled
+  abbrev: cancelled
   eboards: 
     - page: /eboards/eboard31-1.html
     - page: /eboards/eboard31-2.html
@@ -463,6 +456,20 @@
   reading:
     - title: Project Instructions (MP07)
       resource: /assignments/mp07.html
+  eboards: 
+    - page: /eboards/eboard32-1.html
+    - page: /eboards/eboard32-2.html
+    - page: /eboards/eboard32-3.html
+
+- topic: Tail recursion
+  abbrev: tail-recursion
+  summary: |
+    We get our brains back working on recursion
+  reading:
+    - page: /readings/tail-recursion.html
+    - page: /readings/list-recursion-revisited.html
+  lab:
+    - page: /labs/tail-recursion.html
 
 - topic: Trees
   abbrev: trees
@@ -486,6 +493,11 @@
   lab:
     - page: /labs/tree-recursion.html
 
+- topic: Project Work Day
+  abbrev: project-work
+  summary: |
+    We pause to give you an opportunity to work on your projects.
+
 - topic: Complexity analysis and binary search
   abbrev: search
   summary: |
@@ -499,10 +511,9 @@
   lab:
     - page: /labs/searching.html
 
-- topic: Project Work Day
-  abbrev: project-work
-  summary: |
-    We pause to give you an opportunity to work on your projects.
+- topic: Project presentations
+  abbrev: presentations
+  summary: Students present their projects
 
 - topic: Sorting
   abbrev: sorting
@@ -517,25 +528,6 @@
     - No reading
   lab:
     - No lab/Discussion day
-
-- topic: "Case study: Mergesort"
-  abbrev: mergesort
-  summary: |
-   We continue our exploration of sorting by considering the
-   applicability of the divide-and-conquer approach to the problem
-   of sorting.  We look at one particular divide-and-conquer
-   algorithm, *merge sort*.  We explore the relationship between
-   the number of steps the algorithm typically takes and the number
-   of values in the list we are sorting.
-  reading:
-    - page: /readings/sorting.html
-    - page: /readings/mergesort.html
-  lab:
-    - page: /labs/mergesort.html
-
-- topic: Project presentations
-  abbrev: presentations
-  summary: Students present their projects
 
 - topic: Wrapup
   abbrev: wrapup
