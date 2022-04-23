@@ -24,6 +24,8 @@ Administrivia
 * Sorry about Wednesday.  I was going to try to teach from home, but I
   wasn't well enough.  (I think anyone who talked to me over the past
   few days could tell that.)  I'm doing better now, but still not 100%.
+    * It appears that I am hoarse.  Let me know if you can't hear me.
+* I forgot my hearing aids today.  Speak loudly.
 * We may have admitted students today.
     * Why is the weather always worse on admitted students' day?
 * I remain behind on grading.
@@ -46,7 +48,7 @@ Administrivia
 
 ### Upcoming work
 
-* Sunday, April 24, 4:00 p.m.: Quiz
+* Sunday, April 24, 4:00 p.m.: Quiz on writing higher-order procedures.
 * Tuesday, April 26, 10:30 p.m.: MP 6
 * No reading for Monday.
 
@@ -55,8 +57,7 @@ Administrivia
 * Saturday, April 23, 10 am, Dick Young Classic
 * Saturday, April 23, Noon, Baseball vs. Illinois College
 * Saturday, April 23, 2:30 , Baseball vs. Illinois College
-* Saturday, April 23, 3:45 pm, Water Polo
-* Saturday, April 23, 6:00 pm, Water Polo
+* Saturday, April 23, 2:30 pm, Water Polo
 * Sunday, April 24, 10:15 am, Water Polo (Conference Championship)
 * Sunday, April 24, ??:?? am, Baseball
 
@@ -64,6 +65,8 @@ Administrivia
 
 * Saturday, April 23, 1pm, Softball vs. Lawrence
 * Saturday, April 23, 3pm, Softball vs. Lawrence
+
+### Prospective students
 
 Sample quiz questions
 ---------------------
@@ -185,6 +188,15 @@ list of attributes.
 Then I realized that `extract-attribute` came for free as part of one
 of the libraries.  (Sometimes Sam needs to follow his own advice.)
 
+```
+> (extract-attribute 'id (string->xml "<element id='prof' field='nickname'/>"))
+"prof"
+> (extract-attribute 'field (string->xml "<element id='prof' field='nickname'/>"))
+"nickname"
+> (extract-attribute 'bazinga (string->xml "<element id='prof' field='nickname'/>"))
+""
+```
+
 ### Try as you go!
 
 One of the lessons from the PB&J exercise should have been "Things will
@@ -210,9 +222,11 @@ some of you didn't realize or or both of two things.
 
 ### The Zen of Booleans returns
 
-`(if TEST CODE #f)` -> `(???)`
+`(if (string? csv) CODE #f)` -> `(and (string? csv) CODE)`
 
-`(if (not TEST) #f CODE)` -> `(???)`.
+`(if TEST CODE #f)` -> `(and TEST CODE)`
+
+`(if (not TEST) #f CODE)` -> `(and TEST CODE)`.
 
 Questions
 ---------
@@ -225,8 +239,98 @@ Can you change the due date?
 
 How do I get an attribute from a tag?
 
-> `(extract-attribute xml attribute)` seems to work.  But you could
+> `(extract-attribute attribute xml)` seems to work.  But you could
   write it yourself.
+
+Suppose I have an id, how do I grab the corresponding thing from the data?
+
+> Consider this situation (data then template)
+
+> ```
+<data>
+  <name id="prof" class="professor"><first>Sam</first> <last>Rebel</last> <nickname>Evil</nickname></name>
+  <topic id="recursion" class="difficult">Recursion</topic>
+</data>
+```
+
+> ```
+<p>Do you like Green Eggs and Ham, Professor <element id="prof" field="first">?</p>
+```
+
+> I want to grab the thing with id `prof` from the data.
+
+> The normal path is `"//*[@id='prof']".
+
+> Let's use it with `sxpath-match`
+
+> ```
+> (sxpath-match "//*[@id='prof']" data)
+'((name (@ (id "prof") (class "professor")) (first "Sam") " " (last "Rebel") " " (nickname "Evil")))
+> (sxpath-match "//*[@id='recursion']" data)
+'((topic (@ (id "recursion") (class "difficult")) "Recursion"))
+> (sxpath-match "//*[@id='bazinga']" data)
+'()
+```
+
+> The star stands for "any tag".
+
+> We could then turn this into a procedure.
+
+How do I also extract the field?
+
+> ```
+> (sxpath-match "//nickname" '(name (@ (id "prof") (class "professor")) (first "Sam") " " (last "Rebel") " " (nickname "Evil")))
+'((nickname "Evil"))
+> (sxpath-match "//first" '(name (@ (id "prof") (class "professor")) (first "Sam") " " (last "Rebel") " " (nickname "Evil")))
+'((first "Sam"))
+> (sxpath-match "//middle" '(name (@ (id "prof") (class "professor")) (first "Sam") " " (last "Rebel") " " (nickname "Evil")))
+'()
+```
+
+Can I combine those and make a pattern like `"//*[@id='prof']//first"`
+
+> ```
+> (sxpath-match "//*[@id='prof']//first" data)
+'((first "Sam"))
+> (sxpath-match "//*[@id='bazinga']//first" data)
+'()
+```
+
+> Yes!
+
+How do we now extract the data?
+
+> List operations are always good.
+
+Can you explain the E and M difference?
+
+> For an E, you need to support the `random` and `element` tags in the data
+file as well as the template file.  For an M, they only need appear in the
+template file.
+
+> For an E, you'd need to support something like this (generalized).
+
+> ```
+<data>
+  <name id="prof" class="professor"><first>Sam</first> <last>Rebel</last> <nickname>Evil</nickname> <favetopic><element id="recursion"/></favetopic></name>
+  <topic id="recursion" class="difficult">Recursion</topic>
+</data>
+```
+
+What can be in an element tag?
+
+> Only id and field.
+
+What can be in a random tag?
+
+> class, tag, field.
+
+What's the result of `(build-page data template result)`?
+
+> Probably nothing.  The goal is to build the file named result.
+
+> The helper I wrote when I decomposed the problem returned the new
+  XML.  
 
 ### Racket questions
 
@@ -261,5 +365,46 @@ Project description
 Discussion of team formation
 ----------------------------
 
+To be successful, teams need the members to bring different skills.
+
+* You need a "leader": Someone who keeps the team on task, encourages
+  people, divides tasks between people, etc.
+    * Organizer: Sets meeting times, communicates, etc.
+    * Communicator
+* Topical skills: E.g., if we do a project involving XML, someone who
+  is really good at XML.
+* Presentation design
+* Speaking
+* Someone who can make abstract ideas concrete.
+* Decomposer: Someone good at thinking about how to divide big projects
+  into smaller parts.
+* Tester - Someone who can write the tests to make sure things work
+* Writer - Someone who can describe what we've done in clear text.
+    * Documenter -
+* "Devil's Advocate" - Someone who can ask the challenging questions
+* Someone with good sense "This will take too long"
+
+Color cards
+
+* Red: Leader
+* Yellow: Documenter
+* Blue: Decomposer
+* Green: Presentation designer
+* Purple: Writer
+
 Team formation and work begins
 ------------------------------
+
+Brainstorm possible projects
+
+* Personality quiz: Analyzes open-ended answers and determines
+  personality.
+* Interactive story generation about growing plants
+* Something to do with text
+* Political analysis
+* Generate a poem plus an accompanying image
+* Pie chart for whatever text it's given
+
+You have until Sunday night to form a team.  Please send me team members
+and probable project.
+

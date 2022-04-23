@@ -46,9 +46,9 @@ Administrivia
 
 ### Upcoming work
 
-* Sunday, April 24, 4:00 p.m.: Quiz
+* Sunday, April 24, 4:00 p.m.: Quiz (write higher-order procedures)
 * Tuesday, April 26, 10:30 p.m.: MP 6
-* No reading for Monday.
+* No reading for Monday. (Monday will be tail recursion)
 
 ### Upcoming Token-Generating Activities
 
@@ -61,7 +61,6 @@ Administrivia
 * Saturday, April 23, 6:00 pm, Water Polo
 * Sunday, April 24, 10:15 am, Water Polo (Conference Championship)
 * Sunday, April 24, ??:?? am, Baseball
-* Strike-out-cancer stuff 
 
 ### Other Upcoming Activities
 
@@ -210,9 +209,16 @@ some of you didn't realize or or both of two things.
 
 ### The Zen of Booleans returns
 
-`(if TEST CODE #f)` -> `(???)`
+`(if TEST CODE #f)` -> `(and TEST CODE)`
 
-`(if (not TEST) #f CODE)` -> `(???)`.
+`(if (not TEST) #f CODE)` -> `(and TEST CODE)`.
+
+E.g.,
+
+`(if (not (string? csv)) #f (string-split csv ","))` ->
+`(and (string? csv) (string-split csv ","))`.
+
+The more you write like this, the easier it becomes to read.
 
 Questions
 ---------
@@ -221,12 +227,70 @@ Questions
 
 Can you change the due date?
 
-> Yes.
+> Yes.  It is now Tuesday.
 
 How do I get an attribute from a tag?
 
-> `(extract-attribute xml attribute)` seems to work.  But you could
+> `(extract-attribute attribute xml)` seems to work.  But you could
   write it yourself.
+
+> ```
+> (extract-attribute 'id (string->xml "<element id='prof' field='nickname'/>"))
+"prof"
+```
+
+How might I use that?
+
+> You could get the id and the field from the element tag, and then use
+  those to look in the data.
+
+What would I use to look in the data?
+
+> I'd write a procedure to extract elements by id and a procedure to
+  extract a field from an element.
+
+Can you help me write `extract-by-id`?
+
+> It's in the Q&A section.
+
+Do I have to handle `element` or `random` tags in the data?
+
+> Not for an M.
+
+> Yes for an E.
+
+> That is, for an M, you need not worry about a data file that
+  looks like `<data><thing id="sam"><element id="samr"/></thing></data>`
+
+> The `build-page` procedure fills in the template from the data.
+
+> The `E` version of `build-page` will continue to fill stuff in if
+  there are `element` or `random` tags in the data.
+
+> Consider this data and template file.
+
+> ```
+<data>
+  <course id="csc151"><courseid>CSC151</courseid> <coursetitle>Functional Problem Solving</course>
+  <course id="brainwarp><element id="csc151"/></course>
+</data>
+```
+
+>```
+<p>
+  I like <element id="csc151" field="courseid"/> and <element id="brainwarp" field="courseid"/>.
+</p>
+```
+
+> For an M
+
+>```
+<p>
+  I like CSC151 and <element id="csc151"/>
+</p>
+```
+
+> For an E, we'd process the new element tag.
 
 ### Racket questions
 
@@ -258,8 +322,58 @@ Can you tell me which mentor sessions I attended?
 Project description
 -------------------
 
+* Build something, potentially in a team.
+* Share it.
+
 Discussion of team formation
 ----------------------------
 
+_TPS_
+
+* Many teams benefit from a "leader" or "manager", someone who can
+  support the other members of the team and keeps communication
+  flowing.
+    * Someone who keeps people on task and manages time (could be
+      the manager, could be separate)
+    * Keeps people engaged
+* Some particular aspect of the project, such as visualization.
+* Particularly creative / thinks outside the box / think differently
+* "Devil's advocate"; someone who challenges people or results
+* Sensible person: Someone who will reign in the scope of the project
+* Tester.  Someone who can make sure that the code works correctly.
+* Documenter.
+* Writer.
+* Presenter.
+
+What are your top five?
+
+* Yellow: Presenter
+* Purple: Creative
+* Green: Tester or Devil's Advocate
+* Blue: Leader
+* Red: Documenter/Writer
+
+General issues
+
+* People should be collaborative and do the work.
+
 Team formation and work begins
 ------------------------------
+
+With your group
+
+* Brainstorm project ideas
+* Come up with questions for me
+
+Project ideas
+
+* "Go fly a kite" Pull weather data and determine whether your kite 
+  string will break.
+* Identify weak sentences in a paragraph.  (Wordy, don't express much,
+  etc.)
+* Summarize main topic of an article.
+* Text censorship system.
+* Citation exploration.
+
+Please have your "leader" send me the list of group members and a
+preliminary project idea by Monday.

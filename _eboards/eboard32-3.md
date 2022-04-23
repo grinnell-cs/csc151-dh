@@ -46,24 +46,33 @@ Administrivia
 
 ### Upcoming work
 
-* Sunday, April 24, 4:00 p.m.: Quiz
+* Sunday, April 24, 4:00 p.m.: Quiz (write higher-order procedures)
 * Tuesday, April 26, 10:30 p.m.: MP 6
 * No reading for Monday.
 
 ### Upcoming Token-Generating Activities
 
+* Gardner, tonight, 10:30ish, Show
 * Saturday, April 23, 10 am, Dick Young Classic
-* Saturday, April 23, Noon, Baseball vs. Illinois College
-* Saturday, April 23, 2:30 , Baseball vs. Illinois College
-* Saturday, April 23, 3:45 pm, Water Polo
-* Saturday, April 23, 6:00 pm, Water Polo
+* Saturday, April 23, 11 am, Baseball vs. Illinois College
+* Saturday, April 23, ?:?? pm, Water Polo
 * Sunday, April 24, 10:15 am, Water Polo (Conference Championship)
-* Sunday, April 24, ??:?? am, Baseball
+* Sunday, April 24, 11:00 am, Baseball
+* Sunday, April 24, 2:00 pm, Baseball
 
 ### Other Upcoming Activities
 
 * Saturday, April 23, 1pm, Softball vs. Lawrence
 * Saturday, April 23, 3pm, Softball vs. Lawrence
+
+### Fun with Admitted Students
+
+* Warning!  Today is not a typical day in 151.  We're about to kick off
+  a major project and students are encountering a complicated, less-major 
+  project.
+* Warning! We have fewer students than normal because of the pandemic.
+* Grinnell has so much money it makes really stupid decisions with the
+  money.
 
 Sample quiz questions
 ---------------------
@@ -100,8 +109,6 @@ like this.
 
 In your own words, explain why we have two `lambda` expressions                
 in `left-section.
-
-b. Consider the following alternate definition of `left-section`.              
 
 b. Consider the following alternate definition of `left-section`.              
 
@@ -185,6 +192,15 @@ list of attributes.
 Then I realized that `extract-attribute` came for free as part of one
 of the libraries.  (Sometimes Sam needs to follow his own advice.)
 
+```
+> (extract-attribute 'class (string->xml "<random class=\"name\" field=\"first\"/>"))
+"name"
+> (extract-attribute 'field (string->xml "<random class=\"name\" field=\"first\"/>"))
+"first"
+> (extract-attribute 'mentor (string->xml "<random class=\"name\" field=\"first\"/>"))
+""
+```
+
 ### Try as you go!
 
 One of the lessons from the PB&J exercise should have been "Things will
@@ -206,13 +222,19 @@ some of you didn't realize or or both of two things.
   even write something silly like `(+ 5 (let ([x (sqr 4)]) (+ x x)))`.
 * Note: One thing that sets Scheme apart from many languages is that most
   expressions can go anywhere an expression can go.  We've already seen
-  that you can use `lambda`s anywhere (e.g., as return values.
+  that you can use `lambda`s anywhere (e.g., as return values).
 
 ### The Zen of Booleans returns
 
-`(if TEST CODE #f)` -> `(???)`
+`(if (string? csv) (let ([parts (string-split csv ",")]) ...) #f)`
 
-`(if (not TEST) #f CODE)` -> `(???)`.
+`(if (not (string? csv)) #f (let ([parts (string-split csv ",")]) ...))`
+
+`(and (string? csv) (let ([parts (string-split csv ",")]) ...))`
+
+`(if TEST CODE #f)` -> `(and TEST CODE)`
+
+`(if (not TEST) #f CODE)` -> `(and TEST CODE)`.
 
 Questions
 ---------
@@ -221,12 +243,55 @@ Questions
 
 Can you change the due date?
 
-> Yes.
+> Yes.  Now you can ask questions today and Monday and over the weekend via DM.
 
 How do I get an attribute from a tag?
 
-> `(extract-attribute xml attribute)` seems to work.  But you could
+> `(extract-attribute attribute attribute)` seems to work.  But you could
   write it yourself.
+
+How do I find the parts of the template that I need to replace?
+
+> You will only be replace things with an `element` tag or a `random` tag.
+
+> We can use `(sxpath-replace "//element" template-xml PROC)` to
+  replace all the things with an element tag.
+
+> Similar for the random tag.
+
+Once I have an id, how do I find the appropriate part of the data file?
+
+> The normal pattern is `//*[@id='ID']`
+
+> ```
+> (sxpath-match "//*[@id='prof']" data)
+'((name (@ (id "prof") (class "professor")) (first "Sam") " " (last "Rebel") " " (nickname "Evil")))
+> (sxpath-match "//*[@id='recursion']" data)
+'((topic (@ (id "recursion") (class "difficult")) "Recursion"))
+> (sxpath-match "//*[@id='um']" data)
+```
+
+How do I automate that?
+
+> The `(sxpath-replace PATTERN XML PROC)` will pull out the things to
+  replace.  Like `map`, it will call PROC on each of them.  And then
+  shove result back into the XML (in place of the thing).
+
+> (sxpath-replace "//element" template (lambda (element) "SAM"))
+'((p "Do you like Green Eggs and Ham, Professor " "SAM" "?  Or do you prefer " "SAM"))
+
+Can I assume that element tags will always look like 
+`(element (@ (id "ID") (field "FIELD")))`?
+
+> Yes, but only for an M.
+
+> For an E, you should extract them.  (Hint: extract-attribute.)
+
+What should we do if the id is not in the data?
+
+> For an M: Anything you'd like.
+
+> For an E: "???"
 
 ### Racket questions
 
@@ -237,6 +302,13 @@ I pay attention to that?
   by themselves.
 
 ### Other questions
+
+I already have three E's.  (brag brag brag)  Is there any reason I should
+shoot for more E's?
+
+> Self worth?
+
+> More brags?
 
 I don't see the mentor sessions I attended on my grade report.  Why not?
 
@@ -261,5 +333,54 @@ Project description
 Discussion of team formation
 ----------------------------
 
+What kinds of skills/knowledge do you need to ensure that your team
+as a whole has?
+
+* Leader: Someone who is willing to assign tasks, make sure people
+  are on the right track, tell them to stop when they are spending too
+  much time on the project, etc.
+    * Teams may need an **organizer** who makes sure that people 
+      know when meetings are and who is working on what tasks and ....
+* Teams may need a **presentation designer** who is good at putting
+  together information and setting up slide decks and ...
+* Proofreader/test writer: Someone who is good at checking code.
+* Synthesizer: Someone who can combine ideas.
+* Coder (everyone) / Topic specialist (e.g., SXML, images)
+* Creative mind
+* Decomposer: Someone who can look at a big problem and break it into
+  smaller problems.
+* Documentation specialist: Someone who writes all the documentation
+* Writer.
+* Research specialist: Someone who can lookup things (or who has taken
+  good notes) (or both)
+
+Draft team formation
+
+* Red: Leader/Organizer
+* Yellow: Decomposer
+* Green: Documenter/Writer
+* Blue: Proofreader/Test writer
+* Purple/Violet: Synthesizer
+
 Team formation and work begins
 ------------------------------
+
+Brainstorm potential projects 
+
+* Poem generator
+* Popular topics: Analyze the type of a Web site by most frequently 
+  occurring words
+* Randomized summer camp schedule generalizer but with some limitations
+  (e.g., If you set up a swimming activity, you need to make sure that
+  N of the counselors are lifeguards)
+* Analyzing Grinnell student information from the directory
+  (ITS would not like that)
+* Madlibs substituting words from <sam didn't hear, it's probably good>
+  into a children's book.
+* A template story, gathering data from multiple books.
+
+Sam's additions
+
+* YAWS - Yet Another Wordle Solver
+* Roommate matcher - Reads self descriptive essays that first-years
+  write and finds the best roomies
