@@ -15,6 +15,6 @@ REMOTE=rebelsky.cs.grinnell.edu
 echo $SITE
 
 # Rebuild!
-bundle exec jekyll build
+bundle exec jekyll build --trace
 
 rsync -rtz _site/ $REMOTE:$SITE
