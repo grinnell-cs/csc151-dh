@@ -36,5 +36,5 @@
     - "**Tail recursion**.  Transform recursive functions into tail-recursive functions."
     - "**Tree recursion**.  Design and write recursive functions over trees."
     - "**Running time**.  Use a mental model of computation to count the relevant number of operations performed by a function."
-    - "**Searching**.  Update or modify fundamental sorting algorithms or trace the execution of those algorithms over concrete inputs."
-    - "**Sorting**.  Update or modify fundamental sorting algorithms or trace the execution of those algorithms over concrete inputs."
+    - "**Searching**.  Update or modify fundamental searching algorithms or trace the execution of those algorithms over concrete inputs."
+    - "**Functional vs. imperative approaches**.  Compare aspects of functional programming (e.g., everything is an expression, parameters are not mutable, procedures can be parameters) with aspects of imperative programming (e.g., mutable structures with sequencing)."
