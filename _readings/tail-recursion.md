@@ -338,12 +338,12 @@ My personal preference is to call my local helper function `go`:
 ~~~racket
 (define replicate
   (lambda (n x)
-    (letrec ([go
+    (letrec ([helper
               (lambda (n x so-far)
                 (if (zero? n)
                     so-far
-                    (go (- n 1) x (cons x so-far))))])
-      (go n x '()))))
+                    (helper (- n 1) x (cons x so-far))))])
+      (helper n x '()))))
 
 > (replicate 5 "!")
 '("!" "!" "!" "!" "!")
@@ -429,11 +429,11 @@ Here's a complete implementation:
 ~~~racket
 (define append
   (lambda (l1 l2)
-    (letrec ([go (lambda (l1 l2)
+    (letrec ([helper (lambda (l1 l2)
                    (match l1
                      ['() l2]
                      [(cons x tail) (append-helper tail (cons x l2))]))])
-      (go (reverse l1) l2))))
+      (helper (reverse l1) l2))))
 ~~~
 
 Where `reverse` is the standard library implementation of `reverse`.
@@ -455,13 +455,13 @@ Luckily, we can use the fact that `cons` employed in a top-down fashion reverses
 ;;; Returns l but reversed.
 (define reverse
   (lambda (l)
-    (letrec ([go
+    (letrec ([helper
               (lambda (l so-far)
                 (match l
                   ['() so-far]
                   [(cons x tail)
-                   (go tail (cons x so-far))]))])
-      (go l '()))))
+                   (helper tail (cons x so-far))]))])
+      (helper l '()))))
 
 > (reverse '(1 2 3 4 5))
 '(5 4 3 2 1)
@@ -514,7 +514,7 @@ You may assume that the execution trace steps from the initial call to `reverse`
 
 ~~~racket
     (reverse '(1 2 3 4 5))
---> (go '(1 2 3 4 5) '())
+--> (helper '(1 2 3 4 5) '())
 --> ...
 ~~~
 
