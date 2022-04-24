@@ -225,7 +225,7 @@ As another example consider a naive recursive implementation of the `replicate` 
   (lambda (n x)
     (if (zero? n)
         '()
-        (cons n (replicate (- n 1) x)))))
+        (cons x (replicate (- n 1) x)))))
 ~~~
 
 This function exhibits the same issues with large inputs as `length`.
