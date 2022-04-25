@@ -28,6 +28,11 @@ Administrivia
     * The last few readings/labs have not been graded.
 * I am still catching up on everything.  3-4 days of almost no work put
   me behind.
+* Please make sure that one of you logs in.
+* If you have not done so already, make sure that one of your group members
+  posts the group name and project.
+    * You can start Teams by opening a terminal window and typing "teams"
+      (without the quotation marks)
 
 ### Reminders
 
@@ -55,16 +60,16 @@ Administrivia
 * Tuesday @ 4:15pm: W@G Roundtable
 * Tuesday @ 8:00pm: Mando Memorial W@G Reading (JRC 101)
 * Thursday @ 11am: Convocation (Kernel)
-* Thursday @ 3pm: Softball (Diamond)
 * Thursday @ 4pm: Kasimov Talk (JRC 101)
 * Thursday @ 4pm: McKibben Lecture (HSSC A2231 - Auditorium)
-* Thursday @ 5pm: Softball (Diamond)
-* Sunday @ 1pm: Softball (Diamond)
-* Sunday @ 3pm: Softball (Diamond)
+* Saturday @ 2pm: GSO (Sebring-Lewis)
 
 ### Other Upcoming Activities
 
-* Saturday @ 2pm: GSO (Sebring-Lewis)
+* Thursday @ 5pm: Softball (Diamond)
+* Thursday @ 3pm: Softball (Diamond)
+* Sunday @ 1pm: Softball (Diamond)
+* Sunday @ 3pm: Softball (Diamond)
 
 Sample quiz questions
 ---------------------
@@ -148,10 +153,25 @@ Unfortunately, for the number of experiments we will typically do (in the thousa
 
 Rewrite `random-experiment` using tail recursion.
 
+Project Teams
+-------------
+
 Questions
 ---------
 
 ### MP6 questions
+
+Why would we still do this?
+
+> You feel like you're close to finishing.
+
+> You found it interesting.
+
+> You'd rather finish this than something you have an I on.
+
+Is the A level for MPs 3E+2M+1R?
+
+> Yes
 
 ### Racket questions
 
@@ -243,6 +263,8 @@ Which of these are tail recursive?
                     (factorial-helper (- n 1) (cons n so-far))))])
       (apply * (factorial-helper n '())))))
 
+; factorial-7 is tail recursive, but building a list is inefficient
+
 (define factorial-08
   (lambda (n)
     (letrec([go (match n
@@ -251,6 +273,43 @@ Which of these are tail recursive?
                   [n (factorial-08 (- n 1))])])
       (* n go))))
 ```
+
+; Clever, not tail recursive.  After the recursive call, we've assigned
+; to `go`, but we still do multiplication.
+
+How does factorial-3 work?  Let's trace it.
+
+```
+(define factorial-03
+  (lambda (n)
+    (letrec ([kernel (lambda (i result)
+                        (if (> i n)
+                            result
+                            (kernel (+ i 1) (* result i))))])
+      (kernel 1 1))))
+
+    (factorial-03 5)
+--> (kernel 1 1) ; n=5, i=1, result=1
+    ; 1 is not greater than 5
+--> (kernel 2 1) ; n=5, i=2, result=1
+    ; 2 is not greater than 5
+--> (kernel 3 2) ; n=5, i=3, result=2
+    ; 3 is not greater than 5
+--> (kernel 4 6) ; i=4, result=6
+    ; 4 is not greater than 5
+--> (kernel 5 24) ; i=5, result=24
+    ; 5 is not greater than 5
+--> (kernel 6 120)
+    ; 6 is greater than 5
+--> 120
+```
+
+What's the point of tail recursion?
+
+> Faster.
+
+> Allows us to solve some problems that have so much recursion that
+  they run out of memory.
 
 ### Other questions
 
@@ -262,13 +321,22 @@ How much work is left?
 
 > One optional mini-project (MP6)
 
-> One required mini-project (MP7) + presentation
+> One required mini-project (MP7) + presentation, which is time-boxed
+
+> (The presentatoin is limited to 5-10 minutes.)
+
+> Time-boxed: There is a time limit.  If you do the appropriate amount
+  of work and turn in everything, you'll get at least an M.
 
 > Four labs (M, F, M, F)
 
 > Three sets of readings (F, M, F)
 
 > Two more quizzes and two more SoLAs, with five more topics
+
+Are we required to keep a time log that says what we do?
+
+> Yes.
 
 What are the seven topics for phase 4?
 
@@ -294,3 +362,6 @@ Lab
 ### During lab
 
 ### Post lab
+
+* `; SAM SAID WE COULD STOP HERE`
+
