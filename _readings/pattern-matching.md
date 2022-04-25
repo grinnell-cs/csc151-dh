@@ -168,7 +168,7 @@ Let's check.
 ```
 > (match '(1 2 3 4 5)
     [(cons x (cons y lst))
-     (list 'x x 'y y lst 'lst)]
+     (list 'x x 'y y 'lst lst)]
     [other
      (list 'other other)])
 '(x 1 y 2 lst (3 4 5))
