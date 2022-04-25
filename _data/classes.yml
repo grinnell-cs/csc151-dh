@@ -470,6 +470,10 @@
     - page: /readings/list-recursion-revisited.html
   lab:
     - page: /labs/tail-recursion.html
+  eboards: 
+    - page: /eboards/eboard33-1.html
+    - page: /eboards/eboard33-2.html
+    - page: /eboards/eboard33-3.html
 
 - topic: Trees
   abbrev: trees
