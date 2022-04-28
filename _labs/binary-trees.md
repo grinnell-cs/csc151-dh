@@ -23,3 +23,4 @@ e. Review the self checks from the readings.
 
 This lab was created in Fall 2020 as a hybrid of a wide variety of prior labs on binary trees.
 It was revised significantly in Fall 2021.
+There were additional revisions in Spring 2022.
