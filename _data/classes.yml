@@ -486,6 +486,11 @@
   lab:
     - page: /labs/binary-trees.html
 
+- topic: Project Work Day
+  abbrev: project-work
+  summary: |
+    We pause to give you an opportunity to work on your projects.
+
 - topic: Tree recursion
   abbrev: tree-recursion
   summary: |
@@ -496,11 +501,6 @@
     - page: /readings/bst.html
   lab:
     - page: /labs/tree-recursion.html
-
-- topic: Project Work Day
-  abbrev: project-work
-  summary: |
-    We pause to give you an opportunity to work on your projects.
 
 - topic: Complexity analysis and binary search
   abbrev: search
