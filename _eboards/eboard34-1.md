@@ -40,21 +40,25 @@ Administrivia
 
 ### Friday PSA
 
+* Moderation is essential.
+* Consent is essential.
 
 ### Upcoming work
 
 * Sunday, May 1, 4:00 p.m.: Quiz (Tail Recursion)
 * Sunday, May 1, 10:30 p.m.: Lab writeup from today
     * "Sam said I can stop here."
-* Tuesday, May 3, 10:00 p.m.: Reading for Monday (Tree recursion)
+* Tuesday, May 3, 10:00 p.m.: Reading for Wednesday (Tree recursion)
 * Thursday, May 5, 10:30 p.m.: MP 7
     * There will be a presentation next week.
 
 ### Upcoming Token-Generating Activities
 
 * Saturday @ 2pm: GSO (Sebring-Lewis)
-* Sunday @ 1pm: Softball (Diamond)
-* Sunday @ 3pm: Softball (Diamond)
+* Sunday @ 1pm: Softball vs. The Illinoisings (Diamond)
+* Sunday @ 3pm: Softball vs. The Illinoisings (Diamond)
+* Women's golf this weekend.
+* Fetish Gardner, 10pm - 1am tonight.
 
 ### Other Upcoming Activities
 
@@ -94,10 +98,14 @@ How would you have liked us to rewrite `select-numbers`?
 
 > Option 3: Call is `(helper null (reverse values))`.
 
+> NOT A GOOD OPTION: Use `append`.  It gives the right result, but it's
+  expensive (stay tuned for Friday the 6th).
+
 Tail recursion seems cool. Why would we ever use direct recursion?
 
 > There are some problems that are very difficult to solve using
   tail recursion, but moderately straightforward using direct recursion.
+    * Quicksort
 
 > The tree recursion problems we're doing on Wednesday will likely
   involve direct recursion.  (Helper recursion with trees is hard.)
@@ -152,6 +160,19 @@ constructor with a guard.  Can you talk about that?
 
 > Sure.
 
+> The binary-tree constructor can call the binary-tree predicate because
+  it will be calling it on *smaller* trees.
+
+> We could do something similar for lists.
+
+> ```
+(define lcons
+  (lambda (val lst)
+    (if (list? lst)
+        (cons val lst)
+        (error "That's not a list."))))
+```
+
 ### Other questions
 
 Lab
@@ -159,7 +180,15 @@ Lab
 
 ### Preparation
 
+* Note: Carriage return is your friend.  Don't try to put too much on
+  one line.
+
 ### During lab
+
+* Ex2: There is a `binary-tree-node?` predicate.
+* Ex2: There is an `empty-tree?` predicate.
+* Ex4: Yes, you can put the definition of `sample` in your code.
+* Ex4: `(require csc151/binary-trees-from-structs)`.
 
 ### Post lab
 

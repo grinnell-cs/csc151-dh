@@ -38,26 +38,28 @@ Administrivia
 * Mentor sessions are generally Sunday 4--5 p.m.  Monday 8--9 p.m.  
   Wednesday, 8--9 p.m.
 
-### Friday PSA
-
+### Fun with Admitted Students
 
 ### Upcoming work
 
 * Sunday, May 1, 4:00 p.m.: Quiz (Tail Recursion)
 * Sunday, May 1, 10:30 p.m.: Lab writeup from today
     * "Sam said I can stop here."
-* Tuesday, May 3, 10:00 p.m.: Reading for Monday (Tree recursion)
+* Tuesday, May 3, 10:00 p.m.: Reading for Wednesday (Tree recursion)
 * Thursday, May 5, 10:30 p.m.: MP 7
-    * There will be a presentation next week.
+    * There will be a presentation following week (May 9 and 11).
 
 ### Upcoming Token-Generating Activities
 
 * Saturday @ 2pm: GSO (Sebring-Lewis)
+* Women's Golf this weekend
 
 ### Other Upcoming Activities
 
 * Sunday @ 1pm: Softball (Diamond)
 * Sunday @ 3pm: Softball (Diamond)
+* ISO Cultural Harris, Saturday evening, 7 pm 
+* Sunday at 4pm, JRC 101, Last General Union meeting of the year
 
 Lab updates
 -----------
@@ -94,6 +96,10 @@ How would you have liked us to rewrite `select-numbers`?
 > Option 2: Call is `(reverse (helper null values))`.
 
 > Option 3: Call is `(helper null (reverse values))`.
+
+> Note: We could also use `append` in the recursive case.  But we
+  should not, because `append` is an expensive operation.
+  We'll return to that next class.
 
 Tail recursion seems cool. Why would we ever use direct recursion?
 
@@ -153,6 +159,32 @@ constructor with a guard.  Can you talk about that?
 
 > Sure.
 
+> ```
+(define binary-tree
+  (lambda (value left right)
+    (cond
+      [(not (binary-tree? left))
+       (error "...")]
+      [(not (binary-tree? right))
+       (error "...")]
+      [else
+       (binary-tree-node value left right)])))
+
+(define binary-tree?
+  (lambda (thing)
+    (and (binary-tree-node? thing)
+         (binary-tree? (binary-tree-left thing))
+         (binary-tree? (binary-tree-right thing)))))
+```
+
+Are there mechanisms for processing binary trees other than binary tree
+recursion?
+
+> No, not really.  It's a recursive structure.
+
+> We process lists recursively (or by using procedures that process
+  lists recursively)
+
 ### Other questions
 
 Lab
@@ -160,7 +192,17 @@ Lab
 
 ### Preparation
 
+* Note: Carriage return is your friend.  Don't try to put too much on
+  one line.
+
 ### During lab
+
+* Ex1: Some of you have discovered why it's important to check our
+  preconditions.  The current `binary-tree` procedure doesn't even
+  verify that it has a value, left, and right.
+* Ex2: There is a `binary-tree-node?` predicate.
+* Ex2: There is an `empty-tree?` predicate.
+* Ex4: Yes, you can put the definition of `sample` in your code.
 
 ### Post lab
 
