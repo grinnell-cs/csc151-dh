@@ -81,12 +81,12 @@
       "CEO"
       (binary-tree
         "Head of Engineering"
-        (leaf "Software Developer")
-        (leaf "Tester"))
+        (binary-tree "Software Developer" (empty-tree) (empty-tree))
+        (binary-tree "Tester" (empty-tree) (empty-tree)))
       (binary-tree
         "Head of Legal"
         (empty-tree)
-        (leaf "Lawyer")))))
+        (binary-tree "Lawyer" (empty-tree) (empty-tree))))))
 
 ; +-----------+------------------------------------------------------
 ; | Exercises |
@@ -251,13 +251,13 @@ Why?
 ; +--------------------+
 
 #|
-a. As you may have noted, in the sample code, we've used `(leaf val)` to
-replace the much more verbose 
+a. As you may have noted, in the sample code, we use the very verbose
 
     (binary-tree val (empty-tree) (empty-tree))
 
-Write your own version of `leaf`, called `make-leaf`.  Your procedure should take one
-value and return a valid binary tree.
+We can also build that tree with `(leaf val)`.  Write your own version of
+`leaf`, called `make-leaf`.  Your procedure should take one value and
+return a valid binary tree.
 
     > (binary-tree? (leaf 1))
     #t
@@ -418,8 +418,8 @@ in your Web browser and quickly skim through it.
 |#
 
 #|
-d. Replace the `(require binary-trees-from-lists)` line at the start
-of this file with `(require binary-trees-from-structs)`.  Do you
+d. Replace the `(require csc151/binary-trees-from-lists)` line at the start
+of this file with `(require csc151/binary-trees-from-structs)`.  Do you
 expect to get the same or different answers for each of the above?
 
     > (binary-tree? sample)
