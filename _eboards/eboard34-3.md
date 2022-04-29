@@ -18,6 +18,7 @@ Administrivia
 
 ### Introductory notes
 
+* Happy Friday!
 * I hope you had a great work differently day.
 * We may have admitted students today.
 * Sam's computer remains broken.  I'm told I may get it back late next
@@ -40,6 +41,8 @@ Administrivia
 
 ### Fun with Admitted Students
 
+* Welcome!
+
 ### Upcoming work
 
 * Sunday, May 1, 4:00 p.m.: Quiz (Tail Recursion)
@@ -47,18 +50,19 @@ Administrivia
     * "Sam said I can stop here."
 * Tuesday, May 3, 10:00 p.m.: Reading for Wednesday (Tree recursion)
 * Thursday, May 5, 10:30 p.m.: MP 7
-    * There will be a presentation following week (May 9 and 11).
+    * There will be a presentation the following week (May 9 and 11).
 
 ### Upcoming Token-Generating Activities
 
 * Saturday @ 2pm: GSO (Sebring-Lewis)
 * Women's Golf this weekend
+* ISO Cultural Harris, Saturday evening, 7 pm 
+* Fetish Gardner, 10pm tonight, next to Bob's
 
 ### Other Upcoming Activities
 
 * Sunday @ 1pm: Softball (Diamond)
 * Sunday @ 3pm: Softball (Diamond)
-* ISO Cultural Harris, Saturday evening, 7 pm 
 * Sunday at 4pm, JRC 101, Last General Union meeting of the year
 
 Lab updates
@@ -98,7 +102,8 @@ How would you have liked us to rewrite `select-numbers`?
 > Option 3: Call is `(helper null (reverse values))`.
 
 > Note: We could also use `append` in the recursive case.  But we
-  should not, because `append` is an expensive operation.
+  should not, because `append` is an expensive operation and we try
+  to avoid expensive operations the middle of a recursive procedure.
   We'll return to that next class.
 
 Tail recursion seems cool. Why would we ever use direct recursion?
@@ -177,6 +182,9 @@ constructor with a guard.  Can you talk about that?
          (binary-tree? (binary-tree-right thing)))))
 ```
 
+> If we can be sure that our client never creates binary-tree-nodes
+  separately, we know that every binary-tree-node is a binary tree.
+
 Are there mechanisms for processing binary trees other than binary tree
 recursion?
 
@@ -185,7 +193,28 @@ recursion?
 > We process lists recursively (or by using procedures that process
   lists recursively)
 
+Binary trees seem limiting.  Are there n-ary trees?
+
+> Yes.  But we're sticking with binary trees for now.
+
+How would you implement trees with multiple branches?
+
+> We no longer can use `binary-tree-left` and `binary-tree-right`, becuase
+  they don't have a natural meaning.  So we likely have `(tree-subtree tree n)`.
+
+> Our internal representation might change
+
+> `(struct binary-tree (top left right))` won't work any more.
+
+> `(struct tree (top children))` may be our solution, making children
+  a list or vector.
+
 ### Other questions
+
+Why is the second redo for MP3 up?
+
+> Because someone knows they didn't get full credit on the first redo and
+  wanted to be able to run the autograder.
 
 Lab
 ---
@@ -200,8 +229,11 @@ Lab
 * Ex1: Some of you have discovered why it's important to check our
   preconditions.  The current `binary-tree` procedure doesn't even
   verify that it has a value, left, and right.
+* Ex1: Indentation helps you to check manually.
 * Ex2: There is a `binary-tree-node?` predicate.
 * Ex2: There is an `empty-tree?` predicate.
+* Ex3: You can use `(substring path 1)` to drop the first letter in `path`
+  (assuming `path` is nonempty).
 * Ex4: Yes, you can put the definition of `sample` in your code.
 
 ### Post lab
