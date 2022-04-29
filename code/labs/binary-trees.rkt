@@ -307,12 +307,15 @@ ones in that file?
 ; +------------------------------+
 
 #|
-You may have observed a few things about the binary tree procedures
-that we call "the hideous shorthands".  Here are some things we think
-(other than that they are somewha hideous).
+You may have observed a few things about the binary tree procedures,
+such as `bt/lr` or `bt/rrr` that we call "the hideous shorthands".
+Here are some things we think about them (other than that they are
+somewhat hideous).
 
 * They are hard to read.
 * There are a lot of them.
+* Even though there are a lot of them, the ones we need may still be
+  missing.
 * They feel a bit "backwards".  That is, the first thing you do is the
   last letter in the thing, rather than the first.  For example, 
   `bt/trll`  means "go left, go left, go right, take the top element".
@@ -328,7 +331,8 @@ takes a string of r's and l's as its first parameter and a tree as its
 second parameter, and returns the portion of the tree specified by that
 string in left-to-right order.  For example, `(traverse "llrl" tree)`
 means "go left, then left, then right, then left".  We're not going to
-worry about the top element for now.  |#
+worry about the top element for now.
+|#
 
 ;;; (traverse path tree) -> binary-tree?
 ;;;   path : string? (contains only r's and l's)

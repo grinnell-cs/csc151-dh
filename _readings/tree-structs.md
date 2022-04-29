@@ -120,9 +120,9 @@ First of all, `binary-tree?` only returns true for values created by `binary-tre
 In some sense, that mimics the difference between `pair?`, which returns false for the empty list, and `list?`, which returns true.
 
 ```
-> (binary-tree? empty-tree)
+> (binary-tree? (empty-tree))
 #f
-> (binary-tree? (binary-tree "Tree" empty-tree empty-tree))
+> (binary-tree? (binary-tree "Tree" (empty-tree) (empty-tree)))
 #t
 > (pair? null)
 #f
@@ -145,7 +145,7 @@ One might argue that the prior problem is not with the `binary-tree?` predicate,
 That is, instead of `(binary-tree "Not" "A" "Tree")`, creating a tree, it should instead report an error.
 
 ```
-> (binary-tree? "Not" "A" "Tree")
+> (binary-tree "Not" "A" "Tree")
 . . binary-tree: Expects a binary tree as second parameter, received "A"
 ```
 
@@ -203,7 +203,7 @@ Now, we can see inside binary trees, just like we can see inside lists.
   (binary-tree "Head of Legal" (empty-tree) (binary-tree "Lawyer" (empty-tree) (empty-tree)))))
 ```
 
-These are not quite as readable as lists, but you can see the general structure if you read carefully (or willing to reformat).
+These are not quite as readable as lists, but you can see the general structure if you read carefully (or are willing to reformat).
 
 ### Validating binary trees
 
@@ -234,7 +234,7 @@ Let's see if that works.
 ```
 > (binary-tree? (binary-tree "Not" "A" "Tree"))
 #f
-> (binary-tree? (binary-tree "Tree" empty-tree empty-tree))
+> (binary-tree? (binary-tree "Tree" (empty-tree) (empty-tree)))
 #f
 ```
 
@@ -258,19 +258,19 @@ Let's conduct some experiments.
 ```
 > (binary-tree? (binary-tree "Not" "A" "Tree"))
 #f
-> (binary-tree? (binary-tree "Tree" empty-tree empty-tree))
+> (binary-tree? (binary-tree "Tree" (empty-tree) (empty-tree)))
 #t
 > (binary-tree? (binary-tree "Tree"
-                             (binary-tree "Also a tree" empty-tree empty-tree)
-                             empty-tree))
+                             (binary-tree "Also a tree" (empty-tree) (empty-tree))
+                             (empty-tree)))
 #t
 > (binary-tree? (binary-tree "Not a Tree"
-                             (binary-tree "Also a tree" empty-tree empty-tree)
+                             (binary-tree "Also a tree" (empty-tree) (empty-tree))
                              "Hello"))
 #f
 > (binary-tree? (binary-tree "Still not a Tree"
-                             (binary-tree "Also a tree" empty-tree empty-tree)
-                             (binary-tree "Tree-like" empty-tree 3)))
+                             (binary-tree "Also a tree" (empty-tree) (empty-tree))
+                             (binary-tree "Tree-like" (empty-tree) 3)))
 #f
 ```
 
@@ -287,7 +287,7 @@ What happens if we use the simplest version of the `binary-tree-node` structure?
 ```
 
 ```
-> (binary-tree "Tree" empty-tree empty-tree)
+> (binary-tree "Tree" (empty-tree) (empty-tree))
 #<binary-tree-node>
 ```
 
