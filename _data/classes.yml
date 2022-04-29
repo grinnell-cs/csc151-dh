@@ -485,6 +485,10 @@
     - page: /readings/tree-structs.html
   lab:
     - page: /labs/binary-trees.html
+  eboards: 
+    - page: /eboards/eboard34-1.html
+    - page: /eboards/eboard34-2.html
+    - page: /eboards/eboard34-3.html
 
 - topic: Project Work Day
   abbrev: project-work

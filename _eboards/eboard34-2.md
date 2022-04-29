@@ -1,5 +1,5 @@
 ---
-title: "EBoard 34 (Section 1): Trees"
+title: "EBoard 34 (Section 2): Trees"
 number: 34
 section: eboards
 held: 2022-04-29
@@ -53,10 +53,11 @@ Administrivia
 ### Upcoming Token-Generating Activities
 
 * Saturday @ 2pm: GSO (Sebring-Lewis)
-* Sunday @ 1pm: Softball (Diamond)
-* Sunday @ 3pm: Softball (Diamond)
 
 ### Other Upcoming Activities
+
+* Sunday @ 1pm: Softball (Diamond)
+* Sunday @ 3pm: Softball (Diamond)
 
 Lab updates
 -----------
