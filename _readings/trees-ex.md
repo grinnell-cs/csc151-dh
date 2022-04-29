@@ -689,5 +689,5 @@ However, you should study these implementations because they are excellent examp
 {:type="a"}
 a.  Come up with another example of a hierarchical structure that we could represent using trees.
     Describe the parent-child relationships in this example.
-b.  Use `make-binary-tree` and `empty-tree` to give a concrete example of your structure in Racket.
+b.  Use `binary-tree` and `empty-tree` to give a concrete example of your structure in Racket.
     Make sure your example involves a few levels so that you get practice writing our tree values.  (You don't have to write working code; just practice doing it.)
