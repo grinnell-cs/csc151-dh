@@ -42,6 +42,7 @@ Administrivia
 * Tuesday, 4 pm, Baseball vs. Central
 * Thursday, 11 am, PBK Convo
 * Weekend, Inauguration Activities
+* Saturday, Commencement Stage, The Grinnellian (Student Music Festival)
 * Saturday, 10am, Met Opera (Turandot)
 * Sunday, Noon, Baseball vs. Knox
 
@@ -56,17 +57,43 @@ How do I document procedures that use `display` and such?
 
 > However you think is reasonable.  Such procedures generally return `void?`
 
-### Racket questions
+What should our presentation be like?
 
-### General Questions
+> Talk about your goals.
 
-Should we log this time?
+> Talk about what you accomplished.
+
+> Show your project working.
+
+> Show some code.
+
+> Not necessarily in that order.
+
+> 5--10 minutes.
+
+When should we submit slides?
+
+> Before class on Monday.
+
+Will we get to choose the order of presentations?
+
+> Yes, on Friday.
+
+Should we log class time?
 
 > Yes.
 
 Does it count toward our six hours out of class?
 
 > No.
+
+Is there a procedure that grabs a Web page for us?
+
+> Sure, `(fetch-page URL)` returns SXML for an arbitrary Web page.
+
+### Racket questions
+
+### General Questions
 
 Work Time
 ---------
