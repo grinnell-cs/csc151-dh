@@ -494,6 +494,10 @@
   abbrev: project-work
   summary: |
     We pause to give you an opportunity to work on your projects.
+  eboards: 
+    - page: /eboards/eboard35-1.html
+    - page: /eboards/eboard35-2.html
+    - page: /eboards/eboard35-3.html
 
 - topic: Tree recursion
   abbrev: tree-recursion
