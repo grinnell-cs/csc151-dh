@@ -280,9 +280,9 @@ and an empty right subtree.  Write the `(is-leaf? tree)` procedure as
 described below.
 |#
 
-;;; (is-leaf? tree) -> boolean?
-;;;   tree : binary-tree?
-;;; Returns #t is tree is a leaf and #f otherwise.
+;;; (is-leaf? val) -> boolean?
+;;;   val : any?
+;;; Returns #t if tree is a leaf in a tree and #f otherwise.
 (define is-leaf?
   ???)
 

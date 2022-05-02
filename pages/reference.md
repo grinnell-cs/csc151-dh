@@ -160,6 +160,16 @@ procedure instead of the `eq?` procedure.)
 
 ### F
 
+**`(fetch-page url)`** --- Fetch a Web page and return its contents as SXML. [csc151www]
+
+**`(file->lines file)`** --- Read a file into a list of strings, one string per line in the file.
+
+**`(file->string file)`** --- Read a file into a string.
+
+**`(file->words file)`** --- Read a file into a list of strings, one string per "word" in the file.
+
+**`(file->xml file)`** --- Read an XML file into an SXML structure. [csc151www]
+
 **`(filter pred? lst)`** --- Select the elements of `lst` for which
 `pred?` holds.
 
@@ -236,6 +246,8 @@ In some versions, you'll find the two parameters reversed.)
 
 **`(length lst)`** --- Determine how many values appear in a list.  (Do not use this to determine if a list has zero elements or if a list has one element.)
 
+**`(lines->file lines file)`** --- Save all the values in `lines` (a list of strings) to a file, one string per line.
+
 **`(list v0 v1 ...)`** --- Create a list consisting of the values v0, v1, etc.
 
 **`(list? val)`** --- Determine if `val` is a list.
@@ -282,9 +294,9 @@ name for `compose`.)
 
 **`(odd? i)`** --- Determine if the integer `i` is odd.
 
-**`(overlay img0 img1 img2 ...)`** --- Overlay images on top of each other.
+**`(overlay img0 img1 img2 ...)`** --- Overlay images on top of each other. [2htdp/image]
 
-**`(overlay/align halign valign img0 img1 img2 ...)`** --- Overlay images on top of each other.
+**`(overlay/align halign valign img0 img1 img2 ...)`** --- Overlay images on top of each other. [2htdp/image]
 
 ### P
 
@@ -417,9 +429,13 @@ values with `compare?`.
 
 **`(string-length str)`** --- Determine how many characters are in `str`.
 
+**`(string->file str)`** --- Save a string into a file.
+
 **`(string->list str)`** --- Convert a string into a list of characters.
 
 **`(string->number str)`** --- Convert a string to the corresponding number.  Returns `#f` if it cannot be converted.
+
+**`(string->xml str)`** --- Convert an XML string into an SXML structure. [csc151www]
 
 **`(string-prefix? str pre)`** --- Determine if `pre` is a prefix of `str` (that is, it falls at the beginning of `str`).
 
