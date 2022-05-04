@@ -1,8 +1,8 @@
 ---
-title: "EBoard 36 (Section 1): Tree Recursion and Binary Search Trees"
+title: "EBoard 36 (Section 2): Tree Recursion and Binary Search Trees"
 number: 36
 section: eboards
-held: 2022-05-02
+held: 2022-05-04
 link: true
 ---
 # {{ page.title }}
@@ -46,7 +46,7 @@ Administrivia
     * Sample questions in Sample LA 4
 * Thursday, May 12, 10:30 p.m.: SoLA 4
     * NOT our last SoLA
-    * Howver, SoLA 5 is optional
+    * SoLA 5 is optional
 
 ### Upcoming Token-Generating Activities
 
@@ -69,17 +69,6 @@ _TPS_
 What did you take from the trees lab?
 
 * "I now know how to build and traverse trees using a binary tree library."
-    * We have three aspects of a node in a tree: value, left subtree, and
-      a right subtree.
-* There are multiple representations of trees: Lists, Structs, (Vectors),
-  (Hash Tables).  They have some similarities and some differences.
-    * If we use library functions, things don't break if we change
-      representation.  (Data abstraction - don't assume things about
-      the underlying representation.)
-* Although a leftmost tree and a rightmost tree print out the same using
-  display-tree, they are different trees because the empty trees are
-  on different sides.
-* We can use/write recursive procedures over trees (e.g., `traverse`).
 
 Questions
 ---------
@@ -156,45 +145,9 @@ _TPS_
 
 What was the problem?
 
-> If a node has one subtree, but not two, you get an error.
-
 What tests would you write?
 
-```
-(test-equal? "left subtree empty, right subtree larger"
-             (binary-tree-largest (bt 5
-                                      (empty-tree)
-                                      (leaf 6)))
-             6)
-
-(test-equal? "right subtree empty, largest value on right"
-             (binary-tree-largest (bt 7
-                                      (leaf 4)
-                                      (bt 9
-                                          (leaf 4)
-                                          (empty-tree))))
-             9)
-
-(test-equal? "tree contains only negative numbers"
-             (binary-tree-largest (bt -3
-                                      (leaf -5)
-                                      (leaf -2)))
-             -2)
-
-(test-equal? "tree contains only negative numbers, empty subtree"
-             (binary-tree-largest (bt -3
-                                      (leaf -5)
-                                      (empty-tree)))
-             -3)
-```
-
 How would you resolve the problem?
-
-> Option 1: See if the tree is empty.  If so ... um ... there's no good
-  answer.  You should not choose this option.
-
-> Option 2: See if one subtree is empty.  If so, only recurse over the
-  other side.
 
 ### Preparation
 

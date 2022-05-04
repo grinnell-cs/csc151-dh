@@ -509,6 +509,10 @@
     - page: /readings/bst.html
   lab:
     - page: /labs/tree-recursion.html
+  eboards: 
+    - page: /eboards/eboard36-1.html
+    - page: /eboards/eboard36-2.html
+    - page: /eboards/eboard36-3.html
 
 - topic: Complexity analysis and binary search
   abbrev: search
