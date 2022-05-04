@@ -200,7 +200,7 @@ a. Have your traditional start-of-lab discussion.
 |#
 
 #|
-b. Review the self checks.
+b. Save this as `tree-recursion.rkt`
 |#
 
 #|
@@ -218,7 +218,7 @@ https://github.com/grinnell-cs/csc151/blob/main/includes/binary-trees-common.inc
 |#
 
 #|
-f. Review the code provided at the top of this lab.
+f. Review the documentation for the code provided at the top of this lab.
 |#
 
 #| B |#
@@ -259,6 +259,78 @@ Rewrite `binary-tree-largest` to address that issue.
        (max (bt/t tree)
             (binary-tree-largest (bt/l tree))
             (binary-tree-largest (bt/r tree)))])))
+
+#|
+(test-equal? "leaf"
+             (binary-tree-largest (leaf 0))
+             0)
+(test-equal? "largest at root"
+             (binary-tree-largest (binary-tree 5 (leaf 3) (leaf 4)))
+             5)
+(test-equal? "largest in left subtree"
+             (binary-tree-largest (binary-tree 5 (leaf 6) (leaf 4)))
+             6)
+(test-equal? "largest in right subtree"
+             (binary-tree-largest (binary-tree 5 (leaf 6) (leaf 7)))
+             7)
+(test-equal? "deeper tree/1"
+             (binary-tree-largest (bt 5
+                                      (bt 6
+                                          (leaf 7)
+                                          (bt 5
+                                              (leaf 8)
+                                              (leaf 9)))
+                                      (leaf 3)))
+             9)
+(test-equal? "deeper tree/2"
+             (binary-tree-largest (bt 5
+                                      (bt 6
+                                          (leaf 10)
+                                          (bt 5
+                                              (leaf 8)
+                                              (leaf 9)))
+                                      (leaf 3)))
+             10)
+(test-equal? "left subtree empty, right subtree larger"
+             (binary-tree-largest (bt 5
+                                      (empty-tree)
+                                      (leaf 6)))
+             6)
+(test-equal? "left subtree empty, root larger"
+             (binary-tree-largest (bt 7
+                                      (empty-tree)
+                                      (leaf 6)))
+             7)
+(test-equal? "right subtree empty, largest value on right"
+             (binary-tree-largest (bt 7
+                                      (leaf 4)
+                                      (bt 9
+                                          (leaf 4)
+                                          (empty-tree))))
+             9)
+(test-equal? "right-right subtree empty, largest value on left"
+             (binary-tree-largest (bt 7
+                                      (leaf 10)
+                                      (bt 9
+                                          (leaf 4)
+                                          (empty-tree))))
+             10)
+(test-equal? "right subtree empty, largest value at root"
+             (binary-tree-largest (bt 2
+                                      (leaf -1)
+                                      (empty-tree)))
+             2)
+(test-equal? "tree contains only negative numbers"
+             (binary-tree-largest (bt -3
+                                      (leaf -5)
+                                      (leaf -2)))
+             -2)
+(test-equal? "tree contains only negative numbers, empty subtree"
+             (binary-tree-largest (bt -3
+                                      (leaf -5)
+                                      (empty-tree)))
+             -3)
+|#
 
 #| A |#
 
@@ -346,7 +418,8 @@ included it in the sample code for this lab.
 |#
 
 #|
-g. What shape trees do you expect to get for `(random-bst 7)`?
+g. What shape trees do you expect to get for `(random-bst 7)`?  Don't
+spend more than a minute or two answering this question.
 
 <TODO: Enter your answers here>
 
@@ -407,7 +480,7 @@ Consider the following vector.
 
 #|
 b. What names do you expect the `vector-find` to look at when searching
-for `"Professor"`?
+for `"Koala"`?
 
 <TODO: Enter your answer here.>
 
