@@ -7,16 +7,11 @@ summary: |
 
 a. Conduct your normal start-of-lab discussion.
 
-b. Update your `csc151` package, just to be safe.  You'll need
-to enter the following after selecting "Install Package..."
-
-> https://github.com/grinnell-cs/csc151.git#main
-
-c. Grab your code file.
+b. Grab the code file for the lab.
 
 * [tree-recursion.rkt](../code/labs/tree-recursion.rkt)
 
-d. Do any other preliminaries listed in the lab.
+c. Do any other preliminaries listed in the lab.
 
 ## Acknowledgements
 
