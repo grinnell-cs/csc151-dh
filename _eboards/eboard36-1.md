@@ -43,10 +43,10 @@ Administrivia
     * Our last quiz.
     * Distributed Friday morning.
     * Topic: Tree recursion
-    * Sample questions in Sample LA 4
+    * Sample questions in Sample SoLA 4
 * Thursday, May 12, 10:30 p.m.: SoLA 4
     * NOT our last SoLA
-    * Howver, SoLA 5 is optional
+    * However, SoLA 5 is optional
 
 ### Upcoming Token-Generating Activities
 
@@ -120,6 +120,10 @@ Will we get examples of previous presentations?
 What if the code takes too long to run during class?
 
 > Then don't run it, or find a way to pre-run the code.
+
+Do we have to make a presentation?  Can we just use Racket?
+
+> Sure.
 
 ### Reading questions
 
@@ -197,6 +201,8 @@ How would you resolve the problem?
   other side.
 
 ### Preparation
+
+* The joy of skimming code.
 
 ### During Lab
 

@@ -69,6 +69,19 @@ _TPS_
 What did you take from the trees lab?
 
 * "I now know how to build and traverse trees using a binary tree library."
+    * Trees have both left and right subtrees.
+* Trees can be used to organize hierarchies.
+* To build a larger tree, you need lots of empty trees (not just the
+  one null that you have at the end of a list)
+    * `leaf` is your friend.
+* In processing trees, we may need to recurse on both the right and the
+  left subtree.
+* Trees require mental modeling and/or it helps to draw pictures.
+* Reinforce data abstraction: If you focus on the procedures, and not
+  the representation, it's easy to switch representations.  (Perhaps
+  we prefer one over another in different situations.)
+    * It should not matter whether we are using lists and triangles
+      or structs or vectors or hash tables or ...
 
 Questions
 ---------
@@ -104,11 +117,20 @@ When will we decide on presentation order?
 Will we get examples of previous presentations?
 
 > No.  Shoot for 5-10 minutes, show off your code (running and details),
-  be prepared to answer questions.  (be prepared to ask questions)$a
+  be prepared to answer questions.  (be prepared to ask questions)
 
 What if the code takes too long to run during class?
 
 > Then don't run it, or find a way to pre-run the code.
+
+Do we have to make a slide deck?  Can we just use Racket?
+
+> Yes.
+
+Can we use our own computer?
+
+> As long as you check IN ADVANCE that your computer will work in this
+  classrooom
 
 ### Reading questions
 
@@ -145,15 +167,60 @@ _TPS_
 
 What was the problem?
 
-What tests would you write?
+> There's an error if the left subtree is empty or the right subtree
+  is empty (but not both).
+
+What tests would you write that reveal the problem?
+
+```
+
+(test-equal? "student's test"
+             (binary-tree-largest (bt 9
+                                      (empty-tree)
+                                      (leaf 40)))
+             40)
+
+(test-equal? "the opposite of student"
+             (binary-tree-largest (bt 6
+                                      (leaf 20)
+                                      (empty-tree)))
+             20)
+
+(test-equal? "tneduts"
+             (binary-tree-largest (bt 60
+                                      (leaf 20)
+                                      (empty-tree)))
+             60)
+
+(test-equal? "extra"
+             (binary-tree-largest (bt -4
+                                      (leaf -3)
+                                      (empty-tree)))
+             -3)
+```
 
 How would you resolve the problem?
 
+> Use `empty-tree?`, maybe `or`, maybe ...
+
+> Option 1: Sequence of tests.  Is it a leaf? (Same as now).  Is the
+  left subtree empty?  If so, larger of top and right.  Is the right
+  subtree empty?  If so, larger of top and left?  Otherwise, use that
+  existing max of ....
+
+> No other options suggested
+
 ### Preparation
+
+* Don't forget to save!
 
 ### During Lab
 
+* Acknowledgements!
+* Don't forget to save!
+
 ### Post Lab
 
+* Don't forget your acknowledgements!
 * `; SAM SAID WE COULD STOP HERE`
 
