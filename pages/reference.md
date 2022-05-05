@@ -80,6 +80,8 @@ decreasing order.
 
 **`(beside/align alignment img0 img1 ...)`** --- Create a new image by combining all of the images horizontally, aligned as specified (`'top`, `'bottom`, or `'center`).  `img0` is at left.
 
+**`(blue-component color)`** --- Extract the blue component from a color, whether given by name (e.g., `purple`) or by formula (e.g., `(color 10 90 30)`).
+
 ### C
 
 **`(car lst)`** --- Get the first element of a non-empty list.
@@ -176,6 +178,10 @@ procedure instead of the `eq?` procedure.)
 **`(floor num)`** --- "Round down".
 
 **`(for-each proc! lst)`** --- Apply `proc!` to each element of `lst` in sequence.  Called only for the side effect; returns nothing.
+
+### G
+
+**`(green-component color)`** --- Extract the green component from a color, whether given by name (e.g., `purple`) or by formula (e.g., `(color 10 90 30)`).
 
 ### H
 
@@ -329,6 +335,8 @@ drawing circles and squares and such.
 **`(real-part num)`** --- Extract the real part of a complex number.
 
 **`(rectangle width height mode color)`** --- Create a rectangle of the specified characteristics. `mode` can be `'solid` or `'outline` or a number between 0 and 255, which represents the opacity.  `color` can also be a pen.
+
+**`(red-component color)`** --- Extract the red component from a color, whether given by name (e.g., `purple`) or by formula (e.g., `(color 10 90 30)`).
 
 **`(reduce proc lst)`** --- Reduce a list to a single value by
 repeatedly combining neighboring elements with `proc`.

@@ -403,7 +403,7 @@ ii.       *
 
 Approximately how many different "shapes" do you expect to get from 
 `(random-tree 5 random-digit)`?  Give a short rationale for your answer.
-Please do not spend more than two or three minutes on this problem.
+Please do not spend more than one or two minutes on this problem.
 
 <TODO: Enter your answer here>
 |#

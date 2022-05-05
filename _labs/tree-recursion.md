@@ -2,6 +2,8 @@
 title: Tree recursion
 summary: |
   In this laboratory, we continue our exploration of binary trees, focusing on ways to recurse over trees and binary search trees.
+notes: |
+  This lab is on the long side.
 ---
 ## Preparation
 
