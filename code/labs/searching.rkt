@@ -587,7 +587,7 @@ Check your answer experimentally.  Revise your answer above as necessary.
 
 #|
 e. What does your experience in this exercise suggest about what
-binary search will do with multiple keys?
+binary search will do with duplicate keys?
 
 <TODO: Enter an answer>
 |#
