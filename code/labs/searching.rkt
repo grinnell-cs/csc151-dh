@@ -160,7 +160,7 @@
               (lambda (lower-bound upper-bound)
                 ; A bit of feedback
                 ; (displayln (list 'search-portion lower-bound upper-bound))
-                ; (counter-increment BSC 'search-portion)
+                ; (counter-increment! BSC 'search-portion)
                 ; If the portion is empty
                 (if (>= lower-bound upper-bound)
                     ; Indicate the value cannot be found
