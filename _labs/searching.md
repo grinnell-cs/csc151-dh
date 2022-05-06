@@ -13,7 +13,7 @@ b. Grab the code file.
 
 * [searching.rkt](../code/labs/searching.rkt)
 
-d. Spend no more than five minutes reviewing any provided code at the top of the file to see what is new.
+c. Spend no more than five minutes reviewing any provided code at the top of the file to see what is new.
 You should feel free to quickly experiment with any new procedures, but we'll also be looking at most of them in the lab.
 
 ## Acknowledgements
