@@ -1,5 +1,5 @@
 ---
-title: "EBoard 37 (Section 1): Algorithm Analysis and Searching"
+title: "EBoard 37 (Section 3): Algorithm Analysis and Searching"
 number: 37
 section: eboards
 held: 2022-05-06
@@ -54,11 +54,10 @@ Administrivia
 * Mentor sessions (Sunday and Monday, not Wednesday)
 * Weekend, Inauguration Activities
 * Saturday, 10am, Met Opera (Turandot)
+* The Grinnellian, Saturday
 * Sunday, Noon, Baseball vs. Knox
 
 ### Other Upcoming Activities
-
-* The Grinnellian, Saturday
 
 Lab notes
 ---------
@@ -71,12 +70,10 @@ Why did we include `vector->tree`?
 * You've seen/written recursive procedures that process trees.  It's also
   useful to consider recursive procedures that build trees.
 * It's nice to see slightly more complicated code.
-    * Um - Use math
-* Converting between data structures is an interesting process.
 
 How does it work?
 
-* We won't trace a short example.
+* We might trace a short example.
 
 ### Fun with counting
 
@@ -108,17 +105,13 @@ What is the answer to the first self-check?
 
 _TPS_
 
-* `cdr`: constant
-* `cddr`: constant
-* `list-ref`: linear (in the position of the list, not the length)
-* `vector-ref`:  Constant
-     * How is it implemented?  start + cell-width x index; a constant
-       calculation
-     * We saw that the time didn't seem to change (much), which suggests
-       that it's constant.
-* `map`: linear: we have to perform the operation on each element
+* `cdr`: 
+* `cddr`: 
+* `list-ref`: 
+* `vector-ref`:  
+* `map`: 
   of the list.
-* `range`: linear: we make a list of all the values in range.
+* `range`: 
 
 I took `car` of a very long list and it took a long time.  Are you sure `car`
 is constant time?
@@ -130,7 +123,7 @@ is constant time?
 
 This was really complicated.  Will we have a chance to ask more questions?
 
-> Yes.
+> Yes, but I'd like you to do lab first.
 
 How does the length of the list/vector affect the expected cost?
 
@@ -150,9 +143,11 @@ Will we get redos on MP5 and 6?
 > Yes.  They will be graded moderately quickly, giving you a chance
   for a second redo.
 
+> Please DM me when you are ready to have an MP redo graded.
+
 Will we get second redos?
 
-> I hope so.
+> Yes.
 
 Lab
 ---

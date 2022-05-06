@@ -526,6 +526,10 @@
     - page: /readings/searching.html
   lab:
     - page: /labs/searching.html
+  eboards: 
+    - page: /eboards/eboard37-1.html
+    - page: /eboards/eboard37-2.html
+    - page: /eboards/eboard37-3.html
 
 - topic: Project presentations
   abbrev: presentations
