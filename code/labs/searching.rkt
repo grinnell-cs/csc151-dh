@@ -2,7 +2,6 @@
 
 (require csc151)
 (require racket/match)
-(require racket/undefined)
 (require rackunit)
 
 ;; CSC-151-NN (SEMSESTER)
@@ -703,10 +702,11 @@ How many do you expect for a random list of 17 elements?
 ; +---------------------------------------------+
 
 #|
-Add a line of code to each of the procedures involved in reversing so
-that it increments the appropriate counter.  You should plan to count
-`list-reverse-1`, `list-reverse-2`, the helper in `list-reverse-2`,
-and `list-append`.  For example,
+At the top of this file, there are a variety of procedures for dealing
+with lists.  Add a line of code to each of the procedures involved in
+reversing lists so that it increments the appropriate counter in `RC`.
+You should plan to count `list-reverse-1`, `list-reverse-2`, the helper in
+`list-reverse-2`, and `list-append`.  For example,
 
 (define list-append
   (lambda (front back)
@@ -764,10 +764,10 @@ and `list-reverse-2`.
 ;;; (reverse-experiment! n) -> void?
 ;;;   n : integer? non-negative?
 ;;; Run some experiments in the running time of both versions of
-;;;   `reverse`, printing out the results.
+;;;   `reverse` on a list of length `n`, printing out the results.
 (define reverse-experiment!
   (lambda (n)
-    undefined))
+    ???))
 
 #|
 f. Conduct some experiments to see how the number of total steps
@@ -785,7 +785,7 @@ than three minutes on this subproblem and the next.
 |#
 
 #|
-h. Explain, to the best of your ability, why we get those resultss.
+h. Explain, to the best of your ability, why we get those results.
 
 <TODO: Enter your explanation here>
 |#
@@ -824,7 +824,7 @@ Hint: Review how we found small primes.
 ;;; Search strings for a string equal to string, ignoring case.
 (define binary-search-strings
   (lambda (vec string)
-    undefined))
+    ???))
 
 #|
 Here are some procedures to help you analyze binary search.
