@@ -534,6 +534,10 @@
 - topic: Project presentations
   abbrev: presentations
   summary: Students present their projects
+  eboards: 
+    - page: /eboards/eboard38-1.html
+    - page: /eboards/eboard38-2.html
+    - page: /eboards/eboard38-3.html
 
 - topic: Sorting
   abbrev: sorting
@@ -548,6 +552,10 @@
     - No reading
   lab:
     - No lab/Discussion day
+  eboards: 
+    - page: /eboards/eboard39-1.html
+    - page: /eboards/eboard39-2.html
+    - page: /eboards/eboard39-3.html
 
 - topic: Wrapup
   abbrev: wrapup

@@ -20,7 +20,7 @@ Administrivia
 
 * Sam is slowly catching up.
 * MP5 graded (except for one late submission)
-* Any keyboard snobs want to try an alternate keyboard (cheapo mechanical)?
+* I brought an alternative keyboard for our keyboard snob.
 
 ### Reminders
 
@@ -56,8 +56,25 @@ Administrivia
 * Saturday, 10am, Met Opera (Turandot)
 * The Grinnellian, Saturday
 * Sunday, Noon, Baseball vs. Knox
+* Synchronized Swimming Sunday
+* Waltz tonight
 
 ### Other Upcoming Activities
+
+### Friday PSA
+
+* Moderation in all!  Get sleep!
+* Consent is essential.
+
+Presentations Monday
+--------------------
+
+* You can use my computers.
+* You can attempt to use Airtame.  (If the latter, stop by in advance
+  and try.)
+* GPA Terminators first
+* Um, Sorry is last (and hopes to be moved to Wednesday)
+* Sam will randomly assign the rest
 
 Lab notes
 ---------
@@ -73,7 +90,7 @@ Why did we include `vector->tree`?
 
 How does it work?
 
-* We might trace a short example.
+* We will not trace a short example.  (Why did Sam bother setting up?)
 
 ### Fun with counting
 
@@ -103,15 +120,23 @@ Questions
 
 What is the answer to the first self-check?
 
+Are these constant time (they don't depend on the input) or linear
+time (scale with the input) or ...?
+
 _TPS_
 
-* `cdr`: 
-* `cddr`: 
-* `list-ref`: 
-* `vector-ref`:  
-* `map`: 
-  of the list.
-* `range`: 
+* `cdr`: constant time
+* `cddr`: constant time
+* `list-ref`: linear in the position; we need to do that many cdrs.
+  Why that design?  Because it gives us other advantages.
+* `vector-ref`:  constant time
+    * Seems to be much faster, which make us assume it's constant time
+    * An element can be found by the obscure formula
+      start + cell-width x index, which is constant time.
+* `map`: linear: it depends on the number of elements in the list because
+  it has to process each element of the list
+    * (it complains if you use two lists and they aren't the same length)
+* `range`: linear; you have to build that many elements
 
 I took `car` of a very long list and it took a long time.  Are you sure `car`
 is constant time?
@@ -149,6 +174,14 @@ Will we get second redos?
 
 > Yes.
 
+Can you update tokens?
+
+> Yes.  Over the weekend.
+
+Will we get another grade report.
+
+> Yes, by Wednesday evening.
+
 Lab
 ---
 
@@ -163,6 +196,10 @@ Lab
   how do you know that it's correct?
     * Mediocre answer: "zero, one, two, three, four, five, six, seven, eight".
     * Better answer: `(vector-ref simulated-students 8)`.
+* Exercise 3: Why do we get different answers for Amy and Otto?  Think
+  about how binary search works.
+* Exercise 5: Note that the list-reverse and list-append procedures are 
+  already in the lab.
 
 ### Post lab
 

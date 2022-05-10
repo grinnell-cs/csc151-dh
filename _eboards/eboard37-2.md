@@ -36,7 +36,6 @@ Administrivia
 
 * Sunday, May 8, 4:00 p.m.: Quiz 13
     * Our last quiz.
-    * Distributed Friday morning (after our class).
     * Topic: Tree recursion
     * Sample questions in Sample SoLA 4
 * Sunday, May 8, 10:30 p.m.: Today's lab
@@ -49,6 +48,11 @@ Administrivia
     * NOT our last SoLA
     * However, SoLA 5 is optional
 
+### Friday PSA
+
+* Moderation in everything (including work)
+* Consent is essential!
+
 ### Upcoming Token-Generating Activities
 
 * Mentor sessions (Sunday and Monday, not Wednesday)
@@ -59,6 +63,15 @@ Administrivia
 ### Other Upcoming Activities
 
 * The Grinnellian, Saturday
+
+Presentation order
+------------------
+
+* Plant Parenthood
+* TicTak: Any time
+* Um, That's Good Enough: Any time
+* Squad: Any time
+* Sam will do the rest.
 
 Lab notes
 ---------
@@ -106,13 +119,19 @@ What is the answer to the first self-check?
 
 _TPS_
 
-* `cdr`: 
-* `cddr`: 
-* `list-ref`: 
-* `vector-ref`:  
-* `map`: 
-  of the list.
-* `range`: 
+* `cdr`: constant
+* `cddr`: constant
+* `list-ref`: depends on the element we're looking for
+* `vector-ref`: constant
+     * Claim: Linear, because vectors are just fancy lists
+     * Experience from vectors lab: They seem really fast to grab an
+       arbitrary element, so probably not linear.
+     * Mechanics: The location in memory of element i is 
+       start + width-of-cell x i.
+* `map`: linear, we have to look at every element in the list in order
+  to apply the procedure.
+* `range`: linear (in the size of the list), we need to build the entire 
+   list
 
 I took `car` of a very long list and it took a long time.  Are you sure `car`
 is constant time?
@@ -139,6 +158,14 @@ How does the length of the list/vector affect the expected cost?
 
 ### Administrative questions
 
+Will we get second redos on MP4 and MP3?
+
+> I hope so.
+
+Will we get another grade report before the SoLA?
+
+> Yes.
+
 Will we get redos on MP5 and 6?
 
 > Yes.  They will be graded moderately quickly, giving you a chance
@@ -164,6 +191,10 @@ Lab
   how do you know that it's correct?
     * Mediocre answer: "zero, one, two, three, four, five, six, seven, eight".
     * Better answer: `(vector-ref simulated-students 8)`.
+* Exercise 3: Why do we get different answers for Amy and Otto?  Think
+  about how binary search works.
+* Exercise 5: Note that the list-reverse and list-append procedures are 
+  already in the lab.
 
 ### Post lab
 
