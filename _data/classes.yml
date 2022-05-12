@@ -561,6 +561,10 @@
   abbrev: wrapup
   summary: |
     We conclude the course.
+  eboards: 
+    - page: /eboards/eboard40-1.html
+    - page: /eboards/eboard40-2.html
+    - page: /eboards/eboard40-3.html
 
 - topic: Final set of learning assessments (optional)
   abbrev: la5
