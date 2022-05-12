@@ -1,5 +1,5 @@
 ---
-title: "EBoard 39 (Section 1): Sorting algorithms"
+title: "EBoard 39 (Section 3): Presentations + Sorting algorithms"
 number: 39
 section: eboards
 held: 2022-05-11
@@ -10,8 +10,9 @@ link: true
 _Approximate overview_
 
 * Administrative stuff [~10 min]
-* Project presentations [~15 min]
+* Project presentations [~40 min]
 * Questions [~10 min]
+* Notes from Friday's lab [20 min]
 * Sorting out sorting [whatever is left]
 
 Administrivia
@@ -29,6 +30,8 @@ Administrivia
     * Identify someone to pick up Friday handouts for you.  (Yes, we wil
       have Friday handouts.)
     * Fill out the EOCE after class on Friday.
+    * See Micah at Monday's mentor session.
+* Did someone leave an adapter at the podium?
 
 ### Reminders
 
@@ -48,14 +51,55 @@ Administrivia
 ### Upcoming Token-Generating Activities
 
 * Mentor session Monday of Finals Week (8pm)
-* Follow the Tennis Team to St. Louis
+* Thursday, 7:30, Latin American Music Ensemble in Sebring-Lewis
 
 ### Other Upcoming Activities
 
 Presentations
 -------------
 
-* Academic Articles
+* Bad Libs
+* Textual Analysis
+* Steamy
+* Translator
+
+Questions
+---------
+
+I've overspent my tokens.  What happens?
+
+> Traditionally, you lose a reading, lab, or LA for each two tokens you've
+  overspent.  (I try to pick the one that is least harmful.)
+
+> We'll discuss it on Friday.
+
+It appears that I'm missing a bunch of reading responses.  What do I do?
+
+> Turn them in by emailing them to me (at a cost of two tokens each).
+
+I emailed you a bunch of late reading responses / labs and they are still
+not posted.  What should I do?
+
+> Remind me.
+
+Can I take an incomplete in your class?
+
+> You may not make up readings, labs, or LAs on an incomplete.
+
+> You may complete one or two MPs for which you have not turned in
+  second redos.
+
+I have too much work due tomorrow.  Can I have an extension on SoLA 4?
+
+> Yes, if you talk to me in advance.
+
+Are tokens updated?
+
+> Nope.  Maybe tonight.
+
+Can we have food on Friday?
+
+> Only if you promise that it won't affect what you enter on the EOCEs.
 
 Lab notes
 ---------
@@ -76,6 +120,8 @@ Suppose we had 1,000,000 elements to look at
   31,250 -> 16,000 -> 8,000 -> 4,000 -> 2,000 -> 1,000 -> ten more steps
 * Twenty calls for a failed search
 
+Binary search is fast, but requires a sorted vector.
+
 ### Alphabetically first
 
 ```
@@ -94,7 +140,7 @@ Suppose we had 1,000,000 elements to look at
 
 (define alphabetically-first-2
   (lambda (strings)
-    (counter-increment! AFC 'alphabetically-first-2)
+    ; (counter-increment! AFC 'alphabetically-first-2)
     (if (null? (cdr strings))
         (car strings)
         (first-of-two (car strings)
@@ -113,23 +159,24 @@ Suppose we had 1,000,000 elements to look at
 
 _TPS_
 
-`alphabetically-first-1` behaves surprisingly badly (that is, makes way
-too make recursive calls) on some inputs.
+One of these is much worse (on some inputs).  Which one?
 
-Which inputs?
+* The first one
 
-* Ones in which the alphabetically first element is at the end of the list.
+What inputs are bad?
 
-Why does it make so many recursive calls?
+* The longer the list, the worse the first one is.
+* Ones in which the alphabetically first thing is at the end of the list.
 
-* Because we might do two identical recursive calls, which doesn't
-  sound great.
-* For bad inputs, at every step, we double the work. 2x2x2x
+Why does that cause bad behavior?
 
-Important conclusion
+* We have two identical recursive calls
+* Those cascade 2 x 2 x 2 x 2 x 2 x ...
 
-* Subtle things can make a huge difference.
-* BE CAREFUL ABOUT IDENTICAL RECURSIVE CALLS!
+Helpful learning outcome
+
+* DON'T INCLUDE IDENTICAL RECURSIVE CALLS IN YOUR PROCEDURE!  It will
+  generally make things slow.
 
 ### Reversing
 
@@ -190,53 +237,40 @@ recursive ones)
 How many calls to `list-append` will there be in
 `(list-append '(9 8 7 6 5 4 3 2) '(1))`?
 
-> About nine
+> about nine calls (because we recurse through the cdr)
 
-`(list-append '(9 8 7 6 5 4 3) '(2))`
+How many calls to `list-append` will there be in
+`(list-append '(9 8 7 6 5 4 3) '(2))`?
 
-> About eight
+> about eight calls
 
-`(list-append '(9 8 7 6 5 4) '(3))`
+How many calls to `list-append` will there be in
+`(list-append '(9 8 7 6 5 4) '(3))`?
 
-> About seven
+> about seven
 
-If we add all those up to build '(9 8 7 6 5 4 3 2 1), that's about
+If we used this method to reverse the list '(1 2 3 4 5 6 7 8 9), how
+many total calls would we have to `list-append`?
 
-> 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 = 45
+> 9 + 8 + 7 + ... + 1 = 45
+
+If we did a list of length 10?
+
+> 10 + 9 + 8 + .... + 1 = 55
+
+Generalizing
+
+> N + (N-1) + (N-2) + ... + 1 = N(N+1)/2
+
+One hundred elements
+
+> 5050 steps.
 
 Moral?
 
-> Make sure you know how "expensive" your helper procedures are.
-
-Questions
----------
-
-I've overspent my tokens.  What happens?
-
-> Traditionally, you lose a reading, lab, or LA for each two tokens you've
-  overspent.  (I try to pick the one that is least harmful.)
-
-> We'll discuss it on Friday.
-
-It appears that I'm missing a bunch of reading responses.  What do I do?
-
-> Turn them in by emailing them to me (at a cost of two tokens each).
-
-I emailed you a bunch of late reading responses / labs and they are still
-not posted.  What should I do?
-
-> Remind me.
-
-Can I take an incomplete in your class?
-
-> You may not make up readings, labs, or LAs on an incomplete.
-
-> You may complete one or two MPs for which you have not turned in
-  second redos.
-
-I have too much work due tomorrow.  Can I have an extension on SoLA 4?
-
-> Yes, if you talk to me in advance.
+* Make sure you understand the costs of your helper procedures.  If
+  you can avoid linear helper procedures in a recursive function, do
+  so.
 
 Background: What is CS?
 -----------------------

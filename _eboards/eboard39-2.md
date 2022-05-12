@@ -1,5 +1,5 @@
 ---
-title: "EBoard 39 (Section 1): Sorting algorithms"
+title: "EBoard 39 (Section 2): Sorting algorithms"
 number: 39
 section: eboards
 held: 2022-05-11
@@ -10,8 +10,9 @@ link: true
 _Approximate overview_
 
 * Administrative stuff [~10 min]
-* Project presentations [~15 min]
+* Project presentations [~30 min]
 * Questions [~10 min]
+* Notes from Friday's lab [20 min]
 * Sorting out sorting [whatever is left]
 
 Administrivia
@@ -48,14 +49,46 @@ Administrivia
 ### Upcoming Token-Generating Activities
 
 * Mentor session Monday of Finals Week (8pm)
-* Follow the Tennis Team to St. Louis
 
 ### Other Upcoming Activities
 
 Presentations
 -------------
 
-* Academic Articles
+* Nightmares at Noyce
+* Graphs and Charts
+* Campus Quiz
+* Pie Charts
+
+Questions
+---------
+
+I've overspent my tokens.  What happens?
+
+> Traditionally, you lose a reading, lab, or LA for each two tokens you've
+  overspent.  (I try to pick the one that is least harmful.)
+
+> We'll discuss it on Friday.
+
+It appears that I'm missing a bunch of reading responses.  What do I do?
+
+> Turn them in by emailing them to me (at a cost of two tokens each).
+
+I emailed you a bunch of late reading responses / labs and they are still
+not posted.  What should I do?
+
+> Remind me.
+
+Can I take an incomplete in your class?
+
+> You may not make up readings, labs, or LAs on an incomplete.
+
+> You may complete one or two MPs for which you have not turned in
+  second redos.
+
+I have too much work due tomorrow.  Can I have an extension on SoLA 4?
+
+> Yes, if you talk to me in advance.
 
 Lab notes
 ---------
@@ -118,18 +151,17 @@ too make recursive calls) on some inputs.
 
 Which inputs?
 
-* Ones in which the alphabetically first element is at the end of the list.
+* Ones in which the alphabetically first thing is near the end of
+  the list.
 
-Why does it make so many recursive calls?
+What's the problem?
 
-* Because we might do two identical recursive calls, which doesn't
-  sound great.
-* For bad inputs, at every step, we double the work. 2x2x2x
+* We may potentially do TWO IDENTICAL RECURSIVE CALLS!
+* It compounds: We double, then double, then double, then double
 
-Important conclusion
+Helpful learning outcome
 
-* Subtle things can make a huge difference.
-* BE CAREFUL ABOUT IDENTICAL RECURSIVE CALLS!
+* Don't do identical recursive calls, it causes grief.
 
 ### Reversing
 
@@ -202,41 +234,19 @@ How many calls to `list-append` will there be in
 
 If we add all those up to build '(9 8 7 6 5 4 3 2 1), that's about
 
-> 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 = 45
+> 9 + 8 + 7 + 6 + 5 + 4 + 3 + 2 + 1 = 45
+
+If we had a list of 100 elements
+
+> 100 + 99 + ... + 2 + 1 = 5050
+
+If we had a list of N elements
+
+> N(N+1)/2
 
 Moral?
 
 > Make sure you know how "expensive" your helper procedures are.
-
-Questions
----------
-
-I've overspent my tokens.  What happens?
-
-> Traditionally, you lose a reading, lab, or LA for each two tokens you've
-  overspent.  (I try to pick the one that is least harmful.)
-
-> We'll discuss it on Friday.
-
-It appears that I'm missing a bunch of reading responses.  What do I do?
-
-> Turn them in by emailing them to me (at a cost of two tokens each).
-
-I emailed you a bunch of late reading responses / labs and they are still
-not posted.  What should I do?
-
-> Remind me.
-
-Can I take an incomplete in your class?
-
-> You may not make up readings, labs, or LAs on an incomplete.
-
-> You may complete one or two MPs for which you have not turned in
-  second redos.
-
-I have too much work due tomorrow.  Can I have an extension on SoLA 4?
-
-> Yes, if you talk to me in advance.
 
 Background: What is CS?
 -----------------------
