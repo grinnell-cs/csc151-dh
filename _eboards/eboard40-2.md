@@ -1,5 +1,5 @@
 ---
-title: "EBoard 40 (Section 1): Wrapup"
+title: "EBoard 40 (Section 2): Wrapup"
 number: 40
 section: eboards
 held: 2022-05-13
