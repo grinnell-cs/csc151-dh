@@ -40,7 +40,9 @@ techniques for figuring out how many procedure calls are done.
 As we explore analysis, we'll start with a few basic examples. First,
 consider two versions of the `alphabetically-first` procedure, which
 finds the alphabetically first string in a list.  (You're probably
-quite familiar with procedures that find 
+quite familiar with procedures that find some extreme value in a list,
+such as one that finds the largest integer; this is just another that
+follows that pattern.)
 
 ```drracket
 ;;; (alphabetically-first string) -> string
@@ -738,9 +740,9 @@ lists of lengths five, six, and seven using `list-reverse-1`.
 b. Determine how many times the helper is called when reversing lists of
 of lengths fix, six, seven using `list-reverse-2`.
 
-c. Predict approximately how many times `list-append` will be called when reversing a
-list of length eight using `list-reverse-1`.
+c. Predict approximately how many times `list-append` will be called
+when reversing a list of length eight using `list-reverse-1`.
 
-d. Predict approximately how many times the helper will be called when reversing a
-list of length eight using `list-reverse-2`.
+d. Predict approximately how many times the helper will be called when
+reversing a list of length eight using `list-reverse-2`.
 

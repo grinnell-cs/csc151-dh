@@ -225,11 +225,6 @@ that future calls to `hash-ref` will return `value` for `key`.
 (Alternately, store the key/value pair in the hash table.)  `hash-set!`
 must be used only with mutable hash tables.
 
-**`(hash-set hash key value)`** --- Creates a *new*
-immutable hash table that now associates the given value with the
-given key.  `hash-set` must be used only with immutable hash
-tables.
-
 **`(hash-values hash)`** --- Extract all of the values from `hash`.
 
 ### I
@@ -270,6 +265,8 @@ In some versions, you'll find the two parameters reversed.)
 table initialized with the given key/value pairs.
 
 **`(make-list n val)`** --- Make a list of `n` copies of `val`.
+
+**`(make-vector n val)`** --- Make a vector of `n` copies of `val`.
 
 **`(map proc lst)`** --- Apply `proc` to each element of `lst`, individually, creating a new list of the same length.  If `lst` has the form `'(v0 v1 ...)`, the result has the form `((proc v0) (proc v1) ...)`. 
 
@@ -320,6 +317,12 @@ drawing circles and squares and such.
 
 ### R
 
+**`(random)`** --- Generate an unpredictable real number between 0 (inclusive) and 1 (exclusive).
+
+**`(random n)`** --- Generate an unpredictable integer between 0 (inclusive) and `n` (exclusive).
+
+**`(random lower upper)` --- Generate an unpredictable integer between lower (inclusive) and upper (exclusive).
+
 **`(range n)`** --- Create the list `'(0 1 2 ... n-1)`.
 
 **`(range start finish)`** --- Create a list of the integers from `start`
@@ -329,6 +332,10 @@ drawing circles and squares and such.
 (inclusive) to `finish` (exclusive), adding `offset` each time.
 
 **`(rational? val)`** --- Determine if `val` is a real number.
+
+**`(read)`** -- Prompt the user for input and return that input as a Scheme value.
+
+**`(read-line)`** --- Prompt the user for input and return that input as a string.
 
 **`(real? val)`** --- Determine if `val` is a real number.
 
@@ -482,6 +489,16 @@ of the specified edge length.  Style is as in other shapes.
 
 **`(truncate num)`** --- Round a number by cutting off anything after
 the decimal.  (Rounds toward zero.)
+
+### V
+
+**`(vector v0 v1 v2 ... vn)`** --- Create a vector of the specified elements.
+
+**`(vector-length vec)`** --- Determine how many values are in a vector.
+
+**`(vector-ref vec pos)`** --- Extract the value of `vec` at the given position.
+
+**`(vector-set! vec pos newval)`** --- Set the value of `vec` at the given position.
 
 ### Z
 
