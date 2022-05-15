@@ -41,6 +41,7 @@ Administrivia
     * Released Tuesday, 17 May 2022 at 8:00 a.m.
     * Due Friday, 20 May 2022 at 5:00 p.m.
     * Review session 8pm Monday of Finals week
+* MP redos Friday, 20 May 2022 at 5:00 p.m.
 * Other outstanding work (see notes below)
 
 Questions
@@ -51,14 +52,8 @@ I've overspent my tokens.  What happens?
 > Traditionally, you lose a reading, lab, or LA for each two tokens you've
   overspent.  (I try to pick the one that is least harmful.)
 
-> This semester: I'm wiping the slate clean (as of 8am today).  You now have
-  `(max current-tokens (+ base-tokens section-tokens))`
-
-> `base-tokens` are the three tokens everyone started with plus the
-  extra one you earned for reviewing the mentors.
-
-> `section-tokens` are the tokens you earned as a section for, say, a high
-  response rate on one of the surveys.  Section 1 has 4 section tokens.
+> This semester: I'm wiping the slate clean (as long as you showed up
+  to class).  
 
 > Note: I have not reviewed recent tokens.  Let me know if you still need
   me to do so.
@@ -67,6 +62,15 @@ I took an extension on SoLA 4.  When is it due?
 
 > Saturday at 10:30 p.m.
 
+Can I meet with you during finals' week?
+
+> Certainly.  Propose a time using the Outlook/Teams scheduler or DM me.
+
+When will SoLA 4 be graded?
+
+> My goal is by Monday morning so that you know whether you need to study
+  for/take SoLA 5.
+
 Peer Reviews
 ------------
 
@@ -74,8 +78,17 @@ _15 min_
 
 Your names are on the board.  For each of the five names that come after
 you, write the name on the blank side of the card and something positive
-about the person on the other.  If you have extra time, you can write on
-more cards (choose whoever you want).
+about the person on the other.  
+
+If one of your names has an asterisk, please go a bit further because
+they won't be writing cards (and we'd like the next few people to have
+at least five cards).
+
+If you don't know someone in your list, you can skip over them.
+
+If you have extra time, you can write on more cards (choose whoever you want).  
+
+You can also write cards about the mentors, if you wish.
 
 ```
 +--------------+    +--------------+
@@ -124,6 +137,12 @@ _General strategies for approaching problems, computational and otherwise._
   the broader solution.  For example, in learning how to make some
   kinds of sandwiches, we might also solve the problem of "spread
   stuff on bread".
+    * When you decompose, it's easier to test different parts.
+* Collaboration: Working with other people helps you come up with better 
+  solutions.
+* Writing things down helps you solve problem; it helps you formulate
+  a clear idea.
+* Think about how you'll check whether or not your solution is good.
 
 ### The core of CS: Algorithms and data structures
 
@@ -132,7 +151,12 @@ data and ways to organize data._
 
 * E.g., We've learned about the "List" data structure, which organizes
   information in sequential order and which you can visit element by
-  element using `car` and `cdr`.
+  element using `car` and `cdr`.  We can also process all the elements
+  by using `map` or `reduce`.
+* E.g., We've learned how to search an ordered vector using binary search.
+* So many data structures!  Lists, vectors, hash tables, structs, binary trees. 
+* Efficiency of algorithms.  E.g., binary search is much more efficient than
+  linear search, and a badly designed "alphabetically first" is horrendous.
 
 ### Functional programming
 
@@ -143,6 +167,10 @@ is somewhat distinct from other approaches._
   other functions, they can be returned by other functions.  For
   example, `o` is a function that takes two unary functions as
   parameters and returns a new function that applies the two in sequence.
+* Focus on immutable values.
+* Can simplify programming because we can use other functions.
+* Anonymous functions: You can build and use functions without naming
+  them (e.g., with lambda or section or compose).
 
 ### Program and software design
 
@@ -150,6 +178,12 @@ _We've also learned a bit about how you build software (or at least how
 you might build software)._
 
 * E.g., Document your procedures so that others can understand them.
+  Document before writing so that you can remember what you were trying
+  to do.
+* Comment
+* Write clean / stylistically correct code
+* Test
+* Check preconditions, particularly using a husk/kernel structure.
 
 ### Scheme and Racket
 
@@ -161,6 +195,12 @@ language.  Along the way, we've learned a bit about Scheme._
     * Some exceptions: `if`, `and`, `or`, `quote`, `cond`, ...
 * E.g., You've learned a bunch of procedures for making simple images,
   such as `square` and `overlay`.
+* Write interactive procedures using `read-line` and `displayln`
+  (who needs consistency in naming).  [Note that this is not functional.]
+* Coding style
+* 528 different procedures
+* Lots of primitive types: numbers (ints, reals, rationals, complex,
+  excact, inexact), strings, characters, "images", files, (data types)
 
 ### Digital humanities
 
@@ -169,6 +209,11 @@ inquiry._
 
 * E.g., gathering simple information about a text, such as the most
   common words and how frequently they appear.
+* Sentiment analysis
+* Regular expressions
+* XML and other markup
+* Analyzing readability
+* Text generation
 
 ### General skills
 
@@ -176,6 +221,15 @@ _I would hope that most Grinnell classes teach you things beyond the
 basic disciplinary subject matter._
 
 * E.g., Practice thinking on your feet.
+* Acknowledge and cite others for their work.
+* Ask for help when you are having problems; don't beat your head against
+  the wall.
+* Persistence.
+* Set goals, particularly for MP7.
+* Failure is okay.
+* Set boundaries, work with people different than yourself (and slap them
+  on the hand)
+* It's good to be able to work with others.
 
 ### And beyond
 
@@ -192,6 +246,11 @@ how one might approach the world.  I'm still not sure that I'd call it
 class that go beyond the subject matter and skills._
 
 * E.g., Support those around you; they are amazing people.
+* Support your colleagues.
+* Be accommodating.
+* Um: Use math
+* Time management.
+* Have fun and laugh.
 
 Pair and Share
 --------------
@@ -214,6 +273,11 @@ Peer Reviews, Continued
 -----------------------
 
 _15 min_
+
+End of Course Evaluations
+-------------------------
+
+<https://grinnell.smartevals.com>
 
 Final comments
 --------------

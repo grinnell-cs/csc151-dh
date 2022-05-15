@@ -41,6 +41,7 @@ Administrivia
     * Released Tuesday, 17 May 2022 at 8:00 a.m.
     * Due Friday, 20 May 2022 at 5:00 p.m.
     * Review session 8pm Monday of Finals week
+* MP redos Friday, 20 May 2022 at 5:00 p.m.
 * Other outstanding work (see notes below)
 
 Questions
@@ -51,14 +52,8 @@ I've overspent my tokens.  What happens?
 > Traditionally, you lose a reading, lab, or LA for each two tokens you've
   overspent.  (I try to pick the one that is least harmful.)
 
-> This semester: I'm wiping the slate clean (as of 8am today).  You now have
-  `(max current-tokens (+ base-tokens section-tokens))`
-
-> `base-tokens` are the three tokens everyone started with plus the
-  extra one you earned for reviewing the mentors.
-
-> `section-tokens` are the tokens you earned as a section for, say, a high
-  response rate on one of the surveys.  Section 1 has 4 section tokens.
+> This semester: I'm wiping the slate clean (as long as you showed up
+  to class today).  
 
 > Note: I have not reviewed recent tokens.  Let me know if you still need
   me to do so.
@@ -67,6 +62,22 @@ I took an extension on SoLA 4.  When is it due?
 
 > Saturday at 10:30 p.m.
 
+Can I meet with you during finals' week?
+
+> Certainly.  Propose a time using the Outlook/Teams scheduler or DM me.
+
+When will SoLA 4 be graded?
+
+> My goal is by Monday morning so that you know whether you need to study
+  for/take SoLA 5.
+
+What about everything else?
+
+> My goal is to grade anything remaining on Monday.  By Monday, you
+  should know whether or not you want to be done with the class.
+
+> You will get the same report, along with a likely letter grade.
+
 Peer Reviews
 ------------
 
@@ -74,8 +85,17 @@ _15 min_
 
 Your names are on the board.  For each of the five names that come after
 you, write the name on the blank side of the card and something positive
-about the person on the other.  If you have extra time, you can write on
-more cards (choose whoever you want).
+about the person on the other.  
+
+If one of your names has an asterisk, please go a bit further because
+they won't be writing cards (and we'd like the next few people to have
+at least five cards).
+
+If you don't know someone in your list, you can skip over them.
+
+If you have extra time, you can write on more cards (choose whoever you want).  
+
+You can also write cards about the mentors, if you wish.
 
 ```
 +--------------+    +--------------+
@@ -124,6 +144,13 @@ _General strategies for approaching problems, computational and otherwise._
   the broader solution.  For example, in learning how to make some
   kinds of sandwiches, we might also solve the problem of "spread
   stuff on bread".
+* Don't assume you can solve everything at once; take a break and
+  come back to it.  Ask for help.
+* Sometimes we don't succeed (we fail).  We can learn from failure.
+  And it's not the end of the world.
+* There are often multiple solutions.  We can compare them to see which
+  is better.
+* We generally solve better as a group (or pair) than as individuals.
 
 ### The core of CS: Algorithms and data structures
 
@@ -132,7 +159,18 @@ data and ways to organize data._
 
 * E.g., We've learned about the "List" data structure, which organizes
   information in sequential order and which you can visit element by
-  element using `car` and `cdr`.
+  element using `car` and `cdr`.  It also permits you to process
+  all the element using procedures like `map` and `reduce`.
+* E.g., We've learned some algorithms, such as searching through an
+  unordered vector.
+* Vectors: Mutable, ordered collections that provide fast access.
+* Hash tables
+* Structs
+* CSV files
+* Trees
+* Binary search
+* A little bit about analyzing algorithms
+* ...
 
 ### Functional programming
 
@@ -143,6 +181,12 @@ is somewhat distinct from other approaches._
   other functions, they can be returned by other functions.  For
   example, `o` is a function that takes two unary functions as
   parameters and returns a new function that applies the two in sequence.
+* Anonymous procedures: We can write and use functions without naming
+  them (e.g., with `lambda`, `section`, and `o`).
+* Um - Use math
+* Generally, functional data is *immutable*; you don't get to change
+  values along the way.
+* Recursion
 
 ### Program and software design
 
@@ -150,6 +194,10 @@ _We've also learned a bit about how you build software (or at least how
 you might build software)._
 
 * E.g., Document your procedures so that others can understand them.
+  Document first so that you can remember what you are trying to achieve.
+* Test, particularly edge cases.
+* Check preconditions using husk and kernel
+* Pair programming
 
 ### Scheme and Racket
 
@@ -161,14 +209,26 @@ language.  Along the way, we've learned a bit about Scheme._
     * Some exceptions: `if`, `and`, `or`, `quote`, `cond`, ...
 * E.g., You've learned a bunch of procedures for making simple images,
   such as `square` and `overlay`.
+* See the algorithms and data structures above; we learned how they
+  work in Racket specifically.
+* Functions like `map` and `apply` that work with compound data.
+* The syntax: Lots and lots of parens (and then a few extra) + how
+  to evaluate + ...
+* About 583 different procedures.
+* Lots of types: numbers, strings, characters, etc.
 
 ### Digital humanities
 
 _We've seen a bit of how computers can serve as a tool in humanistic
 inquiry._
 
-* E.g., gathering simple information about a text, such as the most
-  common words and how frequently they appear.
+* E.g., sentiment analysis
+* Visualize data
+* Word frequencies
+* Exploration of details of the work.
+* XML as a way of structuring data
+* Regular expressions for searching textual data
+* Randomized text generation
 
 ### General skills
 
@@ -176,6 +236,12 @@ _I would hope that most Grinnell classes teach you things beyond the
 basic disciplinary subject matter._
 
 * E.g., Practice thinking on your feet.
+* Don't assume you can solve everything at once; take a break and
+  come back to it.  Ask for help.
+* Working with other people.
+* Cite!
+* It's okay to say "I don't know."
+* Work and talk in groups.
 
 ### And beyond
 
@@ -192,6 +258,9 @@ how one might approach the world.  I'm still not sure that I'd call it
 class that go beyond the subject matter and skills._
 
 * E.g., Support those around you; they are amazing people.
+* Get sleep.
+* Don't do too much.
+* Have fun and care about the people around you.
 
 Pair and Share
 --------------
@@ -214,6 +283,11 @@ Peer Reviews, Continued
 -----------------------
 
 _15 min_
+
+EOCEs
+-----
+
+https://grinnell.smartevals.com
 
 Final comments
 --------------
