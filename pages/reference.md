@@ -257,6 +257,8 @@ In some versions, you'll find the two parameters reversed.)
 
 **`(list->string list-of-characters)`** --- Build a string from a list of characters.
 
+**`(list->vector lst)`** --- Convert a list to a vector.
+
 ### M
 
 **`(make-hash)`** --- Create a new, empty, hash table.
@@ -494,11 +496,15 @@ the decimal.  (Rounds toward zero.)
 
 **`(vector v0 v1 v2 ... vn)`** --- Create a vector of the specified elements.
 
+**`(vector-fill! vec val)`** --- Fill a vector with identical values.
+
 **`(vector-length vec)`** --- Determine how many values are in a vector.
 
 **`(vector-ref vec pos)`** --- Extract the value of `vec` at the given position.
 
 **`(vector-set! vec pos newval)`** --- Set the value of `vec` at the given position.
+
+**`(vector->list vec)`** --- Convert a vector to a corresponding list.
 
 ### Z
 
