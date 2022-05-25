@@ -281,7 +281,7 @@ For example, you may completely meet the requirements of a *C* and at least one 
 
 + If both mini-projects and LAs fulfill the requirements for the next tier, then you earn a minus grade for the higher tier, *i.e.*, *B-* if you are between a C and B.
 + Otherwise, one of Projects and LAs fulfill the requirements for the next tier.
-  If **all of readings, labs, and quizzes** fulfill the requirements for the next tier, you earn a minus grade for the higher tier, *e.g.*, *B-* if you are between a C and B.
+  If **all of readings and labs** fulfill the requirements for the next tier, you earn a minus grade for the higher tier, *e.g.*, *B-* if you are between a C and B.
   Otherwise, you earn a plus grade for the lower tier, *e.g.*, *C+* if you are between a C and B.
 + Note that Grinnell does not award C- or D+ grades.
 
